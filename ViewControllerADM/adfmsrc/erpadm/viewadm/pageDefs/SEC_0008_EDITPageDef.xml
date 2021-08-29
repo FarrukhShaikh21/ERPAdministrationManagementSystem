@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="SEC_0008_EDITPageDef"
+                Package="erpadm.viewadm.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables">
+      <variableUsage DataControl="ERPADMModuleDataControl"
+                     Binds="SysActionGroupHeaderCRUD.variablesMap.P_GROUP_HEADER_SNO"
+                     Name="ExecuteWithParams_P_GROUP_HEADER_SNO" IsQueriable="false"/>
+    </variableIterator>
+    <iterator Binds="SysActionGroupHeaderCRUD" RangeSize="25" DataControl="ERPADMModuleDataControl"
+              id="SysActionGroupHeaderCRUDIterator"/>
+    <iterator Binds="SysActionGroupLinesDetCRUD" RangeSize="25" DataControl="ERPADMModuleDataControl"
+              id="SysActionGroupLinesDetCRUDIterator"/>
+    <iterator Binds="SysModuleDetailForGroupRO" RangeSize="25" DataControl="ERPADMModuleDataControl"
+              id="SysModuleDetailForGroupROIterator"/>
+    <searchRegion Criteria="SysModuleDetailFindVC" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="SysModuleDetailForGroupROIterator" id="ImplicitViewCriteriaQuery"
+                  InitialQueryOverridden="true"/>
+    <searchRegion Criteria="SysActionGroupLinesFindVC" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="SysActionGroupLinesDetCRUDIterator" id="ImplicitViewCriteriaQuery1"
+                  InitialQueryOverridden="true"/>
+    <iterator Binds="SysActionGroupCompanyDetCRUD" RangeSize="25" DataControl="ERPADMModuleDataControl"
+              id="SysActionGroupCompanyDetCRUDIterator"/>
+    <iterator Binds="SysActionGroupLinesCompanyDetCRUD" RangeSize="25" DataControl="ERPADMModuleDataControl"
+              id="SysActionGroupLinesCompanyDetCRUDIterator"/>
+    <searchRegion Criteria="__ImplicitViewCriteria__" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="SysActionGroupLinesCompanyDetCRUDIterator" id="ImplicitViewCriteriaQuery3"
+                  InitialQueryOverridden="true"/>
+    <iterator Binds="AdminCompanyGroupActLinAssignRO" RangeSize="25" DataControl="ERPADMModuleDataControl"
+              id="AdminCompanyGroupActLinAssignROIterator"/>
+    <searchRegion Criteria="AdminCompanyFindVC" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="AdminCompanyGroupActLinAssignROIterator" id="ImplicitViewCriteriaQuery4"
+                  InitialQueryOverridden="true"/>
+    <searchRegion Criteria="SysActionGroupCompanyFindVC" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="SysActionGroupCompanyDetCRUDIterator" id="ImplicitViewCriteriaQuery5"
+                  InitialQueryOverridden="true"/>
+    <iterator Binds="AdminCompanyGroupActAssignRO" RangeSize="25" DataControl="ERPADMModuleDataControl"
+              id="AdminCompanyGroupActAssignROIterator"/>
+    <searchRegion Criteria="AdminCompanyFindVC" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="AdminCompanyGroupActAssignROIterator" id="ImplicitViewCriteriaQuery2"
+                  InitialQueryOverridden="true"/>
+    <iterator Binds="SysUsersAssignActionGroupUserRO" RangeSize="25" DataControl="ERPADMModuleDataControl"
+              id="SysUsersAssignActionGroupUserROIterator"/>
+    <searchRegion Criteria="SysUsersFindVC" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="SysUsersAssignActionGroupUserROIterator" id="ImplicitViewCriteriaQuery6"
+                  InitialQueryOverridden="true"/>
+    <iterator Binds="SysActionGroupUsrGroupDetCRUD" RangeSize="25" DataControl="ERPADMModuleDataControl"
+              id="SysActionGroupUsrGroupDetCRUDIterator"/>
+    <searchRegion Criteria="SysActionGroupUserFindVC" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="SysActionGroupUsrGroupDetCRUDIterator" id="ImplicitViewCriteriaQuery7"
+                  InitialQueryOverridden="true"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="SysActionGroupHeaderCRUDIterator" id="GroupHeaderCode">
+      <AttrNames>
+        <Item Value="GroupHeaderCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysActionGroupHeaderCRUDIterator" id="DocumentDate">
+      <AttrNames>
+        <Item Value="DocumentDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysActionGroupHeaderCRUDIterator" id="ActionGroupName">
+      <AttrNames>
+        <Item Value="ActionGroupName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysActionGroupHeaderCRUDIterator" id="StartDate">
+      <AttrNames>
+        <Item Value="StartDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysActionGroupHeaderCRUDIterator" id="EndDate">
+      <AttrNames>
+        <Item Value="EndDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysActionGroupHeaderCRUDIterator" id="IsActive">
+      <AttrNames>
+        <Item Value="IsActive"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysActionGroupHeaderCRUDIterator" id="Remarks">
+      <AttrNames>
+        <Item Value="Remarks"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="SysActionGroupLinesDetCRUDIterator" id="SysActionGroupLinesDetCRUD">
+      <nodeDefinition DefName="erpadm.modeladm.admvo.SysActionGroupLinesVO" Name="SysActionGroupLinesDetCRUD0">
+        <AttrNames>
+          <Item Value="ModuleAction"/>
+          <Item Value="IsAllow"/>
+          <Item Value="AllowAdd"/>
+          <Item Value="AllowDelete"/>
+          <Item Value="AllowEdit"/>
+          <Item Value="AllowSupervise"/>
+          <Item Value="ViewScanFile"/>
+          <Item Value="ScanFile"/>
+          <Item Value="AllowUnsupervise"/>
+          <Item Value="AllowCancel"/>
+          <Item Value="AllowEditOther"/>
+          <Item Value="AllowPrint"/>
+          <Item Value="Remarks"/>
+          <Item Value="AccessType"/>
+          <Item Value="ActionName"/>
+          <Item Value="IsActive"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="ERPADMModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPADMModuleDataControl"/>
+    <tree IterBinding="SysModuleDetailForGroupROIterator" id="SysModuleDetailForGroupRO">
+      <nodeDefinition DefName="erpadm.modeladm.admvo.SysModuleDetailVO" Name="SysModuleDetailForGroupRO0">
+        <AttrNames>
+          <Item Value="ModuleId"/>
+          <Item Value="ModuleAction"/>
+          <Item Value="ActionName"/>
+          <Item Value="txtSelected"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="SysModuleDetailForGroupROIterator" id="txtCount">
+      <AttrNames>
+        <Item Value="txtCount"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="doAssignActivityToGroup" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="doAssignActivityToGroup" IsViewObjectMethod="true" DataControl="ERPADMModuleDataControl"
+                  InstanceName="data.ERPADMModuleDataControl.SysModuleDetailForGroupRO"
+                  ReturnName="data.ERPADMModuleDataControl.methodResults.doAssignActivityToGroup_ERPADMModuleDataControl_SysModuleDetailForGroupRO_doAssignActivityToGroup_result"/>
+    <action IterBinding="SysActionGroupLinesDetCRUDIterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <methodAction IterBinding="SysModuleDetailForGroupROIterator" id="doAssignOneActivityToGroup"
+                  RequiresUpdateModel="true" Action="invokeMethod" MethodName="doAssignOneActivityToGroup"
+                  IsViewObjectMethod="false" DataControl="ERPADMModuleDataControl"
+                  InstanceName="bindings.SysModuleDetailForGroupROIterator.currentRow" IsLocalObjectReference="true"
+                  ReturnName="data.ERPADMModuleDataControl.methodResults.doAssignOneActivityToGroup_doAssignOneActivityToGroup_doAssignOneActivityToGroup_result"/>
+    <attributeValues IterBinding="SysActionGroupLinesDetCRUDIterator" id="txtAGLCount">
+      <AttrNames>
+        <Item Value="txtAGLCount"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="SysActionGroupHeaderCRUDIterator" StaticList="false" Uses="LovAccessType" id="AccessType"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <tree IterBinding="SysActionGroupCompanyDetCRUDIterator" id="SysActionGroupCompanyDetCRUD">
+      <nodeDefinition DefName="erpadm.modeladm.admvo.SysActionGroupCompanyVO" Name="SysActionGroupCompanyDetCRUD0">
+        <AttrNames>
+          <Item Value="txtCompanyShortCode"/>
+          <Item Value="txtCompanyName"/>
+          <Item Value="IsActive"/>
+          <Item Value="CompanyShortName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="SysActionGroupLinesCompanyDetCRUDIterator" id="SysActionGroupLinesCompanyDetCRUD">
+      <nodeDefinition DefName="erpadm.modeladm.admvo.SysActionGroupLinesCompanyVO"
+                      Name="SysActionGroupLinesCompanyDetCRUD0">
+        <AttrNames>
+          <Item Value="CompanyName"/>
+          <Item Value="CompanyShortCode"/>
+          <Item Value="CompanyShortName"/>
+          <Item Value="IsActive"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="AdminCompanyGroupActLinAssignROIterator" id="AdminCompanyGroupActLinAssignRO">
+      <nodeDefinition DefName="erpadm.modeladm.admvo.AdminCompanyVO" Name="AdminCompanyGroupActLinAssignRO0">
+        <AttrNames>
+          <Item Value="CompanyName"/>
+          <Item Value="CompanyShortCode"/>
+          <Item Value="CompanyShortName"/>
+          <Item Value="CompanyTypeSno"/>
+          <Item Value="txtParentCompanyName"/>
+          <Item Value="txtCityName"/>
+          <Item Value="txtSelected"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="AdminCompanyGroupActLinAssignROIterator" id="txtCountCompany">
+      <AttrNames>
+        <Item Value="txtCountCompany"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="doAssignERPCompanyToGroupAction" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="doAssignERPCompanyToGroupAction" IsViewObjectMethod="true"
+                  DataControl="ERPADMModuleDataControl"
+                  InstanceName="data.ERPADMModuleDataControl.AdminCompanyGroupActLinAssignRO"
+                  ReturnName="data.ERPADMModuleDataControl.methodResults.doAssignERPCompanyToGroupAction_ERPADMModuleDataControl_AdminCompanyGroupActLinAssignRO_doAssignERPCompanyToGroupAction_result"/>
+    <action IterBinding="SysActionGroupLinesCompanyDetCRUDIterator" id="Delete1" RequiresUpdateModel="false"
+            Action="removeCurrentRow" InstanceName="ERPADMModuleDataControl.SysActionGroupLinesCompanyDetCRUD"
+            DataControl="ERPADMModuleDataControl"/>
+    <attributeValues IterBinding="SysActionGroupLinesDetCRUDIterator" id="ModuleAction">
+      <AttrNames>
+        <Item Value="ModuleAction"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="AdminCompanyGroupActLinAssignROIterator" id="Execute" RequiresUpdateModel="true"
+            Action="iteratorExecute"/>
+    <attributeValues IterBinding="SysActionGroupHeaderCRUDIterator" id="GroupHeaderSno">
+      <AttrNames>
+        <Item Value="GroupHeaderSno"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="P_GROUP_HEADER_SNO">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_P_GROUP_HEADER_SNO"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction IterBinding="AdminCompanyGroupActLinAssignROIterator" id="doAssigERPOneCompToGrpLinAction"
+                  RequiresUpdateModel="true" Action="invokeMethod" MethodName="doAssigERPOneCompToGrpLinAction"
+                  IsViewObjectMethod="false" DataControl="ERPADMModuleDataControl"
+                  InstanceName="bindings.AdminCompanyGroupActLinAssignROIterator.currentRow"
+                  IsLocalObjectReference="true"
+                  ReturnName="data.ERPADMModuleDataControl.methodResults.doAssigERPOneCompToGrpLinAction_doAssigERPOneCompToGrpLinAction_doAssigERPOneCompToGrpLinAction_result"/>
+    <action IterBinding="SysActionGroupCompanyDetCRUDIterator" id="Delete2" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <tree IterBinding="AdminCompanyGroupActAssignROIterator" id="AdminCompanyGroupActAssignRO">
+      <nodeDefinition DefName="erpadm.modeladm.admvo.AdminCompanyVO" Name="AdminCompanyGroupActAssignRO0">
+        <AttrNames>
+          <Item Value="CompanyName"/>
+          <Item Value="CompanyShortName"/>
+          <Item Value="CompanyShortCode"/>
+          <Item Value="CompanyTypeSno"/>
+          <Item Value="txtCityName"/>
+          <Item Value="Active"/>
+          <Item Value="txtSelected"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction IterBinding="AdminCompanyGroupActAssignROIterator" id="doAssignERPOneCompToGroup"
+                  RequiresUpdateModel="true" Action="invokeMethod" MethodName="doAssignERPOneCompToGroup"
+                  IsViewObjectMethod="false" DataControl="ERPADMModuleDataControl"
+                  InstanceName="bindings.AdminCompanyGroupActAssignROIterator.currentRow" IsLocalObjectReference="true"
+                  ReturnName="data.ERPADMModuleDataControl.methodResults.doAssignERPOneCompToGroup_doAssignERPOneCompToGroup_doAssignERPOneCompToGroup_result"/>
+    <methodAction id="doAssignERPCompanyToGroup" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="doAssignERPCompanyToGroup" IsViewObjectMethod="true" DataControl="ERPADMModuleDataControl"
+                  InstanceName="data.ERPADMModuleDataControl.AdminCompanyGroupActAssignRO"
+                  ReturnName="data.ERPADMModuleDataControl.methodResults.doAssignERPCompanyToGroup_ERPADMModuleDataControl_AdminCompanyGroupActAssignRO_doAssignERPCompanyToGroup_result"/>
+    <attributeValues IterBinding="AdminCompanyGroupActAssignROIterator" id="txtSelected">
+      <AttrNames>
+        <Item Value="txtSelected"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="SysActionGroupHeaderCRUDIterator" id="Delete3" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <tree IterBinding="SysUsersAssignActionGroupUserROIterator" id="SysUsersAssignActionGroupUserRO">
+      <nodeDefinition DefName="erpadm.modeladm.admvo.SysUsersVO" Name="SysUsersAssignActionGroupUserRO0">
+        <AttrNames>
+          <Item Value="UserCode"/>
+          <Item Value="UserName"/>
+          <Item Value="GenderSno"/>
+          <Item Value="UserTypeSno"/>
+          <Item Value="Email"/>
+          <Item Value="MobileNo"/>
+          <Item Value="IsLock"/>
+          <Item Value="Remarks"/>
+          <Item Value="txtSelected"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="doAssignERPUserToGroup" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="doAssignERPUserToGroup" IsViewObjectMethod="true" DataControl="ERPADMModuleDataControl"
+                  InstanceName="data.ERPADMModuleDataControl.SysUsersAssignActionGroupUserRO"
+                  ReturnName="data.ERPADMModuleDataControl.methodResults.doAssignERPUserToGroup_ERPADMModuleDataControl_SysUsersAssignActionGroupUserRO_doAssignERPUserToGroup_result"/>
+    <attributeValues IterBinding="SysUsersAssignActionGroupUserROIterator" id="txtCountUser">
+      <AttrNames>
+        <Item Value="txtCountUser"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction IterBinding="SysUsersAssignActionGroupUserROIterator" id="doAssignERPOneUserToGroup"
+                  RequiresUpdateModel="true" Action="invokeMethod" MethodName="doAssignERPOneUserToGroup"
+                  IsViewObjectMethod="false" DataControl="ERPADMModuleDataControl"
+                  InstanceName="bindings.SysUsersAssignActionGroupUserROIterator.currentRow"
+                  IsLocalObjectReference="true"
+                  ReturnName="data.ERPADMModuleDataControl.methodResults.doAssignERPOneUserToGroup_doAssignERPOneUserToGroup_doAssignERPOneUserToGroup_result"/>
+    <tree IterBinding="SysActionGroupUsrGroupDetCRUDIterator" id="SysActionGroupUsrGroupDetCRUD">
+      <nodeDefinition DefName="erpadm.modeladm.admvo.SysActionGroupUserVO" Name="SysActionGroupUsrGroupDetCRUD0">
+        <AttrNames>
+          <Item Value="UserCode"/>
+          <Item Value="UserName"/>
+          <Item Value="MobileNo"/>
+          <Item Value="Email"/>
+          <Item Value="IsActive"/>
+          <Item Value="Remarks"/>
+          <Item Value="IsLock"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="SysActionGroupUsrGroupDetCRUDIterator" id="Delete4" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <attributeValues IterBinding="SysActionGroupUsrGroupDetCRUDIterator" id="txtCountGroup">
+      <AttrNames>
+        <Item Value="txtCountGroup"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AdminCompanyGroupActAssignROIterator" id="txtCountCompany1">
+      <AttrNames>
+        <Item Value="txtCountCompany"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysActionGroupCompanyDetCRUDIterator" id="txtCountUserCompany">
+      <AttrNames>
+        <Item Value="txtCountUserCompany"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysActionGroupLinesCompanyDetCRUDIterator" id="txtCountGroupActionComp">
+      <AttrNames>
+        <Item Value="txtCountGroupActionComp"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysActionGroupHeaderCRUDIterator" id="IsSupervised">
+      <AttrNames>
+        <Item Value="IsSupervised"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysActionGroupHeaderCRUDIterator" id="IsUnsupervised">
+      <AttrNames>
+        <Item Value="IsUnsupervised"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="SEC_0007PageDef"
+                Package="erpadm.viewadm.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <page path="erptemplate.viewtemp.pageDefs.ERPTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator Binds="SmCountryRO" RangeSize="25" DataControl="ERPADMModuleDataControl" id="SmCountryROIterator"/>
+    <searchRegion Criteria="SmCountryVOFindVC" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="SmCountryROIterator" id="ImplicitViewCriteriaQuery" InitialQueryOverridden="true"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="SmCountryROIterator" id="SmCountryRO">
+      <nodeDefinition DefName="erpadm.modeladm.admvo.SmCountryVO" Name="SmCountryRO0">
+        <AttrNames>
+          <Item Value="Countryname"/>
+          <Item Value="ContinentSno"/>
+          <Item Value="CountryShortCode"/>
+          <Item Value="CountryShortName"/>
+          <Item Value="CapitalCitySno"/>
+          <Item Value="NationalCurrencySno"/>
+          <Item Value="txtCapitalCityName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="SmCountryROIterator" id="Countrycode">
+      <AttrNames>
+        <Item Value="Countrycode"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

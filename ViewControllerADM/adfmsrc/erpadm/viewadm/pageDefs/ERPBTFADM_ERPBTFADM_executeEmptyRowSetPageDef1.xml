@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47"
+                id="ERPBTFADM_ERPBTFADM_executeEmptyRowSetPageDef1" Package="erpadm.viewadm.pageDefs"
+                SkipValidation="true">
+  <parameters/>
+  <executables/>
+  <bindings>
+    <methodAction id="executeEmptyRowSet" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="executeEmptyRowSet" IsViewObjectMethod="true" DataControl="ERPADMModuleDataControl"
+                  InstanceName="data.ERPADMModuleDataControl.SysModuleDetailForGroupRO"
+                  ReturnName="data.ERPADMModuleDataControl.methodResults.executeEmptyRowSet_ERPADMModuleDataControl_SysModuleDetailForGroupRO_executeEmptyRowSet_result"/>
+  </bindings>
+</pageDefinition>

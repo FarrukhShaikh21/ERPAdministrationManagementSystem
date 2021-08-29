@@ -1,0 +1,180 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:ui="http://java.sun.com/jsf/facelets">
+    <af:document title="SEC_0013.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:pageTemplate viewId="/ERPTemplate.jsf" value="#{bindings.ptb1}" id="pt1">
+                <f:facet name="ERPMain">
+                    <af:decorativeBox id="db2" dimensionsFrom="parent">
+                        <f:facet name="center">
+                            <af:decorativeBox id="db1" dimensionsFrom="parent">
+                                <f:facet name="center">
+                                    <af:listView value="#{bindings.SmCityRO.collectionModel}" var="item"
+                                                 emptyText="#{bindings.SmCityRO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                 fetchSize="#{bindings.SmCityRO.rangeSize}" id="lv1" selection="single"
+                                                 styleClass="WBDisplayBlockCenter"
+                                                 selectedRowKeys="#{bindings.SmCityRO.collectionModel.selectedRow}"
+                                                 selectionListener="#{bindings.SmCityRO.treeModel.makeCurrent}"
+                                                 partialTriggers="::qryId1">
+                                        <af:listItem id="li1"
+                                                     styleClass="WBDisplayBlock WBDisplayBlockPadding WBDisplayBlockCenterUndo">
+                                            <af:panelBox text="PanelBox1" id="pb1" showHeader="never">
+                                                <f:facet name="toolbar"/>
+                                                <af:inputText value="#{bindings.Citycode.inputValue}"
+                                                              required="#{bindings.Citycode.hints.mandatory}"
+                                                              columns="#{bindings.Citycode.hints.displayWidth}"
+                                                              maximumLength="#{bindings.Citycode.hints.precision}"
+                                                              shortDesc="#{bindings.Citycode.hints.tooltip}" id="it1"
+                                                              rendered="false">
+                                                    <f:validator binding="#{bindings.Citycode.validator}"/>
+                                                    <af:convertNumber groupingUsed="false"
+                                                                      pattern="#{bindings.Citycode.format}"/>
+                                                </af:inputText>
+                                                <af:panelGroupLayout id="pgl7" layout="vertical"
+                                                                     styleClass="WBCardSize">
+                                                    <af:panelGridLayout id="pgl1">
+                                                        <af:gridRow marginTop="5px" id="gr1"
+                                                                    marginBottom="5px">
+                                                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px"
+                                                                         id="gc1" halign="stretch"
+                                                                         styleClass="AFStretchWidth ERPHeroBackground"
+                                                                         valign="stretch">
+                                                                <af:panelGroupLayout id="pgl10" layout="horizontal"
+                                                                                     halign="center"
+                                                                                     styleClass="AFStretchWidth">
+                                                                    <af:link id="l4"
+                                                                             icon="#{resource['images:imgView.png']}"
+                                                                             partialSubmit="true"
+                                                                             action="ERPEDITSEC_0013"
+                                                                             styleClass="ERPHeroBannerFont ERPLink"
+                                                                             shortDesc="Click to view record."/>
+                                                                    <af:link id="l1"
+                                                                             partialSubmit="true"
+                                                                             styleClass="ERPHeroBannerFont"
+                                                                             text="#{item.bindings.CityShortName.inputValue}"
+                                                                             shortDesc="City Short Name"/>
+                                                                </af:panelGroupLayout>
+                                                            </af:gridCell>
+                                                        </af:gridRow>
+                                                        <af:gridRow height="auto" id="gr2" marginTop="5px"
+                                                                    marginBottom="5px">
+                                                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px"
+                                                                         id="gc2" halign="stretch">
+                                                                <af:panelGroupLayout id="pgl2" layout="horizontal">
+                                                                    <af:image source="#{resource['images:imgDocumentNumber.png']}"
+                                                                              id="i1" shortDesc="City Short Code"/>
+                                                                    <af:outputFormatted value="#{item.bindings.CityShortCode.inputValue}"
+                                                                                        id="of2"
+                                                                                        styleClass="ERPHeroDetailColor"
+                                                                                        shortDesc="City Short Code"/>
+                                                                    <f:facet name="separator">
+                                                                        <af:spacer width="10" height="10" id="s1"/>
+                                                                    </f:facet>
+                                                                </af:panelGroupLayout>
+                                                            </af:gridCell>
+                                                        </af:gridRow>
+                                                        <af:gridRow height="auto" id="gr3" marginTop="5px"
+                                                                    marginBottom="5px">
+                                                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px"
+                                                                         id="gc3" halign="stretch">
+                                                                <af:panelGroupLayout id="pgl3" layout="horizontal">
+                                                                    <af:image source="#{resource['images:imgShortName.png']}"
+                                                                              id="i2" shortDesc="City Name"/>
+                                                                    <af:outputFormatted value="#{item.bindings.Cityname.inputValue}"
+                                                                                        id="of3"
+                                                                                        styleClass="ERPHeroDetailColor"
+                                                                                        shortDesc="City Name"/>
+                                                                    <f:facet name="separator">
+                                                                        <af:spacer width="10" height="10" id="s2"/>
+                                                                    </f:facet>
+                                                                </af:panelGroupLayout>
+                                                            </af:gridCell>
+                                                        </af:gridRow>
+                                                        <af:gridRow height="auto" id="gr5" marginTop="5px"
+                                                                    marginBottom="5px">
+                                                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px"
+                                                                         id="gc5" halign="stretch">
+                                                                <af:panelGroupLayout id="pgl5" layout="horizontal">
+                                                                    <af:image source="#{resource['images:imgCountry.png']}"
+                                                                              id="i3" shortDesc="Country Name"/>
+                                                                    <af:spacer width="10" height="10" id="s3"/>
+                                                                    <af:outputFormatted value="#{item.bindings.txtCountryName.inputValue}"
+                                                                                        id="of5"
+                                                                                        styleClass="ERPHeroDetailColor"
+                                                                                        shortDesc="Country Name">
+                                                                        <af:convertNumber groupingUsed="false"
+                                                                                          pattern="#{bindings.SmCityRO.hints.Countrycode.format}"/>
+                                                                    </af:outputFormatted>
+                                                                </af:panelGroupLayout>
+                                                            </af:gridCell>
+                                                        </af:gridRow>
+                                                        <af:gridRow height="auto"
+                                                                    id="gr6" marginTop="5px" marginBottom="5px">
+                                                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px"
+                                                                         id="gc6" halign="stretch">
+                                                                <af:panelGroupLayout id="pgl6" layout="horizontal">
+                                                                    <af:image source="#{resource['images:imgDialingCode.png']}"
+                                                                              id="i4" shortDesc="Dialing Code"/>
+                                                                    <af:spacer width="10" height="10" id="s4"/>
+                                                                    <af:outputFormatted value="#{item.bindings.CallingCode.inputValue}"
+                                                                                        id="of6"
+                                                                                        styleClass="ERPHeroDetailColor"
+                                                                                        shortDesc="Dialing Code">
+                                                                        <af:convertNumber groupingUsed="false"
+                                                                                          pattern="#{bindings.SmCityRO.hints.Countrycode.format}"/>
+                                                                    </af:outputFormatted>
+                                                                </af:panelGroupLayout>
+                                                            </af:gridCell>
+                                                        </af:gridRow>
+                                                    </af:panelGridLayout>
+                                                </af:panelGroupLayout>
+                                            </af:panelBox>
+                                        </af:listItem>
+                                    </af:listView>
+                                </f:facet>
+                                <f:facet name="top">
+                                    <af:panelGroupLayout layout="vertical" id="pgl9">
+                                        <af:quickQuery label="Search" searchDesc="Search" id="qryId1"
+                                                       value="#{bindings.ImplicitViewCriteriaQuery.quickQueryDescriptor}"
+                                                       model="#{bindings.ImplicitViewCriteriaQuery.queryModel}"
+                                                       queryListener="#{bindings.ImplicitViewCriteriaQuery.processQuery}">
+                                            <f:facet name="end">
+                                                <af:commandLink text="Advanced" rendered="false" id="cl1"/>
+                                            </f:facet>
+                                        </af:quickQuery>
+                                    </af:panelGroupLayout>
+                                </f:facet>
+                            </af:decorativeBox>
+                        </f:facet>
+                        <f:facet name="top"/>
+                    </af:decorativeBox>
+                </f:facet>
+                <f:facet name="ERPLeft"/>
+                <f:facet name="ERPToolbar">
+                    <af:toolbar id="t1">
+                        <af:panelGroupLayout id="pgl8" layout="horizontal">
+                            <af:link id="l5" partialSubmit="true" icon="#{resource['images:imgPrintPreview.png']}"
+                                     action="#{pageFlowScope.OracleERPBean.doExecuteAdminReport}"
+                                     shortDesc="Print Preview">
+                                <af:setActionListener from="#{'RPT_ADM_0003.rptdesign'}"
+                                                      to="#{pageFlowScope.OracleERPBean.ERPAdminReportName}"/>
+                                <af:setActionListener from="#{'SmCityROIterator'}"
+                                                      to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
+                            </af:link>
+                            <af:link id="l3" action="ERPACTEXITFORM" icon="#{resource['images:imgExitForm.png']}"
+                                     partialSubmit="true" shortDesc="Exit Form"/>
+                            <af:link id="l2" icon="#{resource['images:imgNewDocument.png']}" action="ERPADDSEC_0013"
+                                     partialSubmit="true" shortDesc="Add New Record"
+                                     disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}"/>
+                            <f:facet name="separator">
+                                <af:spacer width="10" height="10" id="s6"/>
+                            </f:facet>
+                        </af:panelGroupLayout>
+                    </af:toolbar>
+                </f:facet>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+</f:view>

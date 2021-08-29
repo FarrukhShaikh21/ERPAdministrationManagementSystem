@@ -1,0 +1,247 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces">
+    <af:document title="SEC_0011.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:pageTemplate viewId="/ERPTemplate.jsf" value="#{bindings.ptb1}" id="pt1">
+                <f:facet name="ERPMain">
+                    <af:panelTabbed position="above" id="pt2">
+                        <af:showDetailItem id="tab1" text="Company Type" disclosed="true" stretchChildren="first">
+                            <af:decorativeBox id="db2">
+                                <f:facet name="center">
+                                    <af:listView value="#{bindings.AdminCompanyTypeRO.collectionModel}" var="item"
+                                                 emptyText="#{bindings.AdminCompanyTypeRO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                 fetchSize="#{bindings.AdminCompanyTypeRO.rangeSize}" id="lv1"
+                                                 selection="single"
+                                                 selectedRowKeys="#{bindings.AdminCompanyTypeRO.collectionModel.selectedRow}"
+                                                 selectionListener="#{bindings.AdminCompanyTypeRO.treeModel.makeCurrent}"
+                                                 styleClass="WBDisplayBlockCenter">
+                                        <af:listItem id="li1"
+                                                     styleClass="WBDisplayBlock WBDisplayBlockPadding WBDisplayBlockCenterUndo">
+                                            <af:panelBox text="PanelBox1" id="pb1" showHeader="never">
+                                                <f:facet name="toolbar"/>
+                                                <af:inputText value="#{bindings.CompanyTypeSno.inputValue}"
+                                                              label="#{bindings.CompanyTypeSno.hints.label}"
+                                                              required="#{bindings.CompanyTypeSno.hints.mandatory}"
+                                                              columns="#{bindings.CompanyTypeSno.hints.displayWidth}"
+                                                              maximumLength="#{bindings.CompanyTypeSno.hints.precision}"
+                                                              shortDesc="#{bindings.CompanyTypeSno.hints.tooltip}"
+                                                              id="it1" rendered="false">
+                                                    <f:validator binding="#{bindings.CompanyTypeSno.validator}"/>
+                                                    <af:convertNumber groupingUsed="false"
+                                                                      pattern="#{bindings.CompanyTypeSno.format}"/>
+                                                </af:inputText>
+                                                <af:panelGroupLayout id="pgl2" layout="vertical"
+                                                                     styleClass="WBCardSize">
+                                                    <af:panelGridLayout id="pgl1">
+                                                        <af:gridRow marginTop="5px" id="gr2" marginBottom="5px">
+                                                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px"
+                                                                         id="gc2"
+                                                                         styleClass="AFStretchWidth ERPHeroBackground"
+                                                                         halign="stretch" valign="stretch">
+                                                                <af:panelGroupLayout id="pgl15" layout="horizontal">
+                                                                    <af:link id="l5"
+                                                                             styleClass="ERPHeroBannerFont ERPLink"
+                                                                             partialSubmit="true"
+                                                                             icon="#{resource['images:imgView.png']}"
+                                                                             action="ERPEDITSEC_0011QUERY"
+                                                                             shortDesc="Click to view record."/>
+                                                                    <af:outputText value="#{item.bindings.CompanyTypeShortName.inputValue}"
+                                                                                   id="ot6"
+                                                                                   styleClass="ERPHeroBannerFont"
+                                                                                   shortDesc="Company Type Short Name"/>
+                                                                </af:panelGroupLayout>
+                                                            </af:gridCell>
+                                                        </af:gridRow>
+                                                        <af:gridRow marginTop="5px" height="auto" id="gr1">
+                                                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px"
+                                                                         id="gc1">
+                                                                <af:panelGroupLayout id="pgl10" layout="horizontal">
+                                                                    <af:image source="#{resource['images:imgDocumentNumber.png']}"
+                                                                              id="i1" shortDesc="Company Type Code"/>
+                                                                    <af:outputFormatted value="#{item.bindings.CompanyTypeCode.inputValue}"
+                                                                                        id="of1"
+                                                                                        styleClass="ERPHeroDetailColor"
+                                                                                        shortDesc="Company Type Code">
+                                                                        <af:convertNumber groupingUsed="false"
+                                                                                          pattern="#{bindings.AdminCompanyTypeRO.hints.CompanyTypeCode.format}"/>
+                                                                    </af:outputFormatted>
+                                                                    <f:facet name="separator">
+                                                                        <af:spacer width="10" height="10" id="s1"/>
+                                                                    </f:facet>
+                                                                </af:panelGroupLayout>
+                                                            </af:gridCell>
+                                                        </af:gridRow>
+                                                        <af:gridRow id="gr6" marginTop="5px" marginBottom="5px">
+                                                            <af:gridCell id="gc6" width="100%" marginStart="5px"
+                                                                         marginEnd="5px">
+                                                                <af:panelGroupLayout id="pgl11" layout="horizontal">
+                                                                    <af:image source="#{resource['images:imgShortName.png']}"
+                                                                              id="i2" shortDesc="Company Type Name"/>
+                                                                    <af:outputFormatted value="#{item.bindings.CompanyTypeName.inputValue}"
+                                                                                        id="of4"
+                                                                                        styleClass="ERPHeroDetailColor"
+                                                                                        shortDesc="Company Type Name"/>
+                                                                    <f:facet name="separator">
+                                                                        <af:spacer width="10" height="10" id="s2"/>
+                                                                    </f:facet>
+                                                                </af:panelGroupLayout>
+                                                            </af:gridCell>
+                                                        </af:gridRow>
+                                                        <af:gridRow marginTop="5px" height="auto" id="gr3">
+                                                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px"
+                                                                         id="gc3">
+                                                                <af:panelGroupLayout id="pgl12" layout="horizontal">
+                                                                    <af:image source="#{resource['images:imgLevel.png']}"
+                                                                              id="i3" shortDesc="Level"/>
+                                                                    <af:outputFormatted value="#{item.bindings.TypeLevel.inputValue}"
+                                                                                        id="of3"
+                                                                                        styleClass="ERPHeroDetailColor"
+                                                                                        shortDesc="Level">
+                                                                        <af:convertNumber groupingUsed="false"
+                                                                                          pattern="#{bindings.AdminCompanyTypeRO.hints.TypeLevel.format}"/>
+                                                                    </af:outputFormatted>
+                                                                    <f:facet name="separator">
+                                                                        <af:spacer width="10" height="10" id="s3"/>
+                                                                    </f:facet>
+                                                                </af:panelGroupLayout>
+                                                            </af:gridCell>
+                                                        </af:gridRow>
+                                                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px"
+                                                                    id="gr5">
+                                                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px"
+                                                                         id="gc5">
+                                                                <af:panelGroupLayout id="pgl13" layout="horizontal">
+                                                                    <af:image source="#{resource['images:imgParent.png']}"
+                                                                              id="i4" shortDesc="Parent Company"/>
+                                                                    <af:selectOneChoice value="#{item.bindings.ParentCompanyTypeSno.inputValue}"
+                                                                                        label="#{item.bindings.ParentCompanyTypeSno.label}"
+                                                                                        required="#{bindings.AdminCompanyTypeRO.hints.ParentCompanyTypeSno.mandatory}"
+                                                                                        shortDesc="Parent Company"
+                                                                                        readOnly="true" id="soc2"
+                                                                                        simple="true"
+                                                                                        styleClass="ERPHeroDetailColorChoice">
+                                                                        <f:selectItems value="#{item.bindings.ParentCompanyTypeSno.items}"
+                                                                                       id="si2"/>
+                                                                        <f:validator binding="#{item.bindings.ParentCompanyTypeSno.validator}"/>
+                                                                    </af:selectOneChoice>
+                                                                    <f:facet name="separator">
+                                                                        <af:spacer width="10" height="10" id="s4"/>
+                                                                    </f:facet>
+                                                                </af:panelGroupLayout>
+                                                            </af:gridCell>
+                                                        </af:gridRow>
+                                                        <af:gridRow marginTop="5px" height="auto" id="gr4">
+                                                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px"
+                                                                         id="gc4">
+                                                                <af:panelGroupLayout id="pgl14" layout="horizontal">
+                                                                    <af:image source="#{resource['images:imgActive.png']}"
+                                                                              id="i5" shortDesc="Active"/>
+                                                                    <af:selectOneChoice value="#{item.bindings.IsActive.inputValue}"
+                                                                                        label="#{item.bindings.IsActive.label}"
+                                                                                        required="#{bindings.AdminCompanyTypeRO.hints.IsActive.mandatory}"
+                                                                                        shortDesc="Active"
+                                                                                        readOnly="true" id="soc1"
+                                                                                        simple="true"
+                                                                                        styleClass="ERPHeroDetailColorChoice">
+                                                                        <f:selectItems value="#{item.bindings.IsActive.items}"
+                                                                                       id="si1"/>
+                                                                        <f:validator binding="#{item.bindings.IsActive.validator}"/>
+                                                                    </af:selectOneChoice>
+                                                                    <f:facet name="separator">
+                                                                        <af:spacer width="10" height="10" id="s5"/>
+                                                                    </f:facet>
+                                                                </af:panelGroupLayout>
+                                                            </af:gridCell>
+                                                        </af:gridRow>
+                                                    </af:panelGridLayout>
+                                                </af:panelGroupLayout>
+                                            </af:panelBox>
+                                        </af:listItem>
+                                    </af:listView>
+                                </f:facet>
+                                <f:facet name="top"/>
+                            </af:decorativeBox>
+                        </af:showDetailItem>
+                        <af:showDetailItem id="tab2" text="Hierarchal View">
+                            <dvt:hierarchyViewer id="hv1" var="node"
+                                                 value="#{bindings.AdminCompanyTypeHierarchyRO.treeModel}"
+                                                 selectionListener="#{bindings.AdminCompanyTypeHierarchyRO.treeModel.makeCurrent}"
+                                                 detailWindow="none" layout="hier_horz_left"
+                                                 levelFetchSize="#{bindings.AdminCompanyTypeHierarchyRO.rangeSize}"
+                                                 styleClass="AFStretchWidth" controlPanelBehavior="initExpanded">
+                                <dvt:link linkType="orthogonalRounded" id="l4"/>
+                                <dvt:node type="erpadm.modeladm.admvo.AdminCompanyTypeVO" width="233" height="233"
+                                          id="n1">
+                                    <f:facet name="zoom100">
+                                        <af:panelGroupLayout styleClass="AFStretchWidth AFHVNodeStretchHeight AFHVNodePadding"
+                                                             layout="vertical" id="pgl3">
+                                            <af:panelGroupLayout layout="horizontal" id="pgl4">
+                                                <af:panelGroupLayout layout="vertical" id="pgl5">
+                                                    <af:outputText value="#{node.CompanyTypeName}"
+                                                                   shortDesc="#{node.hints.CompanyTypeName.tooltip}"
+                                                                   styleClass="AFHVNodeTitleTextStyle" id="ot4"/>
+                                                    <af:outputText value="#{node.CompanyTypeCode}"
+                                                                   shortDesc="#{node.hints.CompanyTypeCode.tooltip}"
+                                                                   styleClass="AFHVNodeSubtitleTextStyle" id="ot3">
+                                                        <af:convertNumber groupingUsed="false"
+                                                                          pattern="#{node.hints.CompanyTypeCode.format}"/>
+                                                    </af:outputText>
+                                                    <af:outputText value="#{node.CompanyTypeShortName}"
+                                                                   shortDesc="#{node.hints.CompanyTypeShortName.tooltip}"
+                                                                   styleClass="AFHVNodeTextStyle" id="ot2"/>
+                                                </af:panelGroupLayout>
+                                            </af:panelGroupLayout>
+                                        </af:panelGroupLayout>
+                                    </f:facet>
+                                    <f:facet name="zoom50">
+                                        <af:panelGroupLayout styleClass="AFStretchWidth AFHVNodeStretchHeight AFHVNodePadding"
+                                                             layout="vertical" id="pgl7">
+                                            <af:panelGroupLayout layout="horizontal" id="pgl6">
+                                                <af:panelGroupLayout layout="vertical" id="pgl9">
+                                                    <af:outputText value="#{node.CompanyTypeName}"
+                                                                   shortDesc="#{node.hints.CompanyTypeName.tooltip}"
+                                                                   styleClass="AFHVNodeTitleTextStyle50" id="ot5"/>
+                                                    <af:outputText value="#{node.CompanyTypeCode}"
+                                                                   shortDesc="#{node.hints.CompanyTypeCode.tooltip}"
+                                                                   styleClass="AFHVNodeSubtitleTextStyle50" id="ot1">
+                                                        <af:convertNumber groupingUsed="false"
+                                                                          pattern="#{node.hints.CompanyTypeCode.format}"/>
+                                                    </af:outputText>
+                                                </af:panelGroupLayout>
+                                            </af:panelGroupLayout>
+                                        </af:panelGroupLayout>
+                                    </f:facet>
+                                </dvt:node>
+                            </dvt:hierarchyViewer>
+                        </af:showDetailItem>
+                    </af:panelTabbed>
+                </f:facet>
+                <f:facet name="ERPLeft"/>
+                <f:facet name="ERPToolbar">
+                    <af:toolbar id="t1">
+                        <af:panelGroupLayout id="pgl8" layout="horizontal">
+                            <af:link id="l6" icon="#{resource['images:imgPrintPreview.png']}" partialSubmit="true"
+                                     action="#{pageFlowScope.OracleERPBean.doExecuteAdminReport}">
+                            <af:setActionListener from="#{'RPT_ADM_0005.rptdesign'}"
+                                                  to="#{pageFlowScope.OracleERPBean.ERPAdminReportName}"/>
+                            <af:setActionListener from="#{'AdminCompanyTypeROIterator'}"
+                                                  to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
+                            </af:link>
+                            <af:link id="l3" action="ERPACTEXITFORM" icon="#{resource['images:imgExitForm.png']}"
+                                     partialSubmit="true"/>
+                            <af:link id="l2" icon="#{resource['images:imgNewDocument.png']}"
+                                     partialSubmit="true" action="ERPADDSEC_0011"
+                                     disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}"/>
+                            <f:facet name="separator">
+                                <af:spacer width="10" height="10" id="s6"/>
+                            </f:facet>
+                        </af:panelGroupLayout>
+                    </af:toolbar>
+                </f:facet>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+</f:view>

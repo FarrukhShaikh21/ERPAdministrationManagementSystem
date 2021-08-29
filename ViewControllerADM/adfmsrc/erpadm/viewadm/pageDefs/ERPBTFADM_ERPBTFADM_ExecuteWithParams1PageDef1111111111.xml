@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47"
+                id="ERPBTFADM_ERPBTFADM_ExecuteWithParams1PageDef1111111111" Package="erpadm.viewadm.pageDefs"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="AdminCompantNextTypesRO" RangeSize="25" DataControl="ERPADMModuleDataControl"
+              id="AdminCompantNextTypesROIterator" Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="AdminCompantNextTypesROIterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="P_ADF_GLOBAL_COMPANY_ID" NDValue="" NDType="java.lang.Integer"/>
+      <NamedData NDName="P_ADF_COMPANY_TYPE_SNO" NDValue="#{0}" NDType="java.lang.Integer"/>
+    </action>
+  </bindings>
+</pageDefinition>

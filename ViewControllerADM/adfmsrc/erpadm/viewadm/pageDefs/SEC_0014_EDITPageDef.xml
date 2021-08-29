@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="SEC_0014_EDITPageDef"
+                Package="erpadm.viewadm.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="SysGeneralValueSetCRUD" RangeSize="25" DataControl="ERPADMModuleDataControl"
+              id="SysGeneralValueSetCRUDIterator"/>
+    <iterator Binds="SysGeneralValueDetCRUD" RangeSize="25" DataControl="ERPADMModuleDataControl"
+              id="SysGeneralValueDetCRUDIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="SysGeneralValueSetCRUDIterator" id="ValueSetId">
+      <AttrNames>
+        <Item Value="ValueSetId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysGeneralValueSetCRUDIterator" id="ValueSetDescription">
+      <AttrNames>
+        <Item Value="ValueSetDescription"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysGeneralValueSetCRUDIterator" id="Remarks">
+      <AttrNames>
+        <Item Value="Remarks"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysGeneralValueSetCRUDIterator" id="IsActive">
+      <AttrNames>
+        <Item Value="IsActive"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="SysGeneralValueDetCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <tree IterBinding="SysGeneralValueDetCRUDIterator" id="SysGeneralValueDetCRUD">
+      <nodeDefinition DefName="erpadm.modeladm.admvo.SysGeneralValueVO" Name="SysGeneralValueDetCRUD0">
+        <AttrNames>
+          <Item Value="ValueId"/>
+          <Item Value="ValueDescription"/>
+          <Item Value="ValueCode"/>
+          <Item Value="IsActive"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPADMModuleDataControl"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="ERPADMModuleDataControl"/>
+    <action IterBinding="SysGeneralValueSetCRUDIterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <action IterBinding="SysGeneralValueDetCRUDIterator" id="Delete1" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="SEC_0011_EDITPageDef"
+                Package="erpadm.viewadm.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="AdminCompanyTypeCRUD" RangeSize="25" DataControl="ERPADMModuleDataControl"
+              id="AdminCompanyTypeCRUDIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="AdminCompanyTypeCRUDIterator" id="CompanyTypeName">
+      <AttrNames>
+        <Item Value="CompanyTypeName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AdminCompanyTypeCRUDIterator" id="CompanyTypeCode">
+      <AttrNames>
+        <Item Value="CompanyTypeCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AdminCompanyTypeCRUDIterator" id="CompanyTypeShortName">
+      <AttrNames>
+        <Item Value="CompanyTypeShortName"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="AdminCompanyTypeCRUDIterator" StaticList="false" Uses="LovIsActive" id="IsActive"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="AdminCompanyTypeCRUDIterator" StaticList="false" Uses="LovCompanyGroupSno" id="CompanyGroupSno"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="AdminCompanyTypeCRUDIterator" id="TypeLevel">
+      <AttrNames>
+        <Item Value="TypeLevel"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPADMModuleDataControl"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="ERPADMModuleDataControl"/>
+    <action IterBinding="AdminCompanyTypeCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="AdminCompanyTypeCRUDIterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <listOfValues IterBinding="AdminCompanyTypeCRUDIterator" StaticList="false" Uses="LovTxtParentTypeName"
+                  id="txtParentTypeName"/>
+    <attributeValues IterBinding="AdminCompanyTypeCRUDIterator" id="CompanyTypeSno">
+      <AttrNames>
+        <Item Value="CompanyTypeSno"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

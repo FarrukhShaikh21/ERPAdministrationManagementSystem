@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47"
+                id="ERPBTFADM_ERPBTFADM_ExecutePageDef111111" Package="erpadm.viewadm.pageDefs" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="AdminCompanyTypeRO" RangeSize="25" DataControl="ERPADMModuleDataControl"
+              id="AdminCompanyTypeROIterator" Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="AdminCompanyTypeROIterator" id="Execute" RequiresUpdateModel="true" Action="iteratorExecute"/>
+  </bindings>
+</pageDefinition>

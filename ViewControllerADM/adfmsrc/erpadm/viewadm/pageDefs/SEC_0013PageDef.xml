@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="SEC_0013PageDef"
+                Package="erpadm.viewadm.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <page path="erptemplate.viewtemp.pageDefs.ERPTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator Binds="SmCityRO" RangeSize="25" DataControl="ERPADMModuleDataControl" id="SmCityROIterator"/>
+    <searchRegion Criteria="SmCityFindVC" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="SmCityROIterator" id="ImplicitViewCriteriaQuery" InitialQueryOverridden="true"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="SmCityROIterator" id="SmCityRO">
+      <nodeDefinition DefName="erpadm.modeladm.admvo.SmCityVO" Name="SmCityRO0">
+        <AttrNames>
+          <Item Value="Cityname"/>
+          <Item Value="CityShortCode"/>
+          <Item Value="CityShortName"/>
+          <Item Value="txtProvienceName"/>
+          <Item Value="Countrycode"/>
+          <Item Value="CallingCode"/>
+          <Item Value="txtCountryName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="SmCityROIterator" id="Citycode">
+      <AttrNames>
+        <Item Value="Citycode"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

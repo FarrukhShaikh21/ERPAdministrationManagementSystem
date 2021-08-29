@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="SEC_0012PageDef"
+                Package="erpadm.viewadm.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="SysUsersCRUD" RangeSize="25" DataControl="ERPADMModuleDataControl" id="SysUsersCRUDIterator"/>
+    <iterator Binds="SysUserPasswordPolicyDetCRUD" RangeSize="25" DataControl="ERPADMModuleDataControl"
+              id="SysUserPasswordPolicyDetCRUDIterator"/>
+    <iterator Binds="SysUsersModuleDetCRUD" RangeSize="25" DataControl="ERPADMModuleDataControl"
+              id="SysUsersModuleDetCRUDIterator"/>
+    <searchRegion Criteria="SysUsersModuleFindVC" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="SysUsersModuleDetCRUDIterator" id="ImplicitViewCriteriaQuery" InitialQueryOverridden="true"/>
+    <iterator Binds="SysModuleDetailUserAssignRO" RangeSize="25" DataControl="ERPADMModuleDataControl"
+              id="SysModuleDetailUserAssignROIterator"/>
+    <searchRegion Criteria="SysModuleDetailFindVC" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="SysModuleDetailUserAssignROIterator" id="ImplicitViewCriteriaQuery1"
+                  InitialQueryOverridden="true"/>
+    <iterator Binds="AdminCompanyAssignUserActionRO" RangeSize="25" DataControl="ERPADMModuleDataControl"
+              id="AdminCompanyAssignUserActionROIterator"/>
+    <searchRegion Criteria="AdminCompanyFindVC" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="AdminCompanyAssignUserActionROIterator" id="ImplicitViewCriteriaQuery2"
+                  InitialQueryOverridden="true"/>
+    <iterator Binds="SysUsersModuleCompanyDetCRUD" RangeSize="25" DataControl="ERPADMModuleDataControl"
+              id="SysUsersModuleCompanyDetCRUDIterator"/>
+    <searchRegion Criteria="SysUsersModuleCompanyFindVC" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="SysUsersModuleCompanyDetCRUDIterator" id="ImplicitViewCriteriaQuery3"
+                  InitialQueryOverridden="true"/>
+    <iterator Binds="AdminCompanyAssignUserRO" RangeSize="25" DataControl="ERPADMModuleDataControl"
+              id="AdminCompanyAssignUserROIterator"/>
+    <searchRegion Criteria="AdminCompanyFindVC" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="AdminCompanyAssignUserROIterator" id="ImplicitViewCriteriaQuery4"
+                  InitialQueryOverridden="true"/>
+    <iterator Binds="SysUserCompanyDetCRUD" RangeSize="25" DataControl="ERPADMModuleDataControl"
+              id="SysUserCompanyDetCRUDIterator"/>
+    <searchRegion Criteria="SysUserCompanyFindVC" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="SysUserCompanyDetCRUDIterator" id="ImplicitViewCriteriaQuery5" InitialQueryOverridden="true"/>
+    <iterator Binds="SysActionGroupHeadAssignUserRO" RangeSize="25" DataControl="ERPADMModuleDataControl"
+              id="SysActionGroupHeadAssignUserROIterator"/>
+    <iterator Binds="SysActionGroupUserDetCRUD" RangeSize="25" DataControl="ERPADMModuleDataControl"
+              id="SysActionGroupUserDetCRUDIterator"/>
+    <searchRegion Criteria="SysActionGroupHeaderFindVC" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="SysActionGroupHeadAssignUserROIterator" id="ImplicitViewCriteriaQuery6"
+                  InitialQueryOverridden="true"/>
+    <searchRegion Criteria="SysActionGroupUserForUserFindVC" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="SysActionGroupUserDetCRUDIterator" id="ImplicitViewCriteriaQuery7"
+                  InitialQueryOverridden="true"/>
+    <iterator Binds="SysGeneralValueStorePathRO" RangeSize="25" DataControl="ERPADMModuleDataControl"
+              id="SysGeneralValueStorePathROIterator"/>
+    <iterator Binds="SysGeneralValueStoreOnRO" RangeSize="25" DataControl="ERPADMModuleDataControl"
+              id="SysGeneralValueStoreOnROIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="SysUsersCRUDIterator" id="UserId">
+      <AttrNames>
+        <Item Value="UserId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysUsersCRUDIterator" id="UserCode">
+      <AttrNames>
+        <Item Value="UserCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysUsersCRUDIterator" id="UserName">
+      <AttrNames>
+        <Item Value="UserName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysUsersCRUDIterator" id="Passwordd">
+      <AttrNames>
+        <Item Value="Passwordd"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysUsersCRUDIterator" id="IsLock">
+      <AttrNames>
+        <Item Value="IsLock"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysUsersCRUDIterator" id="Email">
+      <AttrNames>
+        <Item Value="Email"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysUsersCRUDIterator" id="MobileNo">
+      <AttrNames>
+        <Item Value="MobileNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysUsersCRUDIterator" id="CnicNo">
+      <AttrNames>
+        <Item Value="CnicNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysUsersCRUDIterator" id="ExpiryDate">
+      <AttrNames>
+        <Item Value="ExpiryDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysUsersCRUDIterator" id="LockDate">
+      <AttrNames>
+        <Item Value="LockDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysUsersCRUDIterator" id="Dob">
+      <AttrNames>
+        <Item Value="Dob"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="SysUsersCRUDIterator" StaticList="false" Uses="LovGenderSno" id="GenderSno"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <listOfValues IterBinding="SysUsersCRUDIterator" StaticList="false" Uses="LovtxtCountryName" id="txtCountryName"/>
+    <listOfValues IterBinding="SysUsersCRUDIterator" StaticList="false" Uses="LovtxtCityName" id="txtCityName"/>
+    <attributeValues IterBinding="SysUsersCRUDIterator" id="PhoneNo">
+      <AttrNames>
+        <Item Value="PhoneNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysUsersCRUDIterator" id="AllowedIpAddress">
+      <AttrNames>
+        <Item Value="AllowedIpAddress"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysUsersCRUDIterator" id="Remarks">
+      <AttrNames>
+        <Item Value="Remarks"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="SysUsersCRUDIterator" StaticList="false" Uses="LovUserTypeSno" id="UserTypeSno"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <tree IterBinding="SysUserPasswordPolicyDetCRUDIterator" id="SysUserPasswordPolicyDetCRUD">
+      <nodeDefinition DefName="erpadm.modeladm.admvo.SysUserPasswordPolicyVO" Name="SysUserPasswordPolicyDetCRUD0">
+        <AttrNames>
+          <Item Value="PolicyHeaderSno"/>
+          <Item Value="IsActive"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="SysUserPasswordPolicyDetCRUDIterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="ERPADMModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPADMModuleDataControl"/>
+    <listOfValues IterBinding="SysUsersCRUDIterator" StaticList="false" Uses="LovtxtPolicyName" id="txtPolicyName"/>
+    <action IterBinding="SysUserPasswordPolicyDetCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <attributeValues IterBinding="SysUsersCRUDIterator" id="LastName">
+      <AttrNames>
+        <Item Value="LastName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysUsersCRUDIterator" id="FirstName">
+      <AttrNames>
+        <Item Value="FirstName"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="SysUsersCRUDIterator" StaticList="false" Uses="LovAccessType" id="AccessType"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <tree IterBinding="SysUsersModuleDetCRUDIterator" id="SysUsersModuleDetCRUD">
+      <nodeDefinition DefName="erpadm.modeladm.admvo.SysUsersModuleVO" Name="SysUsersModuleDetCRUD0">
+        <AttrNames>
+          <Item Value="ModuleAction"/>
+          <Item Value="IsAllow"/>
+          <Item Value="AllowAdd"/>
+          <Item Value="AllowDelete"/>
+          <Item Value="AllowEdit"/>
+          <Item Value="AllowSupervise"/>
+          <Item Value="ViewScanFile"/>
+          <Item Value="ScanFile"/>
+          <Item Value="AllowEditOther"/>
+          <Item Value="AllowPrint"/>
+          <Item Value="AllowCancel"/>
+          <Item Value="AllowUnsupervise"/>
+          <Item Value="IsActive"/>
+          <Item Value="AccessType"/>
+          <Item Value="ActionName"/>
+          <Item Value="Remarks"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="SysUsersModuleDetCRUDIterator" id="Delete1" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <tree IterBinding="SysModuleDetailUserAssignROIterator" id="SysModuleDetailUserAssignRO">
+      <nodeDefinition DefName="erpadm.modeladm.admvo.SysModuleDetailVO" Name="SysModuleDetailUserAssignRO0">
+        <AttrNames>
+          <Item Value="ModuleAction"/>
+          <Item Value="ActionName"/>
+          <Item Value="ModuleId"/>
+          <Item Value="ActionCategoryId"/>
+          <Item Value="txtSelected"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="doAssignERPActivityToUser" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="doAssignERPActivityToUser" IsViewObjectMethod="true" DataControl="ERPADMModuleDataControl"
+                  InstanceName="data.ERPADMModuleDataControl.SysModuleDetailUserAssignRO"
+                  ReturnName="data.ERPADMModuleDataControl.methodResults.doAssignERPActivityToUser_ERPADMModuleDataControl_SysModuleDetailUserAssignRO_doAssignERPActivityToUser_result"/>
+    <methodAction IterBinding="SysModuleDetailUserAssignROIterator" id="doAssignERPOneActivityToUser"
+                  RequiresUpdateModel="true" Action="invokeMethod" MethodName="doAssignERPOneActivityToUser"
+                  IsViewObjectMethod="false" DataControl="ERPADMModuleDataControl"
+                  InstanceName="bindings.SysModuleDetailUserAssignROIterator.currentRow" IsLocalObjectReference="true"
+                  ReturnName="data.ERPADMModuleDataControl.methodResults.doAssignERPOneActivityToUser_doAssignERPOneActivityToUser_doAssignERPOneActivityToUser_result"/>
+    <tree IterBinding="AdminCompanyAssignUserActionROIterator" id="AdminCompanyAssignUserActionRO">
+      <nodeDefinition DefName="erpadm.modeladm.admvo.AdminCompanyVO" Name="AdminCompanyAssignUserActionRO0">
+        <AttrNames>
+          <Item Value="CompanyShortName"/>
+          <Item Value="CompanyName"/>
+          <Item Value="CompanyShortCode"/>
+          <Item Value="txtCityName"/>
+          <Item Value="txtParentCompanyName"/>
+          <Item Value="txtParentCompShortCode"/>
+          <Item Value="txtParentCompanyShortName"/>
+          <Item Value="txtSelected"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="SysUsersModuleCompanyDetCRUDIterator" id="SysUsersModuleCompanyDetCRUD">
+      <nodeDefinition DefName="erpadm.modeladm.admvo.SysUsersModuleCompanyVO" Name="SysUsersModuleCompanyDetCRUD0">
+        <AttrNames>
+          <Item Value="CompanyName"/>
+          <Item Value="CompanyShortCode"/>
+          <Item Value="CompanyShortName"/>
+          <Item Value="IsActive"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="doAssignERPCompanyToUserAction" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="doAssignERPCompanyToUserAction" IsViewObjectMethod="true"
+                  DataControl="ERPADMModuleDataControl"
+                  InstanceName="data.ERPADMModuleDataControl.AdminCompanyAssignUserActionRO"
+                  ReturnName="data.ERPADMModuleDataControl.methodResults.doAssignERPCompanyToUserAction_ERPADMModuleDataControl_AdminCompanyAssignUserActionRO_doAssignERPCompanyToUserAction_result"/>
+    <methodAction IterBinding="AdminCompanyAssignUserActionROIterator" id="doAssignERPOneCompToUserActionLine"
+                  RequiresUpdateModel="true" Action="invokeMethod" MethodName="doAssignERPOneCompToUserActionLine"
+                  IsViewObjectMethod="false" DataControl="ERPADMModuleDataControl"
+                  InstanceName="bindings.AdminCompanyAssignUserActionROIterator.currentRow"
+                  IsLocalObjectReference="true"
+                  ReturnName="data.ERPADMModuleDataControl.methodResults.doAssignERPOneCompToUserActionLine_doAssignERPOneCompToUserActionLine_doAssignERPOneCompToUserActionLine_result"/>
+    <action IterBinding="SysUsersModuleCompanyDetCRUDIterator" id="Delete2" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <action IterBinding="AdminCompanyAssignUserActionROIterator" id="Execute" RequiresUpdateModel="true"
+            Action="iteratorExecute"/>
+    <attributeValues IterBinding="AdminCompanyAssignUserActionROIterator" id="txtCountCompany">
+      <AttrNames>
+        <Item Value="txtCountCompany"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="AdminCompanyAssignUserROIterator" id="AdminCompanyAssignUserRO">
+      <nodeDefinition DefName="erpadm.modeladm.admvo.AdminCompanyVO" Name="AdminCompanyAssignUserRO0">
+        <AttrNames>
+          <Item Value="CompanyName"/>
+          <Item Value="CompanyShortCode"/>
+          <Item Value="CompanyShortName"/>
+          <Item Value="txtParentCompShortCode"/>
+          <Item Value="txtParentCompanyShortName"/>
+          <Item Value="txtParentCompanyName"/>
+          <Item Value="CompanyTypeSno"/>
+          <Item Value="txtSelected"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="SysUserCompanyDetCRUDIterator" id="SysUserCompanyDetCRUD">
+      <nodeDefinition DefName="erpadm.modeladm.admvo.SysUserCompanyVO" Name="SysUserCompanyDetCRUD0">
+        <AttrNames>
+          <Item Value="CompanyName"/>
+          <Item Value="CompanyShortName"/>
+          <Item Value="CompanyShortCode"/>
+          <Item Value="CompanyTypeSno"/>
+          <Item Value="Email"/>
+          <Item Value="MobileNo"/>
+          <Item Value="IsActive"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="SysUserCompanyDetCRUDIterator" id="Delete3" RequiresUpdateModel="false"
+            Action="removeCurrentRow" InstanceName="ERPADMModuleDataControl.SysUserCompanyDetCRUD"
+            DataControl="ERPADMModuleDataControl"/>
+    <methodAction id="doAssignERPCompanyToUser" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="doAssignERPCompanyToUser" IsViewObjectMethod="true" DataControl="ERPADMModuleDataControl"
+                  InstanceName="data.ERPADMModuleDataControl.AdminCompanyAssignUserRO"
+                  ReturnName="data.ERPADMModuleDataControl.methodResults.doAssignERPCompanyToUser_ERPADMModuleDataControl_AdminCompanyAssignUserRO_doAssignERPCompanyToUser_result"/>
+    <methodAction IterBinding="AdminCompanyAssignUserROIterator" id="doAssignERPOneCompToUser"
+                  RequiresUpdateModel="true" Action="invokeMethod" MethodName="doAssignERPOneCompToUser"
+                  IsViewObjectMethod="false" DataControl="ERPADMModuleDataControl"
+                  InstanceName="bindings.AdminCompanyAssignUserROIterator.currentRow" IsLocalObjectReference="true"
+                  ReturnName="data.ERPADMModuleDataControl.methodResults.doAssignERPOneCompToUser_doAssignERPOneCompToUser_doAssignERPOneCompToUser_result"/>
+    <tree IterBinding="SysActionGroupHeadAssignUserROIterator" id="SysActionGroupHeadAssignUserRO">
+      <nodeDefinition DefName="erpadm.modeladm.admvo.SysActionGroupHeaderVO" Name="SysActionGroupHeadAssignUserRO0">
+        <AttrNames>
+          <Item Value="GroupHeaderCode"/>
+          <Item Value="DocumentDate"/>
+          <Item Value="ActionGroupName"/>
+          <Item Value="StartDate"/>
+          <Item Value="EndDate"/>
+          <Item Value="AccessType"/>
+          <Item Value="Remarks"/>
+          <Item Value="txtSelected"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="SysActionGroupUserDetCRUDIterator" id="SysActionGroupUserDetCRUD">
+      <nodeDefinition DefName="erpadm.modeladm.admvo.SysActionGroupUserVO" Name="SysActionGroupUserDetCRUD0">
+        <AttrNames>
+          <Item Value="ActionGroupName"/>
+          <Item Value="DocumentDate"/>
+          <Item Value="StartDate"/>
+          <Item Value="EndDate"/>
+          <Item Value="AccessType"/>
+          <Item Value="IsActive"/>
+          <Item Value="Remarks"/>
+          <Item Value="GroupHeaderCode"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="SysActionGroupHeadAssignUserROIterator" id="txtCountGroup">
+      <AttrNames>
+        <Item Value="txtCountGroup"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="doAssignERPGroupToUser" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="doAssignERPGroupToUser" IsViewObjectMethod="true" DataControl="ERPADMModuleDataControl"
+                  InstanceName="data.ERPADMModuleDataControl.SysActionGroupHeadAssignUserRO"
+                  ReturnName="data.ERPADMModuleDataControl.methodResults.doAssignERPGroupToUser_ERPADMModuleDataControl_SysActionGroupHeadAssignUserRO_doAssignERPGroupToUser_result"/>
+    <methodAction IterBinding="SysActionGroupHeadAssignUserROIterator" id="doAssignERPOneGroupToUser"
+                  RequiresUpdateModel="true" Action="invokeMethod" MethodName="doAssignERPOneGroupToUser"
+                  IsViewObjectMethod="false" DataControl="ERPADMModuleDataControl"
+                  InstanceName="bindings.SysActionGroupHeadAssignUserROIterator.currentRow"
+                  IsLocalObjectReference="true"
+                  ReturnName="data.ERPADMModuleDataControl.methodResults.doAssignERPOneGroupToUser_doAssignERPOneGroupToUser_doAssignERPOneGroupToUser_result"/>
+    <attributeValues IterBinding="SysModuleDetailUserAssignROIterator" id="txtCount">
+      <AttrNames>
+        <Item Value="txtCount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysUsersModuleDetCRUDIterator" id="txtCountUserModule">
+      <AttrNames>
+        <Item Value="txtCountUserModule"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AdminCompanyAssignUserROIterator" id="txtCountCompany1">
+      <AttrNames>
+        <Item Value="txtCountCompany"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysUserCompanyDetCRUDIterator" id="txtCountUserCompany">
+      <AttrNames>
+        <Item Value="txtCountUserCompany"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysActionGroupUserDetCRUDIterator" id="txtCountGroup1">
+      <AttrNames>
+        <Item Value="txtCountGroup"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysUsersModuleCompanyDetCRUDIterator" id="txtCountUserModComp">
+      <AttrNames>
+        <Item Value="txtCountUserModComp"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="SysActionGroupUserDetCRUDIterator" id="Delete4" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <attributeValues IterBinding="SysUsersCRUDIterator" id="PictureName">
+      <AttrNames>
+        <Item Value="PictureName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysGeneralValueStorePathROIterator" id="ValueDescription">
+      <AttrNames>
+        <Item Value="ValueDescription"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysGeneralValueStoreOnROIterator" id="ValueDescription1">
+      <AttrNames>
+        <Item Value="ValueDescription"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

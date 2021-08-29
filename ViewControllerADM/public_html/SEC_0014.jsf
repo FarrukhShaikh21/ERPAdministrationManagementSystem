@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces">
+    <af:document title="SEC_0014.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:pageTemplate viewId="/ERPTemplate.jsf" value="#{bindings.ptb1}" id="pt1">
+                <f:facet name="ERPMain">
+                    <af:panelTabbed position="above" id="pt2">
+                        <af:showDetailItem id="tab1" text="General Value Set" disclosed="true" stretchChildren="first">
+                            <af:decorativeBox id="db2">
+                                <f:facet name="center">
+                                    <af:listView value="#{bindings.SysGeneralValueSetRO.collectionModel}" var="item"
+                                                 emptyText="#{bindings.SysGeneralValueSetRO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                 fetchSize="#{bindings.SysGeneralValueSetRO.rangeSize}" id="lv1"
+                                                 selection="single"
+                                                 selectedRowKeys="#{bindings.SysGeneralValueSetRO.collectionModel.selectedRow}"
+                                                 selectionListener="#{bindings.SysGeneralValueSetRO.treeModel.makeCurrent}">
+                                        <af:listItem id="li1">
+                                            <af:panelGridLayout id="pgl1">
+                                                <af:gridRow marginTop="5px" height="auto" id="gr2">
+                                                    <af:gridCell marginStart="5px" width="100%" marginEnd="5px"
+                                                                 id="gc2">
+                                                        <af:link id="l1" action="ERPEDITSEC_0014QUERY"
+                                                                 partialSubmit="true">
+                                                            <af:outputFormatted value="#{item.bindings.ValueSetDescription.inputValue}"
+                                                                                id="of2"
+                                                                                shortDesc="Value Set Description"/>
+                                                        </af:link>
+                                                    </af:gridCell>
+                                                </af:gridRow>
+                                                <af:gridRow marginTop="5px" height="auto" id="gr1">
+                                                    <af:gridCell marginStart="5px" width="100%" marginEnd="5px"
+                                                                 id="gc1">
+                                                        <af:outputFormatted value="#{item.bindings.ValueSetId.inputValue}"
+                                                                            id="of1" shortDesc="Value Set ID">
+                                                            <af:convertNumber groupingUsed="false"
+                                                                              pattern="#{bindings.SysGeneralValueSetRO.hints.ValueSetId.format}"/>
+                                                        </af:outputFormatted>
+                                                    </af:gridCell>
+                                                </af:gridRow>
+                                                <af:gridRow marginTop="5px" height="auto" id="gr3">
+                                                    <af:gridCell marginStart="5px" width="100%" marginEnd="5px"
+                                                                 id="gc3">
+                                                        <af:outputFormatted value="#{item.bindings.Remarks.inputValue}"
+                                                                            id="of3" shortDesc="Remarks"/>
+                                                    </af:gridCell>
+                                                </af:gridRow>
+                                                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr4">
+                                                    <af:gridCell marginStart="5px" width="100%" marginEnd="5px"
+                                                                 id="gc4">
+                                                        <af:outputFormatted value="#{item.bindings.IsActive.inputValue}"
+                                                                            id="of4" shortDesc="Active"/>
+                                                    </af:gridCell>
+                                                </af:gridRow>
+                                            </af:panelGridLayout>
+                                        </af:listItem>
+                                    </af:listView>
+                                </f:facet>
+                                <f:facet name="top">
+                                    <af:inputText value="#{bindings.ValueSetId.inputValue}"
+                                                  required="#{bindings.ValueSetId.hints.mandatory}"
+                                                  columns="#{bindings.ValueSetId.hints.displayWidth}"
+                                                  maximumLength="#{bindings.ValueSetId.hints.precision}"
+                                                  shortDesc="#{bindings.ValueSetId.hints.tooltip}" id="it1"
+                                                  rendered="false">
+                                        <f:validator binding="#{bindings.ValueSetId.validator}"/>
+                                        <af:convertNumber groupingUsed="false" pattern="#{bindings.ValueSetId.format}"/>
+                                    </af:inputText>
+                                </f:facet>
+                            </af:decorativeBox>
+                        </af:showDetailItem>
+                    </af:panelTabbed>
+                </f:facet>
+                <f:facet name="ERPLeft"/>
+                <f:facet name="ERPToolbar">
+                    <af:toolbar id="t1">
+                        <af:panelGroupLayout id="pgl8" layout="horizontal">
+                            <af:link id="l3" action="ERPACTEXITFORM" icon="#{resource['images:imgExitForm.png']}"
+                                     partialSubmit="true"/>
+                            <af:link id="l2" icon="#{resource['images:imgNewDocument.png']}"
+                                     partialSubmit="true" action="ERPADDSEC_0014"/>
+                            <f:facet name="separator">
+                                <af:spacer width="10" height="10" id="s6"/>
+                            </f:facet>
+                        </af:panelGroupLayout>
+                    </af:toolbar>
+                </f:facet>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+</f:view>

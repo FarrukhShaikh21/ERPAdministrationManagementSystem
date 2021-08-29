@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="TESTPageDef"
+                Package="erpadm.viewadm.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="SysUsersModuleVO1" RangeSize="25" DataControl="ERPADMModuleDataControl"
+              id="SysUsersModuleVO1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="SysUsersModuleVO1Iterator" id="UserId">
+      <AttrNames>
+        <Item Value="UserId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysUsersModuleVO1Iterator" id="ModuleAction">
+      <AttrNames>
+        <Item Value="ModuleAction"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysUsersModuleVO1Iterator" id="IsAllow">
+      <AttrNames>
+        <Item Value="IsAllow"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysUsersModuleVO1Iterator" id="AllowAdd">
+      <AttrNames>
+        <Item Value="AllowAdd"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysUsersModuleVO1Iterator" id="AllowDelete">
+      <AttrNames>
+        <Item Value="AllowDelete"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysUsersModuleVO1Iterator" id="AllowEdit">
+      <AttrNames>
+        <Item Value="AllowEdit"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysUsersModuleVO1Iterator" id="AllowSupervise">
+      <AttrNames>
+        <Item Value="AllowSupervise"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysUsersModuleVO1Iterator" id="ViewScanFile">
+      <AttrNames>
+        <Item Value="ViewScanFile"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysUsersModuleVO1Iterator" id="ScanFile">
+      <AttrNames>
+        <Item Value="ScanFile"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysUsersModuleVO1Iterator" id="AllowEditOther">
+      <AttrNames>
+        <Item Value="AllowEditOther"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysUsersModuleVO1Iterator" id="AllowPrint">
+      <AttrNames>
+        <Item Value="AllowPrint"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysUsersModuleVO1Iterator" id="AllowCancel">
+      <AttrNames>
+        <Item Value="AllowCancel"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysUsersModuleVO1Iterator" id="AllowUnsupervise">
+      <AttrNames>
+        <Item Value="AllowUnsupervise"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysUsersModuleVO1Iterator" id="UsersModuleSno">
+      <AttrNames>
+        <Item Value="UsersModuleSno"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="SysUsersModuleVO1Iterator" StaticList="false" Uses="LovUserActionAccessType" id="AccessType"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="SysUsersModuleVO1Iterator" id="IsActive">
+      <AttrNames>
+        <Item Value="IsActive"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysUsersModuleVO1Iterator" id="ModuleActionMast">
+      <AttrNames>
+        <Item Value="ModuleActionMast"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysUsersModuleVO1Iterator" id="ActionName">
+      <AttrNames>
+        <Item Value="ActionName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysUsersModuleVO1Iterator" id="CreatedBy">
+      <AttrNames>
+        <Item Value="CreatedBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysUsersModuleVO1Iterator" id="CreatedDate">
+      <AttrNames>
+        <Item Value="CreatedDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysUsersModuleVO1Iterator" id="LastUpdatedBy">
+      <AttrNames>
+        <Item Value="LastUpdatedBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysUsersModuleVO1Iterator" id="LastUpdatedDate">
+      <AttrNames>
+        <Item Value="LastUpdatedDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysUsersModuleVO1Iterator" id="Remarks">
+      <AttrNames>
+        <Item Value="Remarks"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="SysUsersModuleVO1Iterator" StaticList="false" Uses="LovModuleId" id="ModuleId"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="SysUsersModuleVO1Iterator" id="txtCountUserModule">
+      <AttrNames>
+        <Item Value="txtCountUserModule"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="SysUsersModuleVO1Iterator" StaticList="false" Uses="LovActionCategoryId" id="ActionCategoryId"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="ERPADMModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPADMModuleDataControl"/>
+    <action IterBinding="SysUsersModuleVO1Iterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+  </bindings>
+</pageDefinition>

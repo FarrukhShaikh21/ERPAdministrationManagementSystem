@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="SEC_0006_EDITPageDef"
+                Package="erpadm.viewadm.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="AdminCompanyCRUD" RangeSize="25" DataControl="ERPADMModuleDataControl"
+              id="AdminCompanyCRUDIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="AdminCompanyCRUDIterator" id="CompanyShortCode">
+      <AttrNames>
+        <Item Value="CompanyShortCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AdminCompanyCRUDIterator" id="CompanyShortName">
+      <AttrNames>
+        <Item Value="CompanyShortName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AdminCompanyCRUDIterator" id="CompanyName">
+      <AttrNames>
+        <Item Value="CompanyName"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="AdminCompanyCRUDIterator" StaticList="false" Uses="LovCompanyTypeSno" id="CompanyTypeSno"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="AdminCompanyCRUDIterator" id="Gstno">
+      <AttrNames>
+        <Item Value="Gstno"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AdminCompanyCRUDIterator" id="Ntnno">
+      <AttrNames>
+        <Item Value="Ntnno"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AdminCompanyCRUDIterator" id="Phone">
+      <AttrNames>
+        <Item Value="Phone"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AdminCompanyCRUDIterator" id="Fax">
+      <AttrNames>
+        <Item Value="Fax"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AdminCompanyCRUDIterator" id="ContactPerson">
+      <AttrNames>
+        <Item Value="ContactPerson"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AdminCompanyCRUDIterator" id="Address">
+      <AttrNames>
+        <Item Value="Address"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AdminCompanyCRUDIterator" id="MobileNo">
+      <AttrNames>
+        <Item Value="MobileNo"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="AdminCompanyCRUDIterator" StaticList="false" Uses="LovCurrencySno" id="CurrencySno"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="AdminCompanyCRUDIterator" id="Active">
+      <AttrNames>
+        <Item Value="Active"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="AdminCompanyCRUDIterator" StaticList="false" Uses="LovtxtCountryName"
+                  id="txtCountryName"/>
+    <listOfValues IterBinding="AdminCompanyCRUDIterator" StaticList="false" Uses="LovtxtCityName" id="txtCityName"/>
+    <attributeValues IterBinding="AdminCompanyCRUDIterator" id="RegistrationNo">
+      <AttrNames>
+        <Item Value="RegistrationNo"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="ERPADMModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPADMModuleDataControl"/>
+    <attributeValues IterBinding="AdminCompanyCRUDIterator" id="txtParentCompanyShortName">
+      <AttrNames>
+        <Item Value="txtParentCompanyShortName"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="AdminCompanyCRUDIterator" StaticList="false" Uses="LovtxtParentCompanyName"
+                  id="txtParentCompanyName"/>
+    <attributeValues IterBinding="AdminCompanyCRUDIterator" id="txtParentCompShortCode">
+      <AttrNames>
+        <Item Value="txtParentCompShortCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AdminCompanyCRUDIterator" id="CompCode">
+      <AttrNames>
+        <Item Value="CompCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AdminCompanyCRUDIterator" id="ParentCompCode">
+      <AttrNames>
+        <Item Value="ParentCompCode"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="AdminCompanyCRUDIterator" StaticList="false" Uses="LovtxtChildCompanyName"
+                  id="txtChildCompanyName"/>
+    <attributeValues IterBinding="AdminCompanyCRUDIterator" id="txtChildCompanyCode">
+      <AttrNames>
+        <Item Value="txtChildCompanyCode"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="AdminCompanyCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="AdminCompanyCRUDIterator" id="CreateWithParams" RequiresUpdateModel="true"
+            Action="createWithParams">
+      <NamedData NDName="ParentCompCode" NDValue="#{pageFlowScope.OracleERPBean.ERPCompanyCode}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="CompanyTypeSno" NDValue="#{pageFlowScope.OracleERPBean.ERPCompanyTypeSno}"
+                 NDType="java.lang.String"/>
+    </action>
+    <attributeValues IterBinding="AdminCompanyCRUDIterator" id="BusinessStartDate">
+      <AttrNames>
+        <Item Value="BusinessStartDate"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

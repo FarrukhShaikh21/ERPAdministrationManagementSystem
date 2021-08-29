@@ -1,0 +1,1401 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:cc="http://java.sun.com/jsf/composite">
+    <af:document title="SEC_0008_EDIT.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1" partialTriggers="l1 l3 l18">
+            <af:popup childCreation="deferred" autoCancel="disabled" id="p1" contentDelivery="lazyUncached"
+                      popupFetchListener="#{pageFlowScope.OracleERPBean.doErpPOPEGrpLinSitSEC_0008}">
+                <af:dialog id="d2" type="ok" title="Sites">
+                    <af:panelTabbed position="above" id="pt3">
+                        <af:showDetailItem id="tab3" text="Available Sites For (#{bindings.ModuleAction.inputValue})">
+                            <af:panelCollection id="pc5" styleClass="AFStretchWidth">
+                                <f:facet name="menus"/>
+                                <f:facet name="toolbar">
+                                    <af:toolbar id="t16" flex="5">
+                                        <af:quickQuery label="Search" searchDesc="Search" id="qryId5"
+                                                       value="#{bindings.ImplicitViewCriteriaQuery4.quickQueryDescriptor}"
+                                                       model="#{bindings.ImplicitViewCriteriaQuery4.queryModel}"
+                                                       queryListener="#{bindings.ImplicitViewCriteriaQuery4.processQuery}">
+                                            <f:facet name="end">
+                                                <af:commandLink text="Advanced" rendered="false" id="cl5"/>
+                                            </f:facet>
+                                        </af:quickQuery>
+                                    </af:toolbar>
+                                </f:facet>
+                                <f:facet name="statusbar">
+                                    <af:toolbar id="t14" partialTriggers="qryId5">
+                                        <af:inputText label="#{bindings.txtCountCompany.hints.label}" id="it44"
+                                                      value="#{bindings.txtCountCompany.inputValue}"/>
+                                    </af:toolbar>
+                                </f:facet>
+                                <af:table value="#{bindings.AdminCompanyGroupActLinAssignRO.collectionModel}" var="row"
+                                          rows="#{bindings.AdminCompanyGroupActLinAssignRO.rangeSize}"
+                                          emptyText="#{bindings.AdminCompanyGroupActLinAssignRO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                          rowBandingInterval="0"
+                                          selectedRowKeys="#{bindings.AdminCompanyGroupActLinAssignRO.collectionModel.selectedRow}"
+                                          selectionListener="#{bindings.AdminCompanyGroupActLinAssignRO.collectionModel.makeCurrent}"
+                                          rowSelection="single"
+                                          fetchSize="#{bindings.AdminCompanyGroupActLinAssignRO.rangeSize}" id="t13"
+                                          scrollPolicy="scroll" autoHeightRows="10" partialTriggers=":::b1 l9">
+                                    <af:column headerText="#{bindings.AdminCompanyGroupActLinAssignRO.hints.CompanyName.label}"
+                                               id="c34" width="150" displayIndex="-1">
+                                        <af:inputText value="#{row.bindings.CompanyName.inputValue}"
+                                                      label="#{bindings.AdminCompanyGroupActLinAssignRO.hints.CompanyName.label}"
+                                                      required="#{bindings.AdminCompanyGroupActLinAssignRO.hints.CompanyName.mandatory}"
+                                                      columns="#{bindings.AdminCompanyGroupActLinAssignRO.hints.CompanyName.displayWidth}"
+                                                      maximumLength="#{bindings.AdminCompanyGroupActLinAssignRO.hints.CompanyName.precision}"
+                                                      shortDesc="#{bindings.AdminCompanyGroupActLinAssignRO.hints.CompanyName.tooltip}"
+                                                      id="it15" readOnly="true">
+                                            <f:validator binding="#{row.bindings.CompanyName.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column headerText="#{bindings.AdminCompanyGroupActLinAssignRO.hints.CompanyShortCode.label}"
+                                               id="c35">
+                                        <af:inputText value="#{row.bindings.CompanyShortCode.inputValue}"
+                                                      label="#{bindings.AdminCompanyGroupActLinAssignRO.hints.CompanyShortCode.label}"
+                                                      required="#{bindings.AdminCompanyGroupActLinAssignRO.hints.CompanyShortCode.mandatory}"
+                                                      columns="#{bindings.AdminCompanyGroupActLinAssignRO.hints.CompanyShortCode.displayWidth}"
+                                                      maximumLength="#{bindings.AdminCompanyGroupActLinAssignRO.hints.CompanyShortCode.precision}"
+                                                      shortDesc="#{bindings.AdminCompanyGroupActLinAssignRO.hints.CompanyShortCode.tooltip}"
+                                                      id="it16" readOnly="true">
+                                            <f:validator binding="#{row.bindings.CompanyShortCode.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column headerText="#{bindings.AdminCompanyGroupActLinAssignRO.hints.CompanyShortName.label}"
+                                               id="c36">
+                                        <af:inputText value="#{row.bindings.CompanyShortName.inputValue}"
+                                                      label="#{bindings.AdminCompanyGroupActLinAssignRO.hints.CompanyShortName.label}"
+                                                      required="#{bindings.AdminCompanyGroupActLinAssignRO.hints.CompanyShortName.mandatory}"
+                                                      columns="#{bindings.AdminCompanyGroupActLinAssignRO.hints.CompanyShortName.displayWidth}"
+                                                      maximumLength="#{bindings.AdminCompanyGroupActLinAssignRO.hints.CompanyShortName.precision}"
+                                                      shortDesc="#{bindings.AdminCompanyGroupActLinAssignRO.hints.CompanyShortName.tooltip}"
+                                                      id="it21" readOnly="true">
+                                            <f:validator binding="#{row.bindings.CompanyShortName.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column headerText="#{bindings.AdminCompanyGroupActLinAssignRO.hints.CompanyTypeSno.label}"
+                                               id="c37" width="150" displayIndex="-1" minimumWidth="12">
+                                        <af:selectOneChoice value="#{row.bindings.CompanyTypeSno.inputValue}"
+                                                            label="#{row.bindings.CompanyTypeSno.label}"
+                                                            required="#{bindings.AdminCompanyGroupActLinAssignRO.hints.CompanyTypeSno.mandatory}"
+                                                            shortDesc="#{bindings.AdminCompanyGroupActLinAssignRO.hints.CompanyTypeSno.tooltip}"
+                                                            id="soc18" readOnly="true">
+                                            <f:selectItems value="#{row.bindings.CompanyTypeSno.items}" id="si32"/>
+                                            <f:validator binding="#{row.bindings.CompanyTypeSno.validator}"/>
+                                        </af:selectOneChoice>
+                                    </af:column>
+                                    <af:column headerText="#{bindings.AdminCompanyGroupActLinAssignRO.hints.txtParentCompanyName.label}"
+                                               id="c38" width="160" displayIndex="-1">
+                                        <af:inputComboboxListOfValues id="iclov1"
+                                                                      popupTitle="Search and Select: #{bindings.AdminCompanyGroupActLinAssignRO.hints.txtParentCompanyName.label}"
+                                                                      value="#{row.bindings.txtParentCompanyName.inputValue}"
+                                                                      model="#{row.bindings.txtParentCompanyName.listOfValuesModel}"
+                                                                      required="#{bindings.AdminCompanyGroupActLinAssignRO.hints.txtParentCompanyName.mandatory}"
+                                                                      columns="#{bindings.AdminCompanyGroupActLinAssignRO.hints.txtParentCompanyName.displayWidth}"
+                                                                      shortDesc="#{bindings.AdminCompanyGroupActLinAssignRO.hints.txtParentCompanyName.tooltip}"
+                                                                      readOnly="true">
+                                            <f:validator binding="#{row.bindings.txtParentCompanyName.validator}"/>
+                                        </af:inputComboboxListOfValues>
+                                    </af:column>
+                                    <af:column headerText="#{bindings.AdminCompanyGroupActLinAssignRO.hints.txtCityName.label}"
+                                               id="c39" width="130" minimumWidth="12">
+                                        <af:inputComboboxListOfValues id="txtCityNameId"
+                                                                      popupTitle="Search and Select: #{bindings.AdminCompanyGroupActLinAssignRO.hints.txtCityName.label}"
+                                                                      value="#{row.bindings.txtCityName.inputValue}"
+                                                                      model="#{row.bindings.txtCityName.listOfValuesModel}"
+                                                                      required="#{bindings.AdminCompanyGroupActLinAssignRO.hints.txtCityName.mandatory}"
+                                                                      columns="#{bindings.AdminCompanyGroupActLinAssignRO.hints.txtCityName.displayWidth}"
+                                                                      shortDesc="#{bindings.AdminCompanyGroupActLinAssignRO.hints.txtCityName.tooltip}"
+                                                                      readOnly="true">
+                                            <f:validator binding="#{row.bindings.txtCityName.validator}"/>
+                                        </af:inputComboboxListOfValues>
+                                    </af:column>
+                                    <af:column id="c43" width="80">
+                                        <af:inputText value="#{row.bindings.txtSelected.inputValue}" simple="true"
+                                                      required="#{bindings.AdminCompanyGroupActLinAssignRO.hints.txtSelected.mandatory}"
+                                                      columns="#{bindings.AdminCompanyGroupActLinAssignRO.hints.txtSelected.displayWidth}"
+                                                      maximumLength="#{bindings.AdminCompanyGroupActLinAssignRO.hints.txtSelected.precision}"
+                                                      shortDesc="#{bindings.AdminCompanyGroupActLinAssignRO.hints.txtSelected.tooltip}"
+                                                      id="it11" rendered="false">
+                                            <f:validator binding="#{row.bindings.txtSelected.validator}"/>
+                                        </af:inputText>
+                                        <af:link actionListener="#{bindings.doAssigERPOneCompToGrpLinAction.execute}"
+                                                 text="Assign Site"
+                                                 id="l9" partialSubmit="true"
+                                                 disabled="#{row.bindings.txtSelected.inputValue=='Y'}"/>
+                                    </af:column>
+                                </af:table>
+                                <f:facet name="secondaryToolbar">
+                                    <af:toolbar id="t15">
+                                        <af:link actionListener="#{bindings.doAssignERPCompanyToGroupAction.execute}"
+                                                 text="Assign Below Sites To Action"
+                                                 disabled="#{bindings.AdminCompanyGroupActLinAssignROIterator.estimatedRowCount==0}" id="l6"
+                                                 partialSubmit="true" partialTriggers="qryId5 l6 t13:l9"/>
+                                    </af:toolbar>
+                                </f:facet>
+                            </af:panelCollection>
+                        </af:showDetailItem>
+                        <af:showDetailItem id="tab4" text="Assignes Sites" styleClass="AFStretchWidth">
+                            <f:facet name="toolbar"/>
+                            <af:panelCollection id="pc4" featuresOff="viewMenu detach" styleClass="AFStretchWidth"
+                                                partialTriggers=":::tab4">
+                                <f:facet name="menus"/>
+                                <f:facet name="toolbar">
+                                    <af:toolbar id="t12" flex="5">
+                                        <af:quickQuery label="Search" searchDesc="Search" id="qryId4"
+                                                       value="#{bindings.ImplicitViewCriteriaQuery3.quickQueryDescriptor}"
+                                                       model="#{bindings.ImplicitViewCriteriaQuery3.queryModel}"
+                                                       queryListener="#{bindings.ImplicitViewCriteriaQuery3.processQuery}">
+                                            <f:facet name="end">
+                                                <af:commandLink text="Advanced" rendered="false" id="cl4"/>
+                                            </f:facet>
+                                        </af:quickQuery>
+                                    </af:toolbar>
+                                </f:facet>
+                                <f:facet name="statusbar">
+                                    <af:toolbar id="t28" partialTriggers="qryId4">
+                                        <af:inputText value="#{bindings.txtCountGroupActionComp.inputValue}"
+                                                      label="#{bindings.txtCountGroupActionComp.hints.label}"
+                                                      required="#{bindings.txtCountGroupActionComp.hints.mandatory}"
+                                                      columns="#{bindings.txtCountGroupActionComp.hints.displayWidth}"
+                                                      maximumLength="#{bindings.txtCountGroupActionComp.hints.precision}"
+                                                      shortDesc="#{bindings.txtCountGroupActionComp.hints.tooltip}"
+                                                      id="it45">
+                                            <f:validator binding="#{bindings.txtCountGroupActionComp.validator}"/>
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.txtCountGroupActionComp.format}"/>
+                                        </af:inputText>
+                                    </af:toolbar>
+                                </f:facet>
+                                <af:table value="#{bindings.SysActionGroupLinesCompanyDetCRUD.collectionModel}"
+                                          var="row" rows="#{bindings.SysActionGroupLinesCompanyDetCRUD.rangeSize}"
+                                          emptyText="#{bindings.SysActionGroupLinesCompanyDetCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                          rowBandingInterval="0"
+                                          selectedRowKeys="#{bindings.SysActionGroupLinesCompanyDetCRUD.collectionModel.selectedRow}"
+                                          selectionListener="#{bindings.SysActionGroupLinesCompanyDetCRUD.collectionModel.makeCurrent}"
+                                          rowSelection="single"
+                                          fetchSize="#{bindings.SysActionGroupLinesCompanyDetCRUD.rangeSize}" id="t11"
+                                          partialTriggers=":::tab4 c30" autoHeightRows="8" scrollPolicy="scroll"
+                                          columnStretching="column:c30">
+                                    <af:column headerText="#{bindings.SysActionGroupLinesCompanyDetCRUD.hints.CompanyName.label}"
+                                               id="c30" width="200">
+                                        <af:inputText value="#{row.bindings.CompanyName.inputValue}"
+                                                      label="#{bindings.SysActionGroupLinesCompanyDetCRUD.hints.CompanyName.label}"
+                                                      required="#{bindings.SysActionGroupLinesCompanyDetCRUD.hints.CompanyName.mandatory}"
+                                                      columns="#{bindings.SysActionGroupLinesCompanyDetCRUD.hints.CompanyName.displayWidth}"
+                                                      maximumLength="#{bindings.SysActionGroupLinesCompanyDetCRUD.hints.CompanyName.precision}"
+                                                      shortDesc="#{bindings.SysActionGroupLinesCompanyDetCRUD.hints.CompanyName.tooltip}"
+                                                      id="it12">
+                                            <f:validator binding="#{row.bindings.CompanyName.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column headerText="#{bindings.SysActionGroupLinesCompanyDetCRUD.hints.CompanyShortCode.label}"
+                                               id="c31" width="200">
+                                        <af:inputText value="#{row.bindings.CompanyShortCode.inputValue}"
+                                                      label="#{bindings.SysActionGroupLinesCompanyDetCRUD.hints.CompanyShortCode.label}"
+                                                      required="#{bindings.SysActionGroupLinesCompanyDetCRUD.hints.CompanyShortCode.mandatory}"
+                                                      columns="#{bindings.SysActionGroupLinesCompanyDetCRUD.hints.CompanyShortCode.displayWidth}"
+                                                      maximumLength="#{bindings.SysActionGroupLinesCompanyDetCRUD.hints.CompanyShortCode.precision}"
+                                                      shortDesc="#{bindings.SysActionGroupLinesCompanyDetCRUD.hints.CompanyShortCode.tooltip}"
+                                                      id="it13">
+                                            <f:validator binding="#{row.bindings.CompanyShortCode.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column headerText="#{bindings.SysActionGroupLinesCompanyDetCRUD.hints.CompanyShortName.label}"
+                                               id="c32" width="150">
+                                        <af:inputText value="#{row.bindings.CompanyShortName.inputValue}"
+                                                      label="#{bindings.SysActionGroupLinesCompanyDetCRUD.hints.CompanyShortName.label}"
+                                                      required="#{bindings.SysActionGroupLinesCompanyDetCRUD.hints.CompanyShortName.mandatory}"
+                                                      columns="#{bindings.SysActionGroupLinesCompanyDetCRUD.hints.CompanyShortName.displayWidth}"
+                                                      maximumLength="#{bindings.SysActionGroupLinesCompanyDetCRUD.hints.CompanyShortName.precision}"
+                                                      shortDesc="#{bindings.SysActionGroupLinesCompanyDetCRUD.hints.CompanyShortName.tooltip}"
+                                                      id="it14">
+                                            <f:validator binding="#{row.bindings.CompanyShortName.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column headerText="#{bindings.SysActionGroupLinesCompanyDetCRUD.hints.IsActive.label}"
+                                               id="c33">
+                                        <af:selectOneChoice label="Label 13" value="#{row.bindings.IsActive.inputValue}"
+                                                            id="soc17">
+                                            <af:selectItem label="YES" value="Y" id="si30"/>
+                                            <af:selectItem label="NO" value="N" id="si31"/>
+                                        </af:selectOneChoice>
+                                    </af:column>
+                                    <af:column id="c40">
+                                        <af:link actionListener="#{bindings.Delete1.execute}"
+                                                 disabled="#{!bindings.Delete1.enabled}" id="l7"
+                                                 icon="#{resource['images:imgDeleteRecord.png']}" partialSubmit="true"/>
+                                    </af:column>
+                                </af:table>
+                            </af:panelCollection>
+                        </af:showDetailItem>
+                    </af:panelTabbed>
+                    <f:facet name="buttonBar"/>
+                </af:dialog>
+            </af:popup>
+            <af:popup childCreation="deferred" autoCancel="disabled" id="p2"
+                            binding="#{pageFlowScope.OracleERPBean.lerpSupervisePopupConfirm}" contentDelivery="lazyUncached">
+                    <af:dialog id="d3" type="yesNo" closeIconVisible="false" title="Supervise"
+                               dialogListener="#{pageFlowScope.OracleERPBean.doERPConfirmSuperviseDialog}">
+                      <af:outputText value="Do you want to Supervise this transaction?" id="ot8" inlineStyle="font-size:large;"/>
+                      <f:facet name="buttonBar"/>
+                            </af:dialog>
+                </af:popup>
+                <af:popup childCreation="deferred" autoCancel="disabled" id="p3"
+                            binding="#{pageFlowScope.OracleERPBean.lerpUnSupervisePopupConfirm}" contentDelivery="lazyUncached">
+                    <af:dialog id="d4" type="yesNo" closeIconVisible="false" title="UnSupervise"
+                               dialogListener="#{pageFlowScope.OracleERPBean.doERPConfirmUnSuperviseDialog}">
+                      <af:outputText value="Do you want to UnSupervise this transaction?" id="ot9" inlineStyle="font-size:large;"/>
+                      <f:facet name="buttonBar"/>
+                            </af:dialog>
+                </af:popup>            
+            <af:decorativeBox id="db2" dimensionsFrom="parent">
+                <f:facet name="center">
+                    <af:decorativeBox id="db1" dimensionsFrom="parent">
+                        <f:facet name="center">
+                            <af:panelBox text="Activity Group" id="pb1" showDisclosure="false" partialTriggers="d4 d3">
+                                <af:inputText value="#{bindings.IsUnsupervised.inputValue}"
+                                              label="#{bindings.IsUnsupervised.hints.label}"
+                                              required="#{bindings.IsUnsupervised.hints.mandatory}"
+                                              columns="#{bindings.IsUnsupervised.hints.displayWidth}"
+                                              maximumLength="#{bindings.IsUnsupervised.hints.precision}"
+                                              shortDesc="#{bindings.IsUnsupervised.hints.tooltip}" id="it48"
+                                              rendered="false">
+                                    <f:validator binding="#{bindings.IsUnsupervised.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.IsSupervised.inputValue}"
+                                              label="#{bindings.IsSupervised.hints.label}"
+                                              required="#{bindings.IsSupervised.hints.mandatory}"
+                                              columns="#{bindings.IsSupervised.hints.displayWidth}"
+                                              maximumLength="#{bindings.IsSupervised.hints.precision}"
+                                              shortDesc="#{bindings.IsSupervised.hints.tooltip}" id="it47"
+                                              rendered="false">
+                                    <f:validator binding="#{bindings.IsSupervised.validator}"/>
+                                </af:inputText>
+                                <af:panelGridLayout id="pgl1" dimensionsFrom="children">
+                                    <af:gridRow marginTop="5px" height="auto" id="gr1">
+                                        <af:gridCell marginStart="5px" width="12%" id="gc1" marginEnd="5px"
+                                                     halign="end">
+                                            <af:outputLabel value="#{bindings.GroupHeaderCode.hints.label}" id="ol1"/>
+                                            <af:inputText value="#{bindings.P_GROUP_HEADER_SNO.inputValue}"
+                                                          label="#{bindings.P_GROUP_HEADER_SNO.hints.label}"
+                                                          required="#{bindings.P_GROUP_HEADER_SNO.hints.mandatory}"
+                                                          columns="#{bindings.P_GROUP_HEADER_SNO.hints.displayWidth}"
+                                                          maximumLength="#{bindings.P_GROUP_HEADER_SNO.hints.precision}"
+                                                          shortDesc="#{bindings.P_GROUP_HEADER_SNO.hints.tooltip}"
+                                                          id="it24" rendered="false">
+                                                <f:validator binding="#{bindings.P_GROUP_HEADER_SNO.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.P_GROUP_HEADER_SNO.format}"/>
+                                            </af:inputText>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="21%" id="gc2" marginEnd="5px"
+                                                     halign="stretch">
+                                            <af:inputText value="#{bindings.GroupHeaderSno.inputValue}"
+                                                          label="#{bindings.GroupHeaderSno.hints.label}"
+                                                          required="#{bindings.GroupHeaderSno.hints.mandatory}"
+                                                          columns="#{bindings.GroupHeaderSno.hints.displayWidth}"
+                                                          maximumLength="#{bindings.GroupHeaderSno.hints.precision}"
+                                                          shortDesc="#{bindings.GroupHeaderSno.hints.tooltip}"
+                                                          id="it23" readOnly="true" rendered="false">
+                                                <f:validator binding="#{bindings.GroupHeaderSno.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.GroupHeaderSno.format}"/>
+                                            </af:inputText>
+                                            <af:inputText value="#{bindings.GroupHeaderCode.inputValue}"
+                                                          label="#{bindings.GroupHeaderCode.hints.label}"
+                                                          required="#{bindings.GroupHeaderCode.hints.mandatory}"
+                                                          columns="#{bindings.GroupHeaderCode.hints.displayWidth}"
+                                                          maximumLength="#{bindings.GroupHeaderCode.hints.precision}"
+                                                          shortDesc="#{bindings.GroupHeaderCode.hints.tooltip}" id="it1"
+                                                          readOnly="true" simple="true" contentStyle="width:100%">
+                                                <f:validator binding="#{bindings.GroupHeaderCode.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.GroupHeaderCode.format}"/>
+                                            </af:inputText>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="12%" id="gc3" marginEnd="5px"
+                                                     halign="end"/>
+                                        <af:gridCell marginStart="5px" width="21%" id="gc4" marginEnd="5px"
+                                                     halign="stretch"/>
+                                        <af:gridCell marginStart="5px" width="12%" id="gc5" marginEnd="5px"
+                                                     halign="end"/>
+                                        <af:gridCell marginStart="5px" width="22%" marginEnd="5px" id="gc6"
+                                                     halign="stretch"/>
+                                    </af:gridRow>
+                                    <af:gridRow marginTop="5px" height="auto" id="gr2">
+                                        <af:gridCell marginStart="5px" width="12%" id="gc7" marginEnd="5px"
+                                                     halign="end">
+                                            <af:outputLabel value="#{bindings.DocumentDate.hints.label}" id="ol2"/>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="21%" id="gc8" marginEnd="5px"
+                                                     halign="stretch" valign="middle">
+                                            <af:inputDate value="#{bindings.DocumentDate.inputValue}"
+                                                          label="#{bindings.DocumentDate.hints.label}"
+                                                          required="#{bindings.DocumentDate.hints.mandatory}"
+                                                          columns="#{bindings.DocumentDate.hints.displayWidth}"
+                                                          shortDesc="#{bindings.DocumentDate.hints.tooltip}" id="id1"
+                                                          simple="true" contentStyle="width:70%"
+                                                          disabled="#{bindings.GroupHeaderCode.inputValue!=null &amp;&amp;  pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N'}">
+                                                <f:validator binding="#{bindings.DocumentDate.validator}"/>
+                                                <af:convertDateTime pattern="#{bindings.DocumentDate.format}"/>
+                                            </af:inputDate>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="12%" id="gc9" marginEnd="5px"
+                                                     halign="end">
+                                            <af:outputLabel value="#{bindings.ActionGroupName.hints.label}" id="ol3"/>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="21%" id="gc10" marginEnd="5px"
+                                                     halign="stretch" valign="middle">
+                                            <af:inputText value="#{bindings.ActionGroupName.inputValue}"
+                                                          label="#{bindings.ActionGroupName.hints.label}"
+                                                          required="#{bindings.ActionGroupName.hints.mandatory}"
+                                                          columns="#{bindings.ActionGroupName.hints.displayWidth}"
+                                                          maximumLength="#{bindings.ActionGroupName.hints.precision}"
+                                                          shortDesc="#{bindings.ActionGroupName.hints.tooltip}" id="it2"
+                                                          contentStyle="width:100%" simple="true"
+                                                          disabled="#{bindings.GroupHeaderCode.inputValue!=null &amp;&amp;  pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N'}">
+                                                <f:validator binding="#{bindings.ActionGroupName.validator}"/>
+                                            </af:inputText>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="12%" id="gc11" marginEnd="5px"
+                                                     halign="end">
+                                            <af:outputLabel value="#{bindings.StartDate.hints.label}" id="ol5"/>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="22%" marginEnd="5px" id="gc12"
+                                                     halign="stretch" valign="middle">
+                                            <af:inputDate value="#{bindings.StartDate.inputValue}"
+                                                          label="#{bindings.StartDate.hints.label}"
+                                                          required="#{bindings.StartDate.hints.mandatory}"
+                                                          columns="#{bindings.StartDate.hints.displayWidth}"
+                                                          shortDesc="#{bindings.StartDate.hints.tooltip}" id="id2"
+                                                          simple="true" contentStyle="width:80%">
+                                                <f:validator binding="#{bindings.StartDate.validator}"/>
+                                                <af:convertDateTime pattern="#{bindings.StartDate.format}"/>
+                                            </af:inputDate>
+                                        </af:gridCell>
+                                    </af:gridRow>
+                                    <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr3">
+                                        <af:gridCell marginStart="5px" width="12%" id="gc13" halign="end">
+                                            <af:outputLabel value="#{bindings.EndDate.hints.label}" id="ol6"/>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="12%" id="gc14" halign="stretch"
+                                                     valign="middle">
+                                            <af:inputDate value="#{bindings.EndDate.inputValue}"
+                                                          label="#{bindings.EndDate.hints.label}"
+                                                          required="#{bindings.EndDate.hints.mandatory}"
+                                                          columns="#{bindings.EndDate.hints.displayWidth}"
+                                                          shortDesc="#{bindings.EndDate.hints.tooltip}" id="id3"
+                                                          simple="true" contentStyle="width:70%">
+                                                <f:validator binding="#{bindings.EndDate.validator}"/>
+                                                <af:convertDateTime pattern="#{bindings.EndDate.format}"/>
+                                            </af:inputDate>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="12%" id="gc15" halign="end">
+                                            <af:outputLabel value="#{bindings.AccessType.label}" id="ol4"/>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="21%" id="gc16" halign="stretch"
+                                                     valign="middle">
+                                            <af:selectOneChoice value="#{bindings.AccessType.inputValue}"
+                                                                label="#{bindings.AccessType.label}"
+                                                                required="#{bindings.AccessType.hints.mandatory}"
+                                                                shortDesc="#{bindings.AccessType.hints.tooltip}"
+                                                                id="soc2" simple="true" contentStyle="width:100%"
+                                                                disabled="#{bindings.GroupHeaderCode.inputValue!=null &amp;&amp;  pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N'}">
+                                                <f:selectItems value="#{bindings.AccessType.items}" id="si3"/>
+                                                <f:validator binding="#{bindings.AccessType.validator}"/>
+                                            </af:selectOneChoice>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="12%" id="gc17" halign="end">
+                                            <af:outputLabel value="#{bindings.IsActive.hints.label}" id="ol7"/>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="22%" marginEnd="5px" id="gc18"
+                                                     halign="stretch" valign="middle">
+                                            <af:selectOneChoice label="#{bindings.IsActive.hints.label}"
+                                                                value="#{bindings.IsActive.inputValue}" id="soc1"
+                                                                simple="true" contentStyle="width:100%">
+                                                <af:selectItem label="YES" value="Y" id="si1"/>
+                                                <af:selectItem label="NO" value="N" id="si2"/>
+                                            </af:selectOneChoice>
+                                        </af:gridCell>
+                                    </af:gridRow>
+                                    <af:gridRow id="gr4">
+                                        <af:gridCell id="gc19" halign="end" marginStart="5px" marginEnd="5px"
+                                                     width="12%">
+                                            <af:outputLabel value="#{bindings.Remarks.hints.label}" id="ol8"/>
+                                        </af:gridCell>
+                                        <af:gridCell id="gc20" halign="stretch" marginStart="5px" marginEnd="5px"
+                                                     columnSpan="5" rowSpan="1" width="88%" valign="middle">
+                                            <af:inputText value="#{bindings.Remarks.inputValue}"
+                                                          label="#{bindings.Remarks.hints.label}"
+                                                          required="#{bindings.Remarks.hints.mandatory}"
+                                                          columns="#{bindings.Remarks.hints.displayWidth}"
+                                                          maximumLength="#{bindings.Remarks.hints.precision}"
+                                                          shortDesc="#{bindings.Remarks.hints.tooltip}" id="it5"
+                                                          simple="true" contentStyle="width:100%"
+                                                          disabled="#{bindings.GroupHeaderCode.inputValue!=null &amp;&amp;  pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N'}">
+                                                <f:validator binding="#{bindings.Remarks.validator}"/>
+                                            </af:inputText>
+                                        </af:gridCell>
+                                        <af:gridCell id="gc21" marginStart="5px" marginEnd="5px" halign="end"/>
+                                        <af:gridCell id="gc22" marginStart="5px" marginEnd="5px" halign="stretch"/>
+                                        <af:gridCell id="gc23" marginStart="5px" marginEnd="5px"/>
+                                        <af:gridCell id="gc24" marginStart="5px" marginEnd="5px"/>
+                                    </af:gridRow>
+                                </af:panelGridLayout>
+                                <af:spacer width="10" height="30" id="s1"/>
+                                <af:panelTabbed position="above" id="pt2"
+                                                visible="#{bindings.GroupHeaderCode.inputValue!=null}">
+                                    <af:showDetailItem text="Available Activities" id="sdi2" disclosed="true">
+                                        <af:panelCollection id="pc2" styleClass="AFStretchWidth"
+                                                            featuresOff="viewMenu detach ">
+                                            <f:facet name="toolbar">
+                                                <af:toolbar id="t3" flex="2">
+                                                    <af:panelGroupLayout id="pgl4" layout="horizontal"
+                                                                         styleClass="AFStretchWidth">
+                                                        <af:quickQuery label="Search" searchDesc="Search" id="qryId1"
+                                                                       value="#{bindings.ImplicitViewCriteriaQuery.quickQueryDescriptor}"
+                                                                       model="#{bindings.ImplicitViewCriteriaQuery.queryModel}"
+                                                                       queryListener="#{bindings.ImplicitViewCriteriaQuery.processQuery}"
+                                                                       styleClass="AFStretchWidth">
+                                                            <f:facet name="end">
+                                                                <af:commandLink text="Advanced" rendered="false"
+                                                                                id="cl1"/>
+                                                            </f:facet>
+                                                        </af:quickQuery>
+                                                    </af:panelGroupLayout>
+                                                </af:toolbar>
+                                            </f:facet>
+                                            <f:facet name="statusbar">
+                                                <af:toolbar id="t4" partialTriggers="qryId1">
+                                                    <af:inputText label="#{bindings.txtCount.hints.label}" id="it42"
+                                                                  value="#{bindings.txtCount.inputValue}"
+                                                                  contentStyle="font-weight:bold"
+                                                                  labelStyle="font-weight:bold"
+                                                                  inlineStyle="font-weight:bold"/>
+                                                </af:toolbar>
+                                            </f:facet>
+                                            <af:table value="#{bindings.SysModuleDetailForGroupRO.collectionModel}"
+                                                      var="row" rows="#{bindings.SysModuleDetailForGroupRO.rangeSize}"
+                                                      emptyText="#{bindings.SysModuleDetailForGroupRO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                      rowBandingInterval="0"
+                                                      selectedRowKeys="#{bindings.SysModuleDetailForGroupRO.collectionModel.selectedRow}"
+                                                      selectionListener="#{bindings.SysModuleDetailForGroupRO.collectionModel.makeCurrent}"
+                                                      rowSelection="single"
+                                                      fetchSize="#{bindings.SysModuleDetailForGroupRO.rangeSize}"
+                                                      id="t2" columnStretching="column:c17" scrollPolicy="scroll"
+                                                      autoHeightRows="6" partialTriggers="b2 l4">
+                                                <af:column headerText="#{bindings.SysModuleDetailForGroupRO.hints.ModuleId.label}"
+                                                           id="c13" width="200">
+                                                    <af:selectOneChoice value="#{row.bindings.ModuleId.inputValue}"
+                                                                        label="#{row.bindings.ModuleId.label}"
+                                                                        required="#{bindings.SysModuleDetailForGroupRO.hints.ModuleId.mandatory}"
+                                                                        shortDesc="#{bindings.SysModuleDetailForGroupRO.hints.ModuleId.tooltip}"
+                                                                        id="soc3" readOnly="true">
+                                                        <f:selectItems value="#{row.bindings.ModuleId.items}" id="si5"/>
+                                                        <f:validator binding="#{row.bindings.ModuleId.validator}"/>
+                                                    </af:selectOneChoice>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.SysModuleDetailForGroupRO.hints.ModuleAction.label}"
+                                                           id="c15" width="100">
+                                                    <af:inputText value="#{row.bindings.ModuleAction.inputValue}"
+                                                                  label="#{bindings.SysModuleDetailForGroupRO.hints.ModuleAction.label}"
+                                                                  required="#{bindings.SysModuleDetailForGroupRO.hints.ModuleAction.mandatory}"
+                                                                  columns="#{bindings.SysModuleDetailForGroupRO.hints.ModuleAction.displayWidth}"
+                                                                  maximumLength="#{bindings.SysModuleDetailForGroupRO.hints.ModuleAction.precision}"
+                                                                  shortDesc="#{bindings.SysModuleDetailForGroupRO.hints.ModuleAction.tooltip}"
+                                                                  id="it3" readOnly="true">
+                                                        <f:validator binding="#{row.bindings.ModuleAction.validator}"/>
+                                                    </af:inputText>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.SysModuleDetailForGroupRO.hints.ActionName.label}"
+                                                           id="c17">
+                                                    <af:inputText value="#{row.bindings.ActionName.inputValue}"
+                                                                  label="#{bindings.SysModuleDetailForGroupRO.hints.ActionName.label}"
+                                                                  required="#{bindings.SysModuleDetailForGroupRO.hints.ActionName.mandatory}"
+                                                                  columns="#{bindings.SysModuleDetailForGroupRO.hints.ActionName.displayWidth}"
+                                                                  maximumLength="#{bindings.SysModuleDetailForGroupRO.hints.ActionName.precision}"
+                                                                  shortDesc="#{bindings.SysModuleDetailForGroupRO.hints.ActionName.tooltip}"
+                                                                  id="it19" readOnly="true">
+                                                        <f:validator binding="#{row.bindings.ActionName.validator}"/>
+                                                    </af:inputText>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.SysModuleDetailForGroupRO.hints.txtSelected.label}"
+                                                           id="c53" rendered="false">
+                                                    <af:inputText value="#{row.bindings.txtSelected.inputValue}"
+                                                                  label="#{bindings.SysModuleDetailForGroupRO.hints.txtSelected.label}"
+                                                                  required="#{bindings.SysModuleDetailForGroupRO.hints.txtSelected.mandatory}"
+                                                                  columns="#{bindings.SysModuleDetailForGroupRO.hints.txtSelected.displayWidth}"
+                                                                  maximumLength="#{bindings.SysModuleDetailForGroupRO.hints.txtSelected.precision}"
+                                                                  shortDesc="#{bindings.SysModuleDetailForGroupRO.hints.txtSelected.tooltip}"
+                                                                  id="it43">
+                                                        <f:validator binding="#{row.bindings.txtSelected.validator}"/>
+                                                    </af:inputText>
+                                                </af:column>
+                                                <af:column id="c19">
+                                                    <af:button actionListener="#{bindings.doAssignOneActivityToGroup.execute}"
+                                                               text="doAssignOneActivityToGroup"
+                                                               disabled="#{!bindings.doAssignOneActivityToGroup.enabled}"
+                                                               id="b2" rendered="false"/>
+                                                    <af:link text="Assign To Group" id="l4" partialSubmit="true"
+                                                             actionListener="#{bindings.doAssignOneActivityToGroup.execute}"
+                                                             disabled="#{row.bindings.txtSelected.inputValue=='Y' || pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N' || bindings.IsSupervised.inputValue=='Y'}"/>
+                                                </af:column>
+                                            </af:table>
+                                            <f:facet name="secondaryToolbar">
+                                                <af:toolbar id="t5">
+                                                    <af:link text="Assign Below Activities To This Group" id="l5"
+                                                             partialSubmit="true"
+                                                             actionListener="#{bindings.doAssignActivityToGroup.execute}"
+                                                             disabled="#{bindings.SysModuleDetailForGroupROIterator.estimatedRowCount==0 || pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N' || bindings.IsSupervised.inputValue=='Y'}"
+                                                             partialTriggers="qryId1 l5 t2:l4"/>
+                                                </af:toolbar>
+                                            </f:facet>
+                                            <f:facet name="afterToolbar"/>
+                                        </af:panelCollection>
+                                    </af:showDetailItem>
+                                    <af:showDetailItem id="tab1" text="Assigned Activities" stretchChildren="first"
+                                                       styleClass="AFStretchWidth" flex="2" inflexibleHeight="100">
+                                        <af:showDetailItem id="tab2" text="Activites" disclosed="true">
+                                            <af:button actionListener="#{bindings.Execute.execute}" text="Execute"
+                                                       disabled="#{!bindings.Execute.enabled}" id="b1"
+                                                       rendered="false"/>
+                                            <af:inputText value="#{bindings.ModuleAction.inputValue}"
+                                                          label="#{bindings.ModuleAction.hints.label}"
+                                                          required="#{bindings.ModuleAction.hints.mandatory}"
+                                                          columns="#{bindings.ModuleAction.hints.displayWidth}"
+                                                          maximumLength="#{bindings.ModuleAction.hints.precision}"
+                                                          shortDesc="#{bindings.ModuleAction.hints.tooltip}" id="it22"
+                                                          rendered="false">
+                                                <f:validator binding="#{bindings.ModuleAction.validator}"/>
+                                            </af:inputText>
+                                            <af:panelCollection id="pc1" styleClass="AFStretchWidth"
+                                                                featuresOff="viewMenu detach ">
+                                                <f:facet name="toolbar">
+                                                    <af:toolbar id="t6" flex="5">
+                                                        <af:panelGroupLayout id="pgl5" layout="horizontal"
+                                                                             styleClass="AFStretchWidth">
+                                                            <af:quickQuery label="Search" searchDesc="Search"
+                                                                           id="qryId2"
+                                                                           value="#{bindings.ImplicitViewCriteriaQuery1.quickQueryDescriptor}"
+                                                                           model="#{bindings.ImplicitViewCriteriaQuery1.queryModel}"
+                                                                           queryListener="#{bindings.ImplicitViewCriteriaQuery1.processQuery}"
+                                                                           styleClass="AFStretchWidth"
+                                                                           partialTriggers=":::l18">
+                                                                <f:facet name="end">
+                                                                    <af:commandLink text="Advanced" rendered="false"
+                                                                                    id="cl2"/>
+                                                                </f:facet>
+                                                            </af:quickQuery>
+                                                        </af:panelGroupLayout>
+                                                    </af:toolbar>
+                                                </f:facet>
+                                                <f:facet name="statusbar">
+                                                    <af:toolbar id="t7" partialTriggers="qryId2">
+                                                        <af:outputText value="#{bindings.txtAGLCount.hints.label}  #{bindings.txtAGLCount.inputValue}"
+                                                                       shortDesc="#{bindings.txtAGLCount.hints.tooltip}"
+                                                                       id="ot2" inlineStyle="font-weight:bold">
+                                                            <af:convertNumber groupingUsed="false"
+                                                                              pattern="#{bindings.txtAGLCount.format}"/>
+                                                        </af:outputText>
+                                                    </af:toolbar>
+                                                </f:facet>
+                                                <af:table value="#{bindings.SysActionGroupLinesDetCRUD.collectionModel}"
+                                                          var="row"
+                                                          rows="#{bindings.SysActionGroupLinesDetCRUD.rangeSize}"
+                                                          emptyText="#{bindings.SysActionGroupLinesDetCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                          rowBandingInterval="0"
+                                                          selectedRowKeys="#{bindings.SysActionGroupLinesDetCRUD.collectionModel.selectedRow}"
+                                                          selectionListener="#{bindings.SysActionGroupLinesDetCRUD.collectionModel.makeCurrent}"
+                                                          rowSelection="single"
+                                                          fetchSize="#{bindings.SysActionGroupLinesDetCRUD.rangeSize}"
+                                                          id="t1" columnStretching="column:c14" scrollPolicy="scroll"
+                                                          autoHeightRows="3" partialTriggers="l17"
+                                                          verticalGridVisible="false" displayRow="selected">
+                                                    <af:column headerText="#{bindings.SysActionGroupLinesDetCRUD.hints.ModuleAction.label}"
+                                                               id="c1" width="70" minimumWidth="12" frozen="true">
+                                                        <af:inputText value="#{row.bindings.ModuleAction.inputValue}"
+                                                                      label="#{bindings.SysActionGroupLinesDetCRUD.hints.ModuleAction.label}"
+                                                                      required="#{bindings.SysActionGroupLinesDetCRUD.hints.ModuleAction.mandatory}"
+                                                                      columns="#{bindings.SysActionGroupLinesDetCRUD.hints.ModuleAction.displayWidth}"
+                                                                      maximumLength="#{bindings.SysActionGroupLinesDetCRUD.hints.ModuleAction.precision}"
+                                                                      shortDesc="#{bindings.SysActionGroupLinesDetCRUD.hints.ModuleAction.tooltip}"
+                                                                      id="it4" readOnly="true">
+                                                            <f:validator binding="#{row.bindings.ModuleAction.validator}"/>
+                                                        </af:inputText>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.SysActionGroupLinesDetCRUD.hints.ActionName.label}"
+                                                               id="c16" frozen="true">
+                                                        <af:inputText value="#{row.bindings.ActionName.inputValue}"
+                                                                      label="#{bindings.SysActionGroupLinesDetCRUD.hints.ActionName.label}"
+                                                                      required="#{bindings.SysActionGroupLinesDetCRUD.hints.ActionName.mandatory}"
+                                                                      columns="#{bindings.SysActionGroupLinesDetCRUD.hints.ActionName.displayWidth}"
+                                                                      maximumLength="#{bindings.SysActionGroupLinesDetCRUD.hints.ActionName.precision}"
+                                                                      shortDesc="#{bindings.SysActionGroupLinesDetCRUD.hints.ActionName.tooltip}"
+                                                                      id="it17" readOnly="true">
+                                                            <f:validator binding="#{row.bindings.ActionName.validator}"/>
+                                                        </af:inputText>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.SysActionGroupLinesDetCRUD.hints.IsAllow.label}"
+                                                               id="c2" width="50" displayIndex="-1">
+                                                        <af:selectOneChoice label="Label 1"
+                                                                            value="#{row.bindings.IsAllow.inputValue}"
+                                                                            id="soc4"
+                                                                            disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N'}">
+                                                            <af:selectItem label="YES" value="Y" id="si6"/>
+                                                            <af:selectItem label="NO" value="N" id="si7"/>
+                                                        </af:selectOneChoice>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.SysActionGroupLinesDetCRUD.hints.AllowAdd.label}"
+                                                               id="c3" width="50" displayIndex="-1">
+                                                        <af:selectOneChoice label="Label 2"
+                                                                            value="#{row.bindings.AllowAdd.inputValue}"
+                                                                            id="soc5">
+                                                            <af:selectItem label="YES" value="Y" id="si8"/>
+                                                            <af:selectItem label="NO" value="N" id="si9"/>
+                                                        </af:selectOneChoice>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.SysActionGroupLinesDetCRUD.hints.AllowDelete.label}"
+                                                               id="c4" width="50" displayIndex="-1">
+                                                        <af:selectOneChoice label="Label 3"
+                                                                            value="#{row.bindings.AllowDelete.inputValue}"
+                                                                            id="soc6">
+                                                            <af:selectItem label="YES" value="Y" id="si10"/>
+                                                            <af:selectItem label="NO" value="N" id="si11"/>
+                                                        </af:selectOneChoice>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.SysActionGroupLinesDetCRUD.hints.AllowEdit.label}"
+                                                               id="c5" width="50">
+                                                        <af:selectOneChoice label="Label 4"
+                                                                            value="#{row.bindings.AllowEdit.inputValue}"
+                                                                            id="soc7"
+                                                                            disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N'}">
+                                                            <af:selectItem label="YES" value="Y" id="si12"/>
+                                                            <af:selectItem label="NO" value="N" id="si13"/>
+                                                        </af:selectOneChoice>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.SysActionGroupLinesDetCRUD.hints.AllowSupervise.label}"
+                                                               id="c6" width="60" displayIndex="-1">
+                                                        <af:selectOneChoice label="Label 5"
+                                                                            value="#{row.bindings.AllowSupervise.inputValue}"
+                                                                            id="soc8">
+                                                            <af:selectItem label="YES" value="Y" id="si14"/>
+                                                            <af:selectItem label="NO" value="N" id="si15"/>
+                                                        </af:selectOneChoice>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.SysActionGroupLinesDetCRUD.hints.ViewScanFile.label}"
+                                                               id="c7" width="50">
+                                                        <af:selectOneChoice label="Label 6"
+                                                                            value="#{row.bindings.ViewScanFile.inputValue}"
+                                                                            id="soc9">
+                                                            <af:selectItem label="YES" value="Y" id="si16"/>
+                                                            <af:selectItem label="NO" value="N" id="si17"/>
+                                                        </af:selectOneChoice>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.SysActionGroupLinesDetCRUD.hints.ScanFile.label}"
+                                                               id="c8" width="50">
+                                                        <af:selectOneChoice label="Label 8"
+                                                                            value="#{row.bindings.ScanFile.inputValue}"
+                                                                            id="soc11">
+                                                            <af:selectItem label="YES" value="Y" id="si20"/>
+                                                            <af:selectItem label="NO" value="N" id="si21"/>
+                                                        </af:selectOneChoice>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.SysActionGroupLinesDetCRUD.hints.AllowUnsupervise.label}"
+                                                               id="c9" width="50" displayIndex="-1">
+                                                        <af:selectOneChoice label="Label 7"
+                                                                            value="#{row.bindings.AllowUnsupervise.inputValue}"
+                                                                            id="soc10">
+                                                            <af:selectItem label="YES" value="Y" id="si18"/>
+                                                            <af:selectItem label="NO" value="N" id="si19"/>
+                                                        </af:selectOneChoice>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.SysActionGroupLinesDetCRUD.hints.AllowCancel.label}"
+                                                               id="c10" width="50">
+                                                        <af:selectOneChoice label="Label 9"
+                                                                            value="#{row.bindings.AllowCancel.inputValue}"
+                                                                            id="soc12">
+                                                            <af:selectItem label="YES" value="Y" id="si22"/>
+                                                            <af:selectItem label="NO" value="N" id="si23"/>
+                                                        </af:selectOneChoice>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.SysActionGroupLinesDetCRUD.hints.AllowEditOther.label}"
+                                                               id="c11" width="50" displayIndex="-1">
+                                                        <af:selectOneChoice label="Label 10"
+                                                                            value="#{row.bindings.AllowEditOther.inputValue}"
+                                                                            id="soc13">
+                                                            <af:selectItem label="YES" value="Y" id="si24"/>
+                                                            <af:selectItem label="NO" value="N" id="si25"/>
+                                                        </af:selectOneChoice>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.SysActionGroupLinesDetCRUD.hints.ScanFile.label}"
+                                                               id="c62">
+                                                        <af:selectOneChoice label="Label 17"
+                                                                            value="#{row.bindings.ScanFile.inputValue}"
+                                                                            id="soc25">
+                                                            <af:selectItem label="YES" value="Y" id="si42"/>
+                                                            <af:selectItem label="NO" value="N" id="si43"/>
+                                                        </af:selectOneChoice>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.SysActionGroupLinesDetCRUD.hints.AllowPrint.label}"
+                                                               id="c12" width="50" displayIndex="-1">
+                                                        <af:selectOneChoice label="Label 11"
+                                                                            value="#{row.bindings.AllowPrint.inputValue}"
+                                                                            id="soc14">
+                                                            <af:selectItem label="YES" value="Y" id="si26"/>
+                                                            <af:selectItem label="NO" value="N" id="si27"/>
+                                                        </af:selectOneChoice>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.SysActionGroupLinesDetCRUD.hints.Remarks.label}"
+                                                               id="c14">
+                                                        <af:inputText value="#{row.bindings.Remarks.inputValue}"
+                                                                      label="#{bindings.SysActionGroupLinesDetCRUD.hints.Remarks.label}"
+                                                                      required="#{bindings.SysActionGroupLinesDetCRUD.hints.Remarks.mandatory}"
+                                                                      columns="#{bindings.SysActionGroupLinesDetCRUD.hints.Remarks.displayWidth}"
+                                                                      maximumLength="#{bindings.SysActionGroupLinesDetCRUD.hints.Remarks.precision}"
+                                                                      shortDesc="#{bindings.SysActionGroupLinesDetCRUD.hints.Remarks.tooltip}"
+                                                                      id="it18">
+                                                            <f:validator binding="#{row.bindings.Remarks.validator}"/>
+                                                        </af:inputText>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.SysActionGroupLinesDetCRUD.hints.AccessType.label}"
+                                                               id="c41">
+                                                        <af:selectOneChoice value="#{row.bindings.AccessType.inputValue}"
+                                                                            label="#{row.bindings.AccessType.label}"
+                                                                            required="#{bindings.SysActionGroupLinesDetCRUD.hints.AccessType.mandatory}"
+                                                                            shortDesc="#{bindings.SysActionGroupLinesDetCRUD.hints.AccessType.tooltip}"
+                                                                            id="soc19">
+                                                            <f:selectItems value="#{row.bindings.AccessType.items}"
+                                                                           id="si33"/>
+                                                            <f:validator binding="#{row.bindings.AccessType.validator}"/>
+                                                        </af:selectOneChoice>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.SysActionGroupLinesDetCRUD.hints.IsActive.label}"
+                                                               id="c61" width="80">
+                                                        <af:inputText value="#{row.bindings.IsActive.inputValue}"
+                                                                      label="#{bindings.SysActionGroupLinesDetCRUD.hints.IsActive.label}"
+                                                                      required="#{bindings.SysActionGroupLinesDetCRUD.hints.IsActive.mandatory}"
+                                                                      columns="#{bindings.SysActionGroupLinesDetCRUD.hints.IsActive.displayWidth}"
+                                                                      maximumLength="#{bindings.SysActionGroupLinesDetCRUD.hints.IsActive.precision}"
+                                                                      shortDesc="#{bindings.SysActionGroupLinesDetCRUD.hints.IsActive.tooltip}"
+                                                                      id="it46" rendered="false">
+                                                            <f:validator binding="#{row.bindings.IsActive.validator}"/>
+                                                        </af:inputText>
+                                                        <af:selectOneChoice label="Label 16"
+                                                                            value="#{row.bindings.IsActive.inputValue}"
+                                                                            id="soc24">
+                                                            <af:selectItem label="YES" value="Y" id="si40"/>
+                                                            <af:selectItem label="NO" value="N" id="si41"/>
+                                                        </af:selectOneChoice>
+                                                    </af:column>
+                                                    <af:column id="c42" headerText="Sites" width="80" displayIndex="-1">
+                                                        <af:link text="View / Assign" id="l8" partialSubmit="true">
+                                                            <af:showPopupBehavior popupId=":::p1" triggerType="action"/>
+                                                        </af:link>
+                                                    </af:column>
+                                                    <af:column id="c20" width="50" minimumWidth="12">
+                                                        <af:link id="l17"
+                                                                 icon="#{resource['images:imgDeleteRecord.png']}"
+                                                                 actionListener="#{bindings.Delete.execute}"
+                                                                 partialSubmit="true"
+                                                                 disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowDelete=='N' || bindings.IsSupervised.inputValue=='Y'}"/>
+                                                    </af:column>
+                                                </af:table>
+                                            </af:panelCollection>
+                                        </af:showDetailItem>
+                                    </af:showDetailItem>
+                                    <af:showDetailItem text="Available Sites" id="sdi3">
+                                        <af:panelCollection id="pc3" styleClass="AFStretchWidth"
+                                                            featuresOff="viewMenu detach">
+                                            <f:facet name="menus"/>
+                                            <f:facet name="toolbar">
+                                                <af:toolbar id="t10">
+                                                    <af:quickQuery label="Search" searchDesc="Search" id="qryId3"
+                                                                   value="#{bindings.ImplicitViewCriteriaQuery2.quickQueryDescriptor}"
+                                                                   model="#{bindings.ImplicitViewCriteriaQuery2.queryModel}"
+                                                                   queryListener="#{bindings.ImplicitViewCriteriaQuery2.processQuery}">
+                                                        <f:facet name="end">
+                                                            <af:commandLink text="Advanced" rendered="false" id="cl3"/>
+                                                        </f:facet>
+                                                    </af:quickQuery>
+                                                </af:toolbar>
+                                            </f:facet>
+                                            <f:facet name="statusbar">
+                                                <af:toolbar id="t27" partialTriggers="qryId3">
+                                                    <af:panelGroupLayout id="pgl6" layout="horizontal" halign="center">
+                                                        <af:spacer width="10" height="10" id="s4"/>
+                                                        <af:inputText value="#{bindings.txtCountCompany1.inputValue}"
+                                                                      label="#{bindings.txtCountCompany1.hints.label}"
+                                                                      required="#{bindings.txtCountCompany1.hints.mandatory}"
+                                                                      columns="3"
+                                                                      maximumLength="#{bindings.txtCountCompany1.hints.precision}"
+                                                                      shortDesc="#{bindings.txtCountCompany1.hints.tooltip}"
+                                                                      id="it40" contentStyle="width:100%"
+                                                                      readOnly="true">
+                                                            <f:validator binding="#{bindings.txtCountCompany1.validator}"/>
+                                                            <af:convertNumber groupingUsed="false"
+                                                                              pattern="#{bindings.txtCountCompany1.format}"/>
+                                                        </af:inputText>
+                                                        <af:spacer width="10" height="10" id="s3"/>
+                                                        <f:facet name="separator"/>
+                                                    </af:panelGroupLayout>
+                                                </af:toolbar>
+                                            </f:facet>
+                                            <af:table value="#{bindings.AdminCompanyGroupActAssignRO.collectionModel}"
+                                                      var="row"
+                                                      rows="#{bindings.AdminCompanyGroupActAssignRO.rangeSize}"
+                                                      emptyText="#{bindings.AdminCompanyGroupActAssignRO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                      rowBandingInterval="0"
+                                                      selectedRowKeys="#{bindings.AdminCompanyGroupActAssignRO.collectionModel.selectedRow}"
+                                                      selectionListener="#{bindings.AdminCompanyGroupActAssignRO.collectionModel.makeCurrent}"
+                                                      rowSelection="single"
+                                                      fetchSize="#{bindings.AdminCompanyGroupActAssignRO.rangeSize}"
+                                                      id="t9" columnStretching="column:c18"
+                                                      partialTriggers="l11 ::qryId3"
+                                                      scrollPolicy="scroll" autoHeightRows="5">
+                                                <af:column headerText="#{bindings.AdminCompanyGroupActAssignRO.hints.CompanyName.label}"
+                                                           id="c18">
+                                                    <af:inputText value="#{row.bindings.CompanyName.inputValue}"
+                                                                  label="#{bindings.AdminCompanyGroupActAssignRO.hints.CompanyName.label}"
+                                                                  required="#{bindings.AdminCompanyGroupActAssignRO.hints.CompanyName.mandatory}"
+                                                                  columns="#{bindings.AdminCompanyGroupActAssignRO.hints.CompanyName.displayWidth}"
+                                                                  maximumLength="#{bindings.AdminCompanyGroupActAssignRO.hints.CompanyName.precision}"
+                                                                  shortDesc="#{bindings.AdminCompanyGroupActAssignRO.hints.CompanyName.tooltip}"
+                                                                  id="it8" readOnly="true">
+                                                        <f:validator binding="#{row.bindings.CompanyName.validator}"/>
+                                                    </af:inputText>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.AdminCompanyGroupActAssignRO.hints.CompanyShortName.label}"
+                                                           id="c25">
+                                                    <af:inputText value="#{row.bindings.CompanyShortName.inputValue}"
+                                                                  label="#{bindings.AdminCompanyGroupActAssignRO.hints.CompanyShortName.label}"
+                                                                  required="#{bindings.AdminCompanyGroupActAssignRO.hints.CompanyShortName.mandatory}"
+                                                                  columns="#{bindings.AdminCompanyGroupActAssignRO.hints.CompanyShortName.displayWidth}"
+                                                                  maximumLength="#{bindings.AdminCompanyGroupActAssignRO.hints.CompanyShortName.precision}"
+                                                                  shortDesc="#{bindings.AdminCompanyGroupActAssignRO.hints.CompanyShortName.tooltip}"
+                                                                  id="it9" readOnly="true">
+                                                        <f:validator binding="#{row.bindings.CompanyShortName.validator}"/>
+                                                    </af:inputText>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.AdminCompanyGroupActAssignRO.hints.CompanyShortCode.label}"
+                                                           id="c26">
+                                                    <af:inputText value="#{row.bindings.CompanyShortCode.inputValue}"
+                                                                  label="#{bindings.AdminCompanyGroupActAssignRO.hints.CompanyShortCode.label}"
+                                                                  required="#{bindings.AdminCompanyGroupActAssignRO.hints.CompanyShortCode.mandatory}"
+                                                                  columns="#{bindings.AdminCompanyGroupActAssignRO.hints.CompanyShortCode.displayWidth}"
+                                                                  maximumLength="#{bindings.AdminCompanyGroupActAssignRO.hints.CompanyShortCode.precision}"
+                                                                  shortDesc="#{bindings.AdminCompanyGroupActAssignRO.hints.CompanyShortCode.tooltip}"
+                                                                  id="it10" readOnly="true">
+                                                        <f:validator binding="#{row.bindings.CompanyShortCode.validator}"/>
+                                                    </af:inputText>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.AdminCompanyGroupActAssignRO.hints.CompanyTypeSno.label}"
+                                                           id="c27" width="150">
+                                                    <af:selectOneChoice value="#{row.bindings.CompanyTypeSno.inputValue}"
+                                                                        label="#{row.bindings.CompanyTypeSno.label}"
+                                                                        required="#{bindings.AdminCompanyGroupActAssignRO.hints.CompanyTypeSno.mandatory}"
+                                                                        shortDesc="#{bindings.AdminCompanyGroupActAssignRO.hints.CompanyTypeSno.tooltip}"
+                                                                        id="soc15" readOnly="true">
+                                                        <f:selectItems value="#{row.bindings.CompanyTypeSno.items}"
+                                                                       id="si4"/>
+                                                        <f:validator binding="#{row.bindings.CompanyTypeSno.validator}"/>
+                                                    </af:selectOneChoice>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.AdminCompanyGroupActAssignRO.hints.txtCityName.label}"
+                                                           id="c28" width="200" displayIndex="-1">
+                                                    <af:inputComboboxListOfValues id="iclov2"
+                                                                                  popupTitle="Search and Select: #{bindings.AdminCompanyGroupActAssignRO.hints.txtCityName.label}"
+                                                                                  value="#{row.bindings.txtCityName.inputValue}"
+                                                                                  model="#{row.bindings.txtCityName.listOfValuesModel}"
+                                                                                  required="#{bindings.AdminCompanyGroupActAssignRO.hints.txtCityName.mandatory}"
+                                                                                  columns="#{bindings.AdminCompanyGroupActAssignRO.hints.txtCityName.displayWidth}"
+                                                                                  shortDesc="#{bindings.AdminCompanyGroupActAssignRO.hints.txtCityName.tooltip}"
+                                                                                  readOnly="true">
+                                                        <f:validator binding="#{row.bindings.txtCityName.validator}"/>
+                                                    </af:inputComboboxListOfValues>
+                                                </af:column>
+                                                <af:column id="c45">
+                                                    <af:inputText value="#{row.bindings.txtSelected.inputValue}"
+                                                                  label="#{bindings.AdminCompanyGroupActAssignRO.hints.txtSelected.label}"
+                                                                  required="#{bindings.AdminCompanyGroupActAssignRO.hints.txtSelected.mandatory}"
+                                                                  columns="#{bindings.AdminCompanyGroupActAssignRO.hints.txtSelected.displayWidth}"
+                                                                  maximumLength="#{bindings.AdminCompanyGroupActAssignRO.hints.txtSelected.precision}"
+                                                                  shortDesc="#{bindings.AdminCompanyGroupActAssignRO.hints.txtSelected.tooltip}"
+                                                                  id="it20" rendered="false">
+                                                        <f:validator binding="#{row.bindings.txtSelected.validator}"/>
+                                                    </af:inputText>
+                                                    <af:link actionListener="#{bindings.doAssignERPOneCompToGroup.execute}"
+                                                             text="Assign to Group"
+                                                             disabled="#{row.bindings.txtSelected.inputValue=='Y' || pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N' || bindings.IsSupervised.inputValue=='Y'}"
+                                                             id="l11" partialSubmit="true"/>
+                                                </af:column>
+                                            </af:table>
+                                            <f:facet name="secondaryToolbar">
+                                                <af:toolbar id="t17">
+                                                    <af:link actionListener="#{bindings.doAssignERPCompanyToGroup.execute}"
+                                                             text="Assign Site to This Group"
+                                                             id="l12" partialSubmit="true"
+                                                             disabled="#{bindings.AdminCompanyGroupActAssignROIterator.estimatedRowCount==0 || pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N' || bindings.IsSupervised.inputValue=='Y'}"
+                                                             partialTriggers="qryId3 t9:l11 l12"/>
+                                                </af:toolbar>
+                                            </f:facet>
+                                        </af:panelCollection>
+                                    </af:showDetailItem>
+                                    <af:showDetailItem text="Assigned Sites" id="sdi1">
+                                        <af:panelCollection id="pc6" styleClass="AFStretchWidth"
+                                                            featuresOff="viewMenu detach">
+                                            <f:facet name="menus"/>
+                                            <f:facet name="toolbar">
+                                                <af:toolbar id="t19">
+                                                    <af:quickQuery label="Search" searchDesc="Search" id="qryId6"
+                                                                   value="#{bindings.ImplicitViewCriteriaQuery5.quickQueryDescriptor}"
+                                                                   model="#{bindings.ImplicitViewCriteriaQuery5.queryModel}"
+                                                                   queryListener="#{bindings.ImplicitViewCriteriaQuery5.processQuery}">
+                                                        <f:facet name="end">
+                                                            <af:commandLink text="Advanced" rendered="false" id="cl6"/>
+                                                        </f:facet>
+                                                    </af:quickQuery>
+                                                </af:toolbar>
+                                            </f:facet>
+                                            <f:facet name="statusbar">
+                                                <af:toolbar id="t26" partialTriggers="qryId6">
+                                                    <af:inputText value="#{bindings.txtCountUserCompany.inputValue}"
+                                                                  label="#{bindings.txtCountUserCompany.hints.label}"
+                                                                  required="#{bindings.txtCountUserCompany.hints.mandatory}"
+                                                                  columns="#{bindings.txtCountUserCompany.hints.displayWidth}"
+                                                                  maximumLength="#{bindings.txtCountUserCompany.hints.precision}"
+                                                                  shortDesc="#{bindings.txtCountUserCompany.hints.tooltip}"
+                                                                  id="it41">
+                                                        <f:validator binding="#{bindings.txtCountUserCompany.validator}"/>
+                                                        <af:convertNumber groupingUsed="false"
+                                                                          pattern="#{bindings.txtCountUserCompany.format}"/>
+                                                    </af:inputText>
+                                                </af:toolbar>
+                                            </f:facet>
+                                            <af:table value="#{bindings.SysActionGroupCompanyDetCRUD.collectionModel}"
+                                                      var="row"
+                                                      rows="#{bindings.SysActionGroupCompanyDetCRUD.rangeSize}"
+                                                      emptyText="#{bindings.SysActionGroupCompanyDetCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                      rowBandingInterval="0"
+                                                      selectedRowKeys="#{bindings.SysActionGroupCompanyDetCRUD.collectionModel.selectedRow}"
+                                                      selectionListener="#{bindings.SysActionGroupCompanyDetCRUD.collectionModel.makeCurrent}"
+                                                      rowSelection="single"
+                                                      fetchSize="#{bindings.SysActionGroupCompanyDetCRUD.rangeSize}"
+                                                      id="t8" partialTriggers="l10" scrollPolicy="scroll"
+                                                      autoHeightRows="3" columnStretching="column:c22">
+                                                <af:column headerText="#{bindings.SysActionGroupCompanyDetCRUD.hints.txtCompanyName.label}"
+                                                           id="c22" width="200">
+                                                    <af:inputText value="#{row.bindings.txtCompanyName.inputValue}"
+                                                                  label="#{bindings.SysActionGroupCompanyDetCRUD.hints.txtCompanyName.label}"
+                                                                  required="#{bindings.SysActionGroupCompanyDetCRUD.hints.txtCompanyName.mandatory}"
+                                                                  columns="#{bindings.SysActionGroupCompanyDetCRUD.hints.txtCompanyName.displayWidth}"
+                                                                  maximumLength="#{bindings.SysActionGroupCompanyDetCRUD.hints.txtCompanyName.precision}"
+                                                                  shortDesc="#{bindings.SysActionGroupCompanyDetCRUD.hints.txtCompanyName.tooltip}"
+                                                                  id="it7" readOnly="true">
+                                                        <f:validator binding="#{row.bindings.txtCompanyName.validator}"/>
+                                                    </af:inputText>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.SysActionGroupCompanyDetCRUD.hints.CompanyShortName.label}"
+                                                           id="c23">
+                                                    <af:inputText value="#{row.bindings.CompanyShortName.inputValue}"
+                                                                  label="#{bindings.SysActionGroupCompanyDetCRUD.hints.CompanyShortName.label}"
+                                                                  required="#{bindings.SysActionGroupCompanyDetCRUD.hints.CompanyShortName.mandatory}"
+                                                                  columns="#{bindings.SysActionGroupCompanyDetCRUD.hints.CompanyShortName.displayWidth}"
+                                                                  maximumLength="#{bindings.SysActionGroupCompanyDetCRUD.hints.CompanyShortName.precision}"
+                                                                  shortDesc="#{bindings.SysActionGroupCompanyDetCRUD.hints.CompanyShortName.tooltip}"
+                                                                  id="it26" readOnly="true">
+                                                        <f:validator binding="#{row.bindings.CompanyShortName.validator}"/>
+                                                    </af:inputText>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.SysActionGroupCompanyDetCRUD.hints.txtCompanyShortCode.label}"
+                                                           id="c21" width="200" minimumWidth="12">
+                                                    <af:inputText value="#{row.bindings.txtCompanyShortCode.inputValue}"
+                                                                  label="#{bindings.SysActionGroupCompanyDetCRUD.hints.txtCompanyShortCode.label}"
+                                                                  required="#{bindings.SysActionGroupCompanyDetCRUD.hints.txtCompanyShortCode.mandatory}"
+                                                                  columns="#{bindings.SysActionGroupCompanyDetCRUD.hints.txtCompanyShortCode.displayWidth}"
+                                                                  maximumLength="#{bindings.SysActionGroupCompanyDetCRUD.hints.txtCompanyShortCode.precision}"
+                                                                  shortDesc="#{bindings.SysActionGroupCompanyDetCRUD.hints.txtCompanyShortCode.tooltip}"
+                                                                  id="it6" readOnly="true">
+                                                        <f:validator binding="#{row.bindings.txtCompanyShortCode.validator}"/>
+                                                    </af:inputText>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.SysActionGroupCompanyDetCRUD.hints.IsActive.label}"
+                                                           id="c24">
+                                                    <af:selectOneChoice label="Label 12"
+                                                                        value="#{row.bindings.IsActive.inputValue}"
+                                                                        id="soc16"
+                                                                        disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N'}">
+                                                        <af:selectItem label="YES" value="Y" id="si28"/>
+                                                        <af:selectItem label="NO" value="N" id="si29"/>
+                                                    </af:selectOneChoice>
+                                                </af:column>
+                                                <af:column id="c29" align="center">
+                                                    <af:link actionListener="#{bindings.Delete2.execute}"
+                                                             disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowDelete=='N' || bindings.IsSupervised.inputValue=='Y'}" id="l10"
+                                                             partialSubmit="true"
+                                                             icon="#{resource['images:imgDeleteRecord.png']}"/>
+                                                </af:column>
+                                            </af:table>
+                                        </af:panelCollection>
+                                    </af:showDetailItem>
+                                    <af:showDetailItem text="Available Users" id="sdi4">
+                                        <af:panelCollection id="pc7" styleClass="AFStretchWidth"
+                                                            featuresOff="viewMenu detach">
+                                            <f:facet name="menus"/>
+                                            <f:facet name="toolbar">
+                                                <af:toolbar id="t20" flex="5">
+                                                    <af:quickQuery label="Search" searchDesc="Search" id="qryId7"
+                                                                   value="#{bindings.ImplicitViewCriteriaQuery6.quickQueryDescriptor}"
+                                                                   model="#{bindings.ImplicitViewCriteriaQuery6.queryModel}"
+                                                                   queryListener="#{bindings.ImplicitViewCriteriaQuery6.processQuery}">
+                                                        <f:facet name="end">
+                                                            <af:commandLink text="Advanced" rendered="false" id="cl7"/>
+                                                        </f:facet>
+                                                    </af:quickQuery>
+                                                </af:toolbar>
+                                            </f:facet>
+                                            <f:facet name="statusbar">
+                                                <af:toolbar id="t22" partialTriggers="qryId7">
+                                                    <af:inputText value="#{bindings.txtCountUser.inputValue}"
+                                                                  label="#{bindings.txtCountUser.hints.label}"
+                                                                  required="#{bindings.txtCountUser.hints.mandatory}"
+                                                                  columns="#{bindings.txtCountUser.hints.displayWidth}"
+                                                                  maximumLength="#{bindings.txtCountUser.hints.precision}"
+                                                                  shortDesc="#{bindings.txtCountUser.hints.tooltip}"
+                                                                  id="it32">
+                                                        <f:validator binding="#{bindings.txtCountUser.validator}"/>
+                                                        <af:convertNumber groupingUsed="false"
+                                                                          pattern="#{bindings.txtCountUser.format}"/>
+                                                    </af:inputText>
+                                                </af:toolbar>
+                                            </f:facet>
+                                            <af:table value="#{bindings.SysUsersAssignActionGroupUserRO.collectionModel}"
+                                                      var="row"
+                                                      rows="#{bindings.SysUsersAssignActionGroupUserRO.rangeSize}"
+                                                      emptyText="#{bindings.SysUsersAssignActionGroupUserRO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                      rowBandingInterval="0"
+                                                      selectedRowKeys="#{bindings.SysUsersAssignActionGroupUserRO.collectionModel.selectedRow}"
+                                                      selectionListener="#{bindings.SysUsersAssignActionGroupUserRO.collectionModel.makeCurrent}"
+                                                      rowSelection="single"
+                                                      fetchSize="#{bindings.SysUsersAssignActionGroupUserRO.rangeSize}"
+                                                      id="t18" columnStretching="last" scrollPolicy="scroll"
+                                                      autoHeightRows="4" partialTriggers="l15">
+                                                <af:column headerText="#{bindings.SysUsersAssignActionGroupUserRO.hints.UserCode.label}"
+                                                           id="c44">
+                                                    <af:inputText value="#{row.bindings.UserCode.inputValue}"
+                                                                  label="#{bindings.SysUsersAssignActionGroupUserRO.hints.UserCode.label}"
+                                                                  required="#{bindings.SysUsersAssignActionGroupUserRO.hints.UserCode.mandatory}"
+                                                                  columns="#{bindings.SysUsersAssignActionGroupUserRO.hints.UserCode.displayWidth}"
+                                                                  maximumLength="#{bindings.SysUsersAssignActionGroupUserRO.hints.UserCode.precision}"
+                                                                  shortDesc="#{bindings.SysUsersAssignActionGroupUserRO.hints.UserCode.tooltip}"
+                                                                  id="it25" readOnly="true">
+                                                        <f:validator binding="#{row.bindings.UserCode.validator}"/>
+                                                    </af:inputText>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.SysUsersAssignActionGroupUserRO.hints.UserName.label}"
+                                                           id="c46" width="150" displayIndex="-1">
+                                                    <af:inputText value="#{row.bindings.UserName.inputValue}"
+                                                                  label="#{bindings.SysUsersAssignActionGroupUserRO.hints.UserName.label}"
+                                                                  required="#{bindings.SysUsersAssignActionGroupUserRO.hints.UserName.mandatory}"
+                                                                  columns="#{bindings.SysUsersAssignActionGroupUserRO.hints.UserName.displayWidth}"
+                                                                  maximumLength="#{bindings.SysUsersAssignActionGroupUserRO.hints.UserName.precision}"
+                                                                  shortDesc="#{bindings.SysUsersAssignActionGroupUserRO.hints.UserName.tooltip}"
+                                                                  id="it27" readOnly="true">
+                                                        <f:validator binding="#{row.bindings.UserName.validator}"/>
+                                                    </af:inputText>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.SysUsersAssignActionGroupUserRO.hints.GenderSno.label}"
+                                                           id="c47" width="60" displayIndex="-1">
+                                                    <af:selectOneChoice value="#{row.bindings.GenderSno.inputValue}"
+                                                                        label="#{row.bindings.GenderSno.label}"
+                                                                        required="#{bindings.SysUsersAssignActionGroupUserRO.hints.GenderSno.mandatory}"
+                                                                        shortDesc="#{bindings.SysUsersAssignActionGroupUserRO.hints.GenderSno.tooltip}"
+                                                                        id="soc20" readOnly="true">
+                                                        <f:selectItems value="#{row.bindings.GenderSno.items}"
+                                                                       id="si34"/>
+                                                        <f:validator binding="#{row.bindings.GenderSno.validator}"/>
+                                                    </af:selectOneChoice>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.SysUsersAssignActionGroupUserRO.hints.UserTypeSno.label}"
+                                                           id="c48">
+                                                    <af:selectOneChoice value="#{row.bindings.UserTypeSno.inputValue}"
+                                                                        label="#{row.bindings.UserTypeSno.label}"
+                                                                        required="#{bindings.SysUsersAssignActionGroupUserRO.hints.UserTypeSno.mandatory}"
+                                                                        shortDesc="#{bindings.SysUsersAssignActionGroupUserRO.hints.UserTypeSno.tooltip}"
+                                                                        id="soc21" readOnly="true">
+                                                        <f:selectItems value="#{row.bindings.UserTypeSno.items}"
+                                                                       id="si35"/>
+                                                        <f:validator binding="#{row.bindings.UserTypeSno.validator}"/>
+                                                    </af:selectOneChoice>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.SysUsersAssignActionGroupUserRO.hints.Email.label}"
+                                                           id="c49" width="150" displayIndex="-1">
+                                                    <af:inputText value="#{row.bindings.Email.inputValue}"
+                                                                  label="#{bindings.SysUsersAssignActionGroupUserRO.hints.Email.label}"
+                                                                  required="#{bindings.SysUsersAssignActionGroupUserRO.hints.Email.mandatory}"
+                                                                  columns="#{bindings.SysUsersAssignActionGroupUserRO.hints.Email.displayWidth}"
+                                                                  maximumLength="#{bindings.SysUsersAssignActionGroupUserRO.hints.Email.precision}"
+                                                                  shortDesc="#{bindings.SysUsersAssignActionGroupUserRO.hints.Email.tooltip}"
+                                                                  id="it28" readOnly="true">
+                                                        <f:validator binding="#{row.bindings.Email.validator}"/>
+                                                    </af:inputText>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.SysUsersAssignActionGroupUserRO.hints.MobileNo.label}"
+                                                           id="c50">
+                                                    <af:inputText value="#{row.bindings.MobileNo.inputValue}"
+                                                                  label="#{bindings.SysUsersAssignActionGroupUserRO.hints.MobileNo.label}"
+                                                                  required="#{bindings.SysUsersAssignActionGroupUserRO.hints.MobileNo.mandatory}"
+                                                                  columns="#{bindings.SysUsersAssignActionGroupUserRO.hints.MobileNo.displayWidth}"
+                                                                  maximumLength="#{bindings.SysUsersAssignActionGroupUserRO.hints.MobileNo.precision}"
+                                                                  shortDesc="#{bindings.SysUsersAssignActionGroupUserRO.hints.MobileNo.tooltip}"
+                                                                  id="it29" readOnly="true">
+                                                        <f:validator binding="#{row.bindings.MobileNo.validator}"/>
+                                                    </af:inputText>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.SysUsersAssignActionGroupUserRO.hints.IsLock.label}"
+                                                           id="c51" width="60" displayIndex="-1">
+                                                    <af:inputText value="#{row.bindings.IsLock.inputValue}"
+                                                                  label="#{bindings.SysUsersAssignActionGroupUserRO.hints.IsLock.label}"
+                                                                  required="#{bindings.SysUsersAssignActionGroupUserRO.hints.IsLock.mandatory}"
+                                                                  columns="#{bindings.SysUsersAssignActionGroupUserRO.hints.IsLock.displayWidth}"
+                                                                  maximumLength="#{bindings.SysUsersAssignActionGroupUserRO.hints.IsLock.precision}"
+                                                                  shortDesc="#{bindings.SysUsersAssignActionGroupUserRO.hints.IsLock.tooltip}"
+                                                                  id="it30" readOnly="true">
+                                                        <f:validator binding="#{row.bindings.IsLock.validator}"/>
+                                                        <af:convertNumber groupingUsed="false"
+                                                                          pattern="#{bindings.SysUsersAssignActionGroupUserRO.hints.IsLock.format}"/>
+                                                    </af:inputText>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.SysUsersAssignActionGroupUserRO.hints.txtSelected.label}"
+                                                           id="c52">
+                                                    <af:link actionListener="#{bindings.doAssignERPOneUserToGroup.execute}"
+                                                             text="Assign To This Group" id="l15" partialSubmit="true"
+                                                             disabled="#{row.bindings.txtSelected.inputValue=='Y' ||  pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N' || bindings.IsSupervised.inputValue=='Y'}"/>
+                                                    <af:inputText value="#{row.bindings.txtSelected.inputValue}"
+                                                                  label="#{bindings.SysUsersAssignActionGroupUserRO.hints.txtSelected.label}"
+                                                                  required="#{bindings.SysUsersAssignActionGroupUserRO.hints.txtSelected.mandatory}"
+                                                                  columns="#{bindings.SysUsersAssignActionGroupUserRO.hints.txtSelected.displayWidth}"
+                                                                  maximumLength="#{bindings.SysUsersAssignActionGroupUserRO.hints.txtSelected.precision}"
+                                                                  shortDesc="#{bindings.SysUsersAssignActionGroupUserRO.hints.txtSelected.tooltip}"
+                                                                  id="it31" rendered="false">
+                                                        <f:validator binding="#{row.bindings.txtSelected.validator}"/>
+                                                    </af:inputText>
+                                                </af:column>
+                                            </af:table>
+                                            <f:facet name="secondaryToolbar">
+                                                <af:toolbar id="t21">
+                                                    <af:link actionListener="#{bindings.doAssignERPUserToGroup.execute}"
+                                                             text="Assign To This Group"
+                                                             id="l14" partialSubmit="true"
+                                                             partialTriggers="qryId7 l14"
+                                                             disabled="#{bindings.SysUsersAssignActionGroupUserROIterator.estimatedRowCount==0 || pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N' || bindings.IsSupervised.inputValue=='Y'}"/>
+                                                </af:toolbar>
+                                            </f:facet>
+                                        </af:panelCollection>
+                                    </af:showDetailItem>
+                                    <af:showDetailItem text="Assigned Users" id="sdi5" flex="0">
+                                        <af:panelCollection id="pc8" styleClass="AFStretchWidth">
+                                            <f:facet name="menus"/>
+                                            <f:facet name="toolbar">
+                                                <af:toolbar id="t24" flex="5">
+                                                    <af:quickQuery label="Search" searchDesc="Search" id="qryId8"
+                                                                   value="#{bindings.ImplicitViewCriteriaQuery7.quickQueryDescriptor}"
+                                                                   model="#{bindings.ImplicitViewCriteriaQuery7.queryModel}"
+                                                                   queryListener="#{bindings.ImplicitViewCriteriaQuery7.processQuery}">
+                                                        <f:facet name="end">
+                                                            <af:commandLink text="Advanced" rendered="false" id="cl8"/>
+                                                        </f:facet>
+                                                    </af:quickQuery>
+                                                </af:toolbar>
+                                            </f:facet>
+                                            <f:facet name="statusbar">
+                                                <af:toolbar id="t25" partialTriggers="qryId8">
+                                                    <af:inputText value="#{bindings.txtCountGroup.inputValue}"
+                                                                  label="#{bindings.txtCountGroup.hints.label}"
+                                                                  required="#{bindings.txtCountGroup.hints.mandatory}"
+                                                                  columns="#{bindings.txtCountGroup.hints.displayWidth}"
+                                                                  maximumLength="#{bindings.txtCountGroup.hints.precision}"
+                                                                  shortDesc="#{bindings.txtCountGroup.hints.tooltip}"
+                                                                  id="it39" readOnly="true">
+                                                        <f:validator binding="#{bindings.txtCountGroup.validator}"/>
+                                                        <af:convertNumber groupingUsed="false"
+                                                                          pattern="#{bindings.txtCountGroup.format}"/>
+                                                    </af:inputText>
+                                                </af:toolbar>
+                                            </f:facet>
+                                            <af:table value="#{bindings.SysActionGroupUsrGroupDetCRUD.collectionModel}"
+                                                      var="row"
+                                                      rows="#{bindings.SysActionGroupUsrGroupDetCRUD.rangeSize}"
+                                                      emptyText="#{bindings.SysActionGroupUsrGroupDetCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                      rowBandingInterval="0"
+                                                      selectedRowKeys="#{bindings.SysActionGroupUsrGroupDetCRUD.collectionModel.selectedRow}"
+                                                      selectionListener="#{bindings.SysActionGroupUsrGroupDetCRUD.collectionModel.makeCurrent}"
+                                                      rowSelection="single"
+                                                      fetchSize="#{bindings.SysActionGroupUsrGroupDetCRUD.rangeSize}"
+                                                      id="t23" autoHeightRows="4" scrollPolicy="scroll"
+                                                      partialTriggers="l16" columnStretching="column:c59">
+                                                <af:column headerText="#{bindings.SysActionGroupUsrGroupDetCRUD.hints.UserCode.label}"
+                                                           id="c54" width="150">
+                                                    <af:inputText value="#{row.bindings.UserCode.inputValue}"
+                                                                  label="#{bindings.SysActionGroupUsrGroupDetCRUD.hints.UserCode.label}"
+                                                                  required="#{bindings.SysActionGroupUsrGroupDetCRUD.hints.UserCode.mandatory}"
+                                                                  columns="#{bindings.SysActionGroupUsrGroupDetCRUD.hints.UserCode.displayWidth}"
+                                                                  maximumLength="#{bindings.SysActionGroupUsrGroupDetCRUD.hints.UserCode.precision}"
+                                                                  shortDesc="#{bindings.SysActionGroupUsrGroupDetCRUD.hints.UserCode.tooltip}"
+                                                                  id="it33" readOnly="true">
+                                                        <f:validator binding="#{row.bindings.UserCode.validator}"/>
+                                                    </af:inputText>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.SysActionGroupUsrGroupDetCRUD.hints.UserName.label}"
+                                                           id="c55" width="150" displayIndex="-1">
+                                                    <af:inputText value="#{row.bindings.UserName.inputValue}"
+                                                                  label="#{bindings.SysActionGroupUsrGroupDetCRUD.hints.UserName.label}"
+                                                                  required="#{bindings.SysActionGroupUsrGroupDetCRUD.hints.UserName.mandatory}"
+                                                                  columns="#{bindings.SysActionGroupUsrGroupDetCRUD.hints.UserName.displayWidth}"
+                                                                  maximumLength="#{bindings.SysActionGroupUsrGroupDetCRUD.hints.UserName.precision}"
+                                                                  shortDesc="#{bindings.SysActionGroupUsrGroupDetCRUD.hints.UserName.tooltip}"
+                                                                  id="it34" readOnly="true">
+                                                        <f:validator binding="#{row.bindings.UserName.validator}"/>
+                                                    </af:inputText>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.SysActionGroupUsrGroupDetCRUD.hints.MobileNo.label}"
+                                                           id="c56">
+                                                    <af:inputText value="#{row.bindings.MobileNo.inputValue}"
+                                                                  label="#{bindings.SysActionGroupUsrGroupDetCRUD.hints.MobileNo.label}"
+                                                                  required="#{bindings.SysActionGroupUsrGroupDetCRUD.hints.MobileNo.mandatory}"
+                                                                  columns="#{bindings.SysActionGroupUsrGroupDetCRUD.hints.MobileNo.displayWidth}"
+                                                                  maximumLength="#{bindings.SysActionGroupUsrGroupDetCRUD.hints.MobileNo.precision}"
+                                                                  shortDesc="#{bindings.SysActionGroupUsrGroupDetCRUD.hints.MobileNo.tooltip}"
+                                                                  id="it35" readOnly="true">
+                                                        <f:validator binding="#{row.bindings.MobileNo.validator}"/>
+                                                    </af:inputText>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.SysActionGroupUsrGroupDetCRUD.hints.Email.label}"
+                                                           id="c57" width="200" displayIndex="-1" minimumWidth="12">
+                                                    <af:inputText value="#{row.bindings.Email.inputValue}"
+                                                                  label="#{bindings.SysActionGroupUsrGroupDetCRUD.hints.Email.label}"
+                                                                  required="#{bindings.SysActionGroupUsrGroupDetCRUD.hints.Email.mandatory}"
+                                                                  columns="#{bindings.SysActionGroupUsrGroupDetCRUD.hints.Email.displayWidth}"
+                                                                  maximumLength="#{bindings.SysActionGroupUsrGroupDetCRUD.hints.Email.precision}"
+                                                                  shortDesc="#{bindings.SysActionGroupUsrGroupDetCRUD.hints.Email.tooltip}"
+                                                                  id="it36" readOnly="true">
+                                                        <f:validator binding="#{row.bindings.Email.validator}"/>
+                                                    </af:inputText>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.SysActionGroupUsrGroupDetCRUD.hints.IsLock.label}"
+                                                           id="c59">
+                                                    <af:inputText value="#{row.bindings.IsLock.inputValue}"
+                                                                  label="#{bindings.SysActionGroupUsrGroupDetCRUD.hints.IsLock.label}"
+                                                                  required="#{bindings.SysActionGroupUsrGroupDetCRUD.hints.IsLock.mandatory}"
+                                                                  columns="#{bindings.SysActionGroupUsrGroupDetCRUD.hints.IsLock.displayWidth}"
+                                                                  maximumLength="#{bindings.SysActionGroupUsrGroupDetCRUD.hints.IsLock.precision}"
+                                                                  shortDesc="#{bindings.SysActionGroupUsrGroupDetCRUD.hints.IsLock.tooltip}"
+                                                                  id="it38" readOnly="true" rendered="false">
+                                                        <f:validator binding="#{row.bindings.IsLock.validator}"/>
+                                                    </af:inputText>
+                                                    <af:selectOneChoice label="Label 14"
+                                                                        value="#{row.bindings.IsLock.inputValue}"
+                                                                        id="soc22" readOnly="true">
+                                                        <af:selectItem label="YES" value="Y" id="si36"/>
+                                                        <af:selectItem label="NO" value="N" id="si37"/>
+                                                    </af:selectOneChoice>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.SysActionGroupUsrGroupDetCRUD.hints.IsActive.label}"
+                                                           id="c58" width="80">
+                                                    <af:inputText value="#{row.bindings.IsActive.inputValue}"
+                                                                  label="#{bindings.SysActionGroupUsrGroupDetCRUD.hints.IsActive.label}"
+                                                                  required="#{bindings.SysActionGroupUsrGroupDetCRUD.hints.IsActive.mandatory}"
+                                                                  columns="#{bindings.SysActionGroupUsrGroupDetCRUD.hints.IsActive.displayWidth}"
+                                                                  maximumLength="#{bindings.SysActionGroupUsrGroupDetCRUD.hints.IsActive.precision}"
+                                                                  shortDesc="#{bindings.SysActionGroupUsrGroupDetCRUD.hints.IsActive.tooltip}"
+                                                                  id="it37" readOnly="true" rendered="false">
+                                                        <f:validator binding="#{row.bindings.IsActive.validator}"/>
+                                                    </af:inputText>
+                                                    <af:selectOneChoice label="Label 15"
+                                                                        value="#{row.bindings.IsActive.inputValue}"
+                                                                        id="soc23"
+                                                                        disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' || bindings.IsSupervised.inputValue=='Y'}">
+                                                        <af:selectItem label="YES" value="Y" id="si38"/>
+                                                        <af:selectItem label="NO" value="N" id="si39"/>
+                                                    </af:selectOneChoice>
+                                                </af:column>
+                                                <af:column id="c60" width="60" align="center">
+                                                    <af:link actionListener="#{bindings.Delete4.execute}"
+                                                             disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowDelete=='N' || bindings.IsSupervised.inputValue=='Y'}" id="l16"
+                                                             icon="#{resource['images:imgDeleteRecord.png']}"
+                                                             partialSubmit="true"/>
+                                                </af:column>
+                                            </af:table>
+                                        </af:panelCollection>
+                                    </af:showDetailItem>
+                                </af:panelTabbed>
+                            </af:panelBox>
+                        </f:facet>
+                        <f:facet name="top">
+                            <af:panelGroupLayout id="pgl2" halign="end" layout="horizontal">
+                                <af:link text="Close" id="l1" icon="#{resource['images:imgCloseDialog.png']}"
+                                         partialSubmit="true" action="#{pageFlowScope.OracleERPBean.doBackFromEdit}"
+                                         iconPosition="top">
+                                    <af:setActionListener from="#{'SysActionGroupHeaderCRUDIterator'}"
+                                                          to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
+                                </af:link>
+                                <af:link text="Print Preview" id="l23" partialSubmit="true"
+                                         icon="#{resource['images:imgPrintPreview.png']}" iconPosition="top"
+                                         action="#{pageFlowScope.OracleERPBean.doExecuteAdminReport}">
+                                    <af:setActionListener from="#{'RPT_ADM_0010.rptdesign'}"
+                                                          to="#{pageFlowScope.OracleERPBean.ERPAdminReportName}"/>
+                                    <af:setActionListener to="#{pageFlowScope.OracleERPBean.ERPPKForReport}"
+                                                          from="#{bindings.GroupHeaderSno.inputValue}"/>
+                                    <af:setActionListener from="#{'SysActionGroupHeaderCRUDIterator'}"
+                                                          to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
+                                </af:link>
+                                <af:link text="UnSupervise" id="l20" partialSubmit="true"
+                                         icon="#{resource['images:imgUnSuperviseRecord.png']}" iconPosition="top"
+                                         action="#{pageFlowScope.OracleERPBean.doERPPopUnSuperviseRecord}"
+                                         disabled="#{bindings.IsSupervised.inputValue=='N'}">
+                                    <af:setActionListener from="#{'SysActionGroupHeaderCRUDIterator'}"
+                                                          to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
+                                </af:link>                                
+                                <af:link text="Supervise" id="l21" partialSubmit="true"
+                                         icon="#{resource['images:imgSuperviseRecord.png']}" iconPosition="top"
+                                         action="#{pageFlowScope.OracleERPBean.doERPPopSupervisedRecord}"
+                                         disabled="#{bindings.IsSupervised.inputValue=='Y'}">
+                                    <af:setActionListener from="#{'SysActionGroupHeaderCRUDIterator'}"
+                                                          to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
+                                </af:link>                                
+                                <af:link actionListener="#{bindings.Delete3.execute}" text="Delete"
+                                         disabled="#{bindings.SysActionGroupLinesDetCRUDIterator.estimatedRowCount>0 || bindings.SysActionGroupCompanyDetCRUDIterator.estimatedRowCount>0 || pageFlowScope.ERPMainTempBean.LERPAllowDelete=='N'}" id="l13" iconPosition="top"
+                                         icon="#{resource['images:imgDeleteRecord.png']}" partialSubmit="true"
+                                         partialTriggers="pc1:t1"/>
+                                <af:link text="Undo" immediate="true"
+                                         id="l3" icon="#{resource['images:imgUndo.png']}" partialSubmit="true"
+                                         iconPosition="top" action="#{pageFlowScope.OracleERPBean.doErpUndoRecord}">
+                                    <af:resetActionListener/>
+                                </af:link>
+                                <af:link text="Undo" id="l19" actionListener="#{bindings.Rollback.execute}"
+                                         rendered="false"/>
+                                <af:link text="Save" id="l18" icon="#{resource['images:imgSave.png']}"
+                                         iconPosition="top" action="#{pageFlowScope.OracleERPBean.doERPCommitRecord}"
+                                         partialSubmit="true"/>
+                                <af:link actionListener="#{bindings.Commit.execute}" text="Save" id="l2"
+                                         iconPosition="top" partialSubmit="true" rendered="false"/>
+                                <f:facet name="separator">
+                                    <af:spacer width="20" height="10" id="s2"/>
+                                </f:facet>
+                            </af:panelGroupLayout>
+                        </f:facet>
+                    </af:decorativeBox>
+                </f:facet>
+                <f:facet name="top"/>
+            </af:decorativeBox>
+        </af:form>
+        <f:facet name="metaContainer">
+            <af:resource type="javascript" source="/resources/js/ERPADMJavaScript.js"/>
+            <af:resource type="css" source="/resources/css/ERPADMStyleSheet.css"/>
+            <af:resource type="javascript" source="http://code.jquery.com/jquery-1.10.2.js"/>
+        </f:facet>
+    </af:document>
+</f:view>

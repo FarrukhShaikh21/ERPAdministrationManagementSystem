@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47"
+                id="ERPBTFADM_ERPBTFADM_ExecutePageDef11111111" Package="erpadm.viewadm.pageDefs" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="SysGeneralValueSetRO" RangeSize="25" DataControl="ERPADMModuleDataControl"
+              id="SysGeneralValueSetROIterator" Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="SysGeneralValueSetROIterator" id="Execute" RequiresUpdateModel="true"
+            Action="iteratorExecute"/>
+  </bindings>
+</pageDefinition>

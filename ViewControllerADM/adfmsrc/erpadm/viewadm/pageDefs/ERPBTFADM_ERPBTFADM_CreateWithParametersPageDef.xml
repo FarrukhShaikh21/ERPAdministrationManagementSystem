@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47"
+                id="ERPBTFADM_ERPBTFADM_CreateWithParametersPageDef" Package="erpadm.viewadm.pageDefs"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="SmCityCRUD" RangeSize="25" DataControl="ERPADMModuleDataControl" id="SmCityCRUDIterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="SmCityCRUDIterator" id="CreateWithParams" RequiresUpdateModel="true"
+            Action="createWithParams">
+      <NamedData NDName="Countrycode" NDValue="#{data.erpadm_viewadm_SEC_0007_EDITPageDef.Countrycode.inputValue}"
+                 NDType="java.lang.String"/>
+    </action>
+  </bindings>
+</pageDefinition>

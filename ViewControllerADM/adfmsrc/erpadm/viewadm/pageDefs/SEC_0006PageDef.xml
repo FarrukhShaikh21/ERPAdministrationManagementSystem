@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="SEC_0006PageDef"
+                Package="erpadm.viewadm.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <page path="erptemplate.viewtemp.pageDefs.ERPTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator Binds="AdminCompanyGroupCRUD" RangeSize="25" DataControl="ERPADMModuleDataControl"
+              id="AdminCompanyGroupCRUDIterator"/>
+    <iterator Binds="AdminCompanyRO" RangeSize="25" DataControl="ERPADMModuleDataControl" id="AdminCompanyROIterator"/>
+    <iterator Binds="AdminCompanyCategorizationRO" RangeSize="25" DataControl="ERPADMModuleDataControl"
+              id="AdminCompanyCategorizationROIterator"/>
+    <iterator Binds="AdminCompanyCRUD" RangeSize="25" DataControl="ERPADMModuleDataControl"
+              id="AdminCompanyCRUDIterator"/>
+    <searchRegion Criteria="AdminCompanyFindVC" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="AdminCompanyROIterator" id="ImplicitViewCriteriaQuery" InitialQueryOverridden="true"/>
+    <searchRegion Criteria="AdminCompanyFindVC" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="AdminCompanyCategorizationROIterator" id="ImplicitViewCriteriaQuery1"
+                  InitialQueryOverridden="true"/>
+    <iterator Binds="AdminCompantNextTypesRO" RangeSize="25" DataControl="ERPADMModuleDataControl"
+              id="AdminCompantNextTypesROIterator"/>
+    <iterator Binds="AdminCompanyAssignUserActionRO" RangeSize="25" DataControl="ERPADMModuleDataControl"
+              id="AdminCompanyAssignUserActionROIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="AdminCompanyGroupCRUDIterator" id="AdminCompanyGroupCRUD">
+      <nodeDefinition DefName="erpadm.modeladm.admvo.AdminCompanyVO" Name="AdminCompanyGroupCRUD0">
+        <AttrNames>
+          <Item Value="CompanyName"/>
+          <Item Value="CompCode"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="AdminCompanyVO">
+            <Properties>
+              <CustomProperties>
+                <Property Name="hierarchyType" Value="children"/>
+              </CustomProperties>
+            </Properties>
+          </Item>
+        </Accessors>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="AdminCompanyROIterator" id="AdminCompanyRO">
+      <nodeDefinition DefName="erpadm.modeladm.admvo.AdminCompanyVO" Name="AdminCompanyRO0">
+        <AttrNames>
+          <Item Value="CompanyShortCode"/>
+          <Item Value="CompanyShortName"/>
+          <Item Value="CompanyName"/>
+          <Item Value="CompanyTypeSno"/>
+          <Item Value="ParentCompCode"/>
+          <Item Value="txtParentCompanyName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="AdminCompanyROIterator" id="CompCode">
+      <AttrNames>
+        <Item Value="CompCode"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="AdminCompanyCategorizationROIterator" id="AdminCompanyCategorizationRO">
+      <nodeDefinition DefName="erpadm.modeladm.admvo.AdminCompanyVO" Name="AdminCompanyCategorizationRO0">
+        <AttrNames>
+          <Item Value="CompanyShortCode"/>
+          <Item Value="CompanyShortName"/>
+          <Item Value="CompanyTypeSno"/>
+          <Item Value="txtParentCompanyName"/>
+          <Item Value="txtCityName"/>
+          <Item Value="CompanyName"/>
+          <Item Value="txtNextCompanyTypeSno"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="AdminCompanyCategorizationROIterator" id="CompCode1">
+      <AttrNames>
+        <Item Value="CompCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AdminCompanyCategorizationROIterator" id="ParentCompCode">
+      <AttrNames>
+        <Item Value="ParentCompCode"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="AdminCompanyCategorizationROIterator" StaticList="false" Uses="LovCompanyTypeSno"
+          id="CompanyTypeSno" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <action IterBinding="AdminCompanyCRUDIterator" id="CreateWithParams" RequiresUpdateModel="true"
+            Action="createWithParams" InstanceName="ERPADMModuleDataControl.AdminCompanyCRUD"
+            DataControl="ERPADMModuleDataControl">
+      <NamedData NDName="ParentCompCode" NDValue="#{pageFlowScope.OracleERPBean.ERPCompanyCode}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="CompanyTypeSno" NDValue="#{pageFlowScope.OracleERPBean.ERPCompanyTypeSno}"
+                 NDType="java.lang.String"/>
+    </action>
+    <tree IterBinding="AdminCompantNextTypesROIterator" id="AdminCompantNextTypesRO">
+      <nodeDefinition DefName="erpadm.modeladm.admqvo.AdminCompantNextTypesQVO" Name="AdminCompantNextTypesRO0">
+        <AttrNames>
+          <Item Value="CompanyTypeCode"/>
+          <Item Value="CompanyTypeName"/>
+          <Item Value="CompanyTypeSno"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="AdminCompanyCategorizationROIterator" id="txtParentCompanyName">
+      <AttrNames>
+        <Item Value="txtParentCompanyName"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

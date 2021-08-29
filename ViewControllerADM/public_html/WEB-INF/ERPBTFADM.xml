@@ -1,0 +1,939 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="ERPBTFADM">
+    <default-activity>doSetERPAdmAppGlobals</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <task-flow-reentry>
+      <reentry-not-allowed/>
+    </task-flow-reentry>
+    <input-parameter-definition id="__28">
+      <name>P_ADF_USER_CODE</name>
+      <value>#{pageFlowScope.OracleERPBean.ERPuserCode}</value>
+      <class>erpadm.viewadm.ERPADMClass</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__29">
+      <name>P_ADF_USER_SNO</name>
+      <value>#{pageFlowScope.OracleERPBean.ERPuserId}</value>
+      <class>erpadm.viewadm.ERPADMClass</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__41">
+      <name>P_ADF_USER_ATTRIBUTE</name>
+      <value>#{pageFlowScope.OracleERPBean.ERPUserAttributes}</value>
+      <class>erpadm.viewadm.ERPADMClass</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__153">
+      <name>P_ADF_MODULE_RIGHTS</name>
+      <value>#{pageFlowScope.ERPMainTempBean.LERPModuleActionRights}</value>
+      <class>erptemplate.viewtemp.ERPTEMPClass</class>
+    </input-parameter-definition>
+    <return-value-definition id="__32">
+      <name>P_ADF_GOTO_MODULE_FROM_GS</name>
+      <value>#{pageFlowScope.ERPMainTempBean.LERPModuleFromGlobalSearch}</value>
+      <class>erptemplate.viewtemp.ERPTEMPClass</class>
+    </return-value-definition>
+    <return-value-definition id="__156">
+      <name>P_ADF_MODULE_RIGHTS_GS</name>
+      <value>#{pageFlowScope.ERPMainTempBean.LERPModuleActionRights}</value>
+      <class>erptemplate.viewtemp.ERPTEMPClass</class>
+    </return-value-definition>
+    <managed-bean id="__1">
+      <managed-bean-name>OracleERPBean</managed-bean-name>
+      <managed-bean-class>erpadm.viewadm.ERPADMClass</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__2">
+      <managed-bean-name>ERPMainTempBean</managed-bean-name>
+      <managed-bean-class>erptemplate.viewtemp.ERPTEMPClass</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <exception-handler>ADMExceptionHandler</exception-handler>
+    <view id="ADMMain">
+      <page>/ADMMain.jsf</page>
+    </view>
+    <method-call id="ERPExecuteSetupModule">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERPSetupExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
+    <task-flow-return id="ERPADMRETURN">
+      <outcome>
+        <name>ERPADMRETURN</name>
+      </outcome>
+    </task-flow-return>
+    <view id="SEC_0012">
+      <page>/SEC_0012.jsf</page>
+    </view>
+    <view id="SEC_0003">
+      <page>/SEC_0003.jsf</page>
+    </view>
+    <method-call id="ExecuteWithParams">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteWithParamsUserWise</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="SEC_0006">
+      <page>/SEC_0006.jsf</page>
+    </view>
+    <view id="SEC_0006_EDIT">
+      <page>/SEC_0006_EDIT.jsf</page>
+    </view>
+    <method-call id="ERPADDSEC_0006CreateInsert">
+      <method>#{bindings.CreateInsert.execute}</method>
+      <outcome>
+        <fixed-outcome>ERPADDSEC_0006CreateInsert</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ERPEDITSEC_0006QUERY">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERPEDITSEC_0006QUERY</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="SEC_0008">
+      <page>/SEC_0008.jsf</page>
+    </view>
+    <view id="SEC_0008_EDIT">
+      <page>/SEC_0008_EDIT.jsf</page>
+    </view>
+    <method-call id="ERPADDSEC_0008CreateInsert">
+      <method>#{bindings.CreateInsert.execute}</method>
+      <outcome>
+        <fixed-outcome>ERPADDSEC_0008CreateInsert</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ERPSEC_0008EmptyRowSet">
+      <method>#{bindings.executeEmptyRowSet.execute}</method>
+      <outcome>
+        <fixed-outcome>ERPSEC_0008EmptyRowSet</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ERPEDITSEC_0008QUERY">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERPEDITSEC_0008QUERY</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="executeEmptyRowSetSEC_0008">
+      <method>#{bindings.executeEmptyRowSet.execute}</method>
+      <outcome>
+        <fixed-outcome>executeEmptyRowSetSEC_0008</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="SEC_0008_EXECUTEQUERYBACK">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>SEC_0008_EXECUTEQUERYBACK</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="doSetERPAdmAppGlobals">
+      <method>#{pageFlowScope.OracleERPBean.doSetAdmErpApplicationGlobals}</method>
+      <outcome>
+        <fixed-outcome>ERPADTERPADMAppGlobal</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="doGotoErpActivity">
+      <method>#{pageFlowScope.ERPMainTempBean.doGotoErpActivity}</method>
+      <outcome>
+        <to-string/>
+      </outcome>
+    </method-call>
+    <method-call id="ERPADDSEC_0012CreateInsert">
+      <method>#{bindings.CreateInsert.execute}</method>
+      <outcome>
+        <fixed-outcome>ERPADDSEC_0012CreateInsert</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ERPExecuteTransactionModule">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERPTransactionExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ERPExecuteReportModule">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERPExecuteReportModule</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="doSetNullActivityDescription">
+      <method>#{pageFlowScope.ERPMainTempBean.doSetActivityDescriptionNull}</method>
+      <outcome>
+        <fixed-outcome>doSetNullActivityDescription</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="AdminCompanyUserAssignQuery">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>AdminCompanyUserAssignQuery</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="SEC_0004">
+      <page>/SEC_0004.jsf</page>
+    </view>
+    <method-call id="ErpdoInsertAccessableCompany">
+      <method>#{bindings.ErpdoInsertAccessableCompany.execute}</method>
+      <outcome>
+        <fixed-outcome>ErpdoInsertAccessableCompany</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="ADMExceptionHandler">
+      <page>/ADMExceptionHandler.jsf</page>
+    </view>
+    <method-call id="executeEmptyRowSetGroupCompanySetSEC_0008">
+      <method>#{bindings.executeEmptyRowSet.execute}</method>
+      <outcome>
+        <fixed-outcome>executeEmptyRowSetGroupCompanySEC_0008</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="SEC_0007">
+      <page>/SEC_0007.jsf</page>
+    </view>
+    <view id="SEC_0007_EDIT">
+      <page>/SEC_0007_EDIT.jsf</page>
+    </view>
+    <method-call id="ERPEDITSEC_0007QUERY">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERPEDITSEC_0007QUERY</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="SEC_0013">
+      <page>/SEC_0013.jsf</page>
+    </view>
+    <view id="SEC_0013_EDIT">
+      <page>/SEC_0013_EDIT.jsf</page>
+    </view>
+    <method-call id="ERPEDITSEC_0013QUERY">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERPEDITSEC_0013QUERY</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ERPADDSEC_0013CreateInsert">
+      <method>#{bindings.CreateInsert.execute}</method>
+      <outcome>
+        <fixed-outcome>ERPADDSEC_0013CreateInsert</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="SEC_0013_EXECUTEQUERYBACK">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>SEC_0013_EXECUTEQUERYBACK</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="SEC_00013_QUERYBYCITYSNO">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>SEC_00013_QUERYBYCITYSNO</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ERPSEC_0013_ADD_CITY_FROM_COUNTRY">
+      <method>#{bindings.CreateWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERPSEC_0013_ADD_CITY_FROM_COUNTRY</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ERPSEC_BACK_TO_COUNTRY_FROM_CITY_EDIT">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>ERPSEC_BACK_TO_COUNTRY_FROM_CITY_EDIT</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ERPCompanyCategoryExeWithPara">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERPCompanyCategorySEC_0006</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="doERPInitializeValues">
+      <method>#{pageFlowScope.OracleERPBean.doERPInitializeValuesOnFormOpen}</method>
+      <outcome>
+        <fixed-outcome>DOERPInitializeFormValues</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ERP_BACK_FROM_SEC_0006_QUER_All_CompanyRO">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>Execute</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ERP_EXECUTE_SEC_0006_QUERY_BY_CATEGORY">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>Execute</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="SEC_0006_QUERY_COMPANY_HIERARCHY_VIEW">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>Execute</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ERP_SEC_0006_EXE_WITH_PARA_FROM_CLASSIFICATION">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ERPNextCompanyTypeExecuteQuery">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERPNextCompTypeExecutePara</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="SEC_0011">
+      <page>/SEC_0011.jsf</page>
+    </view>
+    <view id="SEC_0011_EDIT">
+      <page>/SEC_0011_EDIT.jsf</page>
+    </view>
+    <method-call id="ERPEDITSEC_0011QUERY">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERPEDITSEC_0011QUERY</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ERPQUERYBAKSEC_0011QUERY">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>ERPQUERYBAKSEC_0011QUERY</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ERP_ADD_SEC_0011">
+      <method>#{bindings.CreateInsert.execute}</method>
+      <outcome>
+        <fixed-outcome>ERPADDSEC_0011</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ERPEXECUTEQUERYCOMPANYTYPEHIERARCHY">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>ERPEXECUTEQUERYCOMPANYTYPEHIERARCHY</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="SEC_0014">
+      <page>/SEC_0014.jsf</page>
+    </view>
+    <view id="SEC_0014_EDIT">
+      <page>/SEC_0014_EDIT.jsf</page>
+    </view>
+    <method-call id="ERPEDITSEC_0014QUERY">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERPEDITSEC_0014QUERY</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ERPADDSEC_0014">
+      <method>#{bindings.CreateInsert.execute}</method>
+      <outcome>
+        <fixed-outcome>ERPADDSEC_0014</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="SysValueSetRO">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>ERPSysValueSetROExecute</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="SEC_0005">
+      <page>/SEC_0005.jsf</page>
+    </view>
+    <view id="SEC_0005_EDIT">
+      <page>/SEC_0005_EDIT.jsf</page>
+    </view>
+    <method-call id="ERPEDITSEC_0005QUERY">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERPEDITSEC_0005QUERY</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="CreateInsertPolicyHeader">
+      <method>#{bindings.CreateInsert.execute}</method>
+      <outcome>
+        <fixed-outcome>CreateInsertPolicyHeader</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExecutesSysPwdParaForPolicyAssign">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecutesSysPwdParaForPolicyAssign</fixed-outcome>
+      </outcome>
+    </method-call>
+    <task-flow-return id="ERPADMLOGOUT">
+      <outcome>
+        <name>ERPADMLOGOUT</name>
+      </outcome>
+    </task-flow-return>
+    <task-flow-call id="ERPCHPWDBTF">
+      <task-flow-reference>
+        <document>/WEB-INF/ERPCHPWDBTF.xml</document>
+        <id>ERPCHPWDBTF</id>
+      </task-flow-reference>
+      <input-parameter id="__150">
+        <name>P_ADF_USER_ID</name>
+        <value>#{pageFlowScope.OracleERPBean.ERPuserId}</value>
+      </input-parameter>
+      <input-parameter id="__151">
+        <name>P_ADF_USER_CODE</name>
+        <value>#{pageFlowScope.OracleERPBean.ERPuserCode}</value>
+      </input-parameter>
+      <input-parameter id="__152">
+        <name>P_ADF_USER_ATTRIBUTE</name>
+        <value>#{pageFlowScope.OracleERPBean.ERPUserAttributes}</value>
+      </input-parameter>
+    </task-flow-call>
+    <method-call id="SEC_0011Rollback">
+      <method>#{bindings.Rollback.execute}</method>
+      <outcome>
+        <fixed-outcome>ERPEXECUTEQUERYCOMPANYTYPEHIERARCHY</fixed-outcome>
+      </outcome>
+    </method-call>
+    <task-flow-return id="ERPEXITTASKFLOWVIAGS">
+      <outcome>
+        <name>ERPEXITTASKFLOWVIAGS</name>
+      </outcome>
+    </task-flow-return>
+    <method-call id="doERPSetModuleActionRights">
+      <method>#{pageFlowScope.ERPMainTempBean.doERPSetModuleActionForRights}</method>
+      <outcome>
+        <fixed-outcome>ERPADTERPADMAppGlobal</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__3">
+      <from-activity-id>ERPExecuteSetupModule</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome>ERPSetupExecuteWithParams</from-outcome>
+        <to-activity-id>ERPExecuteTransactionModule</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__5">
+      <from-activity-id>SEC_0003</from-activity-id>
+      <control-flow-case id="__6">
+        <from-outcome>ERPEDITUSERS</from-outcome>
+        <to-activity-id>ExecuteWithParams</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__50">
+        <from-outcome>ERPADDSEC_0012</from-outcome>
+        <to-activity-id>ERPADDSEC_0012CreateInsert</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__7">
+      <from-activity-id>SEC_0012</from-activity-id>
+      <control-flow-case id="__8">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>SEC_0003</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__9">
+      <from-activity-id>ExecuteWithParams</from-activity-id>
+      <control-flow-case id="__10">
+        <from-outcome>ExecuteWithParamsUserWise</from-outcome>
+        <to-activity-id>AdminCompanyUserAssignQuery</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__11">
+      <from-activity-id>SEC_0006</from-activity-id>
+      <control-flow-case id="__12">
+        <from-outcome>ERPEDITSEC_0006</from-outcome>
+        <to-activity-id>ERPEDITSEC_0006QUERY</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__15">
+        <from-outcome>ERPADDSEC_0006</from-outcome>
+        <to-activity-id>ERPADDSEC_0006CreateInsert</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__99">
+        <from-outcome>ERP_SEC_0006_CREATE_DRILL_DOWN</from-outcome>
+        <to-activity-id>SEC_0006_EDIT</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__104">
+        <from-outcome>ERPEDIT_SEC_0006_CLASSIFICATION</from-outcome>
+        <to-activity-id>ERP_SEC_0006_EXE_WITH_PARA_FROM_CLASSIFICATION</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__13">
+      <from-activity-id>SEC_0006_EDIT</from-activity-id>
+      <control-flow-case id="__14">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>ERP_BACK_FROM_SEC_0006_QUER_All_CompanyRO</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__16">
+      <from-activity-id>ERPADDSEC_0006CreateInsert</from-activity-id>
+      <control-flow-case id="__17">
+        <from-outcome>ERPADDSEC_0006CreateInsert</from-outcome>
+        <to-activity-id>SEC_0006_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__18">
+      <from-activity-id>ERPEDITSEC_0006QUERY</from-activity-id>
+      <control-flow-case id="__19">
+        <from-outcome>ERPEDITSEC_0006QUERY</from-outcome>
+        <to-activity-id>SEC_0006_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__20">
+      <from-activity-id>SEC_0008</from-activity-id>
+      <control-flow-case id="__21">
+        <from-outcome>ERPEDITSEC_0008</from-outcome>
+        <to-activity-id>ERPEDITSEC_0008QUERY</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__24">
+        <from-outcome>ERPADDSEC_0008</from-outcome>
+        <to-activity-id>ERPSEC_0008EmptyRowSet</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__22">
+      <from-activity-id>SEC_0008_EDIT</from-activity-id>
+      <control-flow-case id="__23">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>SEC_0008_EXECUTEQUERYBACK</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__25">
+      <from-activity-id>ERPADDSEC_0008CreateInsert</from-activity-id>
+      <control-flow-case id="__34">
+        <from-outcome>ERPADDSEC_0008CreateInsert</from-outcome>
+        <to-activity-id>SEC_0008_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__30">
+      <from-activity-id>ERPSEC_0008EmptyRowSet</from-activity-id>
+      <control-flow-case id="__31">
+        <from-outcome>ERPSEC_0008EmptyRowSet</from-outcome>
+        <to-activity-id>ERPADDSEC_0008CreateInsert</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__35">
+      <from-activity-id>ERPEDITSEC_0008QUERY</from-activity-id>
+      <control-flow-case id="__36">
+        <from-outcome>ERPEDITSEC_0008QUERY</from-outcome>
+        <to-activity-id>executeEmptyRowSetSEC_0008</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__39">
+      <from-activity-id>executeEmptyRowSetSEC_0008</from-activity-id>
+      <control-flow-case id="__40">
+        <from-outcome>executeEmptyRowSetSEC_0008</from-outcome>
+        <to-activity-id>executeEmptyRowSetGroupCompanySetSEC_0008</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__26">
+      <from-activity-id>SEC_0008_EXECUTEQUERYBACK</from-activity-id>
+      <control-flow-case id="__27">
+        <from-outcome>SEC_0008_EXECUTEQUERYBACK</from-outcome>
+        <to-activity-id>SEC_0008</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__37">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__38">
+        <from-outcome>ERPACTEXITFORM</from-outcome>
+        <to-activity-id>doSetNullActivityDescription</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__42">
+      <from-activity-id>doSetERPAdmAppGlobals</from-activity-id>
+      <control-flow-case id="__43">
+        <from-outcome>ERPADTERPADMAppGlobal</from-outcome>
+        <to-activity-id>doERPSetModuleActionRights</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__44">
+      <from-activity-id>doGotoErpActivity</from-activity-id>
+      <control-flow-case id="__45">
+        <from-outcome>ERP-ACT-SEC_0006</from-outcome>
+        <to-activity-id>doERPInitializeValues</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__48">
+        <from-outcome>ERP-ACT-SEC_0008</from-outcome>
+        <to-activity-id>SEC_0008</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__61">
+        <from-outcome>ERP-ACT-SEC_0003</from-outcome>
+        <to-activity-id>SEC_0003</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__63">
+        <from-outcome>ERP-ACT-SEC_0007</from-outcome>
+        <to-activity-id>SEC_0007</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__72">
+        <from-outcome>ERP-ACT-SEC_0013</from-outcome>
+        <to-activity-id>SEC_0013</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__109">
+        <from-outcome>ERP-ACT-SEC_0011</from-outcome>
+        <to-activity-id>SEC_0011</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__127">
+        <from-outcome>ERP-ACT-SEC_0014</from-outcome>
+        <to-activity-id>SEC_0014</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__135">
+        <from-outcome>ERP-ACT-SEC_0005</from-outcome>
+        <to-activity-id>SEC_0005</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__46">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__47">
+        <from-outcome>doStartERPTaskFlow</from-outcome>
+        <to-activity-id>ErpdoInsertAccessableCompany</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__51">
+      <from-activity-id>ERPADDSEC_0012CreateInsert</from-activity-id>
+      <control-flow-case id="__52">
+        <from-outcome>ERPADDSEC_0012CreateInsert</from-outcome>
+        <to-activity-id>AdminCompanyUserAssignQuery</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__53">
+      <from-activity-id>ERPExecuteTransactionModule</from-activity-id>
+      <control-flow-case id="__54">
+        <from-outcome>ERPTransactionExecuteWithParams</from-outcome>
+        <to-activity-id>ERPExecuteReportModule</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__55">
+      <from-activity-id>ERPExecuteReportModule</from-activity-id>
+      <control-flow-case id="__56">
+        <from-outcome>ERPExecuteReportModule</from-outcome>
+        <to-activity-id>ADMMain</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__57">
+      <from-activity-id>doSetNullActivityDescription</from-activity-id>
+      <control-flow-case id="__58">
+        <from-outcome>doSetNullActivityDescription</from-outcome>
+        <to-activity-id>ADMMain</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__59">
+      <from-activity-id>AdminCompanyUserAssignQuery</from-activity-id>
+      <control-flow-case id="__60">
+        <from-outcome>AdminCompanyUserAssignQuery</from-outcome>
+        <to-activity-id>SEC_0012</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__67">
+      <from-activity-id>ErpdoInsertAccessableCompany</from-activity-id>
+      <control-flow-case id="__68">
+        <from-outcome>ErpdoInsertAccessableCompany</from-outcome>
+        <to-activity-id>doGotoErpActivity</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__49">
+      <from-activity-id>executeEmptyRowSetGroupCompanySetSEC_0008</from-activity-id>
+      <control-flow-case id="__62">
+        <from-outcome>executeEmptyRowSetGroupCompanySEC_0008</from-outcome>
+        <to-activity-id>SEC_0008_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__64">
+      <from-activity-id>SEC_0007</from-activity-id>
+      <control-flow-case id="__65">
+        <from-outcome>ERPEDITSEC_0007QUERY</from-outcome>
+        <to-activity-id>ERPEDITSEC_0007QUERY</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__70">
+      <from-activity-id>SEC_0007_EDIT</from-activity-id>
+      <control-flow-case id="__71">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>SEC_0007</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__84">
+        <from-outcome>ERPACTCITYQUERY</from-outcome>
+        <to-activity-id>SEC_00013_QUERYBYCITYSNO</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__88">
+        <from-outcome>ERPSEC_0013_ADD_CITY_FROM_COUNTRY</from-outcome>
+        <to-activity-id>ERPSEC_0013_ADD_CITY_FROM_COUNTRY</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__66">
+      <from-activity-id>ERPEDITSEC_0007QUERY</from-activity-id>
+      <control-flow-case id="__69">
+        <from-outcome>ERPEDITSEC_0007QUERY</from-outcome>
+        <to-activity-id>SEC_0007_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__73">
+      <from-activity-id>SEC_0013</from-activity-id>
+      <control-flow-case id="__74">
+        <from-outcome>ERPEDITSEC_0013</from-outcome>
+        <to-activity-id>ERPEDITSEC_0013QUERY</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__77">
+        <from-outcome>ERPADDSEC_0013</from-outcome>
+        <to-activity-id>ERPADDSEC_0013CreateInsert</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__75">
+      <from-activity-id>ERPEDITSEC_0013QUERY</from-activity-id>
+      <control-flow-case id="__76">
+        <from-outcome>ERPEDITSEC_0013QUERY</from-outcome>
+        <to-activity-id>SEC_0013_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__78">
+      <from-activity-id>ERPADDSEC_0013CreateInsert</from-activity-id>
+      <control-flow-case id="__79">
+        <from-outcome>ERPADDSEC_0013CreateInsert</from-outcome>
+        <to-activity-id>SEC_0013_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__80">
+      <from-activity-id>SEC_0013_EDIT</from-activity-id>
+      <control-flow-case id="__81">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>SEC_0013_EXECUTEQUERYBACK</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__87">
+        <from-outcome>ERPBACKCITYEDITTOCOUNTRY</from-outcome>
+        <to-activity-id>ERPSEC_BACK_TO_COUNTRY_FROM_CITY_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__82">
+      <from-activity-id>SEC_0013_EXECUTEQUERYBACK</from-activity-id>
+      <control-flow-case id="__83">
+        <from-outcome>SEC_0013_EXECUTEQUERYBACK</from-outcome>
+        <to-activity-id>SEC_0013</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__85">
+      <from-activity-id>SEC_00013_QUERYBYCITYSNO</from-activity-id>
+      <control-flow-case id="__86">
+        <from-outcome>SEC_00013_QUERYBYCITYSNO</from-outcome>
+        <to-activity-id>SEC_0013_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__89">
+      <from-activity-id>ERPSEC_0013_ADD_CITY_FROM_COUNTRY</from-activity-id>
+      <control-flow-case id="__90">
+        <from-outcome>ERPSEC_0013_ADD_CITY_FROM_COUNTRY</from-outcome>
+        <to-activity-id>SEC_0013_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__91">
+      <from-activity-id>ERPSEC_BACK_TO_COUNTRY_FROM_CITY_EDIT</from-activity-id>
+      <control-flow-case id="__92">
+        <from-outcome>ERPSEC_BACK_TO_COUNTRY_FROM_CITY_EDIT</from-outcome>
+        <to-activity-id>SEC_0007_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__93">
+      <from-activity-id>ERPCompanyCategoryExeWithPara</from-activity-id>
+      <control-flow-case id="__94">
+        <from-outcome>ERPCompanyCategorySEC_0006</from-outcome>
+        <to-activity-id>ERPNextCompanyTypeExecuteQuery</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__95">
+      <from-activity-id>doERPInitializeValues</from-activity-id>
+      <control-flow-case id="__96">
+        <from-outcome>DOERPInitializeFormValues</from-outcome>
+        <to-activity-id>ERPCompanyCategoryExeWithPara</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__97">
+      <from-activity-id>ERP_BACK_FROM_SEC_0006_QUER_All_CompanyRO</from-activity-id>
+      <control-flow-case id="__98">
+        <from-outcome>Execute</from-outcome>
+        <to-activity-id>ERP_EXECUTE_SEC_0006_QUERY_BY_CATEGORY</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__100">
+      <from-activity-id>ERP_EXECUTE_SEC_0006_QUERY_BY_CATEGORY</from-activity-id>
+      <control-flow-case id="__101">
+        <from-outcome>Execute</from-outcome>
+        <to-activity-id>SEC_0006_QUERY_COMPANY_HIERARCHY_VIEW</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__102">
+      <from-activity-id>SEC_0006_QUERY_COMPANY_HIERARCHY_VIEW</from-activity-id>
+      <control-flow-case id="__103">
+        <from-outcome>Execute</from-outcome>
+        <to-activity-id>SEC_0006</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__105">
+      <from-activity-id>ERP_SEC_0006_EXE_WITH_PARA_FROM_CLASSIFICATION</from-activity-id>
+      <control-flow-case id="__106">
+        <from-outcome>ExecuteWithParams</from-outcome>
+        <to-activity-id>SEC_0006_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__107">
+      <from-activity-id>ERPNextCompanyTypeExecuteQuery</from-activity-id>
+      <control-flow-case id="__108">
+        <from-outcome>ERPNextCompTypeExecutePara</from-outcome>
+        <to-activity-id>SEC_0006</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__110">
+      <from-activity-id>SEC_0011</from-activity-id>
+      <control-flow-case id="__111">
+        <from-outcome>ERPEDITSEC_0011QUERY</from-outcome>
+        <to-activity-id>ERPEDITSEC_0011QUERY</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__118">
+        <from-outcome>ERPADDSEC_0011</from-outcome>
+        <to-activity-id>ERP_ADD_SEC_0011</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__112">
+      <from-activity-id>ERPEDITSEC_0011QUERY</from-activity-id>
+      <control-flow-case id="__113">
+        <from-outcome>ERPEDITSEC_0011QUERY</from-outcome>
+        <to-activity-id>SEC_0011_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__114">
+      <from-activity-id>SEC_0011_EDIT</from-activity-id>
+      <control-flow-case id="__115">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>SEC_0011Rollback</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__116">
+      <from-activity-id>ERPQUERYBAKSEC_0011QUERY</from-activity-id>
+      <control-flow-case id="__117">
+        <from-outcome>ERPQUERYBAKSEC_0011QUERY</from-outcome>
+        <to-activity-id>ERPEXECUTEQUERYCOMPANYTYPEHIERARCHY</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__119">
+      <from-activity-id>ERP_ADD_SEC_0011</from-activity-id>
+      <control-flow-case id="__120">
+        <from-outcome>ERPADDSEC_0011</from-outcome>
+        <to-activity-id>SEC_0011_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__123">
+      <from-activity-id>SEC_0014</from-activity-id>
+      <control-flow-case id="__124">
+        <from-outcome>ERPEDITSEC_0014QUERY</from-outcome>
+        <to-activity-id>ERPEDITSEC_0014QUERY</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__128">
+        <from-outcome>ERPADDSEC_0014</from-outcome>
+        <to-activity-id>ERPADDSEC_0014</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__131">
+      <from-activity-id>SEC_0014_EDIT</from-activity-id>
+      <control-flow-case id="__132">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>SysValueSetRO</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__133">
+      <from-activity-id>ERPEDITSEC_0014QUERY</from-activity-id>
+      <control-flow-case id="__134">
+        <from-outcome>ERPEDITSEC_0014QUERY</from-outcome>
+        <to-activity-id>SEC_0014_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__126">
+      <from-activity-id>ERPADDSEC_0014</from-activity-id>
+      <control-flow-case id="__129">
+        <from-outcome>ERPADDSEC_0014</from-outcome>
+        <to-activity-id>SEC_0014_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__125">
+      <from-activity-id>SysValueSetRO</from-activity-id>
+      <control-flow-case id="__130">
+        <from-outcome>ERPSysValueSetROExecute</from-outcome>
+        <to-activity-id>SEC_0014</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__136">
+      <from-activity-id>SEC_0005</from-activity-id>
+      <control-flow-case id="__137">
+        <from-outcome>ERPEDITSEC_0005QUERY</from-outcome>
+        <to-activity-id>ERPEDITSEC_0005QUERY</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__142">
+        <from-outcome>ERPADDSEC_0005</from-outcome>
+        <to-activity-id>CreateInsertPolicyHeader</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__138">
+      <from-activity-id>SEC_0005_EDIT</from-activity-id>
+      <control-flow-case id="__139">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>SEC_0005</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__140">
+      <from-activity-id>ERPEDITSEC_0005QUERY</from-activity-id>
+      <control-flow-case id="__141">
+        <from-outcome>ERPEDITSEC_0005QUERY</from-outcome>
+        <to-activity-id>ExecutesSysPwdParaForPolicyAssign</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__143">
+      <from-activity-id>CreateInsertPolicyHeader</from-activity-id>
+      <control-flow-case id="__144">
+        <from-outcome>CreateInsertPolicyHeader</from-outcome>
+        <to-activity-id>ExecutesSysPwdParaForPolicyAssign</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__145">
+      <from-activity-id>ExecutesSysPwdParaForPolicyAssign</from-activity-id>
+      <control-flow-case id="__146">
+        <from-outcome>ExecutesSysPwdParaForPolicyAssign</from-outcome>
+        <to-activity-id>SEC_0005_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__147">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__148">
+        <from-outcome>ERPLOGOUTAPP</from-outcome>
+        <to-activity-id>ERPADMLOGOUT</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__149">
+        <from-outcome>ERPLCHANGEPWD</from-outcome>
+        <to-activity-id>ERPCHPWDBTF</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__159">
+        <from-outcome>ERPACTEXITTASKFLOW</from-outcome>
+        <to-activity-id>ERPADMRETURN</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__33">
+        <from-outcome>ERPACTEXITTASKFLOWVIAGS</from-outcome>
+        <to-activity-id>ERPEXITTASKFLOWVIAGS</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__121">
+      <from-activity-id>SEC_0011Rollback</from-activity-id>
+      <control-flow-case id="__122">
+        <from-outcome>ERPEXECUTEQUERYCOMPANYTYPEHIERARCHY</from-outcome>
+        <to-activity-id>SEC_0011</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__154">
+      <from-activity-id>doERPSetModuleActionRights</from-activity-id>
+      <control-flow-case id="__155">
+        <from-outcome>ERPADTERPADMAppGlobal</from-outcome>
+        <to-activity-id>ERPExecuteSetupModule</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__157">
+      <from-activity-id>ADMExceptionHandler</from-activity-id>
+      <control-flow-case id="__158">
+        <from-outcome>ERP-ADM-ACT-RET-FROM-EXCEPTION</from-outcome>
+        <to-activity-id>ADMMain</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <visibility>
+      <url-invoke-allowed/>
+    </visibility>
+  </task-flow-definition>
+</adfc-config>

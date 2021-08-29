@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="SEC_0007_EDITPageDef"
+                Package="erpadm.viewadm.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="SmCountryCRUD" RangeSize="25" DataControl="ERPADMModuleDataControl" id="SmCountryCRUDIterator"/>
+    <iterator Binds="SmCityDetCRUD" RangeSize="25" DataControl="ERPADMModuleDataControl" id="SmCityDetCRUDIterator"/>
+    <searchRegion Criteria="SmCityFindVC" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="SmCityDetCRUDIterator" id="ImplicitViewCriteriaQuery" InitialQueryOverridden="true"/>
+  </executables>
+  <bindings>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="ERPADMModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPADMModuleDataControl"/>
+    <attributeValues IterBinding="SmCountryCRUDIterator" id="CountryShortCode">
+      <AttrNames>
+        <Item Value="CountryShortCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SmCountryCRUDIterator" id="CountryShortName">
+      <AttrNames>
+        <Item Value="CountryShortName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SmCountryCRUDIterator" id="Countryname">
+      <AttrNames>
+        <Item Value="Countryname"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SmCountryCRUDIterator" id="Iso2Code">
+      <AttrNames>
+        <Item Value="Iso2Code"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SmCountryCRUDIterator" id="Iso3Code">
+      <AttrNames>
+        <Item Value="Iso3Code"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="SmCountryCRUDIterator" StaticList="false" Uses="LovContinentSno" id="ContinentSno"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="SmCountryCRUDIterator" StaticList="false" Uses="LovSubContinentSno" id="SubContinentSno"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="SmCountryCRUDIterator" id="UnCode">
+      <AttrNames>
+        <Item Value="UnCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SmCountryCRUDIterator" id="DialingCode">
+      <AttrNames>
+        <Item Value="DialingCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SmCountryCRUDIterator" id="IsActive">
+      <AttrNames>
+        <Item Value="IsActive"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="SmCityDetCRUDIterator" id="SmCityDetCRUD">
+      <nodeDefinition DefName="erpadm.modeladm.admvo.SmCityVO" Name="SmCityDetCRUD0">
+        <AttrNames>
+          <Item Value="Cityname"/>
+          <Item Value="CityShortName"/>
+          <Item Value="CityShortCode"/>
+          <Item Value="ProvienceSno"/>
+          <Item Value="CallingCode"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="SmCityDetCRUDIterator" id="Citycode">
+      <AttrNames>
+        <Item Value="Citycode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SmCountryCRUDIterator" id="Countrycode">
+      <AttrNames>
+        <Item Value="Countrycode"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="SmCountryCRUDIterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <listOfValues IterBinding="SmCountryCRUDIterator" StaticList="false" Uses="LovtxtNationaCurrencyName"
+                  id="txtNationaCurrencyName"/>
+    <action IterBinding="SmCountryCRUDIterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <listOfValues IterBinding="SmCountryCRUDIterator" StaticList="false" Uses="LovtxtNationalLanguageName"
+                  id="txtNationalLanguageName"/>
+    <attributeValues IterBinding="SmCountryCRUDIterator" id="txtNationalLanguageName1">
+      <AttrNames>
+        <Item Value="txtNationalLanguageName"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="SmCountryCRUDIterator" StaticList="false" Uses="LovtxtCapitalCityName"
+                  id="txtCapitalCityName"/>
+    <attributeValues IterBinding="SmCountryCRUDIterator" id="txtCapitalCityName1">
+      <AttrNames>
+        <Item Value="txtCapitalCityName"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

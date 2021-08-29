@@ -1,0 +1,173 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="SEC_0007.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:inputText value="#{bindings.Countrycode.inputValue}" label="#{bindings.Countrycode.hints.label}"
+                          required="#{bindings.Countrycode.hints.mandatory}"
+                          columns="#{bindings.Countrycode.hints.displayWidth}"
+                          maximumLength="#{bindings.Countrycode.hints.precision}"
+                          shortDesc="#{bindings.Countrycode.hints.tooltip}" id="it1" rendered="false">
+                <f:validator binding="#{bindings.Countrycode.validator}"/>
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.Countrycode.format}"/>
+            </af:inputText>
+            <af:pageTemplate viewId="/ERPTemplate.jsf" value="#{bindings.ptb1}" id="pt1">
+                <f:facet name="ERPMain">
+                    <af:decorativeBox id="db1">
+                        <f:facet name="center">
+                            <af:listView value="#{bindings.SmCountryRO.collectionModel}" var="item"
+                                         emptyText="#{bindings.SmCountryRO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                         fetchSize="#{bindings.SmCountryRO.rangeSize}" id="lv1" selection="single"
+                                         selectedRowKeys="#{bindings.SmCountryRO.collectionModel.selectedRow}"
+                                         selectionListener="#{bindings.SmCountryRO.treeModel.makeCurrent}"
+                                         partialTriggers="::qryId1">
+                                <af:listItem id="li1"
+                                             styleClass="WBDisplayBlock WBDisplayBlockPadding WBDisplayBlockCenterUndo">
+                                    <af:panelBox text="PanelBox1" id="pb1"
+                                                 showDisclosure="false" showHeader="never" styleClass="AFStretchWidth">
+                                        <f:facet name="toolbar"/>
+                                        <af:panelGroupLayout id="pgl4" layout="vertical"
+                                                             styleClass="WBCardSize">
+                                            <af:panelGridLayout id="pgl1">
+                                                <af:gridRow id="gr1" marginTop="5px" marginBottom="5px">
+                                                    <af:gridCell width="100%"
+                                                                 id="gc1"
+                                                                 halign="stretch"
+                                                                 styleClass="AFStretchWidth ERPHeroBackground">
+                                                        <af:panelGroupLayout id="pgl2"
+                                                                             layout="horizontal" valign="middle">
+                                                            <af:link id="l4" partialSubmit="true"
+                                                                     icon="#{resource['images:imgView.png']}"
+                                                                     styleClass="ERPHeroBannerFont ERPLink"
+                                                                     action="ERPEDITSEC_0007QUERY"
+                                                                     shortDesc="Click to view record."/>
+                                                            <af:outputFormatted value="#{item.bindings.CountryShortName.inputValue}"
+                                                                                id="of1" styleClass="ERPHeroBannerFont"
+                                                                                shortDesc="Country Short Name"/>
+                                                            <af:link id="l1"
+                                                                     text="#{item.bindings.CountryShortName.inputValue}"
+                                                                     iconPosition="trailing"
+                                                                     styleClass="ERPHeroBannerFont" rendered="false"/>
+                                                        </af:panelGroupLayout>
+                                                    </af:gridCell>
+                                                </af:gridRow>
+                                                <af:gridRow height="auto" id="gr2" marginTop="5px" marginBottom="5px">
+                                                    <af:gridCell width="100%"
+                                                                 id="gc2" halign="stretch">
+                                                        <af:panelGroupLayout id="pgl3" layout="horizontal">
+                                                            <af:image source="#{resource['images:imgDocumentNumber.png']}"
+                                                                      id="i1" shortDesc="Country Short Code"/>
+                                                            <af:outputFormatted value="#{item.bindings.CountryShortCode.inputValue}"
+                                                                                id="of2"
+                                                                                styleClass="ERPHeroDetailColor"
+                                                                                shortDesc="Country Short Code">
+                                                                <af:convertNumber groupingUsed="false"
+                                                                                  pattern="#{bindings.SmCountryRO.hints.CompanyShortCode.format}"/>
+                                                            </af:outputFormatted>
+                                                            <f:facet name="separator">
+                                                                <af:spacer width="10" height="10" id="s1"/>
+                                                            </f:facet>
+                                                        </af:panelGroupLayout>
+                                                    </af:gridCell>
+                                                </af:gridRow>
+                                                <af:gridRow height="auto" id="gr3" marginTop="5px" marginBottom="5px">
+                                                    <af:gridCell width="100%"
+                                                                 id="gc3" halign="stretch">
+                                                        <af:panelGroupLayout id="pgl6" layout="horizontal">
+                                                            <af:image source="#{resource['images:imgShortName.png']}"
+                                                                      id="i2" shortDesc="Country Name"/>
+                                                            <af:outputFormatted value="#{item.bindings.Countryname.inputValue}"
+                                                                                id="of3"
+                                                                                styleClass="ERPHeroDetailColor"
+                                                                                shortDesc="Country Name"/>
+                                                            <f:facet name="separator">
+                                                                <af:spacer width="10" height="10" id="s3"/>
+                                                            </f:facet>
+                                                        </af:panelGroupLayout>
+                                                    </af:gridCell>
+                                                </af:gridRow>
+                                                <af:gridRow height="auto" id="gr4" marginTop="5px" marginBottom="5px">
+                                                    <af:gridCell width="100%"
+                                                                 id="gc4" halign="stretch">
+                                                        <af:panelGroupLayout id="pgl9" layout="horizontal">
+                                                            <af:image source="#{resource['images:imgContinent.png']}"
+                                                                      id="i3" shortDesc="Continent"/>
+                                                            <af:selectOneChoice value="#{item.bindings.ContinentSno.inputValue}"
+                                                                                required="#{item.bindings.ContinentSno.hints.mandatory}"
+                                                                                shortDesc="Continent"
+                                                                                id="soc1" simple="true" readOnly="true"
+                                                                                styleClass="ERPHeroDetailColorChoice">
+                                                                <f:selectItems value="#{item.bindings.ContinentSno.items}"
+                                                                               id="si1"/>
+                                                                <f:validator binding="#{item.bindings.ContinentSno.validator}"/>
+                                                            </af:selectOneChoice>
+                                                            <f:facet name="separator">
+                                                                <af:spacer width="10" height="10" id="s4"/>
+                                                            </f:facet>
+                                                        </af:panelGroupLayout>
+                                                    </af:gridCell>
+                                                </af:gridRow>
+                                                <af:gridRow height="auto" id="gr5" marginTop="5px" marginBottom="5px">
+                                                    <af:gridCell width="100%"
+                                                                 id="gc5">
+                                                        <af:panelGroupLayout id="pgl8" layout="horizontal">
+                                                            <af:image source="#{resource['images:imgCountryCapital.png']}"
+                                                                      id="i4" shortDesc="Capital City"/>
+                                                            <af:outputFormatted value="#{item.bindings.txtCapitalCityName.inputValue==null?'-':item.bindings.txtCapitalCityName.inputValue}"
+                                                                                id="of5"
+                                                                                styleClass="ERPHeroDetailColor"
+                                                                                shortDesc="Capital City">
+                                                                <af:convertNumber groupingUsed="false"
+                                                                                  pattern="#{bindings.SmCountryRO.hints.CapitalCitySno.format}"/>
+                                                            </af:outputFormatted>
+                                                            <f:facet name="separator">
+                                                                <af:spacer width="10" height="10" id="s5"/>
+                                                            </f:facet>
+                                                        </af:panelGroupLayout>
+                                                    </af:gridCell>
+                                                </af:gridRow>
+                                            </af:panelGridLayout>
+                                        </af:panelGroupLayout>
+                                    </af:panelBox>
+                                </af:listItem>
+                            </af:listView>
+                        </f:facet>
+                        <f:facet name="top">
+                            <af:panelGroupLayout id="pgl10" layout="vertical" styleClass="AFStretchWidth">
+                                <af:quickQuery label="Search" searchDesc="Search" id="qryId1"
+                                               value="#{bindings.ImplicitViewCriteriaQuery.quickQueryDescriptor}"
+                                               model="#{bindings.ImplicitViewCriteriaQuery.queryModel}"
+                                               queryListener="#{bindings.ImplicitViewCriteriaQuery.processQuery}">
+                                    <f:facet name="end">
+                                        <af:commandLink text="Advanced" rendered="false" id="cl1"/>
+                                    </f:facet>
+                                </af:quickQuery>
+                            </af:panelGroupLayout>
+                        </f:facet>
+                    </af:decorativeBox>
+                </f:facet>
+                <f:facet name="ERPLeft"/>
+                <f:facet name="ERPToolbar">
+                    <af:panelGroupLayout id="pgl5" layout="horizontal">
+                        <af:link id="l5" partialSubmit="true" icon="#{resource['images:imgPrintPreview.png']}"
+                                 action="#{pageFlowScope.OracleERPBean.doExecuteAdminReport}" shortDesc="Print Preview"
+                                 disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowPrint=='N'}">
+                            <af:setActionListener from="#{'RPT_ADM_0001.rptdesign'}"
+                                                  to="#{pageFlowScope.OracleERPBean.ERPAdminReportName}"/>
+                            <af:setActionListener from="#{'SmCountryROIterator'}"
+                                                  to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
+                        </af:link>
+                        <af:link id="l2" action="ERPACTEXITFORM"
+                                 icon="#{resource['images:imgExitForm.png']}" shortDesc="Exit Form"/>
+                        <af:link id="l3" icon="#{resource['images:imgNewDocument.png']}" shortDesc="Add New Record"
+                                 disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}" rendered="false"/>
+                        <f:facet name="separator">
+                            <af:spacer width="10" height="10" id="s2"/>
+                        </f:facet>
+                    </af:panelGroupLayout>
+                </f:facet>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+</f:view>

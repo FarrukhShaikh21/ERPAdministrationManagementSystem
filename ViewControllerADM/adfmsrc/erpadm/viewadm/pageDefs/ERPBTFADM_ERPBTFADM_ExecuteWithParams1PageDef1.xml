@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47"
+                id="ERPBTFADM_ERPBTFADM_ExecuteWithParams1PageDef1" Package="erpadm.viewadm.pageDefs"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="SysActionGroupHeaderCRUD" RangeSize="25" DataControl="ERPADMModuleDataControl"
+              id="SysActionGroupHeaderCRUDIterator" Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="SysActionGroupHeaderCRUDIterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="P_GROUP_HEADER_SNO" NDValue="#{data.erpadm_viewadm_SEC_0008PageDef.GroupHeaderSno.inputValue}"
+                 NDType="java.lang.Integer"/>
+    </action>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,443 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="SEC_0005_EDIT.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:popup childCreation="deferred" autoCancel="disabled" id="p1">
+                <af:dialog id="d2" type="yesNo" title="Confirmation!"
+                           dialogListener="#{pageFlowScope.OracleERPBean.doERPConfirmDelete}">
+                    <f:facet name="buttonBar"/>
+                    <af:outputText value="Do you want to delete this record?" id="ot1" styleClass="ErpDeleteConfirmText"/>
+                </af:dialog>
+            </af:popup>
+    <af:popup childCreation="deferred" autoCancel="disabled" id="p2"
+                binding="#{pageFlowScope.OracleERPBean.lerpSupervisePopupConfirm}" contentDelivery="lazyUncached">
+        <af:dialog id="d3" type="yesNo" closeIconVisible="false" title="Supervise"
+                   dialogListener="#{pageFlowScope.OracleERPBean.doERPConfirmSuperviseDialog}">
+          <af:outputText value="Do you want to Supervise this transaction?" id="ot8" inlineStyle="font-size:large;"/>
+          <f:facet name="buttonBar"/>
+                </af:dialog>
+    </af:popup>
+    <af:popup childCreation="deferred" autoCancel="disabled" id="p3"
+                binding="#{pageFlowScope.OracleERPBean.lerpUnSupervisePopupConfirm}" contentDelivery="lazyUncached">
+        <af:dialog id="d4" type="yesNo" closeIconVisible="false" title="UnSupervise"
+                   dialogListener="#{pageFlowScope.OracleERPBean.doERPConfirmUnSuperviseDialog}">
+          <af:outputText value="Do you want to UnSupervise this transaction?" id="ot9" inlineStyle="font-size:large;"/>
+          <f:facet name="buttonBar"/>
+                </af:dialog>
+    </af:popup>     
+            <af:decorativeBox id="db2" dimensionsFrom="parent">
+                <f:facet name="center">
+                    <af:decorativeBox id="db1" styleClass="AFAuxiliaryStretchWidth" dimensionsFrom="parent">
+                        <f:facet name="center">
+                            <af:panelGridLayout id="pgl1" styleClass="AFStretchWidth" dimensionsFrom="parent"
+                                                partialTriggers="d3 l3 l5 l12 l8 l2 l1 d4 l14 l13">
+                                <af:gridRow marginTop="5px" height="100%" marginBottom="5px" id="gr1">
+                                    <af:gridCell marginStart="5px" width="25%" id="gc1" halign="stretch"
+                                                 valign="stretch" marginEnd="5px">
+                                        <af:panelBox text="Policy Header" id="pb1" showDisclosure="false"
+                                                     background="medium">
+                                            <f:facet name="toolbar"/>
+                                            <af:panelFormLayout id="pfl1" labelAlignment="top" maxColumns="1"
+                                                                fieldWidth="100" partialTriggers="pc1:l6 pc1:t2:l7">
+                                                <af:inputText value="#{bindings.PolicyHeaderSno.inputValue}"
+                                                              label="#{bindings.PolicyHeaderSno.hints.label}"
+                                                              required="#{bindings.PolicyHeaderSno.hints.mandatory}"
+                                                              columns="#{bindings.PolicyHeaderSno.hints.displayWidth}"
+                                                              maximumLength="#{bindings.PolicyHeaderSno.hints.precision}"
+                                                              shortDesc="#{bindings.PolicyHeaderSno.hints.tooltip}"
+                                                              id="it5" readOnly="true" rendered="false">
+                                                    <f:validator binding="#{bindings.PolicyHeaderSno.validator}"/>
+                                                    <af:convertNumber groupingUsed="false"
+                                                                      pattern="#{bindings.PolicyHeaderSno.format}"/>
+                                                </af:inputText>
+                                                <af:inputText value="#{bindings.PolicyHeaderCode.inputValue}"
+                                                              label="#{bindings.PolicyHeaderCode.hints.label}"
+                                                              required="#{bindings.PolicyHeaderCode.hints.mandatory}"
+                                                              columns="#{bindings.PolicyHeaderCode.hints.displayWidth}"
+                                                              maximumLength="#{bindings.PolicyHeaderCode.hints.precision}"
+                                                              shortDesc="#{bindings.PolicyHeaderCode.hints.tooltip}"
+                                                              id="it1" readOnly="true" contentStyle="width:100%">
+                                                    <f:validator binding="#{bindings.PolicyHeaderCode.validator}"/>
+                                                    <af:convertNumber groupingUsed="false"
+                                                                      pattern="#{bindings.PolicyHeaderCode.format}"/>
+                                                </af:inputText>
+                                                <af:inputText value="#{bindings.IsUnsupervised.inputValue}"
+                                                              label="#{bindings.IsUnsupervised.hints.label}"
+                                                              required="#{bindings.IsUnsupervised.hints.mandatory}"
+                                                              columns="#{bindings.IsUnsupervised.hints.displayWidth}"
+                                                              maximumLength="#{bindings.IsUnsupervised.hints.precision}"
+                                                              shortDesc="#{bindings.IsUnsupervised.hints.tooltip}"
+                                                              id="it10" rendered="false">
+                                                    <f:validator binding="#{bindings.IsUnsupervised.validator}"/>
+                                                </af:inputText>
+                                                <af:inputText value="#{bindings.IsSupervised.inputValue}"
+                                                              label="#{bindings.IsSupervised.hints.label}"
+                                                              required="#{bindings.IsSupervised.hints.mandatory}"
+                                                              columns="#{bindings.IsSupervised.hints.displayWidth}"
+                                                              maximumLength="#{bindings.IsSupervised.hints.precision}"
+                                                              shortDesc="#{bindings.IsSupervised.hints.tooltip}"
+                                                              id="it9" rendered="false">
+                                                    <f:validator binding="#{bindings.IsSupervised.validator}"/>
+                                                </af:inputText>
+                                                <af:inputText value="#{bindings.PolicyShortName.inputValue}"
+                                                              label="#{bindings.PolicyShortName.hints.label}"
+                                                              required="#{bindings.PolicyShortName.hints.mandatory}"
+                                                              columns="#{bindings.PolicyShortName.hints.displayWidth}"
+                                                              maximumLength="#{bindings.PolicyShortName.hints.precision}"
+                                                              shortDesc="#{bindings.PolicyShortName.hints.tooltip}"
+                                                              id="it2" contentStyle="width:100%"
+                                                              styleClass="AFStretchWidth" autoSubmit="true"
+                                                              clientComponent="true"
+                                                              readOnly="#{bindings.IsSupervised.inputValue=='Y'}"
+                                                              disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.PolicyHeaderCode.inputValue!=null}">
+                                                    <f:validator binding="#{bindings.PolicyShortName.validator}"/>
+                                                </af:inputText>
+                                                <af:inputText value="#{bindings.PolicyName.inputValue}"
+                                                              label="#{bindings.PolicyName.hints.label}"
+                                                              required="#{bindings.PolicyName.hints.mandatory}"
+                                                              columns="#{bindings.PolicyName.hints.displayWidth}"
+                                                              maximumLength="#{bindings.PolicyName.hints.precision}"
+                                                              shortDesc="#{bindings.PolicyName.hints.tooltip}" id="it3"
+                                                              contentStyle="width:100%" styleClass="AFStretchWidth"
+                                                              autoSubmit="true"
+                                                              readOnly="#{bindings.IsSupervised.inputValue=='Y'}"
+                                                              disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.PolicyHeaderCode.inputValue!=null}">
+                                                    <f:validator binding="#{bindings.PolicyName.validator}"/>
+                                                </af:inputText>
+                                                <af:inputDate value="#{bindings.PolicyDate.inputValue}"
+                                                              label="#{bindings.PolicyDate.hints.label}"
+                                                              required="#{bindings.PolicyDate.hints.mandatory}"
+                                                              columns="#{bindings.PolicyDate.hints.displayWidth}"
+                                                              shortDesc="#{bindings.PolicyDate.hints.tooltip}" id="id1"
+                                                              contentStyle="width:80%" autoSubmit="true"
+                                                              readOnly="#{bindings.IsSupervised.inputValue=='Y'}"
+                                                              disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.PolicyHeaderCode.inputValue!=null}">
+                                                    <f:validator binding="#{bindings.PolicyDate.validator}"/>
+                                                    <af:convertDateTime pattern="#{bindings.PolicyDate.format}"/>
+                                                </af:inputDate>
+                                                <af:selectOneChoice value="#{bindings.IsActive.inputValue}"
+                                                                    label="#{bindings.IsActive.label}"
+                                                                    required="#{bindings.IsActive.hints.mandatory}"
+                                                                    shortDesc="#{bindings.IsActive.hints.tooltip}"
+                                                                    id="soc1" contentStyle="width:100%"
+                                                                    styleClass="AFStretchWidth"
+                                                                    readOnly="#{bindings.IsSupervised.inputValue=='Y'}"
+                                                                    disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.PolicyHeaderCode.inputValue!=null}">
+                                                    <f:selectItems value="#{bindings.IsActive.items}" id="si1"/>
+                                                    <f:validator binding="#{bindings.IsActive.validator}"/>
+                                                </af:selectOneChoice>
+                                            </af:panelFormLayout>
+                                        </af:panelBox>
+                                    </af:gridCell>
+                                    <af:gridCell marginStart="5px" width="75%" marginEnd="5px" id="gc2"
+                                                 halign="stretch" valign="stretch">
+                                        <af:panelBox text="Policy Lines" id="pb2" showDisclosure="false"
+                                                     background="light">
+                                            <f:facet name="toolbar"/>
+                                            <af:panelTabbed position="above" id="pt1">
+                                                <af:showDetailItem id="tab1" text="Available Parameters" disclosed="true"
+                                                                   stretchChildren="first" inflexibleHeight="0"
+                                                                   flex="0">
+                                                    <af:panelBox text="Available Parameter" id="pb3"
+                                                                 showDisclosure="false" background="light"
+                                                                 styleClass="AFStretchWidth">
+                                                        <f:facet name="toolbar"/>
+                                                        <af:panelCollection id="pc1" featuresOff="viewMenu detach"
+                                                                            styleClass="AFStretchWidth">
+                                                            <f:facet name="menus"/>
+                                                            <f:facet name="toolbar">
+                                                                <af:toolbar id="t4" flex="1">
+                                                                    <af:quickQuery label="Search" searchDesc="Search"
+                                                                                   id="qryId1"
+                                                                                   value="#{bindings.ImplicitViewCriteriaQuery.quickQueryDescriptor}"
+                                                                                   model="#{bindings.ImplicitViewCriteriaQuery.queryModel}"
+                                                                                   queryListener="#{bindings.ImplicitViewCriteriaQuery.processQuery}"
+                                                                                   visible="#{bindings.IsSupervised.inputValue=='N'}">
+                                                                        <f:facet name="end">
+                                                                            <af:commandLink text="Advanced"
+                                                                                            rendered="false" id="cl1"/>
+                                                                        </f:facet>
+                                                                    </af:quickQuery>
+                                                                </af:toolbar>
+                                                            </f:facet>
+                                                            <f:facet name="statusbar"/>
+                                                            <af:table value="#{bindings.SysPasswordParameterForPolicyRO.collectionModel}"
+                                                                      var="row"
+                                                                      rows="#{bindings.SysPasswordParameterForPolicyRO.rangeSize}"
+                                                                      emptyText="#{bindings.SysPasswordParameterForPolicyRO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                                      rowBandingInterval="0"
+                                                                      selectedRowKeys="#{bindings.SysPasswordParameterForPolicyRO.collectionModel.selectedRow}"
+                                                                      selectionListener="#{bindings.SysPasswordParameterForPolicyRO.collectionModel.makeCurrent}"
+                                                                      rowSelection="single"
+                                                                      fetchSize="#{bindings.SysPasswordParameterForPolicyRO.rangeSize}"
+                                                                      id="t2" columnStretching="column:c3"
+                                                                      autoHeightRows="15"
+                                                                      partialTriggers="l7 ::l6 ::qryId1"
+                                                                      styleClass="AFStretchWidth" scrollPolicy="page"
+                                                                      maxClientRows="500">
+                                                                <af:column headerText="#{bindings.SysPasswordParameterForPolicyRO.hints.PasswordParameterName.label}"
+                                                                           id="c3" width="250" minimumWidth="12"
+                                                                           displayIndex="-1">
+                                                                    <af:inputText value="#{row.bindings.PasswordParameterName.inputValue}"
+                                                                                  label="#{bindings.SysPasswordParameterForPolicyRO.hints.PasswordParameterName.label}"
+                                                                                  required="#{bindings.SysPasswordParameterForPolicyRO.hints.PasswordParameterName.mandatory}"
+                                                                                  columns="#{bindings.SysPasswordParameterForPolicyRO.hints.PasswordParameterName.displayWidth}"
+                                                                                  maximumLength="#{bindings.SysPasswordParameterForPolicyRO.hints.PasswordParameterName.precision}"
+                                                                                  shortDesc="#{bindings.SysPasswordParameterForPolicyRO.hints.PasswordParameterName.tooltip}"
+                                                                                  id="it4" readOnly="true">
+                                                                        <f:validator binding="#{row.bindings.PasswordParameterName.validator}"/>
+                                                                    </af:inputText>
+                                                                </af:column>
+                                                                <af:column headerText="#{bindings.SysPasswordParameterForPolicyRO.hints.PasswordParameterValue.label}"
+                                                                           id="c4" width="200" minimumWidth="12"
+                                                                           displayIndex="-1">
+                                                                    <af:outputFormatted value="#{row.bindings.PasswordParameterValue.inputValue}"
+                                                                                        id="of1"/>
+                                                                </af:column>
+                                                                <af:column id="c9" width="150">
+                                                                    <af:inputText value="#{row.bindings.txtSelected.inputValue}"
+                                                                                  label="#{bindings.SysPasswordParameterForPolicyRO.hints.txtSelected.label}"
+                                                                                  required="#{bindings.SysPasswordParameterForPolicyRO.hints.txtSelected.mandatory}"
+                                                                                  columns="#{bindings.SysPasswordParameterForPolicyRO.hints.txtSelected.displayWidth}"
+                                                                                  maximumLength="#{bindings.SysPasswordParameterForPolicyRO.hints.txtSelected.precision}"
+                                                                                  shortDesc="#{bindings.SysPasswordParameterForPolicyRO.hints.txtSelected.tooltip}"
+                                                                                  id="it8" rendered="false">
+                                                                        <f:validator binding="#{row.bindings.txtSelected.validator}"/>
+                                                                    </af:inputText>
+                                                                    <af:panelGroupLayout id="pgl4" layout="vertical"
+                                                                                         styleClass="AFStretchWidth"
+                                                                                         halign="center"
+                                                                                         visible="#{bindings.IsSupervised.inputValue=='N'}">
+                                                                        <af:link actionListener="#{bindings.doErpAssignOneSysPwdParaToPolicy.execute}"
+                                                                                 text="Assign This To User"
+                                                                                 disabled="#{row.bindings.txtSelected.inputValue=='Y' || bindings.PolicyDate.inputValue==null || bindings.PolicyShortName.inputValue==null || bindings.PolicyName.inputValue==null||pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}
+"
+                                                                                 id="l7" partialSubmit="true"
+                                                                                 partialTriggers="::l6 :::it2 :::it3 :::id1"
+                                                                                 clientComponent="true"/>
+                                                                        <af:clientListener method="doErpJsdisableComp"
+                                                                                           type="mouseOver"/>
+                                                                    </af:panelGroupLayout>
+                                                                </af:column>
+                                                            </af:table>
+                                                            <f:facet name="secondaryToolbar">
+                                                                <af:toolbar id="t3" flex="1">
+                                                                    <af:link actionListener="#{bindings.doErpAssignAllSysPwdParaToPolicy.execute}"
+                                                                             text="Assign All To This Policy"
+                                                                             disabled="#{bindings.SysPasswordParameterForPolicyROIterator.estimatedRowCount==0 || bindings.SysPasswordPolicyHeaderCRUDIterator.estimatedRowCount==0 || pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}"
+                                                                             id="l6"
+                                                                             partialSubmit="true" partialTriggers="l6"
+                                                                             visible="#{bindings.IsSupervised.inputValue=='N'}"/>
+                                                                </af:toolbar>
+                                                            </f:facet>
+                                                        </af:panelCollection>
+                                                    </af:panelBox>
+                                                </af:showDetailItem>
+                                                <af:showDetailItem id="tab2" text="Assigned Parameters">
+                                                    <af:panelBox text="Assigned Parameters" id="pb4"
+                                                                 showDisclosure="false" background="light">
+                                                        <f:facet name="toolbar"/>
+                                                        <af:table value="#{bindings.SysPasswordPolicyLinesDetCRUD.collectionModel}"
+                                                                  var="row"
+                                                                  rows="#{bindings.SysPasswordPolicyLinesDetCRUD.rangeSize}"
+                                                                  emptyText="#{bindings.SysPasswordPolicyLinesDetCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                                  rowBandingInterval="0"
+                                                                  selectedRowKeys="#{bindings.SysPasswordPolicyLinesDetCRUD.collectionModel.selectedRow}"
+                                                                  selectionListener="#{bindings.SysPasswordPolicyLinesDetCRUD.collectionModel.makeCurrent}"
+                                                                  rowSelection="single"
+                                                                  fetchSize="#{bindings.SysPasswordPolicyLinesDetCRUD.rangeSize}"
+                                                                  id="t1" autoHeightRows="8" scrollPolicy="page" columnStretching="column:c1"
+                                                                  styleClass="AFStretchWidth" partialTriggers="l4 l11"
+                                                                  inlineStyle="voice-volume:medium;">
+                                                            <af:column headerText="#{bindings.SysPasswordPolicyLinesDetCRUD.hints.PolicyHeaderSno.label}"
+                                                                       id="c5" rendered="false">
+                                                                <af:inputText value="#{row.bindings.PolicyHeaderSno.inputValue}"
+                                                                              label="#{bindings.SysPasswordPolicyLinesDetCRUD.hints.PolicyHeaderSno.label}"
+                                                                              required="#{bindings.SysPasswordPolicyLinesDetCRUD.hints.PolicyHeaderSno.mandatory}"
+                                                                              columns="#{bindings.SysPasswordPolicyLinesDetCRUD.hints.PolicyHeaderSno.displayWidth}"
+                                                                              maximumLength="#{bindings.SysPasswordPolicyLinesDetCRUD.hints.PolicyHeaderSno.precision}"
+                                                                              shortDesc="#{bindings.SysPasswordPolicyLinesDetCRUD.hints.PolicyHeaderSno.tooltip}"
+                                                                              id="it6">
+                                                                    <f:validator binding="#{row.bindings.PolicyHeaderSno.validator}"/>
+                                                                    <af:convertNumber groupingUsed="false"
+                                                                                      pattern="#{bindings.SysPasswordPolicyLinesDetCRUD.hints.PolicyHeaderSno.format}"/>
+                                                                </af:inputText>
+                                                            </af:column>
+                                                            <af:column headerText="#{bindings.SysPasswordPolicyLinesDetCRUD.hints.PasswordParameterSno.label}"
+                                                                       id="c1" width="200">
+                                                                <af:selectOneChoice value="#{row.bindings.PasswordParameterSno.inputValue}"
+                                                                                    label="#{row.bindings.PasswordParameterSno.label}"
+                                                                                    required="#{bindings.SysPasswordPolicyLinesDetCRUD.hints.PasswordParameterSno.mandatory}"
+                                                                                    shortDesc="#{bindings.SysPasswordPolicyLinesDetCRUD.hints.PasswordParameterSno.tooltip}"
+                                                                                    id="soc2" readOnly="true">
+                                                                    <f:selectItems value="#{row.bindings.PasswordParameterSno.items}"
+                                                                                   id="si2"/>
+                                                                    <f:validator binding="#{row.bindings.PasswordParameterSno.validator}"/>
+                                                                </af:selectOneChoice>
+                                                            </af:column>
+                                                            <af:column headerText="#{bindings.SysPasswordPolicyLinesDetCRUD.hints.PasswordParameterSnoValue.label}"
+                                                                       id="c6" width="130">
+                                                                <af:selectOneChoice value="#{row.bindings.PasswordParameterSnoValue.inputValue}"
+                                                                                    label="#{row.bindings.PasswordParameterSnoValue.label}"
+                                                                                    required="#{bindings.SysPasswordPolicyLinesDetCRUD.hints.PasswordParameterSnoValue.mandatory}"
+                                                                                    shortDesc="#{bindings.SysPasswordPolicyLinesDetCRUD.hints.PasswordParameterSnoValue.tooltip}"
+                                                                                    id="soc5" readOnly="true">
+                                                                    <f:selectItems value="#{row.bindings.PasswordParameterSnoValue.items}"
+                                                                                   id="si6"/>
+                                                                    <f:validator binding="#{row.bindings.PasswordParameterSnoValue.validator}"/>
+                                                                </af:selectOneChoice>
+                                                            </af:column>
+                                                            <af:column headerText="#{bindings.SysPasswordPolicyLinesDetCRUD.hints.IsActive.label}"
+                                                                       id="c2" width="80" displayIndex="-1">
+                                                                <af:selectOneChoice value="#{row.bindings.IsActive.inputValue}"
+                                                                                    label="#{row.bindings.IsActive.label}"
+                                                                                    required="#{bindings.SysPasswordPolicyLinesDetCRUD.hints.IsActive.mandatory}"
+                                                                                    shortDesc="#{bindings.SysPasswordPolicyLinesDetCRUD.hints.IsActive.tooltip}"
+                                                                                    id="soc3"
+                                                                                    visible="#{bindings.IsSupervised.inputValue=='N'}"
+                                                                                    disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N'}">
+                                                                    <f:selectItems value="#{row.bindings.IsActive.items}"
+                                                                                   id="si3"/>
+                                                                    <f:validator binding="#{row.bindings.IsActive.validator}"/>
+                                                                </af:selectOneChoice>
+                                                            </af:column>
+                                                            <af:column id="c7" width="50" displayIndex="-1">
+                                                                <af:link actionListener="#{bindings.Delete1.execute}"
+                                                                         text="Delete1"
+                                                                         disabled="#{!bindings.Delete1.enabled}"
+                                                                         id="l11" rendered="false"/>
+                                                                <af:link id="l4"
+                                                                         icon="#{resource['images:imgDeleteRecord.png']}"
+                                                                         partialSubmit="true"
+                                                                         action="#{pageFlowScope.OracleERPBean.doDeleteDetailRecord}"
+                                                                         visible="#{bindings.IsSupervised.inputValue=='N'}"
+                                                                         disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowDelete=='N'}">
+                                                                    <af:setActionListener from="#{'Delete1'}"
+                                                                                          to="#{pageFlowScope.OracleERPBean.l_operation}"/>
+                                                                </af:link>
+                                                            </af:column>
+                                                            <af:column headerText="#{bindings.SysPasswordPolicyLinesDetCRUD.hints.PolicyLinesSno.label}"
+                                                                       id="c8" rendered="false">
+                                                                <af:inputText value="#{row.bindings.PolicyLinesSno.inputValue}"
+                                                                              label="#{bindings.SysPasswordPolicyLinesDetCRUD.hints.PolicyLinesSno.label}"
+                                                                              required="#{bindings.SysPasswordPolicyLinesDetCRUD.hints.PolicyLinesSno.mandatory}"
+                                                                              columns="#{bindings.SysPasswordPolicyLinesDetCRUD.hints.PolicyLinesSno.displayWidth}"
+                                                                              maximumLength="#{bindings.SysPasswordPolicyLinesDetCRUD.hints.PolicyLinesSno.precision}"
+                                                                              shortDesc="#{bindings.SysPasswordPolicyLinesDetCRUD.hints.PolicyLinesSno.tooltip}"
+                                                                              id="it7">
+                                                                    <f:validator binding="#{row.bindings.PolicyLinesSno.validator}"/>
+                                                                    <af:convertNumber groupingUsed="false"
+                                                                                      pattern="#{bindings.SysPasswordPolicyLinesDetCRUD.hints.PolicyLinesSno.format}"/>
+                                                                </af:inputText>
+                                                            </af:column>
+                                                        </af:table>
+                                                    </af:panelBox>
+                                                </af:showDetailItem>
+                                            </af:panelTabbed>
+                                            <af:spacer width="10" height="10" id="s2"/>
+                                            <af:panelGroupLayout id="pgl3" layout="horizontal"/>
+                                        </af:panelBox>
+                                    </af:gridCell>
+                                </af:gridRow>
+                            </af:panelGridLayout>
+                        </f:facet>
+                        <f:facet name="top">
+                            <af:panelGroupLayout id="pgl2" layout="horizontal" halign="end">
+                                <af:link text="Close" id="l3" iconPosition="top"
+                                         action="#{pageFlowScope.OracleERPBean.doBackFromEdit}"
+                                         icon="#{resource['images:imgCloseDialog.png']}" partialSubmit="true">
+                                    <af:setActionListener from="#{'SysPasswordPolicyHeaderCRUDIterator'}"
+                                                          to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
+                                </af:link>
+                                <af:link actionListener="#{bindings.CreateWithParams.execute}" text="CreateWithParams"
+                                         disabled="#{!bindings.CreateWithParams.enabled}" id="l5" rendered="false"/>
+                                <af:link text="UnSupervise" id="l14" partialSubmit="true"
+                                         icon="#{resource['images:imgUnSuperviseRecord.png']}" iconPosition="top"
+                                         action="#{pageFlowScope.OracleERPBean.doERPPopUnSuperviseRecord}"
+                                         disabled="#{bindings.IsSupervised.inputValue=='N'}">
+                                    <af:setActionListener from="#{'SysPasswordPolicyHeaderCRUDIterator'}"
+                                                          to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
+                                </af:link>
+                                <af:link text="Supervise" id="l12" partialSubmit="true"
+                                         icon="#{resource['images:imgSuperviseRecord.png']}" iconPosition="top"
+                                         action="#{pageFlowScope.OracleERPBean.doERPPopSupervisedRecord}"
+                                         disabled="#{bindings.IsSupervised.inputValue=='Y'}">
+                                    <af:setActionListener from="#{'SysPasswordPolicyHeaderCRUDIterator'}"
+                                                          to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
+                                </af:link>
+                                <af:link text="Print Preview" id="l16" icon="#{resource['images:imgPrintPreview.png']}"
+                                         iconPosition="top" partialSubmit="true"
+                                         action="#{pageFlowScope.OracleERPBean.doExecuteAdminReport}">
+                                    <af:setActionListener from="#{'RPT_ADM_0014.rptdesign'}"
+                                                          to="#{pageFlowScope.OracleERPBean.ERPAdminReportName}"/>
+                                    <af:setActionListener from="#{'SysPasswordPolicyHeaderCRUDIterator'}"
+                                                          to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
+                                    <af:setActionListener from="#{bindings.PolicyHeaderSno.inputValue}"
+                                                          to="#{pageFlowScope.OracleERPBean.ERPPKForReport}"/>
+                                </af:link>
+                                <af:link actionListener="#{bindings.Delete.execute}" text="Delete"
+                                         disabled="#{!bindings.Delete.enabled}" id="l9" rendered="false"/>
+                                <af:link text="Delete" id="l10" partialSubmit="true"
+                                         icon="#{resource['images:imgDeleteRecord.png']}" iconPosition="top"
+                                         disabled="#{bindings.IsSupervised.inputValue=='Y'}">
+                                    <af:showPopupBehavior popupId="p1"/>
+                                </af:link>                                
+                                <af:link text="Add" id="l8" icon="#{resource['images:imgAddRecord.png']}"
+                                         iconPosition="top" shortDesc="ADD NEW WITH DEFAULT TYPE AND PARENT"
+                                         action="#{pageFlowScope.OracleERPBean.doERPAddRecordWithPara}"
+                                         partialSubmit="true"
+                                         disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}">
+                                    <af:setActionListener from="#{'SysPasswordPolicyHeaderCRUDIterator'}"
+                                                          to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
+                                </af:link>
+                                <af:link text="Undo" id="l15" actionListener="#{bindings.Rollback.execute}"
+                                         rendered="false"/>
+                                <af:link text="Undo" immediate="true"
+                                         id="l2" icon="#{resource['images:imgUndo.png']}" iconPosition="top"
+                                         partialSubmit="true" action="#{pageFlowScope.OracleERPBean.doErpUndoRecord}">
+                                    <af:resetActionListener/>
+                                </af:link>
+                                <af:link text="Save" id="l13" partialSubmit="true"
+                                         icon="#{resource['images:imgSave.png']}" iconPosition="top"
+                                         action="#{pageFlowScope.OracleERPBean.doERPCommitRecord}"
+                                         disabled="#{bindings.IsSupervised.inputValue=='Y'}"/>
+                                <af:link actionListener="#{bindings.Commit.execute}" text="Save" id="l1" iconPosition="top"
+                                         partialSubmit="true" rendered="false"/>
+                                <f:facet name="separator">
+                                    <af:spacer width="20" height="10" id="s1"/>
+                                </f:facet>
+                            </af:panelGroupLayout>
+                        </f:facet>
+                    </af:decorativeBox>
+                </f:facet>
+            </af:decorativeBox>
+        </af:form>
+        <f:facet name="metaContainer">
+            <af:resource type="javascript">function doErpJsdisableComp(actionEvent) { 
+        var t1 = AdfPage.PAGE.findComponentByAbsoluteId('it2')
+        var t2 = AdfPage.PAGE.findComponentByAbsoluteId('it3')
+        var t3 = AdfPage.PAGE.findComponentByAbsoluteId('id1')
+        
+        //alert(nameInputText.getValue());
+        if(t1.getValue()==null || t2.getValue()==null||t3.getValue()==null) {
+        //alert(nameInputText.getValue())
+         actionEvent.cancel();
+         return;
+        }
+        //nameInputText.setProperty("disabled", true);
+         
+        //The following line is for partial refresh, in this case  
+        //its taken care by framework 
+        
+        AdfPage.PAGE.addPartialTargets(t1); 
+        AdfPage.PAGE.addPartialTargets(t2); 
+        AdfPage.PAGE.addPartialTargets(t3); 
+      }</af:resource>
+            <af:resource type="javascript" source="/resources/js/ERPADMJavaScript.js"/>
+            <af:resource type="css" source="/resources/css/ERPADMStyleSheet.css"/>
+            <af:resource type="javascript" source="http://code.jquery.com/jquery-1.10.2.js"/>
+        </f:facet>
+    </af:document>
+</f:view>

@@ -1,0 +1,310 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="SEC_0013_EDIT.jsf" id="d1" uncommittedDataWarning="on" initialFocusId="it1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:popup childCreation="deferred" autoCancel="disabled" id="p1">
+                <af:dialog id="d2" title="Confirmation!" type="yesNo"
+                           dialogListener="#{pageFlowScope.OracleERPBean.doERPConfirmDelete}">
+                    <f:facet name="buttonBar"/>
+                    <af:outputText value="Do you want to delete this record?" id="ot2" styleClass="ErpDeleteConfirmText"/>
+                </af:dialog>
+            </af:popup>
+            <af:decorativeBox id="db1" dimensionsFrom="parent">
+                <f:facet name="center">
+                    <af:decorativeBox id="db2" dimensionsFrom="parent">
+                        <f:facet name="center">
+                            <af:panelBox id="pb4" showHeader="never" inlineStyle="border:none" partialTriggers="l3">
+                                <f:facet name="toolbar"/>
+                                <af:panelBox text="Basic Information" id="pb1" showDisclosure="false"
+                                             inlineStyle="border:none">
+                                    <f:facet name="toolbar"/>
+                                    <af:separator id="s1"/>
+                                    <af:panelGridLayout id="pgl1">
+                                        <af:gridRow marginTop="5px" height="auto" id="gr1">
+                                            <af:gridCell marginStart="5px" width="15%" id="gc1" halign="center">
+                                                <af:outputLabel value="#{bindings.Cityname.hints.label}" id="ol1"/>
+                                            </af:gridCell>
+                                            <af:gridCell marginStart="5px" width="85%" id="gc2" marginEnd="5px"
+                                                         columnSpan="3" halign="stretch">
+                                                <af:inputText value="#{bindings.Citycode.inputValue}"
+                                                              label="#{bindings.Citycode.hints.label}"
+                                                              required="#{bindings.Citycode.hints.mandatory}"
+                                                              columns="#{bindings.Citycode.hints.displayWidth}"
+                                                              maximumLength="#{bindings.Citycode.hints.precision}"
+                                                              shortDesc="#{bindings.Citycode.hints.tooltip}" id="it6"
+                                                              rendered="false">
+                                                    <f:validator binding="#{bindings.Citycode.validator}"/>
+                                                    <af:convertNumber groupingUsed="false"
+                                                                      pattern="#{bindings.Citycode.format}"/>
+                                                </af:inputText>
+                                                <af:inputText value="#{bindings.Cityname.inputValue}"
+                                                              label="#{bindings.Cityname.hints.label}"
+                                                              required="#{bindings.Cityname.hints.mandatory}"
+                                                              columns="#{bindings.Cityname.hints.displayWidth}"
+                                                              maximumLength="#{bindings.Cityname.hints.precision}"
+                                                              shortDesc="#{bindings.Cityname.hints.tooltip}" id="it1"
+                                                              simple="true" contentStyle="width:100%"
+                                                              clientComponent="true"
+                                                              disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.CityShortCode.inputValue!=null}">
+                                                    <f:validator binding="#{bindings.Cityname.validator}"/>
+                                                </af:inputText>
+                                            </af:gridCell>
+                                        </af:gridRow>
+                                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr2">
+                                            <af:gridCell marginStart="5px" width="15%" id="gc5" halign="center">
+                                                <af:outputLabel value="#{bindings.CityShortCode.hints.label}" id="ol2"/>
+                                            </af:gridCell>
+                                            <af:gridCell marginStart="5px" width="35%" id="gc6" halign="stretch">
+                                                <af:inputText value="#{bindings.CityShortCode.inputValue}"
+                                                              label="#{bindings.CityShortCode.hints.label}"
+                                                              required="#{bindings.CityShortCode.hints.mandatory}"
+                                                              columns="#{bindings.CityShortCode.hints.displayWidth}"
+                                                              maximumLength="#{bindings.CityShortCode.hints.precision}"
+                                                              shortDesc="#{bindings.CityShortCode.hints.tooltip}"
+                                                              id="it2" simple="true" contentStyle="width:100%"
+                                                              readOnly="true">
+                                                    <f:validator binding="#{bindings.CityShortCode.validator}"/>
+                                                </af:inputText>
+                                            </af:gridCell>
+                                            <af:gridCell marginStart="5px" width="15%" id="gc7" halign="center">
+                                                <af:outputLabel value="#{bindings.CityShortName.hints.label}" id="ol3"/>
+                                            </af:gridCell>
+                                            <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc8"
+                                                         halign="stretch">
+                                                <af:inputText value="#{bindings.CityShortName.inputValue}"
+                                                              label="#{bindings.CityShortName.hints.label}"
+                                                              required="#{bindings.CityShortName.hints.mandatory}"
+                                                              columns="#{bindings.CityShortName.hints.displayWidth}"
+                                                              maximumLength="#{bindings.CityShortName.hints.precision}"
+                                                              shortDesc="#{bindings.CityShortName.hints.tooltip}"
+                                                              id="it3" simple="true" contentStyle="width:100%"
+                                                              disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.CityShortCode.inputValue!=null}">
+                                                    <f:validator binding="#{bindings.CityShortName.validator}"/>
+                                                </af:inputText>
+                                            </af:gridCell>
+                                        </af:gridRow>
+                                        <af:gridRow id="gr5" marginTop="5px" marginBottom="5px">
+                                            <af:gridCell id="gc15" halign="center">
+                                                <af:outputLabel value="#{bindings.IsActive.hints.label}" id="ol7"/>
+                                            </af:gridCell>
+                                            <af:gridCell id="gc16" halign="stretch">
+                                                <af:selectOneChoice label="#{bindings.IsActive.hints.label}" id="soc1"
+                                                                    value="#{bindings.IsActive.inputValue}"
+                                                                    contentStyle="width:100%" simple="true"
+                                                                    disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.CityShortCode.inputValue!=null}">
+                                                    <af:selectItem label="YES" value="Y" id="si1"/>
+                                                    <af:selectItem label="NO" value="N" id="si2"/>
+                                                </af:selectOneChoice>
+                                            </af:gridCell>
+                                            <af:gridCell id="gc17"/>
+                                            <af:gridCell id="gc18"/>
+                                        </af:gridRow>
+                                    </af:panelGridLayout>
+                                </af:panelBox>
+                                <af:panelBox text="Regional Information" id="pb3" showDisclosure="false"
+                                             inlineStyle="border:none">
+                                    <f:facet name="toolbar"/>
+                                    <af:separator id="s2"/>
+                                    <af:panelGridLayout id="pgl2">
+                                        <af:gridRow marginTop="5px" height="auto" id="gr3">
+                                            <af:gridCell marginStart="5px" width="15%" id="gc3" marginEnd="5px"
+                                                         halign="center">
+                                                <af:outputLabel value="#{bindings.txtCountryName.hints.label}"
+                                                                id="ol4"/>
+                                            </af:gridCell>
+                                            <af:gridCell marginStart="5px" width="35%" id="gc4" marginEnd="5px"
+                                                         halign="stretch">
+                                                <af:inputComboboxListOfValues id="txtCountryNameId"
+                                                                              popupTitle="Search and Select: #{bindings.txtCountryName.hints.label}"
+                                                                              value="#{bindings.txtCountryName.inputValue}"
+                                                                              label="#{bindings.txtCountryName.hints.label}"
+                                                                              model="#{bindings.txtCountryName.listOfValuesModel}"
+                                                                              required="#{bindings.txtCountryName.hints.mandatory}"
+                                                                              columns="#{bindings.txtCountryName.hints.displayWidth}"
+                                                                              shortDesc="#{bindings.txtCountryName.hints.tooltip}"
+                                                                              simple="true" contentStyle="width:150%"
+                                                                              disabled="#{pageFlowScope.ERPMainTempBean.LERPModuleAction=='SEC_0007' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.CityShortCode.inputValue!=null)}">
+                                                    <f:validator binding="#{bindings.txtCountryName.validator}"/>
+                                                </af:inputComboboxListOfValues>
+                                            </af:gridCell>
+                                            <af:gridCell marginStart="5px" width="15%" id="gc9" marginEnd="5px"
+                                                         halign="center">
+                                                <af:outputLabel value="#{bindings.txtProvienceName.hints.label}"
+                                                                id="ol5"/>
+                                            </af:gridCell>
+                                            <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc10"
+                                                         halign="stretch">
+                                                <af:inputComboboxListOfValues id="iclov1"
+                                                                              popupTitle="Search and Select: #{bindings.txtProvienceName.hints.label}"
+                                                                              value="#{bindings.txtProvienceName.inputValue}"
+                                                                              label="#{bindings.txtProvienceName.hints.label}"
+                                                                              model="#{bindings.txtProvienceName.listOfValuesModel}"
+                                                                              required="#{bindings.txtProvienceName.hints.mandatory}"
+                                                                              columns="#{bindings.txtProvienceName.hints.displayWidth}"
+                                                                              shortDesc="#{bindings.txtProvienceName.hints.tooltip}"
+                                                                              simple="true" contentStyle="width:150%"
+                                                                              disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.CityShortCode.inputValue!=null}">
+                                                    <f:validator binding="#{bindings.txtProvienceName.validator}"/>
+                                                </af:inputComboboxListOfValues>
+                                            </af:gridCell>
+                                        </af:gridRow>
+                                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr4">
+                                            <af:gridCell marginStart="5px" width="15%" id="gc11" marginEnd="5px"
+                                                         halign="center">
+                                                <af:outputLabel value="#{bindings.CallingCode.hints.label}" id="ol6"/>
+                                            </af:gridCell>
+                                            <af:gridCell marginStart="5px" width="35%" id="gc12" marginEnd="5px"
+                                                         halign="stretch">
+                                                <af:inputText value="#{bindings.CallingCode.inputValue}"
+                                                              label="#{bindings.CallingCode.hints.label}"
+                                                              required="#{bindings.CallingCode.hints.mandatory}"
+                                                              columns="#{bindings.CallingCode.hints.displayWidth}"
+                                                              maximumLength="#{bindings.CallingCode.hints.precision}"
+                                                              shortDesc="#{bindings.CallingCode.hints.tooltip}" id="it5"
+                                                              simple="true" contentStyle="width:100%"
+                                                              disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.CityShortCode.inputValue!=null}">
+                                                    <f:validator binding="#{bindings.CallingCode.validator}"/>
+                                                </af:inputText>
+                                            </af:gridCell>
+                                            <af:gridCell marginStart="5px" width="15%" id="gc13" marginEnd="5px"
+                                                         halign="center"/>
+                                            <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc14"
+                                                         halign="stretch"/>
+                                        </af:gridRow>
+                                    </af:panelGridLayout>
+                                </af:panelBox>
+                                <af:panelBox text="Addotopmal Information" id="pb2" showDisclosure="false"
+                                             inlineStyle="border:none">
+                                    <f:facet name="toolbar"/>
+                                    <af:separator id="s3"/>
+                                    <af:panelGridLayout id="pgl3">
+                                        <af:gridRow marginTop="5px" height="auto" id="gr6">
+                                            <af:gridCell marginStart="5px" width="15%" id="gc19" marginEnd="5px"
+                                                         halign="center">
+                                                <af:outputLabel value="#{bindings.Demonym.hints.label}" id="ol9"/>
+                                            </af:gridCell>
+                                            <af:gridCell marginStart="5px" width="35%" id="gc20" marginEnd="5px"
+                                                         halign="stretch">
+                                                <af:inputText value="#{bindings.Demonym.inputValue}"
+                                                              label="#{bindings.Demonym.hints.label}"
+                                                              required="#{bindings.Demonym.hints.mandatory}"
+                                                              columns="#{bindings.Demonym.hints.displayWidth}"
+                                                              maximumLength="#{bindings.Demonym.hints.precision}"
+                                                              shortDesc="#{bindings.Demonym.hints.tooltip}" id="it7"
+                                                              contentStyle="width:100%" simple="true"
+                                                              disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.CityShortCode.inputValue!=null}">
+                                                    <f:validator binding="#{bindings.Demonym.validator}"/>
+                                                </af:inputText>
+                                            </af:gridCell>
+                                            <af:gridCell marginStart="5px" width="15%" id="gc21" marginEnd="5px"
+                                                         halign="center">
+                                                <af:outputLabel value="#{bindings.Website.hints.label}" id="ol8"/>
+                                            </af:gridCell>
+                                            <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc22"
+                                                         halign="stretch">
+                                                <af:inputText value="#{bindings.Website.inputValue}"
+                                                              label="#{bindings.Website.hints.label}"
+                                                              required="#{bindings.Website.hints.mandatory}"
+                                                              columns="#{bindings.Website.hints.displayWidth}"
+                                                              maximumLength="#{bindings.Website.hints.precision}"
+                                                              shortDesc="#{bindings.Website.hints.tooltip}" id="it4"
+                                                              simple="true" contentStyle="width:100%"
+                                                              disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.CityShortCode.inputValue!=null}">
+                                                    <f:validator binding="#{bindings.Website.validator}"/>
+                                                </af:inputText>
+                                            </af:gridCell>
+                                        </af:gridRow>
+                                    </af:panelGridLayout>
+                                </af:panelBox>
+                            </af:panelBox>
+                        </f:facet>
+                        <f:facet name="top">
+                            <af:panelGridLayout id="pgl4">
+                                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr7">
+                                    <af:gridCell marginStart="5px" width="50%" id="gc23">
+                                        <af:outputText value="City" id="ot1"/>
+                                    </af:gridCell>
+                                    <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc24" halign="end">
+                                        <af:panelGroupLayout id="pgl5" layout="horizontal" halign="end">
+                                            <af:link text="Close" id="l7"
+                                                     icon="#{resource['images:imgCloseDialog.png']}"
+                                                     iconPosition="top"
+                                                     rendered="#{pageFlowScope.ERPMainTempBean.LERPModuleAction=='SEC_0007'}"
+                                                     action="#{pageFlowScope.OracleERPBean.doBackFromEdit}"
+                                                     partialSubmit="true">
+                                                <af:setActionListener from="#{'ERPBACKCITYEDITTOCOUNTRY'}"
+                                                                      to="#{pageFlowScope.OracleERPBean.ERPBackActionName}"/>
+                                                <af:setActionListener from="#{'SmCityCRUDIterator'}"
+                                                                      to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
+                                            </af:link>
+                                            <af:link text="Close" id="l4"
+                                                     icon="#{resource['images:imgCloseDialog.png']}"
+                                                     iconPosition="top"
+                                                     action="#{pageFlowScope.OracleERPBean.doBackFromEdit}"
+                                                     partialSubmit="true"
+                                                     rendered="#{pageFlowScope.ERPMainTempBean.LERPModuleAction=='SEC_0013'}">
+                                                <af:setActionListener from="#{'SmCityCRUDIterator'}"
+                                                                      to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
+                                            </af:link>
+                                            <af:link text="Delete" id="l6"
+                                                     icon="#{resource['images:imgDeleteRecord.png']}"
+                                                     iconPosition="top" partialSubmit="true">
+                                                <af:showPopupBehavior popupId="p1" triggerType="action"/>
+                                            </af:link>
+                                            <af:link actionListener="#{bindings.Delete.execute}" text="Delete"
+                                                     disabled="#{!bindings.Delete.enabled}" id="l5"
+                                                     partialSubmit="true"
+                                                     icon="#{resource['images:imgDeleteRecord.png']}"
+                                                     iconPosition="top" rendered="false"/>
+                                            <af:link text="Print Preview" id="l10" partialSubmit="true"
+                                                     icon="#{resource['images:imgPrintPreview.png']}"
+                                                     iconPosition="top"
+                                                     action="#{pageFlowScope.OracleERPBean.doExecuteAdminReport}">
+                                                <af:setActionListener from="#{'RPT_ADM_0004.rptdesign'}"
+                                                                      to="#{pageFlowScope.OracleERPBean.ERPAdminReportName}"/>
+                                                <af:setActionListener to="#{pageFlowScope.OracleERPBean.ERPPKForReport}"
+                                                                      from="#{bindings.Citycode.inputValue}"/>
+                                                <af:setActionListener from="#{'SmCityCRUDIterator'}"
+                                                                      to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>                                                     
+                                            </af:link>         
+                                            <af:link actionListener="#{bindings.CreateInsert.execute}"
+                                                     text="Add"
+                                                     id="l1" icon="#{resource['images:imgAddRecord.png']}"
+                                                     iconPosition="top" partialSubmit="true"
+                                                     disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}"/>
+                                            <af:link immediate="true"
+                                                     id="l2" iconPosition="top" text="Undo"
+                                                     icon="#{resource['images:imgUndo.png']}" partialSubmit="true"
+                                                     action="#{pageFlowScope.OracleERPBean.doErpUndoRecord}">
+                                                <af:resetActionListener/>
+                                            </af:link>
+                                            <af:link text="Undo" id="l9" rendered="false"
+                                                     actionListener="#{bindings.Rollback.execute}"/>
+                                            <af:link text="Save" id="l8" partialSubmit="true"
+                                                     icon="#{resource['images:imgSave.png']}" iconPosition="top"
+                                                     action="#{pageFlowScope.OracleERPBean.doERPCommitRecord}"/>
+                                            <af:link actionListener="#{bindings.Commit.execute}" text="Save" id="l3"
+                                                     icon="#{resource['images:imgSave.png']}" iconPosition="top"
+                                                     partialSubmit="true" rendered="false"/>
+                                            <f:facet name="separator">
+                                                <af:spacer width="10" height="10" id="s4"/>
+                                            </f:facet>
+                                        </af:panelGroupLayout>
+                                    </af:gridCell>
+                                </af:gridRow>
+                            </af:panelGridLayout>
+                        </f:facet>
+                    </af:decorativeBox>
+                </f:facet>
+                <f:facet name="top"/>
+            </af:decorativeBox>
+        </af:form>
+        <f:facet name="metaContainer">
+            <af:resource type="javascript" source="/resources/js/ERPADMJavaScript.js"/>
+            <af:resource type="css" source="/resources/css/ERPADMStyleSheet.css"/>
+            <af:resource type="javascript" source="http://code.jquery.com/jquery-1.10.2.js"/>
+        </f:facet>
+    </af:document>
+</f:view>

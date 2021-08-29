@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47"
+                id="ERPBTFADM_ERPBTFADM_ExecuteWithParams1PageDef1111111111111" Package="erpadm.viewadm.pageDefs"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="SysPasswordPolicyHeaderCRUD" RangeSize="25" DataControl="ERPADMModuleDataControl"
+              id="SysPasswordPolicyHeaderCRUDIterator" Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="SysPasswordPolicyHeaderCRUDIterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="P_ADF_GLOBAL_COMPANY_ID" NDType="java.lang.Integer"/>
+      <NamedData NDName="P_ADF_POLICY_HEADER_SNO"
+                 NDValue="#{data.erpadm_viewadm_SEC_0005PageDef.PolicyHeaderSno.inputValue}"
+                 NDType="java.lang.Integer"/>
+    </action>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47"
+                id="ERPBTFADM_ERPBTFADM_ExecutePageDef111111111" Package="erpadm.viewadm.pageDefs"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="SysPasswordParameterForPolicyRO" RangeSize="25" DataControl="ERPADMModuleDataControl"
+              id="SysPasswordParameterForPolicyROIterator" Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="SysPasswordParameterForPolicyROIterator" id="Execute" RequiresUpdateModel="true"
+            Action="iteratorExecute"/>
+  </bindings>
+</pageDefinition>

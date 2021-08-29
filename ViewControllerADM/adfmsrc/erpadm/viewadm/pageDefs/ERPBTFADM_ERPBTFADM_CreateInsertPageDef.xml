@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47"
+                id="ERPBTFADM_ERPBTFADM_CreateInsertPageDef" Package="erpadm.viewadm.pageDefs" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="AdminCompanyCRUD" RangeSize="25" DataControl="ERPADMModuleDataControl"
+              id="AdminCompanyCRUDIterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="AdminCompanyCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+  </bindings>
+</pageDefinition>

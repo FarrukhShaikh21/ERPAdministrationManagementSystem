@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="SEC_0005_EDITPageDef"
+                Package="erpadm.viewadm.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <page path="erptemplate.viewtemp.pageDefs.ERPTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator Binds="SysPasswordPolicyHeaderCRUD" RangeSize="25" DataControl="ERPADMModuleDataControl"
+              id="SysPasswordPolicyHeaderCRUDIterator"/>
+    <iterator Binds="SysPasswordPolicyLinesDetCRUD" RangeSize="25" DataControl="ERPADMModuleDataControl"
+              id="SysPasswordPolicyLinesDetCRUDIterator"/>
+    <iterator Binds="SysPasswordParameterForPolicyRO" RangeSize="25" DataControl="ERPADMModuleDataControl"
+              id="SysPasswordParameterForPolicyROIterator"/>
+    <searchRegion Criteria="SysPasswordParameterFindVC" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="SysPasswordParameterForPolicyROIterator" id="ImplicitViewCriteriaQuery"
+                  InitialQueryOverridden="true"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="SysPasswordPolicyHeaderCRUDIterator" id="PolicyHeaderCode">
+      <AttrNames>
+        <Item Value="PolicyHeaderCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysPasswordPolicyHeaderCRUDIterator" id="PolicyShortName">
+      <AttrNames>
+        <Item Value="PolicyShortName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysPasswordPolicyHeaderCRUDIterator" id="PolicyName">
+      <AttrNames>
+        <Item Value="PolicyName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysPasswordPolicyHeaderCRUDIterator" id="PolicyDate">
+      <AttrNames>
+        <Item Value="PolicyDate"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="SysPasswordPolicyHeaderCRUDIterator" StaticList="false" Uses="LovIsActive" id="IsActive"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <tree IterBinding="SysPasswordPolicyLinesDetCRUDIterator" id="SysPasswordPolicyLinesDetCRUD">
+      <nodeDefinition DefName="erpadm.modeladm.admvo.SysPasswordPolicyLinesVO" Name="SysPasswordPolicyLinesDetCRUD0">
+        <AttrNames>
+          <Item Value="PasswordParameterSno"/>
+          <Item Value="IsActive"/>
+          <Item Value="PasswordParameterSnoValue"/>
+          <Item Value="PolicyHeaderSno"/>
+          <Item Value="PolicyLinesSno"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="SysPasswordParameterForPolicyROIterator" id="SysPasswordParameterForPolicyRO">
+      <nodeDefinition DefName="erpadm.modeladm.admvo.SysPasswordParameterVO" Name="SysPasswordParameterForPolicyRO0">
+        <AttrNames>
+          <Item Value="PasswordParameterName"/>
+          <Item Value="PasswordParameterValue"/>
+          <Item Value="IsActive"/>
+          <Item Value="txtSelected"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPADMModuleDataControl"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="ERPADMModuleDataControl"/>
+    <methodAction id="doErpAssignAllSysPwdParaToPolicy" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="doErpAssignAllSysPwdParaToPolicy" IsViewObjectMethod="true"
+                  DataControl="ERPADMModuleDataControl"
+                  InstanceName="data.ERPADMModuleDataControl.SysPasswordParameterForPolicyRO"
+                  ReturnName="data.ERPADMModuleDataControl.methodResults.doErpAssignAllSysPwdParaToPolicy_ERPADMModuleDataControl_SysPasswordParameterForPolicyRO_doErpAssignAllSysPwdParaToPolicy_result"/>
+    <attributeValues IterBinding="SysPasswordPolicyHeaderCRUDIterator" id="PolicyHeaderSno">
+      <AttrNames>
+        <Item Value="PolicyHeaderSno"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction IterBinding="SysPasswordParameterForPolicyROIterator" id="doErpAssignOneSysPwdParaToPolicy"
+                  RequiresUpdateModel="true" Action="invokeMethod" MethodName="doErpAssignOneSysPwdParaToPolicy"
+                  IsViewObjectMethod="false" DataControl="ERPADMModuleDataControl"
+                  InstanceName="bindings.SysPasswordParameterForPolicyROIterator.currentRow"
+                  IsLocalObjectReference="true"
+                  ReturnName="data.ERPADMModuleDataControl.methodResults.doErpAssignOneSysPwdParaToPolicy_doErpAssignOneSysPwdParaToPolicy_doErpAssignOneSysPwdParaToPolicy_result"/>
+    <action IterBinding="SysPasswordPolicyHeaderCRUDIterator" id="CreateWithParams" RequiresUpdateModel="true"
+            Action="createWithParams" InstanceName="ERPADMModuleDataControl.SysPasswordPolicyHeaderCRUD"
+            DataControl="ERPADMModuleDataControl">
+      <NamedData NDName="PolicyHeaderSno" NDValue="#{0}" NDType="java.lang.String"/>
+    </action>
+    <action IterBinding="SysPasswordPolicyHeaderCRUDIterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <action IterBinding="SysPasswordPolicyLinesDetCRUDIterator" id="Delete1" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <attributeValues IterBinding="SysPasswordPolicyHeaderCRUDIterator" id="IsSupervised">
+      <AttrNames>
+        <Item Value="IsSupervised"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysPasswordPolicyHeaderCRUDIterator" id="IsUnsupervised">
+      <AttrNames>
+        <Item Value="IsUnsupervised"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

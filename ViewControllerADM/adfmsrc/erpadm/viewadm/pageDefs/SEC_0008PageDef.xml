@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="SEC_0008PageDef"
+                Package="erpadm.viewadm.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <page path="erptemplate.viewtemp.pageDefs.ERPTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator Binds="SysActionGroupHeaderRO" RangeSize="25" DataControl="ERPADMModuleDataControl"
+              id="SysActionGroupHeaderROIterator"/>
+    <searchRegion Criteria="SysActionGroupHeaderFindVC" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="SysActionGroupHeaderROIterator" id="ImplicitViewCriteriaQuery" InitialQueryOverridden="true"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="SysActionGroupHeaderROIterator" id="SysActionGroupHeaderRO">
+      <nodeDefinition DefName="erpadm.modeladm.admvo.SysActionGroupHeaderVO" Name="SysActionGroupHeaderCRUD0">
+        <AttrNames>
+          <Item Value="GroupHeaderCode"/>
+          <Item Value="ActionGroupName"/>
+          <Item Value="StartDate"/>
+          <Item Value="EndDate"/>
+          <Item Value="IsActive"/>
+          <Item Value="DocumentDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="SysActionGroupHeaderROIterator" id="GroupHeaderSno">
+      <AttrNames>
+        <Item Value="GroupHeaderSno"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

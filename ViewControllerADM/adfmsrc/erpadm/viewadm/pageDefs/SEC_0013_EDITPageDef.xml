@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="SEC_0013_EDITPageDef"
+                Package="erpadm.viewadm.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="SmCityCRUD" RangeSize="25" DataControl="ERPADMModuleDataControl" id="SmCityCRUDIterator"/>
+  </executables>
+  <bindings>
+    <listOfValues IterBinding="SmCityCRUDIterator" StaticList="false" Uses="LovtxtProvienceName" id="txtProvienceName"/>
+    <attributeValues IterBinding="SmCityCRUDIterator" id="Cityname">
+      <AttrNames>
+        <Item Value="Cityname"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SmCityCRUDIterator" id="CityShortCode">
+      <AttrNames>
+        <Item Value="CityShortCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SmCityCRUDIterator" id="CityShortName">
+      <AttrNames>
+        <Item Value="CityShortName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SmCityCRUDIterator" id="CallingCode">
+      <AttrNames>
+        <Item Value="CallingCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SmCityCRUDIterator" id="IsActive">
+      <AttrNames>
+        <Item Value="IsActive"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="SmCityCRUDIterator" StaticList="false" Uses="LovtxtCountryName" id="txtCountryName"/>
+    <attributeValues IterBinding="SmCityCRUDIterator" id="Website">
+      <AttrNames>
+        <Item Value="Website"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SmCityCRUDIterator" id="Demonym">
+      <AttrNames>
+        <Item Value="Demonym"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="SmCityCRUDIterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPADMModuleDataControl"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="ERPADMModuleDataControl"/>
+    <action IterBinding="SmCityCRUDIterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <attributeValues IterBinding="SmCityCRUDIterator" id="Citycode">
+      <AttrNames>
+        <Item Value="Citycode"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

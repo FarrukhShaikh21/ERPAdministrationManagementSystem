@@ -1,0 +1,194 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="SEC_0014_EDIT.jsf" id="d1" uncommittedDataWarning="on" initialFocusId="it2">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+<af:popup childCreation="deferred" autoCancel="disabled" id="p1">
+                <af:dialog id="d2" title="Confirmation!" type="yesNo"
+                           dialogListener="#{pageFlowScope.OracleERPBean.doERPConfirmDelete}">
+                    <f:facet name="buttonBar"/>
+                    <af:outputText value="Do you want to delete this record?" id="ot2" styleClass="ErpDeleteConfirmText"/>
+                </af:dialog>
+            </af:popup>        
+            <af:decorativeBox id="db1" dimensionsFrom="parent">
+                <f:facet name="center">
+                    <af:decorativeBox id="db2" dimensionsFrom="parent">
+                        <f:facet name="center">
+                            <af:panelSplitter id="ps1" splitterPosition="219" partialTriggers="l8">
+                                <f:facet name="first">
+                                    <af:panelBox text="General Value Set" id="pb1" showDisclosure="false"
+                                                 type="stretch" partialTriggers="l8">
+                                        <f:facet name="toolbar"/>
+                                        <af:panelFormLayout id="pfl1" labelAlignment="top" styleClass="AFStretchWidth"
+                                                            maxColumns="1">
+                                            <af:inputText value="#{bindings.ValueSetId.inputValue}"
+                                                          label="#{bindings.ValueSetId.hints.label}"
+                                                          required="#{bindings.ValueSetId.hints.mandatory}"
+                                                          columns="#{bindings.ValueSetId.hints.displayWidth}"
+                                                          maximumLength="#{bindings.ValueSetId.hints.precision}"
+                                                          shortDesc="#{bindings.ValueSetId.hints.tooltip}" id="it1"
+                                                          readOnly="true">
+                                                <f:validator binding="#{bindings.ValueSetId.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.ValueSetId.format}"/>
+                                            </af:inputText>
+                                            <af:inputText value="#{bindings.ValueSetDescription.inputValue}"
+                                                          label="#{bindings.ValueSetDescription.hints.label}"
+                                                          required="#{bindings.ValueSetDescription.hints.mandatory}"
+                                                          columns="#{bindings.ValueSetDescription.hints.displayWidth}"
+                                                          maximumLength="#{bindings.ValueSetDescription.hints.precision}"
+                                                          shortDesc="#{bindings.ValueSetDescription.hints.tooltip}"
+                                                          id="it2" clientComponent="true">
+                                                <f:validator binding="#{bindings.ValueSetDescription.validator}"/>
+                                            </af:inputText>
+                                            <af:inputText value="#{bindings.Remarks.inputValue}"
+                                                          label="#{bindings.Remarks.hints.label}"
+                                                          required="#{bindings.Remarks.hints.mandatory}"
+                                                          columns="#{bindings.Remarks.hints.displayWidth}"
+                                                          maximumLength="#{bindings.Remarks.hints.precision}"
+                                                          shortDesc="#{bindings.Remarks.hints.tooltip}" id="it3"
+                                                          styleClass="AFStretchWidth">
+                                                <f:validator binding="#{bindings.Remarks.validator}"/>
+                                            </af:inputText>
+                                            <af:selectOneChoice label="#{bindings.IsActive.hints.label}"
+                                                                value="#{bindings.IsActive.inputValue}" id="soc1"
+                                                                contentStyle="width:100%" styleClass="AFStretchWidth">
+                                                <af:selectItem label="YES" value="Y" id="si1"/>
+                                                <af:selectItem label="NO" value="N" id="si2"/>
+                                            </af:selectOneChoice>
+                                        </af:panelFormLayout>
+                                    </af:panelBox>
+                                </f:facet>
+                                <f:facet name="second">
+                                    <af:table value="#{bindings.SysGeneralValueDetCRUD.collectionModel}" var="row"
+                                              rows="#{bindings.SysGeneralValueDetCRUD.rangeSize}"
+                                              emptyText="#{bindings.SysGeneralValueDetCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                              rowBandingInterval="0"
+                                              selectedRowKeys="#{bindings.SysGeneralValueDetCRUD.collectionModel.selectedRow}"
+                                              selectionListener="#{bindings.SysGeneralValueDetCRUD.collectionModel.makeCurrent}"
+                                              rowSelection="single"
+                                              fetchSize="#{bindings.SysGeneralValueDetCRUD.rangeSize}" id="t1"
+                                              partialTriggers="::l1 l7" scrollPolicy="page"
+                                              autoHeightRows="10" styleClass="AFStretchWidth"
+                                              columnStretching="column:c2">
+                                        <af:column headerText="#{bindings.SysGeneralValueDetCRUD.hints.ValueId.label}"
+                                                   id="c1" align="center">
+                                            <af:inputText value="#{row.bindings.ValueId.inputValue}"
+                                                          label="#{bindings.SysGeneralValueDetCRUD.hints.ValueId.label}"
+                                                          required="#{bindings.SysGeneralValueDetCRUD.hints.ValueId.mandatory}"
+                                                          columns="#{bindings.SysGeneralValueDetCRUD.hints.ValueId.displayWidth}"
+                                                          maximumLength="#{bindings.SysGeneralValueDetCRUD.hints.ValueId.precision}"
+                                                          shortDesc="#{bindings.SysGeneralValueDetCRUD.hints.ValueId.tooltip}"
+                                                          id="it4" readOnly="true">
+                                                <f:validator binding="#{row.bindings.ValueId.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.SysGeneralValueDetCRUD.hints.ValueId.format}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.SysGeneralValueDetCRUD.hints.ValueDescription.label}"
+                                                   id="c2">
+                                            <af:inputText value="#{row.bindings.ValueDescription.inputValue}"
+                                                          label="#{bindings.SysGeneralValueDetCRUD.hints.ValueDescription.label}"
+                                                          required="#{bindings.SysGeneralValueDetCRUD.hints.ValueDescription.mandatory}"
+                                                          columns="#{bindings.SysGeneralValueDetCRUD.hints.ValueDescription.displayWidth}"
+                                                          maximumLength="#{bindings.SysGeneralValueDetCRUD.hints.ValueDescription.precision}"
+                                                          shortDesc="#{bindings.SysGeneralValueDetCRUD.hints.ValueDescription.tooltip}"
+                                                          id="it5" contentStyle="width:100%">
+                                                <f:validator binding="#{row.bindings.ValueDescription.validator}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.SysGeneralValueDetCRUD.hints.ValueCode.label}"
+                                                   id="c3">
+                                            <af:inputText value="#{row.bindings.ValueCode.inputValue}"
+                                                          label="#{bindings.SysGeneralValueDetCRUD.hints.ValueCode.label}"
+                                                          required="#{bindings.SysGeneralValueDetCRUD.hints.ValueCode.mandatory}"
+                                                          columns="#{bindings.SysGeneralValueDetCRUD.hints.ValueCode.displayWidth}"
+                                                          maximumLength="#{bindings.SysGeneralValueDetCRUD.hints.ValueCode.precision}"
+                                                          shortDesc="#{bindings.SysGeneralValueDetCRUD.hints.ValueCode.tooltip}"
+                                                          id="it6">
+                                                <f:validator binding="#{row.bindings.ValueCode.validator}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.SysGeneralValueDetCRUD.hints.IsActive.label}"
+                                                   id="c4">
+                                            <af:selectOneChoice label="Label 1"
+                                                                value="#{row.bindings.IsActive.inputValue}" id="soc2">
+                                                <af:selectItem label="YES" value="Y" id="si3"/>
+                                                <af:selectItem label="NO" value="N" id="si4"/>
+                                            </af:selectOneChoice>
+                                        </af:column>
+                                        <af:column id="c5">
+                                            <f:facet name="header"/>
+                                            <af:link actionListener="#{bindings.Delete1.execute}"
+                                                     disabled="#{!bindings.Delete1.enabled}" id="l7"
+                                                     icon="#{resource['images:imgDeleteRecord.png']}"
+                                                     partialSubmit="true"/>
+                                        </af:column>
+                                    </af:table>
+                                </f:facet>
+                            </af:panelSplitter>
+                        </f:facet>
+                        <f:facet name="top">
+                            <af:panelGridLayout id="pgl4">
+                                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr7">
+                                    <af:gridCell marginStart="5px" width="50%" id="gc23">
+                                        <af:outputText value="General Value Set" id="ot1"/>
+                                    </af:gridCell>
+                                    <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc24" halign="end">
+                                        <af:panelGroupLayout id="pgl5" layout="horizontal" halign="end">
+                                            <af:link text="Close" id="l4"
+                                                     icon="#{resource['images:imgCloseDialog.png']}"
+                                                     iconPosition="top"
+                                                     action="#{pageFlowScope.OracleERPBean.doBackFromEdit}"
+                                                     partialSubmit="true">
+                                                <af:setActionListener from="#{'SysGeneralValueSetCRUDIterator'}"
+                                                                      to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
+                                            </af:link>
+                                            <af:link text="Add"
+                                                     id="l1" icon="#{resource['images:imgAddRecord.png']}"
+                                                     iconPosition="top" partialSubmit="true"
+                                                     actionListener="#{bindings.CreateInsert.execute}"
+                                                     disabled="#{!bindings.CreateInsert.enabled}"/>
+                                            <af:link actionListener="#{bindings.Delete.execute}" text="Delete"
+                                                     disabled="#{!bindings.Delete.enabled}" id="l6" rendered="false"/>
+                                            <af:link text="Delete" id="l5"
+                                                     icon="#{resource['images:imgDeleteRecord.png']}"
+                                                     iconPosition="top" partialSubmit="true">
+                                                <af:showPopupBehavior popupId="p1"/>
+                                            </af:link>
+                                            <af:link text="Undo" id="l9" actionListener="#{bindings.Rollback.execute}"
+                                                     rendered="false"/>
+                                            <af:link
+                                                     id="l2" iconPosition="top" text="Undo"
+                                                     icon="#{resource['images:imgUndo.png']}" partialSubmit="true" immediate="true"
+                                                     action="#{pageFlowScope.OracleERPBean.doErpUndoRecord}">
+                                                <af:resetActionListener/>
+                                            </af:link>
+                                            <af:link id="l8" icon="#{resource['images:imgSave.png']}"
+                                                     iconPosition="top"
+                                                     action="#{pageFlowScope.OracleERPBean.doERPCommitRecord}"
+                                                     text="Save" partialSubmit="true"/>
+                                            <af:link text="Save" id="l3" iconPosition="top"
+                                                     partialSubmit="true" actionListener="#{bindings.Commit.execute}"
+                                                     rendered="false"/>
+                                            <f:facet name="separator">
+                                                <af:spacer width="10" height="10" id="s4"/>
+                                            </f:facet>
+                                        </af:panelGroupLayout>
+                                    </af:gridCell>
+                                </af:gridRow>
+                            </af:panelGridLayout>
+                        </f:facet>
+                    </af:decorativeBox>
+                </f:facet>
+                <f:facet name="top"/>
+            </af:decorativeBox>
+        </af:form>
+        <f:facet name="metaContainer">
+        <af:resource type="javascript" source="/resources/js/ERPADMJavaScript.js"/>
+        <af:resource type="css" source="/resources/css/ERPADMStyleSheet.css"/>
+        <af:resource type="javascript" source="http://code.jquery.com/jquery-1.10.2.js"/>        
+        </f:facet>
+    </af:document>
+</f:view>

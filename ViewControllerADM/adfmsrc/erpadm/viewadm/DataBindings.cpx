@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.1.3.10.47" id="DataBindings"
+             SeparateXMLFiles="false" Package="erpadm.viewadm" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adfm/dvt"
+             className="oracle.adfinternal.view.faces.dvt.model.binding.FacesBindingFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/ADMMain.jsf" usageId="erpadm_viewadm_ADMMainPageDef"/>
+    <page path="/SEC_0003.jsf" usageId="erpadm_viewadm_SEC_0003PageDef"/>
+    <page path="/WEB-INF/ERPBTFADM.xml#ERPBTFADM@ERPExecuteSetupModule"
+          usageId="erpadm_viewadm_ERPBTFADM_ERPBTFADM_ExecuteWithParamsPageDef"/>
+    <page path="/SEC_0012.jsf" usageId="erpadm_viewadm_SEC_0012PageDef"/>
+    <page path="/WEB-INF/ERPBTFADM.xml#ERPBTFADM@ExecuteWithParams"
+          usageId="erpadm_viewadm_ERPBTFADM_ERPBTFADM_ExecuteWithParamsPageDef1"/>
+    <page path="/SEC_0006.jsf" usageId="erpadm_viewadm_SEC_0006PageDef"/>
+    <page path="/SEC_0006_EDIT.jsf" usageId="erpadm_viewadm_SEC_0006_EDITPageDef"/>
+    <page path="/SEC_0005.jsf" usageId="erpadm_viewadm_SEC_0005PageDef"/>
+    <page path="/WEB-INF/ERPBTFADM.xml#ERPBTFADM@ERPADDSEC_0006CreateInsert"
+          usageId="erpadm_viewadm_ERPBTFADM_ERPBTFADM_CreateInsertPageDef"/>
+    <page path="/WEB-INF/ERPBTFADM.xml#ERPBTFADM@ERPEDITSEC_0006QUERY"
+          usageId="erpadm_viewadm_ERPBTFADM_ERPBTFADM_ExecuteWithParams1PageDef"/>
+    <page path="/SEC_0008.jsf" usageId="erpadm_viewadm_SEC_0008PageDef"/>
+    <page path="/SEC_0008_EDIT.jsf" usageId="erpadm_viewadm_SEC_0008_EDITPageDef"/>
+    <page path="/WEB-INF/ERPBTFADM.xml#ERPBTFADM@ERPADDSEC_0008CreateInsert"
+          usageId="erpadm_viewadm_ERPBTFADM_ERPBTFADM_CreateInsertPageDef1"/>
+    <page path="/WEB-INF/ERPBTFADM.xml#ERPBTFADM@ERPSEC_0008EmptyRowSet"
+          usageId="erpadm_viewadm_ERPBTFADM_ERPBTFADM_executeEmptyRowSetPageDef"/>
+    <page path="/WEB-INF/ERPBTFADM.xml#ERPBTFADM@ERPEDITSEC_0008QUERY"
+          usageId="erpadm_viewadm_ERPBTFADM_ERPBTFADM_ExecuteWithParams1PageDef1"/>
+    <page path="/WEB-INF/ERPBTFADM.xml#ERPBTFADM@executeEmptyRowSetSEC_0008"
+          usageId="erpadm_viewadm_ERPBTFADM_ERPBTFADM_executeEmptyRowSetPageDef1"/>
+    <page path="/WEB-INF/ERPBTFADM.xml#ERPBTFADM@SEC_0008_EXECUTEQUERYBACK"
+          usageId="erpadm_viewadm_ERPBTFADM_ERPBTFADM_ExecutePageDef"/>
+    <page path="/WEB-INF/ERPBTFADM.xml#ERPBTFADM@ERPADDSEC_0012CreateInsert"
+          usageId="erpadm_viewadm_ERPBTFADM_ERPBTFADM_CreateInsertPageDef11"/>
+    <page path="/WEB-INF/ERPBTFADM.xml#ERPBTFADM@ERPExecuteTransactionModule"
+          usageId="erpadm_viewadm_ERPBTFADM_ERPBTFADM_ExecuteWithParams1PageDef11"/>
+    <page path="/WEB-INF/ERPBTFADM.xml#ERPBTFADM@ERPExecuteReportModule"
+          usageId="erpadm_viewadm_ERPBTFADM_ERPBTFADM_ExecuteWithParams1PageDef111"/>
+    <page path="/WEB-INF/ERPBTFADM.xml#ERPBTFADM@AdminCompanyUserAssignQuery"
+          usageId="erpadm_viewadm_ERPBTFADM_ERPBTFADM_ExecuteWithParams1PageDef1111"/>
+    <page path="/WEB-INF/ERPBTFADM.xml#ERPBTFADM@ErpdoInsertAccessableCompany"
+          usageId="erpadm_viewadm_ERPBTFADM_ERPBTFADM_ErpdoInsertAccessableCompanyPageDef"/>
+    <page path="/ADMExceptionHandler.jsf" usageId="erpadm_viewadm_ADMExceptionHandlerPageDef"/>
+    <page path="/WEB-INF/ERPBTFADM.xml#ERPBTFADM@executeEmptyRowSetGroupCompanySetSEC_0008"
+          usageId="erpadm_viewadm_ERPBTFADM_ERPBTFADM_executeEmptyRowSetPageDef11"/>
+    <page path="/SEC_0007.jsf" usageId="erpadm_viewadm_SEC_0007PageDef"/>
+    <page path="/SEC_0007_EDIT.jsf" usageId="erpadm_viewadm_SEC_0007_EDITPageDef"/>
+    <page path="/WEB-INF/ERPBTFADM.xml#ERPBTFADM@ERPEDITSEC_0007QUERY"
+          usageId="erpadm_viewadm_ERPBTFADM_ERPBTFADM_ExecuteWithParams1PageDef11111"/>
+    <page path="/SEC_0013.jsf" usageId="erpadm_viewadm_SEC_0013PageDef"/>
+    <page path="/SEC_0013_EDIT.jsf" usageId="erpadm_viewadm_SEC_0013_EDITPageDef"/>
+    <page path="/WEB-INF/ERPBTFADM.xml#ERPBTFADM@ERPEDITSEC_0013QUERY"
+          usageId="erpadm_viewadm_ERPBTFADM_ERPBTFADM_ExecuteWithParams1PageDef111111"/>
+    <page path="/WEB-INF/ERPBTFADM.xml#ERPBTFADM@ERPADDSEC_0013CreateInsert"
+          usageId="erpadm_viewadm_ERPBTFADM_ERPBTFADM_CreateInsertPageDef111"/>
+    <page path="/WEB-INF/ERPBTFADM.xml#ERPBTFADM@SEC_0013_EXECUTEQUERYBACK"
+          usageId="erpadm_viewadm_ERPBTFADM_ERPBTFADM_ExecutePageDef1"/>
+    <page path="/WEB-INF/ERPBTFADM.xml#ERPBTFADM@SEC_00013_QUERYBYCITYSNO"
+          usageId="erpadm_viewadm_ERPBTFADM_ERPBTFADM_ExecuteWithParams1PageDef1111111"/>
+    <page path="/WEB-INF/ERPBTFADM.xml#ERPBTFADM@ERPSEC_0013_ADD_CITY_FROM_COUNTRY"
+          usageId="erpadm_viewadm_ERPBTFADM_ERPBTFADM_CreateWithParametersPageDef"/>
+    <page path="/WEB-INF/ERPBTFADM.xml#ERPBTFADM@ERPSEC_BACK_TO_COUNTRY_FROM_CITY_EDIT"
+          usageId="erpadm_viewadm_ERPBTFADM_ERPBTFADM_ExecutePageDef11"/>
+    <page path="/WEB-INF/ERPBTFADM.xml#ERPBTFADM@ERPCompanyCategoryExeWithPara"
+          usageId="erpadm_viewadm_ERPBTFADM_ERPBTFADM_ExecuteWithParams1PageDef11111111"/>
+    <page path="/WEB-INF/ERPBTFADM.xml#ERPBTFADM@ERP_BACK_FROM_SEC_0006_QUER_All_CompanyRO"
+          usageId="erpadm_viewadm_ERPBTFADM_ERPBTFADM_ExecutePageDef111"/>
+    <page path="/WEB-INF/ERPBTFADM.xml#ERPBTFADM@ERP_EXECUTE_SEC_0006_QUERY_BY_CATEGORY"
+          usageId="erpadm_viewadm_ERPBTFADM_ERPBTFADM_ExecutePageDef1111"/>
+    <page path="/WEB-INF/ERPBTFADM.xml#ERPBTFADM@SEC_0006_QUERY_COMPANY_HIERARCHY_VIEW"
+          usageId="erpadm_viewadm_ERPBTFADM_ERPBTFADM_ExecutePageDef11111"/>
+    <page path="/WEB-INF/ERPBTFADM.xml#ERPBTFADM@ERP_SEC_0006_EXE_WITH_PARA_FROM_CLASSIFICATION"
+          usageId="erpadm_viewadm_ERPBTFADM_ERPBTFADM_ExecuteWithParams1PageDef111111111"/>
+    <page path="/WEB-INF/ERPBTFADM.xml#ERPBTFADM@ERPNextCompanyTypeExecuteQuery"
+          usageId="erpadm_viewadm_ERPBTFADM_ERPBTFADM_ExecuteWithParams1PageDef1111111111"/>
+    <page path="/SEC_0011.jsf" usageId="erpadm_viewadm_SEC_0011PageDef"/>
+    <page path="/SEC_0011_EDIT.jsf" usageId="erpadm_viewadm_SEC_0011_EDITPageDef"/>
+    <page path="/WEB-INF/ERPBTFADM.xml#ERPBTFADM@ERPEDITSEC_0011QUERY"
+          usageId="erpadm_viewadm_ERPBTFADM_ERPBTFADM_ExecuteWithParams1PageDef11111111111"/>
+    <page path="/WEB-INF/ERPBTFADM.xml#ERPBTFADM@ERPQUERYBAKSEC_0011QUERY"
+          usageId="erpadm_viewadm_ERPBTFADM_ERPBTFADM_ExecutePageDef111111"/>
+    <page path="/WEB-INF/ERPBTFADM.xml#ERPBTFADM@ERP_ADD_SEC_0011"
+          usageId="erpadm_viewadm_ERPBTFADM_ERPBTFADM_CreateInsertPageDef1111"/>
+    <page path="/WEB-INF/ERPBTFADM.xml#ERPBTFADM@ERPEXECUTEQUERYCOMPANYTYPEHIERARCHY"
+          usageId="erpadm_viewadm_ERPBTFADM_ERPBTFADM_ExecutePageDef1111111"/>
+    <page path="/SEC_0014.jsf" usageId="erpadm_viewadm_SEC_0014PageDef"/>
+    <page path="/SEC_0014_EDIT.jsf" usageId="erpadm_viewadm_SEC_0014_EDITPageDef"/>
+    <page path="/WEB-INF/ERPBTFADM.xml#ERPBTFADM@ERPEDITSEC_0014QUERY"
+          usageId="erpadm_viewadm_ERPBTFADM_ERPBTFADM_ExecuteWithParams1PageDef111111111111"/>
+    <page path="/WEB-INF/ERPBTFADM.xml#ERPBTFADM@ERPADDSEC_0014"
+          usageId="erpadm_viewadm_ERPBTFADM_ERPBTFADM_CreateInsertPageDef111111"/>
+    <page path="/WEB-INF/ERPBTFADM.xml#ERPBTFADM@SysValueSetRO"
+          usageId="erpadm_viewadm_ERPBTFADM_ERPBTFADM_ExecutePageDef11111111"/>
+    <page path="/SEC_0005_EDIT.jsf" usageId="erpadm_viewadm_SEC_0005_EDITPageDef"/>
+    <page path="/WEB-INF/ERPBTFADM.xml#ERPBTFADM@ERPEDITSEC_0005QUERY"
+          usageId="erpadm_viewadm_ERPBTFADM_ERPBTFADM_ExecuteWithParams1PageDef1111111111111"/>
+    <page path="/WEB-INF/ERPBTFADM.xml#ERPBTFADM@CreateInsertPolicyHeader"
+          usageId="erpadm_viewadm_ERPBTFADM_ERPBTFADM_CreateInsertPageDef11111"/>
+    <page path="/WEB-INF/ERPBTFADM.xml#ERPBTFADM@ExecutesSysPwdParaForPolicyAssign"
+          usageId="erpadm_viewadm_ERPBTFADM_ERPBTFADM_ExecutePageDef111111111"/>
+    <page path="/TEST.jsf" usageId="erpadm_viewadm_TESTPageDef"/>
+    <page path="/WEB-INF/ERPBTFADM.xml#ERPBTFADM@SEC_0011Rollback"
+          usageId="erpadm_viewadm_ERPBTFADM_ERPBTFADM_RollbackPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="erpadm_viewadm_ADMMainPageDef" path="erpadm.viewadm.pageDefs.ADMMainPageDef"/>
+    <page id="erpadm_viewadm_SEC_0003PageDef" path="erpadm.viewadm.pageDefs.SEC_0003PageDef"/>
+    <page id="erpadm_viewadm_ERPBTFADM_ERPBTFADM_ExecuteWithParamsPageDef"
+          path="erpadm.viewadm.pageDefs.ERPBTFADM_ERPBTFADM_ExecuteWithParamsPageDef"/>
+    <page id="erpadm_viewadm_SEC_0012PageDef" path="erpadm.viewadm.pageDefs.SEC_0012PageDef"/>
+    <page id="erpadm_viewadm_ERPBTFADM_ERPBTFADM_ExecuteWithParamsPageDef1"
+          path="erpadm.viewadm.pageDefs.ERPBTFADM_ERPBTFADM_ExecuteWithParamsPageDef1"/>
+    <page id="erpadm_viewadm_SEC_0006PageDef" path="erpadm.viewadm.pageDefs.SEC_0006PageDef"/>
+    <page id="erpadm_viewadm_SEC_0006_EDITPageDef" path="erpadm.viewadm.pageDefs.SEC_0006_EDITPageDef"/>
+    <page id="erpadm_viewadm_SEC_0005PageDef" path="erpadm.viewadm.pageDefs.SEC_0005PageDef"/>
+    <page id="erpadm_viewadm_ERPBTFADM_ERPBTFADM_CreateInsertPageDef"
+          path="erpadm.viewadm.pageDefs.ERPBTFADM_ERPBTFADM_CreateInsertPageDef"/>
+    <page id="erpadm_viewadm_ERPBTFADM_ERPBTFADM_ExecuteWithParams1PageDef"
+          path="erpadm.viewadm.pageDefs.ERPBTFADM_ERPBTFADM_ExecuteWithParams1PageDef"/>
+    <page id="erpadm_viewadm_SEC_0008PageDef" path="erpadm.viewadm.pageDefs.SEC_0008PageDef"/>
+    <page id="erpadm_viewadm_SEC_0008_EDITPageDef" path="erpadm.viewadm.pageDefs.SEC_0008_EDITPageDef"/>
+    <page id="erpadm_viewadm_ERPBTFADM_ERPBTFADM_CreateInsertPageDef1"
+          path="erpadm.viewadm.pageDefs.ERPBTFADM_ERPBTFADM_CreateInsertPageDef1"/>
+    <page id="erpadm_viewadm_ERPBTFADM_ERPBTFADM_executeEmptyRowSetPageDef"
+          path="erpadm.viewadm.pageDefs.ERPBTFADM_ERPBTFADM_executeEmptyRowSetPageDef"/>
+    <page id="erpadm_viewadm_ERPBTFADM_ERPBTFADM_ExecuteWithParams1PageDef1"
+          path="erpadm.viewadm.pageDefs.ERPBTFADM_ERPBTFADM_ExecuteWithParams1PageDef1"/>
+    <page id="erpadm_viewadm_ERPBTFADM_ERPBTFADM_executeEmptyRowSetPageDef1"
+          path="erpadm.viewadm.pageDefs.ERPBTFADM_ERPBTFADM_executeEmptyRowSetPageDef1"/>
+    <page id="erpadm_viewadm_ERPBTFADM_ERPBTFADM_ExecutePageDef"
+          path="erpadm.viewadm.pageDefs.ERPBTFADM_ERPBTFADM_ExecutePageDef"/>
+    <page id="erpadm_viewadm_ERPBTFADM_ERPBTFADM_CreateInsertPageDef11"
+          path="erpadm.viewadm.pageDefs.ERPBTFADM_ERPBTFADM_CreateInsertPageDef11"/>
+    <page id="erpadm_viewadm_ERPBTFADM_ERPBTFADM_ExecuteWithParams1PageDef11"
+          path="erpadm.viewadm.pageDefs.ERPBTFADM_ERPBTFADM_ExecuteWithParams1PageDef11"/>
+    <page id="erpadm_viewadm_ERPBTFADM_ERPBTFADM_ExecuteWithParams1PageDef111"
+          path="erpadm.viewadm.pageDefs.ERPBTFADM_ERPBTFADM_ExecuteWithParams1PageDef111"/>
+    <page id="erpadm_viewadm_ERPBTFADM_ERPBTFADM_ExecuteWithParams1PageDef1111"
+          path="erpadm.viewadm.pageDefs.ERPBTFADM_ERPBTFADM_ExecuteWithParams1PageDef1111"/>
+    <page id="erpadm_viewadm_ERPBTFADM_ERPBTFADM_ErpdoInsertAccessableCompanyPageDef"
+          path="erpadm.viewadm.pageDefs.ERPBTFADM_ERPBTFADM_ErpdoInsertAccessableCompanyPageDef"/>
+    <page id="erpadm_viewadm_ADMExceptionHandlerPageDef" path="erpadm.viewadm.pageDefs.ADMExceptionHandlerPageDef"/>
+    <page id="erpadm_viewadm_ERPBTFADM_ERPBTFADM_executeEmptyRowSetPageDef11"
+          path="erpadm.viewadm.pageDefs.ERPBTFADM_ERPBTFADM_executeEmptyRowSetPageDef11"/>
+    <page id="erpadm_viewadm_SEC_0007PageDef" path="erpadm.viewadm.pageDefs.SEC_0007PageDef"/>
+    <page id="erpadm_viewadm_SEC_0007_EDITPageDef" path="erpadm.viewadm.pageDefs.SEC_0007_EDITPageDef"/>
+    <page id="erpadm_viewadm_ERPBTFADM_ERPBTFADM_ExecuteWithParams1PageDef11111"
+          path="erpadm.viewadm.pageDefs.ERPBTFADM_ERPBTFADM_ExecuteWithParams1PageDef11111"/>
+    <page id="erpadm_viewadm_SEC_0013PageDef" path="erpadm.viewadm.pageDefs.SEC_0013PageDef"/>
+    <page id="erpadm_viewadm_SEC_0013_EDITPageDef" path="erpadm.viewadm.pageDefs.SEC_0013_EDITPageDef"/>
+    <page id="erpadm_viewadm_ERPBTFADM_ERPBTFADM_ExecuteWithParams1PageDef111111"
+          path="erpadm.viewadm.pageDefs.ERPBTFADM_ERPBTFADM_ExecuteWithParams1PageDef111111"/>
+    <page id="erpadm_viewadm_ERPBTFADM_ERPBTFADM_CreateInsertPageDef111"
+          path="erpadm.viewadm.pageDefs.ERPBTFADM_ERPBTFADM_CreateInsertPageDef111"/>
+    <page id="erpadm_viewadm_ERPBTFADM_ERPBTFADM_ExecutePageDef1"
+          path="erpadm.viewadm.pageDefs.ERPBTFADM_ERPBTFADM_ExecutePageDef1"/>
+    <page id="erpadm_viewadm_ERPBTFADM_ERPBTFADM_ExecuteWithParams1PageDef1111111"
+          path="erpadm.viewadm.pageDefs.ERPBTFADM_ERPBTFADM_ExecuteWithParams1PageDef1111111"/>
+    <page id="erpadm_viewadm_ERPBTFADM_ERPBTFADM_CreateWithParametersPageDef"
+          path="erpadm.viewadm.pageDefs.ERPBTFADM_ERPBTFADM_CreateWithParametersPageDef"/>
+    <page id="erpadm_viewadm_ERPBTFADM_ERPBTFADM_ExecutePageDef11"
+          path="erpadm.viewadm.pageDefs.ERPBTFADM_ERPBTFADM_ExecutePageDef11"/>
+    <page id="erpadm_viewadm_ERPBTFADM_ERPBTFADM_ExecuteWithParams1PageDef11111111"
+          path="erpadm.viewadm.pageDefs.ERPBTFADM_ERPBTFADM_ExecuteWithParams1PageDef11111111"/>
+    <page id="erpadm_viewadm_ERPBTFADM_ERPBTFADM_ExecutePageDef111"
+          path="erpadm.viewadm.pageDefs.ERPBTFADM_ERPBTFADM_ExecutePageDef111"/>
+    <page id="erpadm_viewadm_ERPBTFADM_ERPBTFADM_ExecutePageDef1111"
+          path="erpadm.viewadm.pageDefs.ERPBTFADM_ERPBTFADM_ExecutePageDef1111"/>
+    <page id="erpadm_viewadm_ERPBTFADM_ERPBTFADM_ExecutePageDef11111"
+          path="erpadm.viewadm.pageDefs.ERPBTFADM_ERPBTFADM_ExecutePageDef11111"/>
+    <page id="erpadm_viewadm_ERPBTFADM_ERPBTFADM_ExecuteWithParams1PageDef111111111"
+          path="erpadm.viewadm.pageDefs.ERPBTFADM_ERPBTFADM_ExecuteWithParams1PageDef111111111"/>
+    <page id="erpadm_viewadm_ERPBTFADM_ERPBTFADM_ExecuteWithParams1PageDef1111111111"
+          path="erpadm.viewadm.pageDefs.ERPBTFADM_ERPBTFADM_ExecuteWithParams1PageDef1111111111"/>
+    <page id="erpadm_viewadm_SEC_0011PageDef" path="erpadm.viewadm.pageDefs.SEC_0011PageDef"/>
+    <page id="erpadm_viewadm_SEC_0011_EDITPageDef" path="erpadm.viewadm.pageDefs.SEC_0011_EDITPageDef"/>
+    <page id="erpadm_viewadm_ERPBTFADM_ERPBTFADM_ExecuteWithParams1PageDef11111111111"
+          path="erpadm.viewadm.pageDefs.ERPBTFADM_ERPBTFADM_ExecuteWithParams1PageDef11111111111"/>
+    <page id="erpadm_viewadm_ERPBTFADM_ERPBTFADM_ExecutePageDef111111"
+          path="erpadm.viewadm.pageDefs.ERPBTFADM_ERPBTFADM_ExecutePageDef111111"/>
+    <page id="erpadm_viewadm_ERPBTFADM_ERPBTFADM_CreateInsertPageDef1111"
+          path="erpadm.viewadm.pageDefs.ERPBTFADM_ERPBTFADM_CreateInsertPageDef1111"/>
+    <page id="erpadm_viewadm_ERPBTFADM_ERPBTFADM_ExecutePageDef1111111"
+          path="erpadm.viewadm.pageDefs.ERPBTFADM_ERPBTFADM_ExecutePageDef1111111"/>
+    <page id="erpadm_viewadm_SEC_0014PageDef" path="erpadm.viewadm.pageDefs.SEC_0014PageDef"/>
+    <page id="erpadm_viewadm_SEC_0014_EDITPageDef" path="erpadm.viewadm.pageDefs.SEC_0014_EDITPageDef"/>
+    <page id="erpadm_viewadm_ERPBTFADM_ERPBTFADM_ExecuteWithParams1PageDef111111111111"
+          path="erpadm.viewadm.pageDefs.ERPBTFADM_ERPBTFADM_ExecuteWithParams1PageDef111111111111"/>
+    <page id="erpadm_viewadm_ERPBTFADM_ERPBTFADM_CreateInsertPageDef111111"
+          path="erpadm.viewadm.pageDefs.ERPBTFADM_ERPBTFADM_CreateInsertPageDef111111"/>
+    <page id="erpadm_viewadm_ERPBTFADM_ERPBTFADM_ExecutePageDef11111111"
+          path="erpadm.viewadm.pageDefs.ERPBTFADM_ERPBTFADM_ExecutePageDef11111111"/>
+    <page id="erpadm_viewadm_SEC_0005_EDITPageDef" path="erpadm.viewadm.pageDefs.SEC_0005_EDITPageDef"/>
+    <page id="erpadm_viewadm_ERPBTFADM_ERPBTFADM_ExecuteWithParams1PageDef1111111111111"
+          path="erpadm.viewadm.pageDefs.ERPBTFADM_ERPBTFADM_ExecuteWithParams1PageDef1111111111111"/>
+    <page id="erpadm_viewadm_ERPBTFADM_ERPBTFADM_CreateInsertPageDef11111"
+          path="erpadm.viewadm.pageDefs.ERPBTFADM_ERPBTFADM_CreateInsertPageDef11111"/>
+    <page id="erpadm_viewadm_ERPBTFADM_ERPBTFADM_ExecutePageDef111111111"
+          path="erpadm.viewadm.pageDefs.ERPBTFADM_ERPBTFADM_ExecutePageDef111111111"/>
+    <page id="erpadm_viewadm_TESTPageDef" path="erpadm.viewadm.pageDefs.TESTPageDef"/>
+    <page id="erpadm_viewadm_ERPBTFADM_ERPBTFADM_RollbackPageDef"
+          path="erpadm.viewadm.pageDefs.ERPBTFADM_ERPBTFADM_RollbackPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="ERPTemModuleDataControl" Package="erptemplate.modeltemp.temam"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="ERPTemModuleLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+    <BC4JDataControl id="ERPADMModuleDataControl" Package="erpadm.modeladm.admam"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="ERPADMModuleLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+    <BC4JDataControl id="ERPGlobalsModuleDataControl" Package="erpglobals.modelglobals.globalsam"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="ERPGlobalsModuleLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47"
+                id="ERPBTFADM_ERPBTFADM_ExecuteWithParams1PageDef1111111" Package="erpadm.viewadm.pageDefs"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="SmCityCRUD" RangeSize="25" DataControl="ERPADMModuleDataControl" id="SmCityCRUDIterator"
+              Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="SmCityCRUDIterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="P_ADF_COUNTRY_SNO" NDType="java.lang.Integer"/>
+      <NamedData NDName="P_ADF_CITY_CODE" NDValue="#{data.erpadm_viewadm_SEC_0007_EDITPageDef.Citycode.inputValue}"
+                 NDType="java.lang.Integer"/>
+    </action>
+  </bindings>
+</pageDefinition>
