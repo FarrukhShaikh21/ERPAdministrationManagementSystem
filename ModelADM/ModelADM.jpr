@@ -205,22 +205,22 @@
          <list n="jdkDefinitions">
             <hash>
                <list n="classPath">
-                  <url path="../../../glassfish3/jdk/jre/lib/resources.jar" jar-entry=""/>
-                  <url path="../../../glassfish3/jdk/jre/lib/rt.jar" jar-entry=""/>
-                  <url path="../../../glassfish3/jdk/jre/lib/sunrsasign.jar" jar-entry=""/>
-                  <url path="../../../glassfish3/jdk/jre/lib/jsse.jar" jar-entry=""/>
-                  <url path="../../../glassfish3/jdk/jre/lib/jce.jar" jar-entry=""/>
-                  <url path="../../../glassfish3/jdk/jre/lib/charsets.jar" jar-entry=""/>
-                  <url path="../../../glassfish3/jdk/jre/lib/modules/jdk.boot.jar" jar-entry=""/>
-                  <url path="../../../glassfish3/jdk/jre/classes/"/>
+                  <url protocol="jar" path="file:/D:/glassfish3/jdk/jre/lib/resources.jar!/"/>
+                  <url protocol="jar" path="file:/D:/glassfish3/jdk/jre/lib/rt.jar!/"/>
+                  <url protocol="jar" path="file:/D:/glassfish3/jdk/jre/lib/sunrsasign.jar!/"/>
+                  <url protocol="jar" path="file:/D:/glassfish3/jdk/jre/lib/jsse.jar!/"/>
+                  <url protocol="jar" path="file:/D:/glassfish3/jdk/jre/lib/jce.jar!/"/>
+                  <url protocol="jar" path="file:/D:/glassfish3/jdk/jre/lib/charsets.jar!/"/>
+                  <url protocol="jar" path="file:/D:/glassfish3/jdk/jre/lib/modules/jdk.boot.jar!/"/>
+                  <url protocol="file" path="/D:/glassfish3/jdk/jre/classes/"/>
                </list>
                <value n="description" v="1.6.0_38"/>
                <list n="docPath">
                   <url protocol="http" host="docs.oracle.com" path="/javase/6/docs/api/"/>
                </list>
                <value n="id" v="1.6.0_38"/>
-               <url n="javaExecutable" path="../../../glassfish3/jdk/bin/java.exe"/>
-               <url n="sdkBinDir" path="../../../glassfish3/jdk/bin/"/>
+               <url n="javaExecutable" protocol="file" path="/D:/glassfish3/jdk/bin/java.exe"/>
+               <url n="sdkBinDir" protocol="file" path="/D:/glassfish3/jdk/bin/"/>
                <value n="version" v="1.6.0_38"/>
             </hash>
          </list>
