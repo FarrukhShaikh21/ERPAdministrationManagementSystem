@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SysParameters"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="SYS_PARAMETERS"
+  AliasName="SysParameters"
+  BindingStyle="JDBC">
+  <Attribute
+    Name="ParameterId"
+    IsNotNull="true"
+    Precision="50"
+    ColumnName="PARAMETER_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SYS_PARAMETERS"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ParameterValue"
+    Precision="1000"
+    ColumnName="PARAMETER_VALUE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SYS_PARAMETERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1000"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ParameterDescription"
+    Precision="50"
+    ColumnName="PARAMETER_DESCRIPTION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SYS_PARAMETERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="GlobalCompanyId"
+    Precision="5"
+    Scale="0"
+    ColumnName="GLOBAL_COMPANY_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SYS_PARAMETERS">
+    <TransientExpression
+      trustMode="trusted"><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
+  </Attribute>
+  <Key
+    Name="PkSysParameters"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PK_SYS_PARAMETERS"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpadm.modeladm.admeo.SysParameters.ParameterId"/>
+    </AttrArray>
+  </Key>
+</Entity>

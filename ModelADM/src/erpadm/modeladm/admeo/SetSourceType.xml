@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SetSourceType"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="SET_SOURCE_TYPE"
+  AliasName="SetSourceType"
+  BindingStyle="JDBC">
+  <Attribute
+    Name="SourceTypeSno"
+    IsNotNull="true"
+    Precision="5"
+    Scale="0"
+    ColumnName="SOURCE_TYPE_SNO"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SET_SOURCE_TYPE"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="SourceTypeCode"
+    IsNotNull="true"
+    Precision="10"
+    ColumnName="SOURCE_TYPE_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SET_SOURCE_TYPE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SourceTypeName"
+    IsNotNull="true"
+    Precision="20"
+    ColumnName="SOURCE_TYPE_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SET_SOURCE_TYPE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreatedBy"
+    IsNotNull="true"
+    Precision="5"
+    Scale="0"
+    ColumnName="CREATED_BY"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SET_SOURCE_TYPE"/>
+  <Attribute
+    Name="CreatedDate"
+    IsNotNull="true"
+    ColumnName="CREATED_DATE"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="SET_SOURCE_TYPE"/>
+  <Attribute
+    Name="LastUpdatedBy"
+    Precision="5"
+    Scale="0"
+    ColumnName="LAST_UPDATED_BY"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SET_SOURCE_TYPE"/>
+  <Attribute
+    Name="LastUpdatedDate"
+    ColumnName="LAST_UPDATED_DATE"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="SET_SOURCE_TYPE"/>
+  <Key
+    Name="PkSetSourceType"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PK_SET_SOURCE_TYPE"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpadm.modeladm.admeo.SetSourceType.SourceTypeSno"/>
+    </AttrArray>
+  </Key>
+</Entity>

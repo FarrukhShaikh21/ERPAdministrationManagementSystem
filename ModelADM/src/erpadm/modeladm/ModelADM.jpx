@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE JboProject SYSTEM "jbo_03_01.dtd">
+<!---->
+<JboProject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ModelADM"
+  Version="12.1.3.10.47"
+  SeparateXMLFiles="true"
+  PackageName="erpadm.modeladm">
+  <DesignTime>
+    <Attr Name="_jprName" Value="../../../ModelADM.jpr"/>
+    <Attr Name="_jbo.TypeMapEntries" Value="OracleApps"/>
+    <Attr Name="_NamedConnection" Value="ERPConnADM"/>
+    <Attr Name="_appModuleNames0" Value="erpadm.modeladm.admam.ERPADMModule"/>
+    <Attr Name="_domainNames0" Value="erpadm.modeladm.admqvo.Type"/>
+  </DesignTime>
+  <Containee
+    Name="admam"
+    PackageName="erpadm.modeladm.admam"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_AM" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="admeo"
+    PackageName="erpadm.modeladm.admeo"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_EO" Value="true"/>
+      <Attr Name="_AS" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="admqvo"
+    PackageName="erpadm.modeladm.admqvo"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_VO" Value="true"/>
+      <Attr Name="_DO" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="admvo"
+    PackageName="erpadm.modeladm.admvo"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_VO" Value="true"/>
+      <Attr Name="_VL" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <AppContainee
+    Name="ModelGlobals"
+    FullName="erpglobals.modelglobals.ModelGlobals"
+    ObjectType="JboProject">
+    <DesignTime>
+      <Attr Name="_SourceName" Value="ERPModelLIBGlobals.jar"/>
+    </DesignTime>
+  </AppContainee>
+</JboProject>

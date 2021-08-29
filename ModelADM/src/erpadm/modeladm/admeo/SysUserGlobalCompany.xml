@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SysUserGlobalCompany"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="SYS_USER_GLOBAL_COMPANY"
+  AliasName="SysUserGlobalCompany"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="UserGlobalCompanySno"
+    IsNotNull="true"
+    Precision="10"
+    Scale="0"
+    ColumnName="USER_GLOBAL_COMPANY_SNO"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="SYS_USER_GLOBAL_COMPANY"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="UserId"
+    IsNotNull="true"
+    Precision="8"
+    Scale="0"
+    ColumnName="USER_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SYS_USER_GLOBAL_COMPANY"/>
+  <Attribute
+    Name="CompanyId"
+    IsNotNull="true"
+    Precision="5"
+    Scale="0"
+    ColumnName="COMPANY_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SYS_USER_GLOBAL_COMPANY"/>
+  <Attribute
+    Name="IsActive"
+    IsNotNull="true"
+    Precision="1"
+    ColumnName="IS_ACTIVE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SYS_USER_GLOBAL_COMPANY">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="IsDefault"
+    IsNotNull="true"
+    Precision="1"
+    ColumnName="IS_DEFAULT"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SYS_USER_GLOBAL_COMPANY">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreatedBy"
+    IsNotNull="true"
+    Precision="5"
+    Scale="0"
+    ColumnName="CREATED_BY"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SYS_USER_GLOBAL_COMPANY"/>
+  <Attribute
+    Name="CreatedDate"
+    IsNotNull="true"
+    ColumnName="CREATED_DATE"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="SYS_USER_GLOBAL_COMPANY"/>
+  <Attribute
+    Name="LastUpdatedBy"
+    Precision="5"
+    Scale="0"
+    ColumnName="LAST_UPDATED_BY"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SYS_USER_GLOBAL_COMPANY"/>
+  <Attribute
+    Name="LastUpdatedDate"
+    ColumnName="LAST_UPDATED_DATE"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="SYS_USER_GLOBAL_COMPANY"/>
+  <AccessorAttribute
+    Name="SysUsers"
+    Association="erpadm.modeladm.admeo.SysUsersSysUserGlobalCompanyUserIDAsso"
+    AssociationEnd="erpadm.modeladm.admeo.SysUsersSysUserGlobalCompanyUserIDAsso.SysUsers"
+    AssociationOtherEnd="erpadm.modeladm.admeo.SysUsersSysUserGlobalCompanyUserIDAsso.SysUserGlobalCompany"
+    Type="erpadm.modeladm.admeo.SysUsersImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="PkSysUserGlobalCompany"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PK_SYS_USER_GLOBAL_COMPANY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpadm.modeladm.admeo.SysUserGlobalCompany.UserGlobalCompanySno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_SysUserGlobalCompany">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_SYS_USERS"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SYS_USER_GLOBAL_COMPANY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpadm.modeladm.admeo.SysUserGlobalCompany.UserId"/>
+    </AttrArray>
+  </Key>
+</Entity>

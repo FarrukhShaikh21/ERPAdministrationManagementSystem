@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="erpadm.modeladm.admam.EDPADMModule"/>
+   <AppModuleConfigBag ApplicationName="erpadm.modeladm.admam.ERPADMModule">
+      <AppModuleConfig DeployPlatform="LOCAL" name="ERPADMModuleLocal" ApplicationName="erpadm.modeladm.admam.ERPADMModule" jbo.project="erpadm.modeladm.ModelADM">
+         <Database jbo.TypeMapEntries="Java" jbo.SQLBuilder="SQL92"/>
+         <Security AppModuleJndiName="erpadm.modeladm.admam.ERPADMModule"/>
+         <Custom ns0:ns0="http://xmlns.oracle.com/bc4j/configuration" ns0:JDBCDataSource="java:comp/env/jdbc/ERPConnADMDS" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
+      </AppModuleConfig>
+      <AppModuleConfig jbo.project="erpadm.modeladm.ModelADM" ApplicationName="erpadm.modeladm.admam.ERPADMModule" DeployPlatform="LOCAL" name="ERPADMModuleShared">
+         <AM-Pooling jbo.ampool.dynamicjdbccredentials="false" jbo.ampool.resetnontransactionalstate="false" jbo.ampool.maxpoolsize="1" jbo.ampool.isuseexclusive="false"/>
+         <Database jbo.TypeMapEntries="Java" jbo.SQLBuilder="SQL92"/>
+         <Security AppModuleJndiName="erpadm.modeladm.admam.ERPADMModule"/>
+         <Custom ns0:JDBCDataSource="java:comp/env/jdbc/ERPConnADMDS" ns0:ns0="http://xmlns.oracle.com/bc4j/configuration" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>

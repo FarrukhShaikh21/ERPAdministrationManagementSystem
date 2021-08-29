@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="FkGenValueValueSetIdAssoc"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="SysGeneralValueSet"
+    Cardinality="1"
+    Source="true"
+    Owner="erpadm.modeladm.admeo.SysGeneralValueSet">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="SysGeneralValueSet"/>
+      <Attr Name="_foreignKey" Value="erpadm.modeladm.admeo.SysGeneralValueSet.PkSysGeneralValueSet"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpadm.modeladm.admeo.SysGeneralValueSet.ValueSetId"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="SysGeneralValue"
+    Cardinality="-1"
+    Owner="erpadm.modeladm.admeo.SysGeneralValue">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="SysGeneralValue"/>
+      <Attr Name="_foreignKey" Value="erpadm.modeladm.admeo.SysGeneralValue.FkGenValueValueSetId"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpadm.modeladm.admeo.SysGeneralValue.ValueSetId"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

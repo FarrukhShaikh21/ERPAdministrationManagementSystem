@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AdminCompanyTypeAdminCompCompanyTypeSnoAsso"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="AdminCompanyType"
+    Cardinality="1"
+    Source="true"
+    Owner="erpadm.modeladm.admeo.AdminCompanyType"
+    LockLevel="NONE">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="AdminCompanyType"/>
+      <Attr Name="_foreignKey" Value="erpadm.modeladm.admeo.AdminCompanyType.PkAdminCompanyType"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpadm.modeladm.admeo.AdminCompanyType.CompanyTypeSno"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="AdminCompany"
+    Cardinality="-1"
+    Owner="erpadm.modeladm.admeo.AdminCompany">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="AdminCompany"/>
+      <Attr Name="_foreignKey" Value="erpadm.modeladm.admeo.AdminCompany.fk_AdminCompany1"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpadm.modeladm.admeo.AdminCompany.CompanyTypeSno"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AdminComSysUserModuleCompCompanyIDVL"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  EntityAssociation="erpadm.modeladm.admeo.AdminComSysUserModuleCompCompanyIDAsso">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="erpadm.modeladm.admvo.AdminComSysUserModuleCompCompanyIDVL_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="AdminCompanyVO"
+    Cardinality="1"
+    Source="true"
+    Owner="erpadm.modeladm.admvo.AdminCompanyVO">
+    <DesignTime>
+      <Attr Name="_accessor" Value="true"/>
+      <Attr Name="_finderName" Value="AdminCompanyVO"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpadm.modeladm.admvo.AdminCompanyVO.CompCode"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="SysUsersModuleCompanyVO"
+    Cardinality="-1"
+    Owner="erpadm.modeladm.admvo.SysUsersModuleCompanyVO">
+    <DesignTime>
+      <Attr Name="_finderName" Value="SysUsersModuleCompanyVO"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpadm.modeladm.admvo.SysUsersModuleCompanyVO.CompanyId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpadm.modeladm.ModelADMBundle"/>
+  </ResourceBundle>
+</ViewLink>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SysUserTypes"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="sys_user_types"
+  AliasName="SysUserTypes"
+  BindingStyle="JDBC">
+  <Attribute
+    Name="Active"
+    IsNotNull="true"
+    Precision="1"
+    ColumnName="active"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="sys_user_types">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreatedBy"
+    IsNotNull="true"
+    ColumnName="created_by"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="sys_user_types">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreatedDate"
+    IsNotNull="true"
+    ColumnName="created_date"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="sys_user_types"
+    RetrievedOnInsert="true"/>
+  <Attribute
+    Name="LastUpdatedBy"
+    ColumnName="last_updated_by"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="sys_user_types">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastUpdatedDate"
+    ColumnName="last_updated_date"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="sys_user_types"
+    RetrievedOnUpdate="true"/>
+  <Attribute
+    Name="UserTypeName"
+    IsNotNull="true"
+    Precision="50"
+    ColumnName="user_type_name"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="sys_user_types">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="UserTypeSno"
+    IsNotNull="true"
+    ColumnName="user_type_sno"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="sys_user_types"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+</Entity>

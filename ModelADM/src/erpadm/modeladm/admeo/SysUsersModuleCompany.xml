@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SysUsersModuleCompany"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="SYS_USERS_MODULE_COMPANY"
+  AliasName="SysUsersModuleCompany"
+  BindingStyle="JDBC"
+  RowClass="erpadm.modeladm.admeo.SysUsersModuleCompanyImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|DML"/>
+    <Attr Name="_isCodegen" Value="true"/>
+    <Attr Name="_superClass" Value="erpglobals.modelglobals.ERPEntityImpl"/>
+  </DesignTime>
+  <Attribute
+    Name="UsersModuleCompanySno"
+    Precision="10"
+    Scale="0"
+    ColumnName="USERS_MODULE_COMPANY_SNO"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SYS_USERS_MODULE_COMPANY"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="UserId"
+    Precision="10"
+    Scale="0"
+    ColumnName="USER_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SYS_USERS_MODULE_COMPANY">
+    <TransientExpression><![CDATA[SysUsersModule?.UserId]]></TransientExpression>
+  </Attribute>
+  <Attribute
+    Name="CompanyId"
+    IsNotNull="true"
+    Precision="5"
+    Scale="0"
+    ColumnName="COMPANY_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SYS_USERS_MODULE_COMPANY"/>
+  <Attribute
+    Name="IsActive"
+    IsNotNull="true"
+    Precision="1"
+    ColumnName="IS_ACTIVE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SYS_USERS_MODULE_COMPANY"
+    DefaultValue="Y">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpadm.modeladm.admeo.SysUsersModuleCompany.IsActive_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="CreatedBy"
+    Precision="5"
+    Scale="0"
+    ColumnName="CREATED_BY"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SYS_USERS_MODULE_COMPANY"/>
+  <Attribute
+    Name="CreatedDate"
+    ColumnName="CREATED_DATE"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="SYS_USERS_MODULE_COMPANY"
+    RetrievedOnInsert="true"/>
+  <Attribute
+    Name="LastUpdatedBy"
+    Precision="5"
+    Scale="0"
+    ColumnName="LAST_UPDATED_BY"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SYS_USERS_MODULE_COMPANY"/>
+  <Attribute
+    Name="LastUpdatedDate"
+    ColumnName="LAST_UPDATED_DATE"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="SYS_USERS_MODULE_COMPANY"
+    RetrievedOnUpdate="true"/>
+  <Attribute
+    Name="UsersModuleSno"
+    Precision="10"
+    Scale="0"
+    ColumnName="USERS_MODULE_SNO"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SYS_USERS_MODULE_COMPANY"/>
+  <Attribute
+    Name="GlobalCompanyId"
+    IsNotNull="true"
+    Precision="5"
+    Scale="0"
+    ColumnName="GLOBAL_COMPANY_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SYS_USERS_MODULE_COMPANY">
+    <TransientExpression><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
+  </Attribute>
+  <AccessorAttribute
+    Name="SysUsersModule"
+    Association="erpadm.modeladm.admeo.SysUsersModuleSysUserModComModActIDAsso"
+    AssociationEnd="erpadm.modeladm.admeo.SysUsersModuleSysUserModComModActIDAsso.SysUsersModule"
+    AssociationOtherEnd="erpadm.modeladm.admeo.SysUsersModuleSysUserModComModActIDAsso.SysUsersModuleCompany"
+    Type="erpadm.modeladm.admeo.SysUsersModuleImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="AdminCompany"
+    Association="erpadm.modeladm.admeo.AdminComSysUserModuleCompCompanyIDAsso"
+    AssociationEnd="erpadm.modeladm.admeo.AdminComSysUserModuleCompCompanyIDAsso.AdminCompany"
+    AssociationOtherEnd="erpadm.modeladm.admeo.AdminComSysUserModuleCompCompanyIDAsso.SysUsersModuleCompany"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="PkSysUsersModuleCompany"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PK_SYS_USERS_MODULE_COMPANY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpadm.modeladm.admeo.SysUsersModuleCompany.UsersModuleCompanySno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_SysUsersModuleCompany">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_SYS_USERS_MODULE"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SYS_USERS_MODULE_COMPANY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpadm.modeladm.admeo.SysUsersModuleCompany.UsersModuleSno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_SysUsersModuleCompany1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="ADMIN_COMPANY_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SYS_USERS_MODULE_COMPANY1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpadm.modeladm.admeo.SysUsersModuleCompany.CompanyId"/>
+    </AttrArray>
+  </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpadm.modeladm.ModelADMBundle"/>
+  </ResourceBundle>
+</Entity>

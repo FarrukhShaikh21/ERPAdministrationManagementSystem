@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SysGeneralValue"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="SYS_GENERAL_VALUE"
+  AliasName="SysGeneralValue"
+  BindingStyle="JDBC"
+  RowClass="erpadm.modeladm.admeo.SysGeneralValueImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|DML"/>
+    <Attr Name="_superClass" Value="erpglobals.modelglobals.ERPEntityImpl"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Attribute
+    Name="ValueId"
+    Precision="5"
+    Scale="0"
+    ColumnName="VALUE_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SYS_GENERAL_VALUE"
+    PrimaryKey="true">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpadm.modeladm.admeo.SysGeneralValue.ValueId_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="ValueDescription"
+    Precision="100"
+    ColumnName="VALUE_DESCRIPTION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SYS_GENERAL_VALUE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpadm.modeladm.admeo.SysGeneralValue.ValueDescription_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="ValueSetId"
+    Precision="5"
+    Scale="0"
+    ColumnName="VALUE_SET_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SYS_GENERAL_VALUE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpadm.modeladm.admeo.SysGeneralValue.ValueSetId_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="CreatedBy"
+    Precision="5"
+    Scale="0"
+    ColumnName="CREATED_BY"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SYS_GENERAL_VALUE"/>
+  <Attribute
+    Name="CreatedDate"
+    ColumnName="CREATED_DATE"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="SYS_GENERAL_VALUE"
+    RetrievedOnInsert="true"/>
+  <Attribute
+    Name="LastUpdatedBy"
+    Precision="5"
+    Scale="0"
+    ColumnName="LAST_UPDATED_BY"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SYS_GENERAL_VALUE"/>
+  <Attribute
+    Name="LastUpdatedDate"
+    ColumnName="LAST_UPDATED_DATE"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="SYS_GENERAL_VALUE"
+    RetrievedOnUpdate="true"/>
+  <Attribute
+    Name="IsActive"
+    Precision="1"
+    ColumnName="IS_ACTIVE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SYS_GENERAL_VALUE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpadm.modeladm.admeo.SysGeneralValue.IsActive_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="ValueCode"
+    Precision="20"
+    ColumnName="VALUE_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SYS_GENERAL_VALUE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpadm.modeladm.admeo.SysGeneralValue.ValueCode_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <AccessorAttribute
+    Name="SysGeneralValueSet"
+    Association="erpadm.modeladm.admeo.FkGenValueValueSetIdAssoc"
+    AssociationEnd="erpadm.modeladm.admeo.FkGenValueValueSetIdAssoc.SysGeneralValueSet"
+    AssociationOtherEnd="erpadm.modeladm.admeo.FkGenValueValueSetIdAssoc.SysGeneralValue"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="PkSysGeneralValue"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PK_SYS_GENERAL_VALUE"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpadm.modeladm.admeo.SysGeneralValue.ValueId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkGenValueValueSetId">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_SYS_GENERAL_VALUE_SET"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_GEN_VALUE_VALUE_SET_ID"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpadm.modeladm.admeo.SysGeneralValue.ValueSetId"/>
+    </AttrArray>
+  </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpadm.modeladm.ModelADMBundle"/>
+  </ResourceBundle>
+</Entity>

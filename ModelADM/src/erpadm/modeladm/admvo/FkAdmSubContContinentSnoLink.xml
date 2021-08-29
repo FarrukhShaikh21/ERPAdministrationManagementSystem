@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="FkAdmSubContContinentSnoLink"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  EntityAssociation="erpadm.modeladm.admeo.FkAdmSubContContinentSnoAssoc">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="erpadm.modeladm.admvo.FkAdmSubContContinentSnoLink_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="AdminContinentVO"
+    Cardinality="1"
+    Source="true"
+    Owner="erpadm.modeladm.admvo.AdminContinentVO">
+    <DesignTime>
+      <Attr Name="_accessor" Value="true"/>
+      <Attr Name="_finderName" Value="AdminContinentVO"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpadm.modeladm.admvo.AdminContinentVO.ContinentSno"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="AdminSubContinentVO"
+    Cardinality="-1"
+    Owner="erpadm.modeladm.admvo.AdminSubContinentVO">
+    <DesignTime>
+      <Attr Name="_finderName" Value="AdminSubContinentVO"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpadm.modeladm.admvo.AdminSubContinentVO.ContinentSno"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpadm.modeladm.ModelADMBundle"/>
+  </ResourceBundle>
+</ViewLink>

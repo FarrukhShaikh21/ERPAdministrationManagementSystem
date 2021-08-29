@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SysPassParameterSysPassPolicyParameterIdAsso"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="SysPasswordParameter"
+    Cardinality="1"
+    Source="true"
+    Owner="erpadm.modeladm.admeo.SysPasswordParameter"
+    LockLevel="NONE">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="SysPasswordParameter"/>
+      <Attr Name="_foreignKey" Value="erpadm.modeladm.admeo.SysPasswordParameter.PkSysPasswordParameter"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpadm.modeladm.admeo.SysPasswordParameter.PasswordParameterSno"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="SysPasswordPolicyLines"
+    Cardinality="-1"
+    Owner="erpadm.modeladm.admeo.SysPasswordPolicyLines">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="SysPasswordPolicyLines"/>
+      <Attr Name="_foreignKey" Value="erpadm.modeladm.admeo.SysPasswordPolicyLines.fk_SysPasswordPolicyLines"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpadm.modeladm.admeo.SysPasswordPolicyLines.PasswordParameterSno"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

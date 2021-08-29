@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SysModuleVO"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="JDBC"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <EntityUsage
+    Name="SysModule"
+    Entity="erpadm.modeladm.admeo.SysModule"/>
+  <ViewAttribute
+    Name="ModuleId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ModuleId"
+    EntityUsage="SysModule"
+    AliasName="MODULE_ID"/>
+  <ViewAttribute
+    Name="ModuleDescription"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ModuleDescription"
+    EntityUsage="SysModule"
+    AliasName="MODULE_DESCRIPTION"/>
+  <ViewAttribute
+    Name="ModuleActive"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ModuleActive"
+    EntityUsage="SysModule"
+    AliasName="MODULE_ACTIVE"/>
+  <ViewLinkAccessor
+    Name="SysModuleDetailVO"
+    ViewLink="erpadm.modeladm.admvo.FkSysModDetModidLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+</ViewObject>

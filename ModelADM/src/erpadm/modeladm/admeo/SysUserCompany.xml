@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SysUserCompany"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="SYS_USER_COMPANY"
+  AliasName="SysUserCompany"
+  BindingStyle="JDBC"
+  RowClass="erpadm.modeladm.admeo.SysUserCompanyImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|DML"/>
+    <Attr Name="_isCodegen" Value="true"/>
+    <Attr Name="_superClass" Value="erpglobals.modelglobals.ERPEntityImpl"/>
+  </DesignTime>
+  <Attribute
+    Name="UserCompanySno"
+    Precision="10"
+    Scale="0"
+    ColumnName="USER_COMPANY_SNO"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SYS_USER_COMPANY"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="UserId"
+    Precision="8"
+    Scale="0"
+    ColumnName="USER_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SYS_USER_COMPANY"/>
+  <Attribute
+    Name="CompanyId"
+    Precision="5"
+    Scale="0"
+    ColumnName="COMPANY_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SYS_USER_COMPANY">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpadm.modeladm.admeo.SysUserCompany.CompanyId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="IsActive"
+    IsNotNull="true"
+    Precision="1"
+    ColumnName="IS_ACTIVE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SYS_USER_COMPANY"
+    DefaultValue="Y">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpadm.modeladm.admeo.SysUserCompany.IsActive_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="IsDefault"
+    IsNotNull="true"
+    Precision="1"
+    ColumnName="IS_DEFAULT"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SYS_USER_COMPANY"
+    DefaultValue="N">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="GlobalCompanyId"
+    IsNotNull="true"
+    Precision="5"
+    Scale="0"
+    ColumnName="GLOBAL_COMPANY_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SYS_USER_COMPANY">
+    <TransientExpression><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
+  </Attribute>
+  <Attribute
+    Name="CreatedBy"
+    Precision="5"
+    Scale="0"
+    ColumnName="CREATED_BY"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SYS_USER_COMPANY"/>
+  <Attribute
+    Name="CreatedDate"
+    ColumnName="CREATED_DATE"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="SYS_USER_COMPANY"
+    RetrievedOnInsert="true"/>
+  <Attribute
+    Name="LastUpdatedBy"
+    Precision="5"
+    Scale="0"
+    ColumnName="LAST_UPDATED_BY"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SYS_USER_COMPANY"/>
+  <Attribute
+    Name="LastUpdatedDate"
+    ColumnName="LAST_UPDATED_DATE"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="SYS_USER_COMPANY"
+    RetrievedOnUpdate="true"/>
+  <AccessorAttribute
+    Name="AdminCompany"
+    Association="erpadm.modeladm.admeo.AdminCompanySysUserCompanyCompIdAsso"
+    AssociationEnd="erpadm.modeladm.admeo.AdminCompanySysUserCompanyCompIdAsso.AdminCompany"
+    AssociationOtherEnd="erpadm.modeladm.admeo.AdminCompanySysUserCompanyCompIdAsso.SysUserCompany"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="SysUsers"
+    Association="erpadm.modeladm.admeo.SysUsersSysUserCompanyUserIDAsso"
+    AssociationEnd="erpadm.modeladm.admeo.SysUsersSysUserCompanyUserIDAsso.SysUsers"
+    AssociationOtherEnd="erpadm.modeladm.admeo.SysUsersSysUserCompanyUserIDAsso.SysUserCompany"
+    Type="erpadm.modeladm.admeo.SysUsersImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="PkSysUserCompany"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PK_SYS_USER_COMPANY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpadm.modeladm.admeo.SysUserCompany.UserCompanySno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="UnqSysUserCompany">
+    <DesignTime>
+      <Attr Name="_isUnique" Value="true"/>
+      <Attr Name="_DBObjectName" Value="UNQ_SYS_USER_COMPANY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpadm.modeladm.admeo.SysUserCompany.CompanyId"/>
+      <Item Value="erpadm.modeladm.admeo.SysUserCompany.UserId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkSysUserCompUser">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_SYS_USERS"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SYS_USER_COMP_USER"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpadm.modeladm.admeo.SysUserCompany.UserId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkSysUserCompanyCompCode">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="ADMIN_COMPANY_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SYS_USER_COMPANY_COMP_CODE"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpadm.modeladm.admeo.SysUserCompany.CompanyId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_SysUserCompany">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="ADMIN_COMPANY_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SYS_USER_COMPANY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpadm.modeladm.admeo.SysUserCompany.CompanyId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_SysUserCompany1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_SYS_USERS"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SYS_USER_COMPANY1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpadm.modeladm.admeo.SysUserCompany.UserId"/>
+    </AttrArray>
+  </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpadm.modeladm.ModelADMBundle"/>
+  </ResourceBundle>
+</Entity>

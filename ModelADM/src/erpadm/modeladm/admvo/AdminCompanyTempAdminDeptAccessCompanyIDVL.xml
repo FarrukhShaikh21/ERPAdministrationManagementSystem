@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AdminCompanyTempAdminDeptAccessCompanyIDVL"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="erpadm.modeladm.admvo.AdminCompanyTempAdminDeptAccessCompanyIDVL_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="AdminCompanyVO"
+    Cardinality="1"
+    Source="true"
+    Owner="erpadm.modeladm.admvo.AdminCompanyVO">
+    <DesignTime>
+      <Attr Name="_finderName" Value="AdminCompanyVO"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpadm.modeladm.admvo.AdminCompanyVO.CompCode"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="TempAdminDepartmentAccessVO"
+    Cardinality="-1"
+    Owner="erpglobals.modelglobals.globalsvo.TempAdminDepartmentAccessVO">
+    <DesignTime>
+      <Attr Name="_finderName" Value="TempAdminDepartmentAccessVO"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpglobals.modelglobals.globalsvo.TempAdminDepartmentAccessVO.DepartmentId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpadm.modeladm.ModelADMBundle"/>
+  </ResourceBundle>
+</ViewLink>

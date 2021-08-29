@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SysActionGroupUser"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="SYS_ACTION_GROUP_USER"
+  AliasName="SysActionGroupUser"
+  BindingStyle="JDBC"
+  RowClass="erpadm.modeladm.admeo.SysActionGroupUserImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|DML"/>
+    <Attr Name="_isCodegen" Value="true"/>
+    <Attr Name="_superClass" Value="erpglobals.modelglobals.ERPEntityImpl"/>
+  </DesignTime>
+  <Attribute
+    Name="GroupUserSno"
+    Precision="10"
+    Scale="0"
+    ColumnName="GROUP_USER_SNO"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SYS_ACTION_GROUP_USER"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="GroupHeaderSno"
+    Precision="10"
+    Scale="0"
+    ColumnName="GROUP_HEADER_SNO"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SYS_ACTION_GROUP_USER"/>
+  <Attribute
+    Name="UserId"
+    Precision="8"
+    Scale="0"
+    ColumnName="USER_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SYS_ACTION_GROUP_USER"/>
+  <Attribute
+    Name="IsActive"
+    IsNotNull="true"
+    Precision="1"
+    ColumnName="IS_ACTIVE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SYS_ACTION_GROUP_USER"
+    DefaultValue="Y">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpadm.modeladm.admeo.SysActionGroupUser.IsActive_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="CreatedBy"
+    Precision="5"
+    Scale="0"
+    ColumnName="CREATED_BY"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SYS_ACTION_GROUP_USER"/>
+  <Attribute
+    Name="CreatedDate"
+    ColumnName="CREATED_DATE"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="SYS_ACTION_GROUP_USER"
+    RetrievedOnInsert="true"/>
+  <Attribute
+    Name="LastUpdatedBy"
+    Precision="5"
+    Scale="0"
+    ColumnName="LAST_UPDATED_BY"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SYS_ACTION_GROUP_USER"/>
+  <Attribute
+    Name="LastUpdatedDate"
+    ColumnName="LAST_UPDATED_DATE"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="SYS_ACTION_GROUP_USER"
+    RetrievedOnUpdate="true"/>
+  <AccessorAttribute
+    Name="SysUsers"
+    Association="erpadm.modeladm.admeo.SysUsersSysActionGroupUserUserIdAsso"
+    AssociationEnd="erpadm.modeladm.admeo.SysUsersSysActionGroupUserUserIdAsso.SysUsers"
+    AssociationOtherEnd="erpadm.modeladm.admeo.SysUsersSysActionGroupUserUserIdAsso.SysActionGroupUser"
+    Type="erpadm.modeladm.admeo.SysUsersImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="SysActionGroupHeader"
+    Association="erpadm.modeladm.admeo.SysActionGroupHeadSysActionGroupUserAsso"
+    AssociationEnd="erpadm.modeladm.admeo.SysActionGroupHeadSysActionGroupUserAsso.SysActionGroupHeader"
+    AssociationOtherEnd="erpadm.modeladm.admeo.SysActionGroupHeadSysActionGroupUserAsso.SysActionGroupUser"
+    Type="erpadm.modeladm.admeo.SysActionGroupHeaderImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="PkSysActionGroupUser"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PK_SYS_ACTION_GROUP_USER"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpadm.modeladm.admeo.SysActionGroupUser.GroupUserSno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_SysActionGroupUser">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_SYS_USERS"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SYS_ACTION_GROUP_USER"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpadm.modeladm.admeo.SysActionGroupUser.UserId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_SysActionGroupUser1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_SYS_ACTION_GROUP_HEADER"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SYS_ACTION_GROUP_USER1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpadm.modeladm.admeo.SysActionGroupUser.GroupHeaderSno"/>
+    </AttrArray>
+  </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpadm.modeladm.ModelADMBundle"/>
+  </ResourceBundle>
+</Entity>

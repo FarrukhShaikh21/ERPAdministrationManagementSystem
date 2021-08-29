@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SetRelation"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="SET_RELATION"
+  AliasName="SetRelation"
+  BindingStyle="JDBC">
+  <Attribute
+    Name="RelationSno"
+    IsNotNull="true"
+    Precision="5"
+    Scale="0"
+    ColumnName="RELATION_SNO"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SET_RELATION"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="RelationCode"
+    IsUnique="true"
+    IsNotNull="true"
+    Precision="5"
+    Scale="0"
+    ColumnName="RELATION_CODE"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SET_RELATION"/>
+  <Attribute
+    Name="RelationName"
+    IsNotNull="true"
+    Precision="50"
+    ColumnName="RELATION_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SET_RELATION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreatedBy"
+    IsNotNull="true"
+    Precision="5"
+    Scale="0"
+    ColumnName="CREATED_BY"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SET_RELATION"/>
+  <Attribute
+    Name="CreatedDate"
+    IsNotNull="true"
+    ColumnName="CREATED_DATE"
+    SQLType="DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="SET_RELATION"/>
+  <Attribute
+    Name="LastUpdatedBy"
+    Precision="5"
+    Scale="0"
+    ColumnName="LAST_UPDATED_BY"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SET_RELATION"/>
+  <Attribute
+    Name="LastUpdatedDate"
+    ColumnName="LAST_UPDATED_DATE"
+    SQLType="DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="SET_RELATION"/>
+  <Attribute
+    Name="CompanyId"
+    IsUnique="true"
+    IsNotNull="true"
+    Precision="5"
+    Scale="0"
+    ColumnName="COMPANY_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SET_RELATION"/>
+  <Attribute
+    Name="IsActive"
+    IsNotNull="true"
+    Precision="1"
+    ColumnName="IS_ACTIVE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SET_RELATION"
+    DefaultValue="Y">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Key
+    Name="PkSetRelation"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PK_SET_RELATION"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpadm.modeladm.admeo.SetRelation.RelationSno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="UnqPkSetRelation">
+    <DesignTime>
+      <Attr Name="_isUnique" Value="true"/>
+      <Attr Name="_DBObjectName" Value="UNQ_PK_SET_RELATION"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpadm.modeladm.admeo.SetRelation.RelationCode"/>
+      <Item Value="erpadm.modeladm.admeo.SetRelation.CompanyId"/>
+    </AttrArray>
+  </Key>
+</Entity>

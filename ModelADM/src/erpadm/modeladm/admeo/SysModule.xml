@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SysModule"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="SYS_MODULE"
+  AliasName="SysModule"
+  BindingStyle="JDBC">
+  <Attribute
+    Name="ModuleId"
+    IsNotNull="true"
+    Precision="5"
+    ColumnName="MODULE_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SYS_MODULE"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="5"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ModuleDescription"
+    IsNotNull="true"
+    Precision="50"
+    ColumnName="MODULE_DESCRIPTION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SYS_MODULE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ModuleActive"
+    IsNotNull="true"
+    Precision="1"
+    ColumnName="MODULE_ACTIVE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SYS_MODULE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="SysModuleDetail"
+    Association="erpadm.modeladm.admeo.FkSysModDetModidAssoc"
+    AssociationEnd="erpadm.modeladm.admeo.FkSysModDetModidAssoc.SysModuleDetail"
+    AssociationOtherEnd="erpadm.modeladm.admeo.FkSysModDetModidAssoc.SysModule"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="PkSysModule"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PK_SYS_MODULE"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpadm.modeladm.admeo.SysModule.ModuleId"/>
+    </AttrArray>
+  </Key>
+</Entity>

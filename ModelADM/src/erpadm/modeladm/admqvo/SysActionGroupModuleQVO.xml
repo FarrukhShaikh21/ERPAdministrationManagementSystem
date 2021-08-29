@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SysActionGroupModuleQVO"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  BindingStyle="JDBC"
+  CustomQuery="true"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="erpadm.modeladm.admqvo.SysActionGroupModuleQVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="P_ADF_GROUP_HEADER_SNO"
+    Kind="where"
+    Type="java.lang.Integer">
+    <AttrArray Name="ExtendedDataInts">
+      <Item Value="0"/>
+    </AttrArray>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <TransientExpression
+      trustMode="untrusted"
+      Name="expression"><![CDATA[adf.object.applicationModule.findViewObject("SysActionGroupHeaderCRUD")?.getCurrentRow()?.getAttribute("GroupHeaderSno")==null?-1:adf.object.applicationModule.findViewObject("SysActionGroupHeaderCRUD")?.getCurrentRow()?.getAttribute("GroupHeaderSno")]]></TransientExpression>
+  </Variable>
+  <SQLQuery><![CDATA[select DISTINCT SM.MODULE_ID,SM.MODULE_DESCRIPTION   
+FROM SYS_ACTION_GROUP_LINES L,   
+	 sys_module SM   
+WHERE L.MODULE_ID=SM.MODULE_ID   
+AND	  L.GROUP_HEADER_SNO=?]]></SQLQuery>
+  <ViewAttribute
+    Name="ModuleId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="MODULE_ID"
+    Expression="MODULE_ID"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="5"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpadm.modeladm.admqvo.SysActionGroupModuleQVO.ModuleId_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ModuleDescription"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="TYPE"
+    AliasName="MODULE_DESCRIPTION"
+    Expression="MODULE_DESCRIPTION"
+    SQLType="STRUCT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpadm.modeladm.admqvo.SysActionGroupModuleQVO.ModuleDescription_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="ModuleId"/>
+  </AttrArray>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpadm.modeladm.ModelADMBundle"/>
+  </ResourceBundle>
+</ViewObject>
