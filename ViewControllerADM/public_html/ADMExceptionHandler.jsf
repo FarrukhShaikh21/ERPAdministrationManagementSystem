@@ -7,21 +7,55 @@
                 <f:facet name="center">
                     <af:decorativeBox id="db1" dimensionsFrom="parent">
                         <f:facet name="center">
-                            <af:panelGroupLayout id="pgl1" layout="scroll">
-                                <af:inputText label="Label 1" id="it1" simple="true" readOnly="true"
-                                              value="#{controllerContext.currentRootViewPort.exceptionData.message}"
-                                              contentStyle="font-size:large;color:red"/>
-                                <af:outputText value="#{controllerContext.currentRootViewPort.exceptionData.message}"
-                                               id="ot1" inlineStyle="font-size:large" rendered="false"/>
-                                <af:inputText value="#{controllerContext.currentRootViewPort.exceptionData.cause.cause.localizedMessage}"
-                                              id="ot2" inlineStyle="font-size:large" label="Label 2" simple="true"
-                                              contentStyle="font-size:large;color:red" readOnly="true"/>
-                                <af:inputText value="#{controllerContext.currentRootViewPort.exceptionData.cause.cause.stackTrace}"
-                                              id="ot3" inlineStyle="font-size:large" label="Label 3" simple="true"
-                                              contentStyle="font-size:large;color:red" readOnly="true"/>
+                            <af:panelGridLayout id="pgl3">
+                                <af:gridRow marginTop="5px" height="auto" id="gr1">
+                                    <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1"
+                                                 halign="stretch">
+                                        <af:inputText value="#{controllerContext.currentRootViewPort.exceptionData.message}"
+                                                      id="ot1" inlineStyle="font-size:large;color:red" label="Label 1"
+                                                      simple="true" contentStyle="font-size:large;color:red;width:100%"
+                                                      rows="5" readOnly="true"/>
+                                    </af:gridCell>
+                                </af:gridRow>
+                                <af:gridRow marginTop="5px" height="auto" id="gr2">
+                                    <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2"
+                                                 halign="stretch">
+                                        <af:inputText value="#{controllerContext.currentRootViewPort.exceptionData.cause.cause.localizedMessage}"
+                                                      id="ot2" inlineStyle="font-size:large;color:red" label="Label 2"
+                                                      simple="true" contentStyle="font-size:large;color:red;width:100%"
+                                                      rows="5" readOnly="true"/>
+                                    </af:gridCell>
+                                </af:gridRow>
+                                <af:gridRow marginTop="5px" height="auto" id="gr3">
+                                    <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc3"
+                                                 halign="stretch">
+                                        <af:inputText value="#{controllerContext.currentRootViewPort.exceptionData.cause.cause.stackTrace}"
+                                                      id="ot3" inlineStyle="font-size:large;color:red" label="Label 3"
+                                                      simple="true" contentStyle="font-size:large;color:red;width:100%"
+                                                      rows="5" readOnly="true"/>
+                                    </af:gridCell>
+                                </af:gridRow>
+                                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr4">
+                                    <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc4" halign="center"
+                                                 valign="middle">
+                                        <af:panelBox text="Return To Administration Management System" id="pb1"
+                                                     showDisclosure="false" background="medium">
+                                            <f:facet name="toolbar"/>
+                                            <af:panelGroupLayout id="pgl1" layout="vertical" halign="center">
+                                                <af:link id="l2"
+                                                         action="ERP-ADM-ACT-RET-FROM-EXCEPTION" partialSubmit="true"
+                                                         icon="#{resource['images:imgAdministrationManagementSystem.png']}"/>
+                                            </af:panelGroupLayout>
+                                        </af:panelBox>
+                                    </af:gridCell>
+                                </af:gridRow>
+                            </af:panelGridLayout>
+                        </f:facet>
+                        <f:facet name="top">
+                            <af:panelGroupLayout id="pgl2" layout="horizontal" styleClass="AFStretchWidth" halign="end">
+                                <af:link text="link 1" id="l1" action="ERP-SCM-ACT-RET-FROM-EXCEPTION"/>
                             </af:panelGroupLayout>
                         </f:facet>
-                        <f:facet name="top"/>
                     </af:decorativeBox>
                 </f:facet>
                 <f:facet name="top"/>
