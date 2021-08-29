@@ -59,9 +59,7 @@
       <string v="oracle.toplink.workbench.addin/toplinkContentSet"/>
    </list>
    <value n="defaultPackage" v="erpadm.modeladm"/>
-   <value n="jbo.JpxName" v="erpadm.modeladm.ModelADM"/>
    <value n="jbo.NoAttrEnumClasses" v="true"/>
-   <value n="JboProject" v="true"/>
    <hash n="oracle.adfdtinternal.model.ide.settings.ADFMSettings">
       <value n="hasDataControls" v="true"/>
    </hash>
@@ -72,7 +70,6 @@
          <string v="XML"/>
       </list>
    </hash>
-   <value n="oracle.jbo.SavedPreferences" v="true"/>
    <hash n="oracle.jdeveloper.compiler.OjcConfiguration">
       <list n="copyRes">
          <string v=".cpx"/>
@@ -205,22 +202,22 @@
          <list n="jdkDefinitions">
             <hash>
                <list n="classPath">
-                  <url protocol="jar" path="file:/D:/glassfish3/jdk/jre/lib/resources.jar!/"/>
-                  <url protocol="jar" path="file:/D:/glassfish3/jdk/jre/lib/rt.jar!/"/>
-                  <url protocol="jar" path="file:/D:/glassfish3/jdk/jre/lib/sunrsasign.jar!/"/>
-                  <url protocol="jar" path="file:/D:/glassfish3/jdk/jre/lib/jsse.jar!/"/>
-                  <url protocol="jar" path="file:/D:/glassfish3/jdk/jre/lib/jce.jar!/"/>
-                  <url protocol="jar" path="file:/D:/glassfish3/jdk/jre/lib/charsets.jar!/"/>
-                  <url protocol="jar" path="file:/D:/glassfish3/jdk/jre/lib/modules/jdk.boot.jar!/"/>
-                  <url protocol="file" path="/D:/glassfish3/jdk/jre/classes/"/>
+                  <url path="../../../glassfish3/jdk/jre/lib/resources.jar" jar-entry=""/>
+                  <url path="../../../glassfish3/jdk/jre/lib/rt.jar" jar-entry=""/>
+                  <url path="../../../glassfish3/jdk/jre/lib/sunrsasign.jar" jar-entry=""/>
+                  <url path="../../../glassfish3/jdk/jre/lib/jsse.jar" jar-entry=""/>
+                  <url path="../../../glassfish3/jdk/jre/lib/jce.jar" jar-entry=""/>
+                  <url path="../../../glassfish3/jdk/jre/lib/charsets.jar" jar-entry=""/>
+                  <url path="../../../glassfish3/jdk/jre/lib/modules/jdk.boot.jar" jar-entry=""/>
+                  <url path="../../../glassfish3/jdk/jre/classes/"/>
                </list>
                <value n="description" v="1.6.0_38"/>
                <list n="docPath">
                   <url protocol="http" host="docs.oracle.com" path="/javase/6/docs/api/"/>
                </list>
                <value n="id" v="1.6.0_38"/>
-               <url n="javaExecutable" protocol="file" path="/D:/glassfish3/jdk/bin/java.exe"/>
-               <url n="sdkBinDir" protocol="file" path="/D:/glassfish3/jdk/bin/"/>
+               <url n="javaExecutable" path="../../../glassfish3/jdk/bin/java.exe"/>
+               <url n="sdkBinDir" path="../../../glassfish3/jdk/bin/"/>
                <value n="version" v="1.6.0_38"/>
             </hash>
          </list>
