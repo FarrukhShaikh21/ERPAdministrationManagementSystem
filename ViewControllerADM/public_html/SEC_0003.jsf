@@ -13,131 +13,185 @@
             </af:inputText>
             <af:pageTemplate viewId="/ERPTemplate.jsf" value="#{bindings.ptb1}" id="pt1">
                 <f:facet name="ERPMain">
-                    <af:listView value="#{bindings.SysUsersRO.collectionModel}" var="item"
-                                 emptyText="#{bindings.SysUsersRO.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                 fetchSize="#{bindings.SysUsersRO.rangeSize}" id="lv1" styleClass="WBDisplayBlockCenter"
-                                 selection="single"
-                                 selectedRowKeys="#{bindings.SysUsersRO.collectionModel.selectedRow}"
-                                 selectionListener="#{bindings.SysUsersRO.treeModel.makeCurrent}">
-                        <af:listItem id="li1"
-                                     styleClass="WBDisplayBlock WBDisplayBlockPadding WBDisplayBlockCenterUndo">
-                            <af:panelBox text="#{item.bindings.UserName.inputValue}" id="pb1" showDisclosure="false"
-                                         showHeader="never">
-                                <f:facet name="toolbar"/>
-                                <af:panelGroupLayout id="pgl2" layout="vertical" styleClass="WBCardSize">
-                                    <af:panelGridLayout id="pgl1">
-                                        <af:gridRow marginTop="5px" height="auto" id="gr1">
-                                            <af:gridCell id="gc7" width="54px" marginStart="5px" marginEnd="5px"
-                                                         valign="middle" halign="stretch">
-                                                <af:panelGroupLayout id="pgl8" layout="horizontal">
-                                                    <af:image id="i6"
-                                                              visible="#{item.bindings.PictureName.inputValue!=null}"
-                                                              source="/erpglobalsservlet?erpfilename=#{item.bindings.PictureName.inputValue}&amp;erpsourceid=#{item.bindings.UserId.inputValue}&amp;erpsourcetype=1"
-                                                              styleClass="WBImageCard WBImageCardBorder"
-                                                              shortDesc="User Picture"/>
-                                                    <af:image id="i1" source="#{resource['images:imgNoPic.png']}"
-                                                              styleClass="WBImageCard WBImageCardBorder"
-                                                              visible="#{item.bindings.PictureName.inputValue==null}"/>
-                                                </af:panelGroupLayout>
-                                            </af:gridCell>
-                                            <af:gridCell marginStart="12px" width="100%" marginEnd="5px" id="gc1"
-                                                         halign="stretch" valign="middle">
-                                                <af:link id="l2"
-                                                         inlineStyle="font-size:20px;color:darkblue"
-                                                         action="ERPEDITUSERS">
-                                                    <af:outputFormatted value="#{item.bindings.UserName.inputValue}"
-                                                                        id="of1"
-                                                                        inlineStyle="font-size:14px;color:darkblue;font-weight:bold"
-                                                                        shortDesc="User Name, click to view record."/>
+                    <af:panelGridLayout id="pgl9">
+                        <af:gridRow marginTop="5px" height="auto" id="gr7">
+                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc8" halign="stretch"
+                                         valign="stretch">
+                                <af:panelGridLayout id="pgl11" styleClass="ERPToolBarBackground">
+                                    <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr10">
+                                        <af:gridCell id="gc12" width="50%" valign="middle">
+                                            <af:outputText value="#{pageFlowScope.ERPMainTempBean.LErpActivityName}" id="ot1"
+                                                           styleClass="ERPActivityNameFormHeading"/>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc11">
+                                            <af:panelGroupLayout id="pgl7" layout="horizontal" halign="end">
+                                                <af:link id="l1" icon="#{resource['images:imgExitForm.png']}"
+                                                         action="ERPACTEXITFORM" partialSubmit="true"/>
+                                                <af:link id="l12" icon="#{resource['images:imgPrintPreview.png']}"
+                                                         iconPosition="top" partialSubmit="true"
+                                                         action="#{pageFlowScope.OracleERPBean.doExecuteAdminReport}">
+                                                    <af:setActionListener from="#{'RPT_ADM_0013.rptdesign'}"
+                                                                          to="#{pageFlowScope.OracleERPBean.ERPAdminReportName}"/>
+                                                    <af:setActionListener from="#{'SysUsersCRUDIterator'}"
+                                                                          to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
                                                 </af:link>
-                                            </af:gridCell>
-                                        </af:gridRow>
-                                        <af:gridRow marginTop="5px" height="auto" id="gr2">
-                                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2">
-                                                <af:panelGroupLayout id="pgl4" layout="horizontal">
-                                                    <af:image source="#{resource['images:imgLoginID.png']}" id="i3"
-                                                              shortDesc="Login ID"/>
-                                                    <af:spacer width="10" height="10" id="s2"/>
-                                                    <af:outputFormatted value="#{item.bindings.UserCode.inputValue}"
-                                                                        id="of2" styleClass="ERPHeroDetailColor"
-                                                                        shortDesc="Login ID"/>
-                                                </af:panelGroupLayout>
-                                            </af:gridCell>
-                                        </af:gridRow>
-                                        <af:gridRow marginTop="5px" height="auto" id="gr3">
-                                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc3">
-                                                <af:panelGroupLayout id="pgl6" layout="horizontal">
-                                                    <af:image source="#{resource['images:imgUserType.png']}" id="i5"
-                                                              shortDesc="User Type"/>
-                                                    <af:spacer width="10" height="10" id="s4"/>
-                                                    <af:selectOneChoice label="Label 1"
-                                                                        value="#{item.bindings.UserTypeSno.inputValue}"
-                                                                        id="soc1" simple="true" readOnly="true"
-                                                                        styleClass="ERPHeroDetailColorChoice"
-                                                                        shortDesc="User Type">
-                                                        <f:selectItems value="#{item.bindings.UserTypeSno.items}"
-                                                                       id="si1"/>
-                                                    </af:selectOneChoice>
-                                                </af:panelGroupLayout>
-                                            </af:gridCell>
-                                        </af:gridRow>
-                                        <af:gridRow marginTop="5px" height="auto" id="gr4">
-                                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc4">
-                                                <af:panelGroupLayout id="pgl3" layout="horizontal">
-                                                    <af:image source="#{resource['images:imgEmail.png']}" id="i2"
-                                                              shortDesc="Email"/>
-                                                    <af:spacer width="10" height="10" id="s1"/>
-                                                    <af:outputFormatted value="#{item.bindings.Email.inputValue}"
-                                                                        id="of4" styleClass="ERPHeroDetailColor"
-                                                                        shortDesc="Email"/>
-                                                </af:panelGroupLayout>
-                                            </af:gridCell>
-                                        </af:gridRow>
-                                        <af:gridRow marginTop="5px" height="auto" id="gr5">
-                                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc5">
-                                                <af:panelGroupLayout id="pgl5" layout="horizontal">
-                                                    <af:image source="#{resource['images:imgMobile.png']}" id="i4"
-                                                              shortDesc="Mobile"/>
-                                                    <af:spacer width="10" height="10" id="s3"/>
-                                                    <af:outputFormatted value="#{item.bindings.MobileNo.inputValue}"
-                                                                        id="of5" styleClass="ERPHeroDetailColor"
-                                                                        shortDesc="Mobile"/>
-                                                </af:panelGroupLayout>
-                                            </af:gridCell>
-                                        </af:gridRow>
-                                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr6">
-                                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc6">
-                                                <af:outputFormatted value="#{item.bindings.LastLoginDate.inputValue}"
-                                                                    id="of6" styleClass="ERPHeroDetailColor">
-                                                    <af:convertDateTime pattern="#{bindings.SysUsersRO.hints.LastLoginDate.format}"/>
-                                                </af:outputFormatted>
-                                            </af:gridCell>
-                                        </af:gridRow>
-                                    </af:panelGridLayout>
+                                                <af:link id="l3" icon="#{resource['images:imgNewDocument.png']}"
+                                                         partialSubmit="true" action="ERPADDSEC_0012"
+                                                         disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}"/>
+                                                <f:facet name="separator">
+                                                    <af:spacer width="10" height="10" id="s5"/>
+                                                </f:facet>
+                                            </af:panelGroupLayout>
+                                        </af:gridCell>
+                                    </af:gridRow>
+                                </af:panelGridLayout>
+                            </af:gridCell>
+                        </af:gridRow>
+                        <af:gridRow marginTop="5px" height="auto" id="gr8" marginBottom="5px">
+                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc9" valign="stretch"
+                                         halign="stretch" styleClass="ERPToolBarBackground">
+                                <af:panelGroupLayout layout="horizontal" id="pgl12" halign="center">
+                                    <af:quickQuery label="Search" searchDesc="Search" id="qryId1"
+                                                   value="#{bindings.ImplicitViewCriteriaQuery.quickQueryDescriptor}"
+                                                   model="#{bindings.ImplicitViewCriteriaQuery.queryModel}"
+                                                   queryListener="#{bindings.ImplicitViewCriteriaQuery.processQuery}">
+                                        <f:facet name="end">
+                                            <af:commandLink text="Advanced" rendered="false" id="cl1"/>
+                                        </f:facet>
+                                    </af:quickQuery>
                                 </af:panelGroupLayout>
-                            </af:panelBox>
-                        </af:listItem>
-                    </af:listView>
+                            </af:gridCell>
+                        </af:gridRow>
+                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr9">
+                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc10">
+                                <af:panelGroupLayout id="pgl10" layout="scroll" halign="center"
+                                                     partialTriggers="qryId1">
+                                    <af:listView value="#{bindings.SysUsersRO.collectionModel}" var="item"
+                                                 emptyText="#{bindings.SysUsersRO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                 fetchSize="#{bindings.SysUsersRO.rangeSize}" id="lv1"
+                                                 styleClass="WBDisplayBlockCenter" selection="single"
+                                                 selectedRowKeys="#{bindings.SysUsersRO.collectionModel.selectedRow}"
+                                                 selectionListener="#{bindings.SysUsersRO.treeModel.makeCurrent}">
+                                        <af:listItem id="li1"
+                                                     styleClass="WBDisplayBlock WBDisplayBlockPadding WBDisplayBlockCenterUndo">
+                                            <af:panelBox text="#{item.bindings.UserName.inputValue}" id="pb1"
+                                                         showDisclosure="false" showHeader="never">
+                                                <f:facet name="toolbar"/>
+                                                <af:panelGroupLayout id="pgl2" layout="vertical"
+                                                                     styleClass="WBCardSize">
+                                                    <af:panelGridLayout id="pgl1">
+                                                        <af:gridRow marginTop="5px" height="auto" id="gr1">
+                                                            <af:gridCell id="gc7" width="54px" marginStart="5px"
+                                                                         marginEnd="5px" valign="middle"
+                                                                         halign="stretch">
+                                                                <af:panelGroupLayout id="pgl8" layout="horizontal">
+                                                                    <af:image id="i6"
+                                                                              visible="#{item.bindings.PictureName.inputValue!=null}"
+                                                                              source="/erpglobalsservlet?erpfilename=#{item.bindings.PictureName.inputValue}&amp;erpsourceid=#{item.bindings.UserId.inputValue}&amp;erpsourcetype=1"
+                                                                              styleClass="WBImageCard WBImageCardBorder"
+                                                                              shortDesc="User Picture"/>
+                                                                    <af:image id="i1"
+                                                                              source="#{resource['images:imgNoPic.png']}"
+                                                                              styleClass="WBImageCard WBImageCardBorder"
+                                                                              visible="#{item.bindings.PictureName.inputValue==null}"/>
+                                                                </af:panelGroupLayout>
+                                                            </af:gridCell>
+                                                            <af:gridCell marginStart="12px" width="100%" marginEnd="5px"
+                                                                         id="gc1" halign="stretch" valign="middle">
+                                                                <af:link id="l2"
+                                                                         inlineStyle="font-size:20px;color:darkblue"
+                                                                         action="ERPEDITUSERS">
+                                                                    <af:outputFormatted value="#{item.bindings.UserName.inputValue}"
+                                                                                        id="of1"
+                                                                                        inlineStyle="font-size:14px;color:darkblue;font-weight:bold"
+                                                                                        shortDesc="User Name, click to view record."/>
+                                                                </af:link>
+                                                            </af:gridCell>
+                                                        </af:gridRow>
+                                                        <af:gridRow marginTop="5px" height="auto" id="gr2">
+                                                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px"
+                                                                         id="gc2">
+                                                                <af:panelGroupLayout id="pgl4" layout="horizontal">
+                                                                    <af:image source="#{resource['images:imgLoginID.png']}"
+                                                                              id="i3" shortDesc="Login ID"/>
+                                                                    <af:spacer width="10" height="10" id="s2"/>
+                                                                    <af:outputFormatted value="#{item.bindings.UserCode.inputValue}"
+                                                                                        id="of2"
+                                                                                        styleClass="ERPHeroDetailColor"
+                                                                                        shortDesc="Login ID"/>
+                                                                </af:panelGroupLayout>
+                                                            </af:gridCell>
+                                                        </af:gridRow>
+                                                        <af:gridRow marginTop="5px" height="auto" id="gr3">
+                                                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px"
+                                                                         id="gc3">
+                                                                <af:panelGroupLayout id="pgl6" layout="horizontal">
+                                                                    <af:image source="#{resource['images:imgUserType.png']}"
+                                                                              id="i5" shortDesc="User Type"/>
+                                                                    <af:spacer width="10" height="10" id="s4"/>
+                                                                    <af:selectOneChoice label="Label 1"
+                                                                                        value="#{item.bindings.UserTypeSno.inputValue}"
+                                                                                        id="soc1" simple="true"
+                                                                                        readOnly="true"
+                                                                                        styleClass="ERPHeroDetailColorChoice"
+                                                                                        shortDesc="User Type">
+                                                                        <f:selectItems value="#{item.bindings.UserTypeSno.items}"
+                                                                                       id="si1"/>
+                                                                    </af:selectOneChoice>
+                                                                </af:panelGroupLayout>
+                                                            </af:gridCell>
+                                                        </af:gridRow>
+                                                        <af:gridRow marginTop="5px" height="auto" id="gr4">
+                                                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px"
+                                                                         id="gc4">
+                                                                <af:panelGroupLayout id="pgl3" layout="horizontal">
+                                                                    <af:image source="#{resource['images:imgEmail.png']}"
+                                                                              id="i2" shortDesc="Email"/>
+                                                                    <af:spacer width="10" height="10" id="s1"/>
+                                                                    <af:outputFormatted value="#{item.bindings.Email.inputValue}"
+                                                                                        id="of4"
+                                                                                        styleClass="ERPHeroDetailColor"
+                                                                                        shortDesc="Email"/>
+                                                                </af:panelGroupLayout>
+                                                            </af:gridCell>
+                                                        </af:gridRow>
+                                                        <af:gridRow marginTop="5px" height="auto" id="gr5">
+                                                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px"
+                                                                         id="gc5">
+                                                                <af:panelGroupLayout id="pgl5" layout="horizontal">
+                                                                    <af:image source="#{resource['images:imgMobile.png']}"
+                                                                              id="i4" shortDesc="Mobile"/>
+                                                                    <af:spacer width="10" height="10" id="s3"/>
+                                                                    <af:outputFormatted value="#{item.bindings.MobileNo.inputValue}"
+                                                                                        id="of5"
+                                                                                        styleClass="ERPHeroDetailColor"
+                                                                                        shortDesc="Mobile"/>
+                                                                </af:panelGroupLayout>
+                                                            </af:gridCell>
+                                                        </af:gridRow>
+                                                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px"
+                                                                    id="gr6">
+                                                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px"
+                                                                         id="gc6">
+                                                                <af:outputFormatted value="#{item.bindings.LastLoginDate.inputValue}"
+                                                                                    id="of6"
+                                                                                    styleClass="ERPHeroDetailColor">
+                                                                    <af:convertDateTime pattern="#{bindings.SysUsersRO.hints.LastLoginDate.format}"/>
+                                                                </af:outputFormatted>
+                                                            </af:gridCell>
+                                                        </af:gridRow>
+                                                    </af:panelGridLayout>
+                                                </af:panelGroupLayout>
+                                            </af:panelBox>
+                                        </af:listItem>
+                                    </af:listView>
+                                </af:panelGroupLayout>
+                            </af:gridCell>
+                        </af:gridRow>
+                    </af:panelGridLayout>
                 </f:facet>
                 <f:facet name="ERPLeft"/>
-                <f:facet name="ERPToolbar">
-                    <af:panelGroupLayout id="pgl7" layout="horizontal">
-                        <af:link id="l1" icon="#{resource['images:imgExitForm.png']}" action="ERPACTEXITFORM"
-                                 partialSubmit="true"/>
-                                <af:link id="l12"
-                                         icon="#{resource['images:imgPrintPreview.png']}" iconPosition="top"
-                                         partialSubmit="true"
-                                         action="#{pageFlowScope.OracleERPBean.doExecuteAdminReport}">
-                                            <af:setActionListener from="#{'RPT_ADM_0013.rptdesign'}" to="#{pageFlowScope.OracleERPBean.ERPAdminReportName}"/>
-                                            <af:setActionListener from="#{'SysUsersCRUDIterator'}" to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>                                         
-                                </af:link>
-                        <af:link id="l3" icon="#{resource['images:imgNewDocument.png']}" partialSubmit="true"
-                                 action="ERPADDSEC_0012" disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}"/>
-                        <f:facet name="separator">
-                            <af:spacer width="10" height="10" id="s5"/>
-                        </f:facet>
-                    </af:panelGroupLayout>
-                </f:facet>
+                <f:facet name="ERPToolbar"/>
                 <f:attribute name="attrTempActivityName" value="#{pageFlowScope.ERPMainTempBean.LErpActivityName}"/>
             </af:pageTemplate>
         </af:form>

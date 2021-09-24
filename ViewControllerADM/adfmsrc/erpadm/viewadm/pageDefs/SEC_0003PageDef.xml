@@ -6,6 +6,8 @@
     <variableIterator id="variables"/>
     <page path="erptemplate.viewtemp.pageDefs.ERPTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
     <iterator Binds="SysUsersRO" RangeSize="25" DataControl="ERPADMModuleDataControl" id="SysUsersCRUDIterator"/>
+    <searchRegion Criteria="SysUsersFindVC" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="SysUsersCRUDIterator" id="ImplicitViewCriteriaQuery" InitialQueryOverridden="true"/>
   </executables>
   <bindings>
     <tree IterBinding="SysUsersCRUDIterator" id="SysUsersRO">
