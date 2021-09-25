@@ -272,7 +272,8 @@ public class ERPADMClass {
     public String getERPBackActionName() {
         return ERPBackActionName;
     }
-
+    
+    /*
     public String doBackFromEdit() {
         if (ERPGlobalsClass.isRecordChanged(lIteratorName).equals("YES") ||(lIteratorDetailName!=null && ERPGlobalsClass.isRecordChanged(lIteratorDetailName).equals("YES"))) {
             lIteratorDetailName=null;
@@ -282,7 +283,27 @@ public class ERPADMClass {
            return null;
         }        
         return ERPBackActionName;
+    }*/
+    
+
+    public String doBackFromEdit() {
+        
+        if (ERPGlobalsClass.doCheckERPTransactionDirty()) {
+           FacesMessage fm=new FacesMessage("Please Save/Undo Changes Before Going Back.");
+           FacesContext.getCurrentInstance().addMessage(null,fm);
+           
+           return null;
+                }
+        /*if (ERPGlobalsClass.isRecordChanged(lIteratorName).equals("YES") ||(lIteratorDetailName!=null && ERPGlobalsClass.isRecordChanged(lIteratorDetailName).equals("YES"))) {
+            lIteratorDetailName=null;
+           FacesMessage fm=new FacesMessage("Please Save/Undo Changes Before Going Back.");
+           FacesContext.getCurrentInstance().addMessage(null,fm);
+           
+           return null;
+        } */       
+        return ERPBackActionName;
     }
+    
     public String doDeleteDetailRecord() {
         OperationBinding ob = ERPGlobalsClass.doGetERPOperation(l_operation);
         ob.execute();

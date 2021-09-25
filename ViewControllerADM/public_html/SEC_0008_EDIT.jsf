@@ -1341,6 +1341,8 @@
                                          iconPosition="top">
                                     <af:setActionListener from="#{'SysActionGroupHeaderCRUDIterator'}"
                                                           to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
+                                    <af:setActionListener from="#{'ERPBACKCRUD'}"
+                                                          to="#{pageFlowScope.OracleERPBean.ERPBackActionName}"/>
                                 </af:link>
                                 <af:link text="Print Preview" id="l23" partialSubmit="true"
                                          icon="#{resource['images:imgPrintPreview.png']}" iconPosition="top"
@@ -1358,14 +1360,22 @@
                                          disabled="#{bindings.IsSupervised.inputValue=='N'}">
                                     <af:setActionListener from="#{'SysActionGroupHeaderCRUDIterator'}"
                                                           to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
-                                </af:link>                                
+                                </af:link>
                                 <af:link text="Supervise" id="l21" partialSubmit="true"
                                          icon="#{resource['images:imgSuperviseRecord.png']}" iconPosition="top"
                                          action="#{pageFlowScope.OracleERPBean.doERPPopSupervisedRecord}"
                                          disabled="#{bindings.IsSupervised.inputValue=='Y'}">
                                     <af:setActionListener from="#{'SysActionGroupHeaderCRUDIterator'}"
                                                           to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
-                                </af:link>                                
+                                </af:link>
+                                <af:link actionListener="#{bindings.CreateWithParams.execute}" text="CreateWithParams"
+                                         disabled="#{!bindings.CreateWithParams.enabled}" id="l22" rendered="false"/>
+                                <af:link text="Add" id="l24" partialSubmit="true" iconPosition="top"
+                                         icon="#{resource['images:imgAddRecord.png']}"
+                                         action="#{pageFlowScope.OracleERPBean.doERPAddRecordWithPara}">
+                                    <af:setActionListener to="#{pageFlowScope.OracleERPBean.LIteratorName}"
+                                                          from="#{'SysActionGroupHeaderCRUDIterator'}"/>
+                                </af:link>
                                 <af:link actionListener="#{bindings.Delete3.execute}" text="Delete"
                                          disabled="#{bindings.SysActionGroupLinesDetCRUDIterator.estimatedRowCount>0 || bindings.SysActionGroupCompanyDetCRUDIterator.estimatedRowCount>0 || pageFlowScope.ERPMainTempBean.LERPAllowDelete=='N'}" id="l13" iconPosition="top"
                                          icon="#{resource['images:imgDeleteRecord.png']}" partialSubmit="true"

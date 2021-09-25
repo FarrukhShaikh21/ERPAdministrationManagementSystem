@@ -8,140 +8,156 @@
                 <f:facet name="ERPMain">
                     <af:decorativeBox id="db1" dimensionsFrom="parent">
                         <f:facet name="center">
-                            <af:listView value="#{bindings.SysPasswordPolicyHeaderRO.collectionModel}" var="item"
-                                         emptyText="#{bindings.SysPasswordPolicyHeaderRO.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                         fetchSize="#{bindings.SysPasswordPolicyHeaderRO.rangeSize}" id="lv1"
-                                         selection="single"
-                                         selectedRowKeys="#{bindings.SysPasswordPolicyHeaderRO.collectionModel.selectedRow}"
-                                         selectionListener="#{bindings.SysPasswordPolicyHeaderRO.treeModel.makeCurrent}"
-                                         styleClass="WBDisplayBlockCenter">
-                                <af:listItem id="li1"
-                                             styleClass="WBDisplayBlock WBDisplayBlockPadding WBDisplayBlockCenterUndo">
-                                    <af:panelBox text="PanelBox1" id="pb1" showHeader="never">
-                                        <f:facet name="toolbar"/>
-                                        <af:panelGroupLayout id="pgl2" layout="vertical" styleClass="WBCardSize">
-                                            <af:panelGridLayout id="pgl1">
-                                                <af:gridRow marginTop="5px" height="auto" id="gr1" marginBottom="5px">
-                                                    <af:gridCell width="100%"
-                                                                 id="gc1" styleClass="AFStretchWidth ERPHeroBackground"
-                                                                 halign="stretch" valign="stretch">
-                                                        <af:inputText value="#{bindings.PolicyHeaderSno.inputValue}"
-                                                                      label="#{bindings.PolicyHeaderSno.hints.label}"
-                                                                      required="#{bindings.PolicyHeaderSno.hints.mandatory}"
-                                                                      columns="#{bindings.PolicyHeaderSno.hints.displayWidth}"
-                                                                      maximumLength="#{bindings.PolicyHeaderSno.hints.precision}"
-                                                                      shortDesc="#{bindings.PolicyHeaderSno.hints.tooltip}"
-                                                                      id="it1" rendered="false">
-                                                            <f:validator binding="#{bindings.PolicyHeaderSno.validator}"/>
-                                                            <af:convertNumber groupingUsed="false"
-                                                                              pattern="#{bindings.PolicyHeaderSno.format}"/>
-                                                        </af:inputText>
-                                                        <af:panelGroupLayout id="pgl7" layout="horizontal"
-                                                                             styleClass="AFStreetchWidth">
-                                                            <af:link id="l4"
-                                                                     icon="#{resource['images:imgView.png']}"
-                                                                     partialSubmit="true" action="ERPEDITSEC_0005QUERY"
-                                                                     styleClass="ERPHeroBannerFont ERPLink"/>
-                                                            <af:link id="l1" partialSubmit="true"
-                                                                     action="ERPEDITSEC_0005QUERY"
-                                                                     styleClass="ERPHeroBannerFont"
-                                                                     iconPosition="trailing">
-                                                                <af:outputText value="#{item.bindings.PolicyShortName.inputValue}" id="ot1"
-                                                                               shortDesc="Policy Short Name, click to view record."/>
-                                                            </af:link>
-                                                            <af:spacer width="10" height="10" id="s4"/>
-                                                        </af:panelGroupLayout>
-                                                    </af:gridCell>
-                                                </af:gridRow>
-                                                <af:gridRow marginTop="5px" height="auto" id="gr2">
-                                                    <af:gridCell width="100%"
-                                                                 id="gc2" halign="stretch">
-                                                        <af:panelGroupLayout id="pgl3" layout="horizontal">
-                                                            <af:image source="#{resource['images:imgDocumentNumber.png']}"
-                                                                      id="i1" shortDesc="Policy Code"/>
-                                                            <af:spacer width="10" height="10" id="s1"/>
-                                                            <af:outputFormatted value="#{item.bindings.PolicyHeaderCode.inputValue}"
-                                                                                id="of2"
-                                                                                styleClass="ERPHeroDetailColor"
-                                                                                shortDesc="Policy Code">
-                                                                <af:convertNumber groupingUsed="false"
-                                                                                  pattern="#{bindings.SysPasswordPolicyHeaderRO.hints.PolicyHeaderCode.format}"/>
-                                                            </af:outputFormatted>
-                                                        </af:panelGroupLayout>
-                                                    </af:gridCell>
-                                                </af:gridRow>
-                                                <af:gridRow marginTop="5px" height="auto" id="gr3">
-                                                    <af:gridCell width="100%"
-                                                                 id="gc3" halign="stretch">
-                                                        <af:panelGroupLayout id="pgl6" layout="horizontal">
-                                                            <af:image source="#{resource['images:imgShortName.png']}"
-                                                                      id="i3" shortDesc="Policy Name"/>
-                                                            <af:outputFormatted value="#{item.bindings.PolicyName.inputValue}"
-                                                                                id="of1"
-                                                                                styleClass="ERPHeroDetailColor"
-                                                                                shortDesc="Policy Name"/>
-                                                            <f:facet name="separator">
-                                                                <af:spacer width="10" height="10" id="s3"/>
-                                                            </f:facet>
-                                                        </af:panelGroupLayout>
-                                                    </af:gridCell>
-                                                </af:gridRow>
-                                                <af:gridRow marginTop="5px" height="auto" id="gr4">
-                                                    <af:gridCell width="100%"
-                                                                 id="gc4" halign="stretch">
-                                                        <af:panelGroupLayout id="pgl5" layout="horizontal">
-                                                            <af:image source="#{resource['images:imgDocumentDate.png']}"
-                                                                      id="i2" shortDesc="Policy Date"/>
-                                                            <af:outputFormatted value="#{item.bindings.PolicyDate.inputValue}"
-                                                                                id="of4"
-                                                                                styleClass="ERPHeroDetailColor"
-                                                                                shortDesc="Policy Date">
-                                                                <af:convertDateTime pattern="#{bindings.SysPasswordPolicyHeaderRO.hints.PolicyDate.format}"/>
-                                                            </af:outputFormatted>
-                                                            <f:facet name="separator">
-                                                                <af:spacer width="10" height="10" id="s2"/>
-                                                            </f:facet>
-                                                        </af:panelGroupLayout>
-                                                    </af:gridCell>
-                                                </af:gridRow>
-                                                <af:gridRow id="gr5">
-                                                    <af:gridCell id="gc5">
-                                                        <af:panelGroupLayout id="pgl10" layout="horizontal">
-                                                            <af:image source="#{resource['images:imgActive.png']}"
-                                                                      id="i4" shortDesc="Active"/>
-                                                            <af:spacer width="10" height="10" id="s5"/>
-                                                            <af:outputFormatted value="#{item.bindings.IsActive.inputValue==0?'Y':'N'}" id="of3"
-                                                                                shortDesc="Active"/>
-                                                        </af:panelGroupLayout>
-                                                    </af:gridCell>
-                                                </af:gridRow>
-                                            </af:panelGridLayout>
-                                        </af:panelGroupLayout>
-                                    </af:panelBox>
-                                </af:listItem>
-                            </af:listView>
+                            <af:panelSplitter id="ps1" orientation="vertical" splitterPosition="100">
+                                <f:facet name="first">
+                                    <af:panelGridLayout id="pgl8" styleClass="ERPToolBarBackground">
+                                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr6">
+                                            <af:gridCell id="gc7" width="50%" valign="middle">
+                                                <af:outputText value="#{pageFlowScope.ERPMainTempBean.LErpActivityName}" id="ot2"
+                                                               styleClass="ERPActivityNameFormHeading"/>
+                                            </af:gridCell>
+                                            <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc6"
+                                                         halign="stretch" valign="stretch">
+                                                <af:panelGroupLayout id="pgl4" halign="end" layout="horizontal">
+                                                    <af:link id="l3" icon="#{resource['images:imgExitForm.png']}"/>
+                                                    <af:link text="Print Preview" id="l16"
+                                                             icon="#{resource['images:imgPrintPreview.png']}"
+                                                             iconPosition="top" partialSubmit="true"
+                                                             action="#{pageFlowScope.OracleERPBean.doExecuteAdminReport}">
+                                                        <af:setActionListener from="#{'RPT_ADM_0015.rptdesign'}"
+                                                                              to="#{pageFlowScope.OracleERPBean.ERPAdminReportName}"/>
+                                                        <af:setActionListener from="#{'SysPasswordPolicyHeaderROIterator'}"
+                                                                              to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
+                                                        <af:setActionListener from="#{bindings.PolicyHeaderSno.inputValue}"
+                                                                              to="#{pageFlowScope.OracleERPBean.ERPPKForReport}"/>
+                                                    </af:link>
+                                                    <af:link id="l2" action="ERPADDSEC_0005"
+                                                             icon="#{resource['images:imgNewDocument.png']}"
+                                                             disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}"/>
+                                                </af:panelGroupLayout>
+                                            </af:gridCell>
+                                        </af:gridRow>
+                                    </af:panelGridLayout>
+                                </f:facet>
+                                <f:facet name="second">
+                                    <af:listView value="#{bindings.SysPasswordPolicyHeaderRO.collectionModel}"
+                                                 var="item"
+                                                 emptyText="#{bindings.SysPasswordPolicyHeaderRO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                 fetchSize="#{bindings.SysPasswordPolicyHeaderRO.rangeSize}" id="lv1"
+                                                 selection="single"
+                                                 selectedRowKeys="#{bindings.SysPasswordPolicyHeaderRO.collectionModel.selectedRow}"
+                                                 selectionListener="#{bindings.SysPasswordPolicyHeaderRO.treeModel.makeCurrent}"
+                                                 styleClass="WBDisplayBlockCenter">
+                                        <af:listItem id="li1"
+                                                     styleClass="WBDisplayBlock WBDisplayBlockPadding WBDisplayBlockCenterUndo">
+                                            <af:panelBox text="PanelBox1" id="pb1" showHeader="never">
+                                                <f:facet name="toolbar"/>
+                                                <af:panelGroupLayout id="pgl2" layout="vertical"
+                                                                     styleClass="WBCardSize">
+                                                    <af:panelGridLayout id="pgl1">
+                                                        <af:gridRow marginTop="5px" height="auto" id="gr1"
+                                                                    marginBottom="5px">
+                                                            <af:gridCell width="100%" id="gc1"
+                                                                         styleClass="AFStretchWidth ERPHeroBackground"
+                                                                         halign="stretch" valign="stretch">
+                                                                <af:inputText value="#{bindings.PolicyHeaderSno.inputValue}"
+                                                                              label="#{bindings.PolicyHeaderSno.hints.label}"
+                                                                              required="#{bindings.PolicyHeaderSno.hints.mandatory}"
+                                                                              columns="#{bindings.PolicyHeaderSno.hints.displayWidth}"
+                                                                              maximumLength="#{bindings.PolicyHeaderSno.hints.precision}"
+                                                                              shortDesc="#{bindings.PolicyHeaderSno.hints.tooltip}"
+                                                                              id="it1" rendered="false">
+                                                                    <f:validator binding="#{bindings.PolicyHeaderSno.validator}"/>
+                                                                    <af:convertNumber groupingUsed="false"
+                                                                                      pattern="#{bindings.PolicyHeaderSno.format}"/>
+                                                                </af:inputText>
+                                                                <af:panelGroupLayout id="pgl7" layout="horizontal"
+                                                                                     styleClass="AFStreetchWidth">
+                                                                    <af:link id="l4"
+                                                                             icon="#{resource['images:imgView.png']}"
+                                                                             partialSubmit="true"
+                                                                             action="ERPEDITSEC_0005QUERY"
+                                                                             styleClass="ERPHeroBannerFont ERPLink">
+                                                                        <af:outputText value="#{item.bindings.PolicyShortName.inputValue}"
+                                                                                       id="ot1"
+                                                                                       shortDesc="Policy Short Name, click to view record."
+                                                                                       styleClass="ERPHeroBannerFont"/>
+                                                                    </af:link>
+                                                                    <af:spacer width="10" height="10" id="s4"/>
+                                                                </af:panelGroupLayout>
+                                                            </af:gridCell>
+                                                        </af:gridRow>
+                                                        <af:gridRow marginTop="5px" height="auto" id="gr2">
+                                                            <af:gridCell width="100%" id="gc2" halign="stretch">
+                                                                <af:panelGroupLayout id="pgl3" layout="horizontal">
+                                                                    <af:image source="#{resource['images:imgDocumentNumber.png']}"
+                                                                              id="i1" shortDesc="Policy Code"/>
+                                                                    <af:spacer width="10" height="10" id="s1"/>
+                                                                    <af:outputFormatted value="#{item.bindings.PolicyHeaderCode.inputValue}"
+                                                                                        id="of2"
+                                                                                        styleClass="ERPHeroDetailColor"
+                                                                                        shortDesc="Policy Code">
+                                                                        <af:convertNumber groupingUsed="false"
+                                                                                          pattern="#{bindings.SysPasswordPolicyHeaderRO.hints.PolicyHeaderCode.format}"/>
+                                                                    </af:outputFormatted>
+                                                                </af:panelGroupLayout>
+                                                            </af:gridCell>
+                                                        </af:gridRow>
+                                                        <af:gridRow marginTop="5px" height="auto" id="gr3">
+                                                            <af:gridCell width="100%" id="gc3" halign="stretch">
+                                                                <af:panelGroupLayout id="pgl6" layout="horizontal">
+                                                                    <af:image source="#{resource['images:imgShortName.png']}"
+                                                                              id="i3" shortDesc="Policy Name"/>
+                                                                    <af:outputFormatted value="#{item.bindings.PolicyName.inputValue}"
+                                                                                        id="of1"
+                                                                                        styleClass="ERPHeroDetailColor"
+                                                                                        shortDesc="Policy Name"/>
+                                                                    <f:facet name="separator">
+                                                                        <af:spacer width="10" height="10" id="s3"/>
+                                                                    </f:facet>
+                                                                </af:panelGroupLayout>
+                                                            </af:gridCell>
+                                                        </af:gridRow>
+                                                        <af:gridRow marginTop="5px" height="auto" id="gr4">
+                                                            <af:gridCell width="100%" id="gc4" halign="stretch">
+                                                                <af:panelGroupLayout id="pgl5" layout="horizontal">
+                                                                    <af:image source="#{resource['images:imgDocumentDate.png']}"
+                                                                              id="i2" shortDesc="Policy Date"/>
+                                                                    <af:outputFormatted value="#{item.bindings.PolicyDate.inputValue}"
+                                                                                        id="of4"
+                                                                                        styleClass="ERPHeroDetailColor"
+                                                                                        shortDesc="Policy Date">
+                                                                        <af:convertDateTime pattern="#{bindings.SysPasswordPolicyHeaderRO.hints.PolicyDate.format}"/>
+                                                                    </af:outputFormatted>
+                                                                    <f:facet name="separator">
+                                                                        <af:spacer width="10" height="10" id="s2"/>
+                                                                    </f:facet>
+                                                                </af:panelGroupLayout>
+                                                            </af:gridCell>
+                                                        </af:gridRow>
+                                                        <af:gridRow id="gr5">
+                                                            <af:gridCell id="gc5">
+                                                                <af:panelGroupLayout id="pgl10" layout="horizontal">
+                                                                    <af:image source="#{resource['images:imgActive.png']}"
+                                                                              id="i4" shortDesc="Active"/>
+                                                                    <af:spacer width="10" height="10" id="s5"/>
+                                                                    <af:outputFormatted value="#{item.bindings.IsActive.inputValue==0?'Y':'N'}"
+                                                                                        id="of3" shortDesc="Active"/>
+                                                                </af:panelGroupLayout>
+                                                            </af:gridCell>
+                                                        </af:gridRow>
+                                                    </af:panelGridLayout>
+                                                </af:panelGroupLayout>
+                                            </af:panelBox>
+                                        </af:listItem>
+                                    </af:listView>
+                                </f:facet>
+                            </af:panelSplitter>
                         </f:facet>
-                        <f:facet name="top"/>
                     </af:decorativeBox>
                 </f:facet>
                 <f:facet name="ERPLeft"/>
-                <f:facet name="ERPToolbar">
-                    <af:panelGroupLayout id="pgl4" halign="end" layout="horizontal">
-                        <af:link id="l3" icon="#{resource['images:imgExitForm.png']}"/>
-                        <af:link text="Print Preview" id="l16" icon="#{resource['images:imgPrintPreview.png']}"
-                                         iconPosition="top" partialSubmit="true"
-                                         action="#{pageFlowScope.OracleERPBean.doExecuteAdminReport}">
-                                    <af:setActionListener from="#{'RPT_ADM_0015.rptdesign'}"
-                                                          to="#{pageFlowScope.OracleERPBean.ERPAdminReportName}"/>
-                                    <af:setActionListener from="#{'SysPasswordPolicyHeaderROIterator'}"
-                                                          to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
-                                    <af:setActionListener from="#{bindings.PolicyHeaderSno.inputValue}"
-                                                          to="#{pageFlowScope.OracleERPBean.ERPPKForReport}"/>
-                        </af:link>                        
-                        <af:link id="l2" action="ERPADDSEC_0005" icon="#{resource['images:imgNewDocument.png']}"
-                                 disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}"/>
-                    </af:panelGroupLayout>
-                </f:facet>
+                <f:facet name="ERPToolbar"/>
             </af:pageTemplate>
         </af:form>
     </af:document>

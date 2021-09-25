@@ -321,5 +321,7 @@
         <Item Value="IsUnsupervised"/>
       </AttrNames>
     </attributeValues>
+    <action IterBinding="SysActionGroupHeaderCRUDIterator" id="CreateWithParams" RequiresUpdateModel="true"
+            Action="createWithParams"/>
   </bindings>
 </pageDefinition>

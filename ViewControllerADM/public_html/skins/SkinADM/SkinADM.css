@@ -122,23 +122,17 @@ af|link.ERPLink:hover,
     transition: all 0.2s;
 }
 
-.ERPHeroBannerFont af|link::text {
-    font-size:14px;
-    color:DarkBlue;
-    font-weight: bolder;
-    font-family: sans-serif; 
-}
-
 .ERPHeroBannerFont {
-    font-size:14px;
-    color:DarkBlue;
+    font-size:18px;
+    color:#00008B;
+    /*color:DarkBlue;*/
     font-weight: bolder;
     font-family: sans-serif; 
 }
 
 .ERPHeroBackground
 {
- background-color: #ebf5fc;   
+background-color:#fcf7e8;  
 }
 
 .ERPHeroDetailColor
