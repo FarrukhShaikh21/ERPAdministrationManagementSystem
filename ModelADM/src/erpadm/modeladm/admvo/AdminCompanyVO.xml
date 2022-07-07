@@ -4,7 +4,7 @@
 <ViewObject
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="AdminCompanyVO"
-  Version="12.1.3.2.1"
+  Version="12.1.3.10.47"
   InheritPersonalization="merge"
   SelectListFlags="1"
   FromListFlags="1"
@@ -897,6 +897,45 @@
     EntityAttrName="TypeLevel"
     EntityUsage="AdminCompanyType"
     AliasName="TYPE_LEVEL"/>
+  <ViewAttribute
+    Name="LocationName"
+    PrecisionRule="true"
+    EntityAttrName="CompanyName"
+    EntityUsage="AdminCompany"
+    AliasName="COMPANY_NAME1">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpadm.modeladm.admvo.AdminCompanyVO.LocationName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="LocationShortCode"
+    PrecisionRule="true"
+    EntityAttrName="CompanyShortCode"
+    EntityUsage="AdminCompany"
+    AliasName="COMPANY_SHORT_CODE1">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpadm.modeladm.admvo.AdminCompanyVO.LocationShortCode_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="LocationShortName"
+    PrecisionRule="true"
+    EntityAttrName="CompanyShortName"
+    EntityUsage="AdminCompany"
+    AliasName="COMPANY_SHORT_NAME1">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpadm.modeladm.admvo.AdminCompanyVO.LocationShortName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="AdminCompanyParentCompVC"
     ViewObjectName="erpadm.modeladm.admvo.AdminCompanyVO"
@@ -2099,6 +2138,10 @@
     <PropertiesBundle
       PropertiesFile="erpadm.modeladm.ModelADMBundle"/>
   </ResourceBundle>
+  <SortCriteria>
+    <Sort
+      Attribute="CompanyShortName"/>
+  </SortCriteria>
   <SortCriteria>
     <Sort
       Attribute="CompanyShortName"/>

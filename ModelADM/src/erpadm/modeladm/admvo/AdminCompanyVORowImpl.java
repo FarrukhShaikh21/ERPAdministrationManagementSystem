@@ -79,6 +79,9 @@ public class AdminCompanyVORowImpl extends ViewRowImpl implements AdminCompanyVO
         CompanyTypeSnoMast,
         CompanyTypeName,
         TypeLevel,
+        LocationName,
+        LocationShortCode,
+        LocationShortName,
         AdminBranchesVO,
         ParentCompCodeAdminCompanyVO,
         AdminCompanyVO,
@@ -168,6 +171,9 @@ public class AdminCompanyVORowImpl extends ViewRowImpl implements AdminCompanyVO
     public static final int COMPANYTYPESNOMAST = AttributesEnum.CompanyTypeSnoMast.index();
     public static final int COMPANYTYPENAME = AttributesEnum.CompanyTypeName.index();
     public static final int TYPELEVEL = AttributesEnum.TypeLevel.index();
+    public static final int LOCATIONNAME = AttributesEnum.LocationName.index();
+    public static final int LOCATIONSHORTCODE = AttributesEnum.LocationShortCode.index();
+    public static final int LOCATIONSHORTNAME = AttributesEnum.LocationShortName.index();
     public static final int ADMINBRANCHESVO = AttributesEnum.AdminBranchesVO.index();
     public static final int PARENTCOMPCODEADMINCOMPANYVO = AttributesEnum.ParentCompCodeAdminCompanyVO.index();
     public static final int ADMINCOMPANYVO = AttributesEnum.AdminCompanyVO.index();
@@ -961,6 +967,54 @@ public class AdminCompanyVORowImpl extends ViewRowImpl implements AdminCompanyVO
      */
     public void setTypeLevel(Integer value) {
         setAttributeInternal(TYPELEVEL, value);
+    }
+
+    /**
+     * Gets the attribute value for COMPANY_NAME using the alias name LocationName.
+     * @return the COMPANY_NAME
+     */
+    public String getLocationName() {
+        return (String) getAttributeInternal(LOCATIONNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for COMPANY_NAME using the alias name LocationName.
+     * @param value value to set the COMPANY_NAME
+     */
+    public void setLocationName(String value) {
+        setAttributeInternal(LOCATIONNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for COMPANY_SHORT_CODE using the alias name LocationShortCode.
+     * @return the COMPANY_SHORT_CODE
+     */
+    public Integer getLocationShortCode() {
+        return (Integer) getAttributeInternal(LOCATIONSHORTCODE);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for COMPANY_SHORT_CODE using the alias name LocationShortCode.
+     * @param value value to set the COMPANY_SHORT_CODE
+     */
+    public void setLocationShortCode(Integer value) {
+        setAttributeInternal(LOCATIONSHORTCODE, value);
+    }
+
+    /**
+     * Gets the attribute value for COMPANY_SHORT_NAME using the alias name LocationShortName.
+     * @return the COMPANY_SHORT_NAME
+     */
+    public String getLocationShortName() {
+        return (String) getAttributeInternal(LOCATIONSHORTNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for COMPANY_SHORT_NAME using the alias name LocationShortName.
+     * @param value value to set the COMPANY_SHORT_NAME
+     */
+    public void setLocationShortName(String value) {
+        setAttributeInternal(LOCATIONSHORTNAME, value);
     }
 
     /**

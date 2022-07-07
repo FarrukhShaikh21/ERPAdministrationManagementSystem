@@ -341,7 +341,7 @@ public class ERPADMClass {
     }
     
     public void doSetAdmErpApplicationGlobals() {
-       /*
+       
         ADFContext.getCurrent().getPageFlowScope().put("G_USER_SNO",1);
         ADFContext.getCurrent().getPageFlowScope().put("G_USER_CODE","FARRUKH");
         ADFContext.getCurrent().getPageFlowScope().put("G_GLOBAL_DEF_COMPANY",1);
@@ -356,7 +356,7 @@ public class ERPADMClass {
         setERPGlobalDefaultComp(1);
         if (1==1) {
             return;
-       }*/
+       }
         System.out.println("one admission-B");
         ADFContext.getCurrent().getPageFlowScope().put("G_USER_SNO",getERPUserAttributes().getUserId());
         System.out.println("two erp");
