@@ -9,7 +9,7 @@
   DBObjectType="table"
   DBObjectName="SYS_APPROVAL_STATUS"
   AliasName="SysApprovalStatus"
-  BindingStyle="OracleName">
+  BindingStyle="JDBC">
   <Attribute
     Name="ApprovalStatusSno"
     IsNotNull="true"
